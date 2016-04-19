@@ -34,7 +34,7 @@ CREATE TABLE `admin` (
 --
 
 CREATE TABLE `company` (
-  `company_id` int(11) NOT NULL AUTO_INCREMENT,
+  `c_id` int(11) NOT NULL AUTO_INCREMENT,
   `company_name` varchar(50) NOT NULL,
   `password` varchar(100) NOT NULL,
   PRIMARY KEY (`company_id`)
