@@ -5,6 +5,9 @@
     <title></title>
   </head>
   <body>
+      <script>
+        alert('Hejsan!');
+      </script>
     <?php
       echo 'Hello World!';
      ?>
