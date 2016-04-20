@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Värd: localhost
--- Skapad: 19 apr 2016 kl 16:06
+-- Skapad: 20 apr 2016 kl 08:07
 -- Serverversion: 5.5.29
 -- PHP-version: 5.4.10
 
@@ -24,7 +24,8 @@ CREATE TABLE `admin` (
   `a_id` int(11) NOT NULL AUTO_INCREMENT,
   `c_id` int(11) NOT NULL,
   `admin_name` varchar(40) NOT NULL,
-  PRIMARY KEY (`a_id`)
+  PRIMARY KEY (`a_id`),
+  KEY `c_id` (`c_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -37,7 +38,7 @@ CREATE TABLE `company` (
   `c_id` int(11) NOT NULL AUTO_INCREMENT,
   `company_name` varchar(50) NOT NULL,
   `password` varchar(100) NOT NULL,
-  PRIMARY KEY (`company_id`)
+  PRIMARY KEY (`c_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -50,7 +51,8 @@ CREATE TABLE `service` (
   `s_id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(30) NOT NULL,
   `c_id` int(11) NOT NULL,
-  PRIMARY KEY (`s_id`)
+  PRIMARY KEY (`s_id`),
+  KEY `c_id` (`c_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -68,5 +70,30 @@ CREATE TABLE `user` (
   `a_id` int(11) NOT NULL,
   `s_id` int(11) NOT NULL,
   `q_no` int(11) NOT NULL,
-  PRIMARY KEY (`u_id`)
+  PRIMARY KEY (`u_id`),
+  KEY `a_id` (`a_id`),
+  KEY `s_id` (`s_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+--
+-- Restriktioner för dumpade tabeller
+--
+
+--
+-- Restriktioner för tabell `admin`
+--
+ALTER TABLE `admin`
+  ADD CONSTRAINT `admin_ibfk_1` FOREIGN KEY (`c_id`) REFERENCES `company` (`c_id`);
+
+--
+-- Restriktioner för tabell `service`
+--
+ALTER TABLE `service`
+  ADD CONSTRAINT `service_ibfk_1` FOREIGN KEY (`c_id`) REFERENCES `company` (`c_id`);
+
+--
+-- Restriktioner för tabell `user`
+--
+ALTER TABLE `user`
+  ADD CONSTRAINT `user_ibfk_2` FOREIGN KEY (`s_id`) REFERENCES `service` (`s_id`),
+  ADD CONSTRAINT `user_ibfk_1` FOREIGN KEY (`a_id`) REFERENCES `admin` (`a_id`);
