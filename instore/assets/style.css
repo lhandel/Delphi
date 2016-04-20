@@ -1,0 +1,12 @@
+.container{
+  margin: auto; /* To center the container */
+  width: 400px;
+  height: 300px;
+  background-color: red;
+}
+.phone_no{
+  width: 50%;
+  height: 150px;
+  background-color: green;
+  float: left;
+}
