@@ -54,6 +54,7 @@
         </div>
 
       </div>
+
       <div class="row">
 
       </div>
@@ -61,7 +62,7 @@
         <a href="index.php" class="btn">Finish</a>
       </div>
     </div>
-
-
+    
+    <div class="logo"></div>
   </body>
 </html>
