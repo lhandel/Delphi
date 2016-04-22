@@ -9,10 +9,10 @@ body.dark ul.btn_list li a{
   color: #333;
   box-shadow: 0px 3px 2px #000;
 }
+
 body.dark ul.btn_list li a:hover{
   box-shadow: 0px 1px 1px #000;
 }
-
 .container{
   width: 600px;
   height: auto;
@@ -46,7 +46,6 @@ ul.btn_list li{
   list-style-type: none;
   margin-top: 50px;
 }
-
 ul.btn_list li a{
   text-decoration: none;
   display: block;
@@ -93,16 +92,6 @@ h2{
   padding-bottom: 0px;
 }
 
-/*.icon{
-  margin-left: auto;
-  margin-right: auto;
-  display: block;
-  width: 300px;
-  height: 300px;
-  font-size: 100pt;
-  text-align: center;
-}*/
-
 .ticket{
   margin-left: auto;
   margin-right: auto;
@@ -126,7 +115,6 @@ h3{
   margin-top: 0px;
   margin-bottom: 0px;
   padding: 0px;
-
   text-align: center;
   font-family: 'Ubuntu';
   font-weight: 500;
@@ -150,22 +138,22 @@ h3{
 }
 
 .btn{
-    margin-left: auto;
-    margin-right: auto;
-    width: 50%;
-    text-decoration: none;
-    display: block;
-    background-color: #fff;
-    text-align: center;
-    color: #26bf66;
-    font-size: 22px;
-    border-radius: 5px;
-    padding-top: 25px;
-    padding-bottom: 25px;
-    font-family: 'Open sans', sans-serif;
-    text-transform: uppercase;
-    box-shadow: 0px 3px 2px #1f9d54;
-    margin-bottom: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  text-decoration: none;
+  display: block;
+  background-color: #fff;
+  text-align: center;
+  color: #26bf66;
+  font-size: 22px;
+  border-radius: 5px;
+  padding-top: 25px;
+  padding-bottom: 25px;
+  font-family: 'Open sans', sans-serif;
+  text-transform: uppercase;
+  box-shadow: 0px 3px 2px #1f9d54;
+  margin-bottom: 20px;
 }
 
 h4{
@@ -321,7 +309,6 @@ h2{
   font-size: 25px;
   border-color: white;
   border:2px solid white;
-
 }
 
 #number{
@@ -340,7 +327,6 @@ h2{
   width:100%;
   height:300px;
   float:left;
-
 }
 
 .queue_icon{
@@ -380,6 +366,7 @@ p.important{
   margin-top: 15px;
   margin-bottom: 0px;
 }
+
 p.info{
   text-align: center;
   font-family: 'Open sans';
