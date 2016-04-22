@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Värd: localhost
--- Skapad: 20 apr 2016 kl 08:07
+-- Skapad: 22 apr 2016 kl 13:24
 -- Serverversion: 5.5.29
 -- PHP-version: 5.4.10
 
@@ -26,7 +26,14 @@ CREATE TABLE `admin` (
   `admin_name` varchar(40) NOT NULL,
   PRIMARY KEY (`a_id`),
   KEY `c_id` (`c_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Dumpning av Data i tabell `admin`
+--
+
+INSERT INTO `admin` (`a_id`, `c_id`, `admin_name`) VALUES
+(1, 1, 'Ludwig');
 
 -- --------------------------------------------------------
 
@@ -39,7 +46,14 @@ CREATE TABLE `company` (
   `company_name` varchar(50) NOT NULL,
   `password` varchar(100) NOT NULL,
   PRIMARY KEY (`c_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Dumpning av Data i tabell `company`
+--
+
+INSERT INTO `company` (`c_id`, `company_name`, `password`) VALUES
+(1, 'Apoteket', 'test');
 
 -- --------------------------------------------------------
 
@@ -53,7 +67,15 @@ CREATE TABLE `service` (
   `c_id` int(11) NOT NULL,
   PRIMARY KEY (`s_id`),
   KEY `c_id` (`c_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+--
+-- Dumpning av Data i tabell `service`
+--
+
+INSERT INTO `service` (`s_id`, `name`, `c_id`) VALUES
+(1, 'Help', 1),
+(2, 'Recipes', 1);
 
 -- --------------------------------------------------------
 
@@ -67,13 +89,26 @@ CREATE TABLE `user` (
   `time_in` int(11) NOT NULL,
   `time_out` int(11) NOT NULL,
   `state` tinyint(4) NOT NULL,
-  `a_id` int(11) NOT NULL,
+  `a_id` int(11) DEFAULT NULL,
   `s_id` int(11) NOT NULL,
   `q_no` int(11) NOT NULL,
   PRIMARY KEY (`u_id`),
   KEY `a_id` (`a_id`),
   KEY `s_id` (`s_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
+
+--
+-- Dumpning av Data i tabell `user`
+--
+
+INSERT INTO `user` (`u_id`, `phone_no`, `time_in`, `time_out`, `state`, `a_id`, `s_id`, `q_no`) VALUES
+(1, '0708938414', 1461317962, 0, 0, NULL, 1, 1),
+(2, '324', 1461318239, 0, 0, NULL, 1, 2),
+(3, '32423', 1461318310, 0, 0, NULL, 1, 3),
+(4, '23423', 1461318329, 0, 0, NULL, 1, 4),
+(5, '34234', 1461318625, 0, 0, NULL, 1, 5),
+(6, '0708938414', 1461318828, 0, 0, NULL, 2, 1),
+(7, '324234', 1461323548, 0, 0, NULL, 1, 0);
 
 --
 -- Restriktioner för dumpade tabeller
@@ -95,5 +130,5 @@ ALTER TABLE `service`
 -- Restriktioner för tabell `user`
 --
 ALTER TABLE `user`
-  ADD CONSTRAINT `user_ibfk_2` FOREIGN KEY (`s_id`) REFERENCES `service` (`s_id`),
-  ADD CONSTRAINT `user_ibfk_1` FOREIGN KEY (`a_id`) REFERENCES `admin` (`a_id`);
+  ADD CONSTRAINT `user_ibfk_3` FOREIGN KEY (`a_id`) REFERENCES `admin` (`a_id`),
+  ADD CONSTRAINT `user_ibfk_2` FOREIGN KEY (`s_id`) REFERENCES `service` (`s_id`);
