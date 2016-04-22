@@ -15,8 +15,8 @@
         <div class="btn_container">
 
             <ul class="btn_list">
-              <li><a href="log_in.php">Help desk</a></li>
-              <li><a href="log_in.php">Recipes</a></li>
+              <li><a href="log_in.php?service=1">Help desk</a></li>
+              <li><a href="log_in.php?service=2">Recipes</a></li>
             </ul>
 
         </div>

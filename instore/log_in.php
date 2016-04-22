@@ -10,8 +10,7 @@
   </head>
   <body>
     <div class="container">
-        <!--<input id="back_button" type="submit" value=""  >
-        <a href="index.php"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>-->
+
         <h3 class="log_in3">
           <a href="index.php"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>   Help Desk
         </h3>
@@ -19,8 +18,13 @@
 
         <div class="log_in">
 
-          <input id="number" type="number" placeholder="Enter mobile number">
-          <input id="submit_button" type="submit" value="Register">
+          <form action="submit.php" method="post">
+
+            <input type="hidden" name="service_id" value="<?php echo $_GET['service']; ?>">
+            <input id="number" name="number" type="number" placeholder="Enter mobile number">
+            <input id="submit_button" type="submit" value="Register">
+          </form>
+
 
         </div>
         <div class="login_display">

@@ -10,25 +10,30 @@
     <link href='https://fonts.googleapis.com/css?family=Ubuntu:500,700,400|Open+Sans:400,600' rel='stylesheet' type='text/css'>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js" charset="utf-8"></script>
     <script type="text/javascript">
+
         $(document).ready(function(){
-            $(".ticketbox").delay(800).animate({top:'6px'},1500);
+
+            $(".ticketbox").animate({top:'6px'},1500);
+
         });
     </script>
     <meta name="format-detection" content="telephone=no">
   </head>
   <body>
     <div class="container">
+
       <div class="row">
-        <h2>Done <i class="fa fa-check-circle ml" aria-hidden="true"></i></h2>
+        <h2 class="oneclass twoclass">Done <i class="fa fa-check-circle ml" aria-hidden="true"></i></h2>
         <h4>Here's your number</h4>
       </div>
+
       <div class="row">
 
         <div class="ticketcontainer">
             <div class="ttop"></div>
             <div class="ticketbox">
-                <b>44</b>
-                <div class="ticketlabel">your number</div>
+                <b>9</b>
+                <div class="ticketlabel">Recipes</div>
             </div>
             <div class="tbottom"></div>
         </div>
