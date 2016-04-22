@@ -15,7 +15,7 @@
 
         <div class="log_in">
 
-          <input id="number" type="number" placeholder="Enter mobile number">
+          <input id="number" type="number" placeholder="   Enter mobile number">
           <input id="submit_button" type="submit" value="Register">
 
         </div>
