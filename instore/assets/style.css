@@ -180,7 +180,7 @@ h1.doneh1{
 }
 
 h2.doneh2{
-  margin-top: 10px;
+  margin-top: 20px;
 }
 
 h3{
@@ -198,12 +198,10 @@ h3{
 }
 
 .btn.btndone{
-  margin-top: 40px;
+  margin-top: 30px;
   margin-bottom: 20px;
 
 }
-
-
 
 .fa.fa-check-circle.ml{
   margin-left: 8px;
@@ -225,6 +223,7 @@ h3{
   position: relative;
   overflow: hidden;
   margin-bottom: 20px;
+  margin-top: 5px;
 }
 .ttop{
     width: 212px;
