@@ -5,7 +5,7 @@
 if(isset($_POST['number'])){
 
   // Open connection to db
-  $mysqli = new mysqli('localhost','root', 'root', 'delphi') or die ('Error connecting to mysql: ' . mysqli_error($link));
+  $mysqli = new mysqli('localhost','root', '', 'delphi') or die ('Error connecting to mysql: ' . mysqli_error($link));
 
   // Setup the varibles & Clean the data
   $number = $mysqli->real_escape_string($_POST['number']);
