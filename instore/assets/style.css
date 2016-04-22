@@ -30,6 +30,7 @@ body.dark ul.btn_list li a:hover{
   margin-left: auto;
   margin-right: auto;
 }
+
 h1{
   text-align: center;
   font-family: 'Ubuntu';
@@ -67,9 +68,30 @@ h2.log_in2{
   margin-bottom: 10px;
 }
 
-h4{
-
+p{
+  padding: 0px;
+  margin: 0px;
+  text-align: center;
+  font-family: 'Open Sans';
+  font-weight: 500;
+  float: left;
+  display: block;
+  width: 100%;
+  font-size: 15px;
 }
+
+.p2{
+  padding: 0px;
+  margin: 0px;
+  text-align: center;
+  font-family: 'Open Sans';
+  font-weight: 500;
+  float: left;
+  display: block;
+  width: 100%;
+  font-size: 25px;
+}
+
 
 .btn_container{
   float: left;
@@ -127,18 +149,6 @@ ul.btn_list li a:hover{
   height: 300px;
 }
 
-p{
-  padding: 0px;
-  margin: 0px;
-  text-align: center;
-  font-family: 'Open Sans';
-  font-weight: 500;
-  float: left;
-  display: block;
-  width: 100%;
-  font-size: 25px;
-}
-
 h3{
   margin-top: 0px;
   margin-bottom: 0px;
@@ -153,18 +163,7 @@ h3{
   color:#fff;
 }
 
-.p2{
-  padding: 0px;
-  margin: 0px;
-  text-align: center;
-  font-family: 'Open Sans';
-  font-weight: 500;
-  float: left;
-  display: block;
-  width: 100%;
-  font-size: 15px;
-  margin-bottom: 40px;
-}
+
 
 .btn{
   margin-left: auto;
