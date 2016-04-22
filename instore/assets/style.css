@@ -7,7 +7,6 @@ body{
   height: auto;
   margin-left: auto;
   margin-right: auto;
-  background-color: red;
 }
 h1{
   text-align: center;
@@ -65,4 +64,119 @@ ul.btn_list li a:hover{
   margin-left: auto;
   margin-right: auto;
   bottom: 50px;
+}
+
+/* done.php */
+
+h2{
+  text-align: center;
+  font-family: 'Ubuntu';
+  font-weight: 500;
+  text-transform: uppercase;
+  float: left;
+  display: block;
+  width: 100%;
+  font-size: 45px;
+  margin-top: 130px;
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+}
+
+.icon{
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  width: 300px;
+  height: 300px;
+  font-size: 100pt;
+  text-align: center;
+}
+
+.ticket{
+  margin-left: auto;
+  margin-right: auto;
+  width: 300px;
+  height: 300px;
+}
+
+p{
+  padding: 0px;
+  margin: 0px;
+  text-align: center;
+  font-family: 'Open Sans';
+  font-weight: 500;
+  float: left;
+  display: block;
+  width: 100%;
+  font-size: 25px;
+}
+
+h3{
+  margin-top: 0px;
+  margin-bottom: 0px;
+  padding: 0px;
+
+  text-align: center;
+  font-family: 'Ubuntu';
+  font-weight: 500;
+  float: left;
+  display: block;
+  width: 100%;
+  font-size: 45px;
+}
+
+.p2{
+  padding: 0px;
+  margin: 0px;
+  text-align: center;
+  font-family: 'Open Sans';
+  font-weight: 500;
+  float: left;
+  display: block;
+  width: 100%;
+  font-size: 15px;
+  margin-bottom: 40px;
+}
+
+.btn{
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    text-decoration: none;
+    display: block;
+    background-color: #fff;
+    text-align: center;
+    color: #26bf66;
+    font-size: 22px;
+    border-radius: 5px;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    font-family: 'Open sans', sans-serif;
+    text-transform: uppercase;
+    box-shadow: 0px 3px 2px #1f9d54;
+}
+
+h4{
+  text-align: center;
+  font-family: 'Ubuntu';
+  font-weight: 400;
+  text-transform: uppercase;
+  float: left;
+  display: block;
+  width: 100%;
+  font-size: 30px;
+  padding-top: 5px;
+  margin-top: 0px;
+}
+
+.fa.fa-check-circle.ml{
+  margin-left: 8px;
+}
+
+
+.row{
+  float: left;
+  display: block;
+  width: 100%;
+  height: auto;
 }
