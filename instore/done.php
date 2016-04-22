@@ -23,8 +23,8 @@
     <div class="container">
 
       <div class="row">
-        <h2 class="oneclass twoclass">Done <i class="fa fa-check-circle ml" aria-hidden="true"></i></h2>
-        <h4>Here's your number</h4>
+        <h1>Done <i class="fa fa-check-circle ml" aria-hidden="true"></i></h1>
+        <h2>Here's your number</h2>
       </div>
 
       <div class="row">

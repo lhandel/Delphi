@@ -1,3 +1,14 @@
+/**
+  *   h1  = Used for the main title
+  *   h2  = Used for the second title
+  *   h3  =
+  *   p   = Used for bodytext
+  *   .p2 = Used for intro-text
+  *   .btn = The default white btn
+  *   .btn2 = the inverted btn
+*/
+
+
 body{
   background-color: #41cd7c;
   color: #fff;
@@ -28,9 +39,38 @@ h1{
   display: block;
   width: 100%;
   font-size: 45px;
+}
+h1.startpage{
   margin-top: 130px;
   margin-bottom: 50px;
 }
+h2{
+  text-align: center;
+  font-family: 'Ubuntu';
+  font-weight: 400;
+  text-transform: uppercase;
+  float: left;
+  display: block;
+  width: 100%;
+  font-size: 30px;
+  margin-top: 0px;
+  padding: 0;
+}
+h2.log_in2{
+  text-align: center;
+  font-family: 'Open sans';
+  float: left;
+  display: block;
+  width: 100%;
+  font-size: 20px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+h4{
+
+}
+
 .btn_container{
   float: left;
   width: 410px;
@@ -78,19 +118,7 @@ ul.btn_list li a:hover{
 
 /* done.php */
 
-h2{
-  text-align: center;
-  font-family: 'Ubuntu';
-  font-weight: 500;
-  text-transform: uppercase;
-  float: left;
-  display: block;
-  width: 100%;
-  font-size: 45px;
-  margin-top: 130px;
-  margin-bottom: 0px;
-  padding-bottom: 0px;
-}
+
 
 .ticket{
   margin-left: auto;
@@ -157,18 +185,7 @@ h3{
   margin-bottom: 20px;
 }
 
-h4{
-  text-align: center;
-  font-family: 'Ubuntu';
-  font-weight: 400;
-  text-transform: uppercase;
-  float: left;
-  display: block;
-  width: 100%;
-  font-size: 30px;
-  padding-top: 5px;
-  margin-top: 0px;
-}
+
 
 .fa.fa-check-circle.ml{
   margin-left: 8px;
@@ -261,16 +278,7 @@ h3.log_in3 i{
   margin-right: 20px;
   margin-left: 0;
 }
-h2.log_in2{
-  text-align: center;
-  font-family: 'Open sans';
-  float: left;
-  display: block;
-  width: 100%;
-  font-size: 20px;
-  margin-top: 20px;
-  margin-bottom: 10px;
-}
+
 
 .log_in{
   width:100%;
