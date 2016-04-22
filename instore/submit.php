@@ -14,11 +14,13 @@ if(isset($_POST['number'])){
 
   // Get the queue-number
   $result = $mysqli->query("SELECT q_no FROM user WHERE s_id=$s_id ORDER BY u_id DESC LIMIT 1");
-  $data = $result->fetch_assoc();
-  $q_no = ($data['q_no'])+1;
 
-
-
+  if($result->num_rows==0){
+    $q_no = 1;
+  }else{
+    $data = $result->fetch_assoc();
+    $q_no = ($data['q_no'])+1;
+  }
   // Check the service id
   if($s_id!=0){
     // Run the query and insert into db
