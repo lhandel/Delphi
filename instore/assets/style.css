@@ -40,6 +40,8 @@ h1{
   display: block;
   width: 100%;
   font-size: 45px;
+  margin: 0px;
+  padding: 0px;
 }
 h1.startpage{
   margin-top: 130px;
@@ -57,15 +59,25 @@ h2{
   margin-top: 0px;
   padding: 0;
 }
-h2.log_in2{
-  text-align: center;
-  font-family: 'Open sans';
-  float: left;
+
+
+.btn{
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  text-decoration: none;
   display: block;
-  width: 100%;
-  font-size: 20px;
-  margin-top: 20px;
-  margin-bottom: 10px;
+  background-color: #fff;
+  text-align: center;
+  color: #26bf66;
+  font-size: 22px;
+  border-radius: 5px;
+  padding-top: 25px;
+  padding-bottom: 25px;
+  font-family: 'Open sans', sans-serif;
+  text-transform: uppercase;
+  box-shadow: 0px 3px 2px #1f9d54;
+
 }
 
 p{
@@ -92,6 +104,19 @@ p{
   font-size: 25px;
 }
 
+
+/* END OF GENERAL HEADERS*/
+
+h2.log_in2{
+  text-align: center;
+  font-family: 'Open sans';
+  float: left;
+  display: block;
+  width: 100%;
+  font-size: 20px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
 
 .btn_container{
   float: left;
@@ -149,6 +174,15 @@ ul.btn_list li a:hover{
   height: 300px;
 }
 
+h1.doneh1{
+  margin-top: 130px;
+
+}
+
+h2.doneh2{
+  margin-top: 10px;
+}
+
 h3{
   margin-top: 0px;
   margin-bottom: 0px;
@@ -163,25 +197,10 @@ h3{
   color:#fff;
 }
 
-
-
-.btn{
-  margin-left: auto;
-  margin-right: auto;
-  width: 50%;
-  text-decoration: none;
-  display: block;
-  background-color: #fff;
-  text-align: center;
-  color: #26bf66;
-  font-size: 22px;
-  border-radius: 5px;
-  padding-top: 25px;
-  padding-bottom: 25px;
-  font-family: 'Open sans', sans-serif;
-  text-transform: uppercase;
-  box-shadow: 0px 3px 2px #1f9d54;
+.btn.btndone{
+  margin-top: 40px;
   margin-bottom: 20px;
+
 }
 
 
@@ -267,7 +286,7 @@ h3.log_in3{
   text-transform: uppercase;
   float: left;
   display: block;
-  width: 70%;
+  width: 100%;
   font-size: 45px;
   margin-top: 50px;
   margin-bottom: 30px;
@@ -276,6 +295,7 @@ h3.log_in3 i{
   color: #fff;
   margin-right: 20px;
   margin-left: 0;
+  float: left;
 }
 
 
