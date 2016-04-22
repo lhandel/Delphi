@@ -19,7 +19,7 @@
   <body>
     <div class="container">
       <div class="row">
-        <h2>Done <i class="fa fa-check-circle ml" aria-hidden="true"></i></h2>
+        <h2 class="doneh2">Done <i class="fa fa-check-circle ml" aria-hidden="true"></i></h2>
         <h4>Here's your number</h4>
       </div>
       <div class="row">
@@ -35,7 +35,7 @@
 
       </div>
 
-      <div class="row">
+      <div class="row" >
         <p>
           A SMS Has Been Sent To
         </p>
@@ -44,9 +44,9 @@
           +46 735 434 280
         </h3>
 
-        <div class="p2">
+        <p class="p2 mgb">
           SMS Can Take Up To 30s To Be Recieved
-        </div>
+        </p>
 
       </div>
       <div class="row">
