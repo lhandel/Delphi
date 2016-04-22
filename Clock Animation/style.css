@@ -1,0 +1,151 @@
+@import "compass/css3";
+
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+html, body {
+  min-height: 100%;
+}
+
+body {
+  background-color: #41cd7c;
+}
+
+.clock {
+  position: relative;
+  height: 200px;
+  width: 200px;
+  background: #41cd7c;
+  box-sizing: border-box;
+  border-radius: 100%;
+  border: 10px solid #ffffff;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  .top {
+    position: absolute;
+    width: 3px;
+    height: 8px;
+    background: #262626;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+  }
+  .right {
+    position: absolute;
+    width: 8px;
+    height: 3px;
+    background: #262626;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto 0;
+  }
+  .bottom {
+    position: absolute;
+    width: 3px;
+    height: 8px;
+    background: #262626;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: 0 auto;
+  }
+  .left {
+    position: absolute;
+    width: 8px;
+    height: 3px;
+    background: #262626;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto 0;
+  }
+  .center {
+    height: 6px;
+    width: 6px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    background: #ffffff;
+    border-radius: 100%;
+  }
+  .shadow {
+    height: 200px;
+    width: 200px;
+    position: absolute;
+    left: 60px;
+    top: 60px;
+    transform: rotate(135deg);
+    background: linear-gradient(transparent, rgba(#000, 0.1));
+  }
+  .hour {
+    width: 4px;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    //animation: time 86400s infinite linear;
+    animation: time 30s infinite linear;
+    &:before {
+      position: absolute;
+      content: "";
+      background: #ffffff;
+      height: 63px;
+      width: 5px;
+      top: 30px;
+    }
+  }
+  .minute {
+    width: 2px;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    //animation: time 3600s infinite linear;
+    animation: time 1s infinite linear;
+    &:before {
+      position: absolute;
+      content: "";
+      background: #ffffff;
+      height: 40px;
+      width: 4px;
+      top: 50px;
+    }
+  }
+  .second {
+    width: 2px;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    //animation: time 60s infinite linear;
+    animation: time 15s infinite linear;
+    &:before {
+      position: absolute;
+      content: "";
+      background: #fd1111;
+      height: 45px;
+      width: 2px;
+      top: 45px;
+    }
+  }
+}
+
+@keyframes time {
+  to {
+    transform: rotate(360deg);
+  }
+}
