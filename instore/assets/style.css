@@ -254,3 +254,142 @@ h4{
   text-transform: uppercase;
   font-weight: bold;
 }
+/* group 1*/
+h3{
+  text-align: center;
+  font-family: 'Ubuntu';
+  font-weight: 500;
+  text-transform: uppercase;
+  float: left;
+  display: block;
+  width: 70%;
+  font-size: 45px;
+  margin-top: 50px;
+  margin-bottom: 30px;
+}
+h2{
+  text-align: center;
+  font-family: 'Open sans';
+  float: left;
+  display: block;
+  width: 100%;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+
+.log_in{
+  width:100%;
+  height:100px;/*
+  background-color: red;*/
+  float:left;
+
+}
+
+#back_button{
+  background-image:url(arrow.jpg);
+  background-size:38px 34px;
+  background-repeat: no-repeat;
+  background-color: #41cd7c;
+
+  width:80px;
+  height: 45px;
+
+  float:left;
+  margin-top:60px;
+  border:none;
+  /*
+  color:white;
+  border-radius: 8px;
+  font-family: 'Ubuntu';
+  font-size: 25px;
+  border-color: white;
+  border:2px solid white;
+*/
+}
+
+#submit_button{
+  width:127px;
+  height: 72px;
+  background-color: #41cd7c;
+  float:right;
+  margin-top:10px;
+  color:white;
+  margin-left: 15px;
+  border-radius: 8px;
+  font-family: 'Ubuntu';
+  font-size: 25px;
+  border-color: white;
+  border:2px solid white;
+
+}
+
+#number{
+  border:none;
+  width:429px;
+  height:70px;
+  margin-top:10px;
+  font-size:30px;
+  font-family:'Ubuntu';
+  border-radius: 8px;
+  float: left;
+}
+
+.login_display{
+  margin-top:20px;
+  width:100%;
+  height:300px;
+  float:left;
+
+}
+
+.queue_icon{
+  width:50%;
+  float:left;
+  height:50px;
+  background-image: url(queue.jpg);
+  background-size: 76px 50px;
+  background-repeat: no-repeat;
+  background-position: top;
+}
+
+.time_icon{
+  width:50%;
+  float:left;
+  height:50px;
+  background-image: url(timer.jpg);
+  background-size: 50px 50px;
+  background-position: top;
+  background-repeat: no-repeat;
+}
+
+.info{
+  width:50%;
+  float:left;
+  height:200px;
+  text-align: center;
+}
+
+p.important{
+  text-align: center;
+  font-family: 'Open sans';
+  float: left;
+/*  display: block;*/
+  width: 100%;
+  font-size: 60px;
+  margin-top: 15px;
+  margin-bottom: 0px;
+}
+p.info{
+  text-align: center;
+  font-family: 'Open sans';
+  font-weight: 500;
+  float: left;
+/*  display: block;*/
+  width: 100%;
+  font-size: 30px;
+  margin-top: 0px;
+}
+
+
+/*group 1 end*/
