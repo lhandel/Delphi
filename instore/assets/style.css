@@ -314,6 +314,7 @@ h2.log_in2{
   font-family:'Ubuntu';
   border-radius: 8px;
   float: left;
+  padding-left: 15px;
 }
 
 .login_display{
