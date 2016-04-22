@@ -287,14 +287,6 @@ h2.log_in2{
   float:left;
   margin-top:60px;
   border:none;
-  /*
-  color:white;
-  border-radius: 8px;
-  font-family: 'Ubuntu';
-  font-size: 25px;
-  border-color: white;
-  border:2px solid white;
-*/
 }
 
 #submit_button{
@@ -310,6 +302,7 @@ h2.log_in2{
   font-size: 25px;
   border-color: white;
   border:2px solid white;
+  -webkit-appearance: none;
 }
 
 #number{
