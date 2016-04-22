@@ -1,3 +1,5 @@
+<?php include 'function.php';
+ ?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -12,7 +14,7 @@
     <div class="container">
 
         <h3 class="log_in3">
-          <a href="index.php"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>   Help Desk
+          <a href="index.php"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>  <?php echo get_service_name($_GET['service']); ?>
         </h3>
         <h2 class="log_in2">Enter your MOBILE number below to enter the queue</h2>
 
