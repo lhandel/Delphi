@@ -23,8 +23,8 @@
     <div class="container">
 
       <div class="row">
-        <h1>Done <i class="fa fa-check-circle ml" aria-hidden="true"></i></h1>
-        <h2>Here's your number</h2>
+        <h1 class= "doneh1">Done <i class="fa fa-check-circle ml" aria-hidden="true"></i></h1>
+        <h2 class= "doneh2">Here's your number</h2>
       </div>
 
       <div class="row">
@@ -41,25 +41,25 @@
       </div>
 
       <div class="row">
-        <p>
-          A SMS Has Been Sent To
-        </p>
-
-        <h3>
-          <?php echo $_GET['phone_nr']; ?>
-        </h3>
-
         <div class="p2">
-          SMS Can Take Up To 30s To Be Recieved
+          A SMS Has Been Sent To
         </div>
 
+        <h1>
+          <?php echo $_GET['phone_nr']; ?>
+        </h1>
+
+        <p>
+          SMS Can Take Up To 30s To Be Recieved
+        </p>
+
       </div>
 
       <div class="row">
 
       </div>
       <div class="row">
-        <a href="index.php" class="btn">Finish</a>
+        <a href="index.php" class="btn btndone">Finish</a>
       </div>
     </div>
     
