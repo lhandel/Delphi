@@ -124,24 +124,8 @@ body {
       top: 50px;
     }
   }
-  .second {
-    width: 2px;
-    height: 100%;
-    position: absolute;
-    left: 0;
-    right: 0;
-    margin: 0 auto;
-    //animation: time 60s infinite linear;
-    animation: time 15s infinite linear;
-    &:before {
-      position: absolute;
-      content: "";
-      background: #fd1111;
-      height: 45px;
-      width: 2px;
-      top: 45px;
-    }
-  }
+  
+  
 }
 
 @keyframes time {
