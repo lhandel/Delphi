@@ -14,6 +14,7 @@
             $(".ticketbox").delay(800).animate({top:'6px'},1500);
         });
     </script>
+    <meta name="format-detection" content="telephone=no">
   </head>
   <body>
     <div class="container">
