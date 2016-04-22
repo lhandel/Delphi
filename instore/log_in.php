@@ -6,11 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <link rel="stylesheet" href="assets/style.css" media="screen" title="no title" charset="utf-8">
     <link href='https://fonts.googleapis.com/css?family=Ubuntu:500,700,400|Open+Sans:400,600' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
   </head>
   <body>
     <div class="container">
-        <input id="back_button" type="submit" value=""  >
-        <h3 class="log_in3">Help Desk</h3>
+        <!--<input id="back_button" type="submit" value=""  >
+        <a href="index.php"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>-->
+        <h3 class="log_in3">
+          <a href="index.php"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>   Help Desk
+        </h3>
         <h2 class="log_in2">Enter your MOBILE number below to enter the queue</h2>
 
         <div class="log_in">
