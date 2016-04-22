@@ -243,7 +243,7 @@ h4{
   font-weight: bold;
 }
 /* group 1*/
-h3{
+h3.log_in3{
   text-align: center;
   font-family: 'Ubuntu';
   font-weight: 500;
@@ -255,13 +255,14 @@ h3{
   margin-top: 50px;
   margin-bottom: 30px;
 }
-h2{
+h2.log_in2{
   text-align: center;
   font-family: 'Open sans';
   float: left;
   display: block;
   width: 100%;
   font-size: 20px;
+  margin-top: 20px;
   margin-bottom: 10px;
 }
 
