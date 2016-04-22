@@ -8,12 +8,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <link rel="stylesheet" href="assets/style.css" media="screen" title="no title" charset="utf-8">
     <link href='https://fonts.googleapis.com/css?family=Ubuntu:500,700,400|Open+Sans:400,600' rel='stylesheet' type='text/css'>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js" charset="utf-8"></script>
-    <script type="text/javascript">
-        $(document).ready(function(){
-            $(".ticketbox").delay(800).animate({top:'6px'},1500);
-        });
-    </script>
   </head>
   <body>
     <div class="container">
@@ -22,16 +16,10 @@
         <h4>Here's your number</h4>
       </div>
       <div class="row">
+        <div class="icon">
+          <img src="assets/test.png" alt="" / class="ticket">
 
-        <div class="ticketcontainer">
-            <div class="ttop"></div>
-            <div class="ticketbox">
-                <b>44</b>
-                <div class="ticketlabel">your number</div>
-            </div>
-            <div class="tbottom"></div>
         </div>
-
       </div>
 
       <div class="row">
