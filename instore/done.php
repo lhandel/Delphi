@@ -32,7 +32,7 @@
         <div class="ticketcontainer">
             <div class="ttop"></div>
             <div class="ticketbox">
-                <b>9</b>
+                <b><?php echo intval($_GET['q_no']); ?></b>
                 <div class="ticketlabel">Recipes</div>
             </div>
             <div class="tbottom"></div>
@@ -46,7 +46,7 @@
         </p>
 
         <h3>
-          +46 735 434 280
+          <?php echo $_GET['phone_nr']; ?>
         </h3>
 
         <div class="p2">
@@ -58,7 +58,7 @@
 
       </div>
       <div class="row">
-        <a href="#" class="btn">Finish</a>
+        <a href="index.php" class="btn">Finish</a>
       </div>
     </div>
 
