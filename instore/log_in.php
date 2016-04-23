@@ -38,7 +38,7 @@
           <div class="icon time_icon">
           </div>
           <div class="info">
-            <p class="important">5</p>
+            <p class="important"><?php echo get_inline($_GET['service'])?></p>
             <p class="info">people <br/>in front</p>
           </div>
           <div class="info">
