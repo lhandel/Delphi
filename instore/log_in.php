@@ -33,9 +33,9 @@
 
         </div>
         <div class="login_display">
-          <div class="queue_icon">
+          <div class="icon queue_icon">
           </div>
-          <div class="time_icon">
+          <div class="icon time_icon">
           </div>
           <div class="info">
             <p class="important">5</p>

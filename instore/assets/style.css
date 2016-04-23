@@ -306,19 +306,6 @@ h3.log_in3 i{
 
 }
 
-#back_button{
-  background-image:url(arrow.jpg);
-  background-size:38px 34px;
-  background-repeat: no-repeat;
-  background-color: #41cd7c;
-
-  width:80px;
-  height: 45px;
-
-  float:left;
-  margin-top:60px;
-  border:none;
-}
 
 #submit_button{
   width:127px;
@@ -355,24 +342,23 @@ h3.log_in3 i{
   float:left;
 }
 
-.queue_icon{
+.icon{
   width:50%;
   float:left;
   height:50px;
-  background-image: url(queue.jpg);
-  background-size: 76px 50px;
   background-repeat: no-repeat;
   background-position: top;
 }
+.queue_icon{
+
+  background-image: url(queue.jpg);
+  background-size: 76px 50px;
+
+}
 
 .time_icon{
-  width:50%;
-  float:left;
-  height:50px;
   background-image: url(timer.jpg);
   background-size: 50px 50px;
-  background-position: top;
-  background-repeat: no-repeat;
 }
 
 .info{
@@ -383,25 +369,15 @@ h3.log_in3 i{
 }
 
 p.important{
-  text-align: center;
-  font-family: 'Open sans';
-  float: left;
-/*  display: block;*/
-  width: 100%;
+
   font-size: 60px;
   margin-top: 15px;
-  margin-bottom: 0px;
 }
 
 p.info{
-  text-align: center;
-  font-family: 'Open sans';
-  font-weight: 500;
-  float: left;
-/*  display: block;*/
+
   width: 100%;
   font-size: 30px;
-  margin-top: 0px;
 }
 
 

@@ -24,7 +24,7 @@ if(isset($_POST['number'])){
     $mysqli->query("INSERT INTO user(phone_no,time_in,s_id,q_no) VALUES('$number',$time_in,$s_id,$q_no)");
 
     // send the user to the next page
-    header("Location: done.php?q_no=".$q_no."&phone_nr=".$_POST['number']);
+    header("Location: done.php?q_no=".$q_no."&phone_nr=".$_POST['number']."&service=".$s_id);
 
   }
 

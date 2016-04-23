@@ -1,4 +1,5 @@
-
+<?php include 'function.php';
+ ?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -36,7 +37,7 @@
             <div class="ttop"></div>
             <div class="ticketbox">
                 <b><?php echo intval($_GET['q_no']); ?></b>
-                <div class="ticketlabel">Recipes</div>
+                <div class="ticketlabel"> <?php echo get_service_name($_GET['service']); ?> </div>
             </div>
             <div class="tbottom"></div>
         </div>
