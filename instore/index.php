@@ -25,6 +25,6 @@
         </div>
 
     </div>
-    <div class="logo"></div>
+
   </body>
 </html>
