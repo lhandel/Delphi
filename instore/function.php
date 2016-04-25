@@ -40,6 +40,6 @@ function get_result($query){
 //get how many people in queue
 function get_inline($s_id){
   $s_id = intval($s_id);
-  $result = get_result("SELECT * FROM user WHERE s_id=$s_id AND state=0");
+  $result = get_result("SELECT u_id FROM user WHERE s_id=$s_id AND state=0");
   return($result->num_rows);
 }
