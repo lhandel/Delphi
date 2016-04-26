@@ -378,5 +378,25 @@ p.info{
   font-size: 30px;
 }
 
+<<<<<<< HEAD
+=======
+@media screen and (max-height: 950px) {
+  h1.startpage{
+    margin-top: 60px;
+    margin-bottom: 30px;
+  }
+  ul.btn_list li{
+    margin-top: 35px;
+  }
+  .remove_margin_top ul.btn_list li{
+    margin-top: 25px;
+  }
+  .remove_margin_top ul.btn_list li a{
+    padding-top: 19px;
+    padding-bottom: 19px;
+    font-size: 20px;
+  }
+}
+>>>>>>> origin/master
 
 /*group 1 end*/
