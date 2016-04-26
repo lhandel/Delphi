@@ -78,7 +78,7 @@ function sendSMS ($sms) {
 }
 
 
-function makeSMS($phone_no,$in_line,$link)
+function makeSMS($phone_no,$in_line,$link,$q_no)
 {
   $temp = (string)$phone_no;
   $temp1 = substr($temp,1);
@@ -86,6 +86,6 @@ function makeSMS($phone_no,$in_line,$link)
 	return array(
 	'from' => 'Queue',
 	'to' => $num,
-	'message' => "there are ".(string)$in_line." people in queue, click on the link: ".$link
+	'message' => "Your number is ".(string)$q_no.".\nThere are ".(string)$in_line."people in queue, click on the link: \n".$link."/"
 );
 }
