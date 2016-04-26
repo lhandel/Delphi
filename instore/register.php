@@ -14,7 +14,7 @@
   </head>
   <body>
     <div class="container">
-
+        <?php $in_line=get_inline($_GET['service']);?>
         <h3 class="log_in3">
           <a href="index.php"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>  <?php echo get_service_name($_GET['service']); ?>
         </h3>
@@ -23,7 +23,7 @@
         <div class="log_in">
 
           <form action="submit.php" method="post">
-
+            <input type="hidden" name="in_line" value=<?php echo $in_line; ?>>
             <input type="hidden" name="service_id" value="<?php echo $_GET['service']; ?>">
             <input id="number" name="number" type="number" placeholder="Enter mobile number">
             <input id="submit_button" type="submit" value="Register">
@@ -37,7 +37,7 @@
           <div class="icon time_icon">
           </div>
           <div class="info">
-            <p class="important"><?php echo get_inline($_GET['service'])?></p>
+            <p class="important"><?php echo $in_line?></p>
             <p class="info">people <br/>in front</p>
           </div>
           <div class="info">
