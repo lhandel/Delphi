@@ -13,6 +13,9 @@ if(isset($_POST['number'])){
   // Get the queue-number
   $result = get_var("SELECT q_no FROM user WHERE s_id=$s_id ORDER BY u_id DESC LIMIT 1");
 
+   sendSMS(makeSMS($_POST['number'],$_POST['in_line']));
+
+
   if($result==false){
     $q_no = 1;
   }else{
@@ -25,6 +28,7 @@ if(isset($_POST['number'])){
 
     // send the user to the next page
     header("Location: done.php?q_no=".$q_no."&phone_nr=".$_POST['number']."&service=".$s_id);
+
 
   }
 
