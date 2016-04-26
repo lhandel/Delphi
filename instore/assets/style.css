@@ -378,8 +378,7 @@ p.info{
   font-size: 30px;
 }
 
-<<<<<<< HEAD
-=======
+
 @media screen and (max-height: 950px) {
   h1.startpage{
     margin-top: 60px;
@@ -397,6 +396,5 @@ p.info{
     font-size: 20px;
   }
 }
->>>>>>> origin/master
 
 /*group 1 end*/
