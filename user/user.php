@@ -1,4 +1,5 @@
-
+<?php include 'function.php';
+ ?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -33,7 +34,7 @@
       <div class="row middlebox">
         <div class=" row q-no">
           <div class="ticket-icon"></div>
-          <h2>13</h2>
+          <h2> <?php echo get_queue_number($_GET['u_id']); ?></h2>
           <div class="text">
             Your Queue</br> Number
           </div>
@@ -41,7 +42,7 @@
         <div class="row verticalLine"></div>
         <div class="row people-infront">
           <div class="person-icon"></div>
-          <h2>12</h2>
+          <h2><?php echo get_inline_user($_GET['u_id']); ?></h2>
           <div class="text">
             People infront
           </div>
