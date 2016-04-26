@@ -18,23 +18,27 @@
         <div class="row">
           <div class="infoc">
               <div class="est">
-                <h1 class="stat" >22</h1> <br>
+                <div class="icon">
+                  <i class="fa fa-clock-o" aria-hidden="true"></i>
+                </div>
+
+                <h1 class="stat" >22</h1>
                 <h2>est. time</h2>
 
               </div>
               <div class="handler">
+                <img class = "icon" src="assets/Admin.svg" alt="" />
                 <h1 class="stat" >
                   2
                 </h1>
+                <h2>Handlers</h2>
               </div>
               <div class="queue">
-                <h1 class="stat" >
-                  2
-                </h1>
+                <img class = "icon" src="assets/QueueGrey.svg" alt="" />
+                <h1 class="stat" >2</h1>
+                <h2>Queue</h2>
               </div>
-
             </div>
-
           </div>
         </div>
       </div>
