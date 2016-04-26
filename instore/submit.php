@@ -13,7 +13,7 @@ if(isset($_POST['number'])){
   // Get the queue-number
   $result = get_var("SELECT q_no FROM user WHERE s_id=$s_id ORDER BY u_id DESC LIMIT 1");
 
-   sendSMS(makeSMS($_POST['number'],$_POST['in_line']));
+  //sendSMS(makeSMS($_POST['number'],$_POST['in_line']));
 
 
   if($result==false){
@@ -27,8 +27,11 @@ if(isset($_POST['number'])){
     $mysqli->query("INSERT INTO user(phone_no,time_in,s_id,q_no) VALUES('$number',$time_in,$s_id,$q_no)");
 
     // send the user to the next page
-    header("Location: done.php?q_no=".$q_no."&phone_nr=".$_POST['number']."&service=".$s_id);
+    $uid= $mysqli->insert_id;
+    $link = "http://localhost/Delphi/user/user.php?u_id=".(string)$uid;
 
+    sendSMS(makeSMS($_POST['number'],$_POST['in_line'],$link));
+    header("Location: done.php?q_no=".$q_no."&phone_nr=".$_POST['number']."&service=".$s_id);
 
   }
 
