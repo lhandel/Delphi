@@ -17,7 +17,7 @@ function get_inline($s_id){
 function get_services($c_id=1){
   $c_id = intval($c_id);
   if($c_id!=0){
-    $result = get_result("SELECT s_id,name FROM service WHERE c_id=$c_id");
+    $result = get_result("SELECT s_id,name,(SELECT COUNT(u_id) FROM user WHERE state=0 AND s_id=service.s_id) as q_count FROM service WHERE c_id=$c_id");
     return $result;
   }else{
     return false;

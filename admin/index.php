@@ -1,3 +1,4 @@
+<?php include '../function.php'; ?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -6,14 +7,22 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
     <link href='https://fonts.googleapis.com/css?family=Ubuntu:500,700,400|Open+Sans:400,600' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="assets/style.css" media="screen" title="no title" charset="utf-8">
+
   </head>
   <body>
     <div class="container">
+
+      <?php
+      $c_id = 1;
+      $result = get_services($c_id);
+      while($row = $result->fetch_assoc()){
+
+      ?>
       <div class="row">
         <div class="s1">
 
       <div class="row">
-          <a href="#" class="btn"> <h1> Service 1 <i class="fa fa-angle-right" aria-hidden="true"></i><h1> </a>
+          <a href="#" class="btn"> <h1> <?php echo $row["name"]; ?> <i class="fa fa-angle-right" aria-hidden="true"></i><h1> </a>
       </div>
         <div class="row">
           <div class="infoc">
@@ -35,13 +44,14 @@
               </div>
               <div class="queue">
                 <img class = "icon" src="assets/QueueGrey.svg" alt="" />
-                <h1 class="stat" >2</h1>
+                <h1 class="stat" ><?php echo $row["q_count"]; ?></h1>
                 <h2>Queue</h2>
               </div>
             </div>
           </div>
         </div>
       </div>
+    <?php  }?>
     </div>
   </body>
 </html>

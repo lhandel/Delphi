@@ -1,6 +1,6 @@
 <?php
 //connect to database
-include 'function.php';
+include '../function.php';
 
 // Check if the number is submited
 if(isset($_POST['number'])){
