@@ -86,6 +86,6 @@ function makeSMS($phone_no,$in_line,$link)
 	return array(
 	'from' => 'Queue',
 	'to' => $num,
-	'message' => "there are".(string)$in_line." people in queue, click on the link".$link
+	'message' => "there are".(string)$in_line." people in queue, click on the link: ".$link
 );
 }
