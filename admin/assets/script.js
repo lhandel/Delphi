@@ -7,7 +7,7 @@ $(document).ready(function(){
 
             var mkey = false;
             var isopen = false;
-            var num = 0;
+            var kup = true;
             $(document).keydown(function(e) {
 
                 // Go to a page
@@ -22,15 +22,18 @@ $(document).ready(function(){
                 if(e.which==77)
                   mkey = true;
 
-                if(mkey && isopen){
-                      closeMenu(); console.log('close');
-                }else if(mkey && !isopen){
-                    openMenu();console.log('open');
+                if(mkey && isopen && kup){
+                      kup = false;
+                      closeMenu();
+                }else if(mkey && !isopen && kup){
+                    kup = false;
+                    openMenu();
                 }
             });
 
             $(document).keyup(function(e) {
               mkey= false;
+              kup = true;
             });
 
             var hasBeenTrigged = false;
