@@ -150,6 +150,10 @@ ul.btn_list li a{
 ul.btn_list li a:hover{
   box-shadow: 0px 1px 1px #1f9d54;
 }
+.remove_margin_top{
+  margin-top: 0;
+}
+
 .logo{
   width: auto;
   height: 271px;
