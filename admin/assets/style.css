@@ -121,3 +121,76 @@ img.icon{
   display: block;
   margin-bottom: 10px;
 }
+
+
+/*
+  CODE FOR THE MENU
+*/
+html,body{
+  margin: 0;
+  padding: 0;
+}
+.menuToggle{
+  width: 50px;
+  height: 50px;
+  display: block;
+  position: fixed;
+  left: 20px;
+  top:20px;
+  border-radius: 50px;
+  line-height: 50px;
+  text-align: center;
+  color: #ee6344;
+  font-size: 28px;
+  background-color: #fff;
+  box-shadow: 0 0 5px #888;
+  z-index: 1;
+}
+.menuToggle:hover{
+  cursor: pointer;
+  box-shadow: 0 0 2px #888;
+}
+.menu{
+  width: 208px;
+  height: 100%;
+  background-color: #333;
+  position: fixed;
+  left:-208px;
+  z-index: 2;
+}
+.menu ul{
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+.menu ul li{
+  list-style-type: none;
+  display: block;
+  width: 100%;
+}
+.menu ul li a{
+  color: #fff;
+  text-decoration: none;
+  font-family: 'Open sans';
+  border-bottom: 1px solid #717171;
+  display: block;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  padding-left: 18px;
+  font-size: 15px;
+}
+.menu ul li a i{
+  margin-right: 5px;
+}
+.menu ul li a:hover{
+  background-color: #000;
+}
+.menu img{
+    width: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    margin-top: 20px;
+    margin-bottom: 15px;
+}
+/* .end for the menu */

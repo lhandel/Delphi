@@ -4,12 +4,28 @@
   <head>
     <meta charset="utf-8">
     <title>Admin Dashboard</title>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js" charset="utf-8"></script>
+    <script src="assets/script.js" charset="utf-8"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
     <link href='https://fonts.googleapis.com/css?family=Ubuntu:500,700,400|Open+Sans:400,600' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="assets/style.css" media="screen" title="no title" charset="utf-8">
 
   </head>
   <body>
+  <div class="menuToggle">
+    <i class="fa fa-bars" aria-hidden="true"></i>
+  </div>
+  <div class="menu">
+    <img src="assets/logo.svg" alt="" />
+    <ul>
+      <li><a href="dashboard.php" id="item1"><i class="fa fa-tachometer" aria-hidden="true"></i> Dashboard</a></li>
+      <li><a href="statistic.php" id="item2"><i class="fa fa-bar-chart" aria-hidden="true"></i> Statistic</a></li>
+      <li><a href="settings.php" id="item3"><i class="fa fa-wrench" aria-hidden="true"></i> Settings</a></li>
+    </ul>
+  </div>
+
+
     <div class="container">
 
       <?php

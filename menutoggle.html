@@ -21,11 +21,9 @@
                 // Go to a page
                 if(e.which>48 && e.which<58 && isopen){
                     var target = $("#item"+(e.which-48)).attr('href');
-
                     if(target!=undefined)
                       document.location = target;
                 }
-
 
                 if(e.which==27)
                   closeMenu();
@@ -147,13 +145,13 @@
         margin-top: 20px;
         margin-bottom: 15px;
     }
+
   </style>
   <body>
 
     <div class="menuToggle">
       <i class="fa fa-bars" aria-hidden="true"></i>
     </div>
-
     <div class="menu">
       <img src="instore/assets/logo.svg" alt="" />
       <ul>
@@ -162,6 +160,7 @@
         <li><a href="settings.php" id="item3"><i class="fa fa-wrench" aria-hidden="true"></i> Settings</a></li>
       </ul>
     </div>
+
 
   </body>
 </html>
