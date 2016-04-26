@@ -39,6 +39,8 @@
         </div>
 
     </div>
-    <div class="logo"></div>
+
+    <img src="assets/logo.svg" class="logo">
+
   </body>
 </html>
