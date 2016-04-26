@@ -13,7 +13,7 @@ if(isset($_POST['number'])){
   // Get the queue-number
   $result = get_var("SELECT q_no FROM user WHERE s_id=$s_id ORDER BY u_id DESC LIMIT 1");
 
-  echo sendSMS(makeSMS($_POST['number'],$_POST['in_line']));
+   sendSMS(makeSMS($_POST['number'],$_POST['in_line']));
 
 
   if($result==false){
