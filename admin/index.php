@@ -13,7 +13,7 @@
         <div class="s1">
 
       <div class="row">
-          <a href="#" class="btn"> <h1> Service 1 <h1> </a>
+          <a href="#" class="btn"> <h1> Service 1 <i class="fa fa-angle-right" aria-hidden="true"></i><h1> </a>
       </div>
         <div class="row">
           <div class="infoc">
