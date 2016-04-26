@@ -24,7 +24,7 @@ function get_services($c_id=1){
   }
 }
 
-
+//Get inline number with u_id and s_id
 function get_inline_user($u_id){
   $u_id = intval($u_id);
   $s_id = intval(get_s_id($u_id));
@@ -32,7 +32,7 @@ function get_inline_user($u_id){
   return($result->num_rows);
 }
 
-//SELECT Q_no from db with u_id
+//Get s_id from db with u_id
 function get_s_id($u_id){
 
     $u_id = intval($_GET['u_id']);
