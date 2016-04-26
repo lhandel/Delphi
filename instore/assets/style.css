@@ -150,6 +150,9 @@ ul.btn_list li a{
 ul.btn_list li a:hover{
   box-shadow: 0px 1px 1px #1f9d54;
 }
+.remove_margin_top{
+  margin-top: 0;
+}
 .logo{
   width: 374px;
   height: 68px;
@@ -380,5 +383,11 @@ p.info{
   font-size: 30px;
 }
 
+@media screen and (max-height: 950px) {
+  h1.startpage{
+    margin-top: 60px;
+    margin-bottom: 40px;
+  }
+}
 
 /*group 1 end*/

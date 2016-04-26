@@ -1,3 +1,4 @@
+<?php include 'function.php'; ?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -15,16 +16,29 @@
     <div class="container">
         <h1 class="startpage">What do you need<br/> help with?</h1>
 
-        <div class="btn_container">
+        <?php
+        $c_id = 1;
+        $result = get_services($c_id);
 
-            <ul class="btn_list">
-              <li><a href="register.php?service=1">Help desk</a></li>
-              <li><a href="register.php?service=2">Recipes</a></li>
+        // This code is fixing the margin if we have 4 items in the list
+        $special_class = '';
+        if($result->num_rows==4){
+          $special_class = 'remove_margin_top';
+        }
+        ?>
+
+        <div class="btn_container <?php echo $special_class; ?>">
+
+            <ul class="btn_list ">
+
+              <?php while ($row = $result->fetch_assoc()){  ?>
+                <li><a href="register.php?service=<?php echo $row['s_id']; ?>"><?php echo $row['name']; ?></a></li>
+              <?php } ?>
             </ul>
 
         </div>
 
     </div>
-
+    <div class="logo"></div>
   </body>
 </html>
