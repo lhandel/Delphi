@@ -1,0 +1,115 @@
+
+
+
+h1{
+  font-family: 'Ubuntu';
+  font-weight: 400;
+  text-transform: uppercase;
+  float: left;
+  display: block;
+  width: 100%;
+  font-size: 30px;
+  margin: 0px;
+  padding: 0px;
+}
+
+h2{
+  font-family: 'Ubuntu';
+  font-weight: 100;
+  text-transform: lowercase;
+  float: left;
+  display: block;
+  width: 100%;
+  font-size: 15px;
+  margin-top: -10px;
+  padding: 0;
+}
+
+.container{
+  width: 1000px;
+  height: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.row{
+  float: left;
+  display: block;
+  width: 100%;
+}
+.fa{
+  float: right;
+
+}
+
+.btn{
+  margin-left: auto;
+  margin-right: auto;
+  width: 300px;
+  text-decoration: none;
+  display: block;
+  color: #4e4e4e;
+  font-size: 22px;
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-top: 20px;
+  padding-bottom: 0px;
+  font-family: 'Open sans', sans-serif;
+  text-transform: uppercase;
+}
+
+.s1{
+  background-color: #fff;
+  width: 400px;
+  height: 200px;
+  margin: auto;
+  margin-top: 20px;
+  box-shadow: 0px 3px 5px #4e4e4e;
+}
+
+
+body{
+  background-color: #ee6344;
+}
+
+.infoc{
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  color: #4e4e4e;
+  height: 360px;
+  width: 360px;
+  line-height: -10px;
+  text-align: center;
+}
+
+.est{
+  float: left;
+  font-family: 'Open sans', sans-serif;
+  width: 119px;
+  height: 80px;
+  border-right: 1px solid #dddddd;
+  line-height: 35px;
+}
+
+.handler{
+  font-family: 'Open sans', sans-serif;
+  float: left;
+  width: 119px;
+  height: 80px;
+  border-right: 1px solid #dddddd;
+  line-height: 35px;
+}
+
+.queue{
+  font-family: 'Open sans', sans-serif;
+  float: left;
+  width: 120px;
+  height: 80px;
+  line-height: 35px;
+
+}
+
+.stat{
+  margin-top: 15px;
+}
