@@ -32,8 +32,7 @@
 
         </div>
         <div class="login_display">
-          <div class="icon queue_icon">
-          </div>
+          <img class="icon queue" src="assets/Queue.svg" alt="" />
           <div class="icon time_icon">
           </div>
           <div class="info">
