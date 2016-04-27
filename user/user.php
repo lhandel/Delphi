@@ -10,11 +10,15 @@
     <link rel="stylesheet" href="assets/style.css" media="screen" title="no title" charset="utf-8">
     <link href='https://fonts.googleapis.com/css?family=Ubuntu:500,700,400|Open+Sans:400,600' rel='stylesheet' type='text/css'>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js" charset="utf-8"></script>
+    <script src="assets/script.js" charset="utf-8"></script>
     <meta name="format-detection" content="telephone=no">
   </head>
   <body>
     <div class="container">
-
+<!-- get u_id from SMS -->
+      <script>
+        var u_id = <?php echo $_GET['u_id']; ?>;
+      </script>
       <div class="row topbox">
         <div class="clock-icon">
         </div>
@@ -42,15 +46,15 @@
         <div class="row verticalLine"></div>
         <div class="row people-infront">
           <div class="person-icon"></div>
-          <h2><?php echo get_inline_user($_GET['u_id']); ?></h2>
+          <h2 id="in_queue"></h2>
           <div class="text">
-            People infront
+            People </br> in front
           </div>
         </div>
 
       </div>
       <div class="row">
-        <a href="quit.php?u_id=11" class="btn position-bottom">Leave Queue</a>
+        <a href=<?php echo "quit.php?u_id=".$_GET['u_id'] ?> class="btn position-bottom">Leave Queue</a>
       </div>
 
 
