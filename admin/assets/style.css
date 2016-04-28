@@ -1,4 +1,4 @@
-h1{
+  h1{
   font-family: 'Ubuntu';
   font-weight: 400;
   text-transform: uppercase;
@@ -246,14 +246,19 @@ html,body{
 
 
 .login {
-  margin-top: 20px;
-  width:auto;
-  height:auto;
+  margin-top: 15px;
+  width:500px;
+  height:150px;
+  padding-top: 40px;
   min-height: 100px;
   margin-left:auto;
   margin-right: auto;
   text-align: center;
   display: block;
+  background-color: white;
+  border-radius:5px;
+  border-color: #91867E;
+  box-shadow: 0px 0px 5px;
 }
 
 .login form {
@@ -262,7 +267,7 @@ html,body{
 }
 
 input[type=text].logintext {
-    background-color: white;
+    background-color: #FFFEFA;
     color: black;
     margin-right: 28px;
     border-radius: 3px;
@@ -272,7 +277,7 @@ input[type=text].logintext {
 }
 
 input[type=password].loginpass {
-  background-color: white;
+  background-color: #FFFEFA;
   color:black;
   border-radius: 3px;
   border-width: 1px;
@@ -284,14 +289,17 @@ input[type=submit].logininput{
   margin-top: 10px;
   width:150px;
   height:40px;
-  background-color: #fff;
+  background-color: #FFFEFA;
   font-family: 'Ubuntu';
   font-size: 20px;
   border-radius: 5px;
+  border:solid;
+  border-width: thin;
+  color:green;
 }
 
 input[type=submit].logininput:hover {
-  box-shadow: 0px 0px 10px;
+  box-shadow: 0px 0px 5px;
 }
 
 
@@ -310,7 +318,7 @@ h1.company {
 }
 
 .companyimagebackground{
-  margin-top: 8%;
+  margin-top: 5%;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 0;
