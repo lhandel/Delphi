@@ -298,7 +298,7 @@ html,body{
 .login {
   margin-top: 15px;
   width:500px;
-  height:150px;
+  height:180px;
   padding-top: 40px;
   min-height: 100px;
   margin-left:auto;
@@ -316,6 +316,32 @@ html,body{
   font-size: 25px;
 }
 
+
+
+#logininput {
+  display:block;
+  float:left;
+  background-color: #FFFEFA;
+  color: black;
+  border-radius: 3px;
+  text-decoration:none;
+  width:60%;
+  height:30px;
+  font-size: 20px;
+  margin-bottom: 10px;
+  margin-left: 5%;
+}
+
+p.logintext{
+  float:left;
+  color: #4E4E4E;
+  text-decoration:none;
+  width:25%;
+  text-align: right!important;
+  font-size: 15px;
+  margin-bottom: 10px;
+}
+/*
 input[type=text].logintext {
     background-color: #FFFEFA;
     color: black;
@@ -333,11 +359,11 @@ input[type=password].loginpass {
   border-width: 1px;
   padding: 6px;
   font-size:15px;
-}
+}*/
 
 input[type=submit].logininput{
-  margin-top: 10px;
-  width:150px;
+  margin-top: 20px;
+  width:100px;
   height:40px;
   background-color: #FFFEFA;
   font-family: 'Ubuntu';
