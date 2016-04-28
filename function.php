@@ -24,6 +24,18 @@ function get_services($c_id=1){
   }
 }
 
+// a_id still need configuring, when user state goes from 0-1 a_id should go null-to current a_id
+function user_update_by_service($s_id){
+  $s_id = intval($s_id);
+  if($s_id!=0){
+    get_result("UPDATE user SET state=3 WHERE s_id = $s_id AND state=1 ORDER BY time_in ASC LIMIT 1");
+    get_result("UPDATE user SET state=1 WHERE s_id = $s_id AND state=0 ORDER BY time_in ASC LIMIT 1");
+    return true;
+  }else{
+    return false;
+  }
+}
+
 
 
 //extract first value/variable in database

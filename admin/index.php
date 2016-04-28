@@ -38,7 +38,8 @@
         <div class="s1">
 
       <div class="row">
-          <a href="#" class="btn"> <h1> <?php echo $row["name"]; ?> <i class="fa fa-angle-right" aria-hidden="true"></i><h1> </a>
+
+          <a href=<?php echo "service.php?s_id=".$row['s_id']; ?> class="btn"> <h1> <?php echo $row["name"];?> <i class="fa fa-angle-right" aria-hidden="true"></i><h1> </a>
       </div>
         <div class="row">
           <div class="infoc">
