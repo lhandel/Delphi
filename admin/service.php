@@ -59,7 +59,7 @@
       </div>
       <div class="row">
         <div class="b_1">
-        <a href="http://localhost/delphi/admin/index.php" class="btn_1"> <h1>Change service</h1></a>
+        <a href="index.php" class="btn_1"> <h1>Change service</h1></a>
         </div>
 
       </div>

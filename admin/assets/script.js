@@ -7,6 +7,7 @@ $(document).ready(function(){
 
     var isopen = false; // boolean for tracking the menu
     var kup = true; // used for fixing bug when you pressdown M
+
     $(document).keydown(function(e) {
 
         // Go to a page with numbers
@@ -41,7 +42,7 @@ $(document).ready(function(){
           closeMenu();
         }else if(!hasBeenTrigged){
           // make a cool animation when you start scrolling
-          $(".menu").css({left:(-8+(diff/3))+'px'});
+          $(".menu").css({left:(-8+(diff/2))+'px'});
         }
     });
 
@@ -68,4 +69,5 @@ $(document).ready(function(){
       $(".menu").animate({left:'-208px'},200);
       hasBeenTrigged = true;
     }
+
 });
