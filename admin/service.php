@@ -52,16 +52,8 @@
         </div>
         <div class="row">
           <div class="b_1">
-          <a href="service.php?s_id=<?php echo $_GET["s_id"];?>&next=true" class="btn_1"> <h1>New customer</h1>
-
-            <?php
-            if(isset($_GET["next"])){
-                $s_id= $_GET["s_id"];
-
-                // $a_id= 2 updating a_id later, assigning a_id to the next person in line
-                $result = user_update_by_service($s_id);
-            } ?>
-
+          <a href="update.php?s_id=<?php echo $_GET["s_id"];?>&next=true" class="btn_1">
+            <h1>New customer</h1>
           </a>
         </div>
       </div>
