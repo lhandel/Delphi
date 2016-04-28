@@ -32,7 +32,7 @@
            <?php if(isset($_GET['wrong'])){ echo "Wrong password or id"; } ?>
 
         <form action="login.php" method="post">
-          Company-id: <input class="logintext" type="text" name="company_id"><br>
+          Company ID: <input class="logintext" type="text" name="company_id"><br>
           Password:   <input class="loginpass" type="password" name="password"><br>
           <input class="logininput" type="submit">
         </form>
