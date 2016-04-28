@@ -51,7 +51,7 @@ function reset_queue($s_id){
 
 function new_service($name){
   $name=$mysqli->real_escape_string($name);
-  get_result("INSERT INTO user(name) VALUES('$name')");
+  get_result("INSERT INTO server(name) VALUES('$name')");
 }
 
 //extract first value/variable in database
