@@ -44,6 +44,11 @@ function user_update_state(){
   get_result("UPDATE user SET state=2 WHERE a_id = $a_id ORDER BY time_in ASC LIMIT 1");
 }
 
+function reset_queue($s_id){
+  $s_id = intval($s_id);
+  get_result("UPDATE user SET state=4 WHERE s_id = $s_id AND (state=0 OR state=1) ORDER BY time_in ASC");
+}
+
 //extract first value/variable in database
 function get_var($query){
 
