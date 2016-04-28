@@ -351,10 +351,9 @@ h3.log_in3 i{
   background-repeat: no-repeat;
   background-position: top;
 }
-.queue_icon{
-
-  background-image: url(queue.jpg);
-  background-size: 76px 50px;
+img .queue{
+  height: 50px;
+  width: 50px;
 
 }
 
