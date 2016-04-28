@@ -3,35 +3,74 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title> Service 1</title>
+    <title>Admin service</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js" charset="utf-8"></script>
+    <script src="assets/script.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Ubuntu:500,700,400|Open+Sans:400,600' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="assets/style.css" media="screen" title="no title" charset="utf-8">
-
   </head>
   <body>
     <div class="container">
-        <div class="row">
-          <div class="buttons">
-            <a href="service.php?s_id=<?php echo $_GET["s_id"];?>&next=true " class="nextbutton"> Next
-              <?php
-              if(isset($_GET["next"])){
-                  $s_id= $_GET["s_id"];
+      <div class="row">
+        <div class="service">
 
-                  // $a_id= 2 updating a_id later, assigning a_id to the next person in line
-                  $result = user_update_by_service($s_id);
-              } ?>
-
-
-            </a>
-            <a href=index.php class="switch"> switch</a>
-          </div>
-
-
-
+      <div class="row">
+        <div class="title">
+          <h1> <?php echo get_service_name($_GET['s_id']); ?> <h1>
         </div>
 
+      </div>
+        <div class="row">
+          <div class="infoc">
+              <div class="est">
+                <div class="icon">
+                  <i class="fa fa-clock-o" aria-hidden="true"></i>
+                </div>
 
-    </div>
+                <h1 class="stat" >22</h1>
+                <h2>est. time</h2>
 
-  </body>
+              </div>
+              <div class="handler">
+                <img class = "icon" src="assets/Admin.svg" alt="" />
+                <h1 class="stat" >
+                  2
+                </h1>
+                <h2>Handlers</h2>
+              </div>
+              <div class="queue">
+                <img class = "icon" src="assets/QueueGrey.svg" alt="" />
+                <h1 class="stat" ><?php echo get_inline($_GET['s_id']); ?></h1>
+                <h2>Queue</h2>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="b_1">
+          <a href="service.php?s_id=<?php echo $_GET["s_id"];?>&next=true" class="btn_1"> <h1>New customer</h1>
+
+            <?php
+            if(isset($_GET["next"])){
+                $s_id= $_GET["s_id"];
+
+                // $a_id= 2 updating a_id later, assigning a_id to the next person in line
+                $result = user_update_by_service($s_id);
+            } ?>
+
+          </a>
+        </div>
+      </div>
+      <div class="row">
+        <div class="b_1">
+        <a href="http://localhost/delphi/admin/index.php" class="btn_1"> <h1>Change service</h1></a>
+        </div>
+
+      </div>
+    </body>
+
 </html>

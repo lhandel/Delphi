@@ -194,6 +194,56 @@ html,body{
 }
 /* .end for the menu */
 
+.title{
+  text-align: center;
+  font-family: 'Open sans', sans-serif;
+  text-transform: uppercase;
+  color: #4e4e4e;
+  font-size: 30px;
+  margin-bottom: 100px;
+  margin-top: 20px;
+
+}
+
+.service{
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+  height: 320px;
+  width: 550px;
+  background-color: #fff;
+  box-shadow: 0px 2px 5px #838383;
+}
+
+.b_1{
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+}
+
+.btn_1{
+  margin-left: auto;
+  margin-right: auto;
+  width: 300px;
+  height: 50px;
+  text-decoration: none;
+  display: block;
+  text-align: center;
+  color: #4e4e4e;
+  font-size: 22px;
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-top: 20px;
+  padding-bottom: 0px;
+  font-family: 'Open sans', sans-serif;
+  background-color: #fff;
+  box-shadow: 0px 2px 5px #838383;
+}
+
+/*End service admin*/
+
+/*Login code*/
+
 
 .login {
   margin-top: 20px;
