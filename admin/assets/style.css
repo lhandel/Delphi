@@ -196,7 +196,7 @@ html,body{
 
 
 .login {
-  margin-top: 50px;
+  margin-top: 20px;
   width:auto;
   height:auto;
   min-height: 100px;
@@ -211,14 +211,37 @@ html,body{
   font-size: 25px;
 }
 
-input[type=text].inputtext {
-    background-color: #3CBC8D;
-    color: white;
+input[type=text].logintext {
+    background-color: white;
+    color: black;
+    margin-right: 28px;
+    border-radius: 3px;
+    text-decoration:none;
+    padding: 6px;
+    font-size: 15px;
 }
 
-input[type=password].inputpass {
-  background-color: #3CBC8D;
+input[type=password].loginpass {
+  background-color: white;
   color:white;
+  border-radius: 3px;
+  border-width: 1px;
+  padding: 6px;
+  font-size:15px;
+}
+
+input[type=submit].logininput{
+  margin-top: 10px;
+  width:150px;
+  height:40px;
+  background-color: #fff;
+  font-family: 'Ubuntu';
+  font-size: 20px;
+  border-radius: 5px;
+}
+
+input[type=submit].logininput:hover {
+  box-shadow: 0px 0px 10px;
 }
 
 
@@ -226,17 +249,20 @@ h1.company {
   padding-top: 10px;
   padding-bottom: 10px;
   text-align: center;
-  font-family: inherit;
+  font-family: 'Ubuntu';
 }
 
-.companybackground{
-  margin-top: 5%;
+.loginimage{
+  width:200px;
+  height: 200px;
+
+
+}
+
+.companyimagebackground{
+  margin-top: 8%;
   margin-left: auto;
   margin-right: auto;
-  padding-top: 100px;
-  padding-bottom: 0px;
-  width:400px;
-  height:140px;
-  background-color: white;
-  box-shadow: 0px 2px 5px #838383;
+  margin-bottom: 0;
+  text-align: center;
 }

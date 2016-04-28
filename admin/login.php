@@ -1,16 +1,18 @@
 <?php
 
 
+
 include '../function.php';
+
 
 
 function Login()
 {
     if(empty($_POST['company_id'])){
-        return false;
+          header("Location: company_login.php?wrong");
     }
     if(empty($_POST['password'])){
-        return false;
+          header("Location: company_login.php?wrong");
     }
 
     $company_id = trim($_POST['company_id']);
@@ -21,7 +23,7 @@ function Login()
         header("Location: company_login.php?wrong");
 
     }else{
-
+          $_SESSION["companysession"] = $company_id;
           header("Location: index.php");
     }
 
@@ -38,6 +40,5 @@ function Login()
     }else{
       return true;
     }
-
 
   }
