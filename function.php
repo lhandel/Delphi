@@ -49,6 +49,11 @@ function reset_queue($s_id){
   get_result("UPDATE user SET state=4 WHERE s_id = $s_id AND (state=0 OR state=1) ORDER BY time_in ASC");
 }
 
+function new_service($name){
+  $name=$mysqli->real_escape_string($name);
+  get_result("INSERT INTO user(name) VALUES('$name')");
+}
+
 //extract first value/variable in database
 function get_var($query){
 
