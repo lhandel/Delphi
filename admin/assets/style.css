@@ -223,7 +223,7 @@ input[type=text].logintext {
 
 input[type=password].loginpass {
   background-color: white;
-  color:white;
+  color:black;
   border-radius: 3px;
   border-width: 1px;
   padding: 6px;
