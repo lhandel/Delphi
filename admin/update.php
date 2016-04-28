@@ -2,11 +2,17 @@
 
 include '../function.php';
 
-if(isset($_GET["next"])){
+  if(isset($_GET["next"]))
+  {
     $s_id= $_GET["s_id"];
-
-    // $a_id= 2 updating a_id later, assigning a_id to the next person in line
     $result = user_update_by_service($s_id);
-
     header("Location: service.php?s_id=".$s_id);
-}
+  }
+
+  if(isset($_GET["skip"]))
+  {
+    $s_id= $_GET["s_id"];
+    user_update_state();
+    user_update_by_service($s_id);
+    header("Location: service.php?s_id=".$s_id);
+  }

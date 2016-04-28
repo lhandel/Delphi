@@ -24,7 +24,7 @@ h2{
 
 .container{
   width: auto;
-  height: 800px;
+  height: auto;
   margin-left: auto;
   margin-right: auto;
 }

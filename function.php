@@ -38,7 +38,10 @@ function user_update_by_service($s_id){
   }
 }
 
-
+function user_update_state(){
+  $a_id = 1;
+  get_result("UPDATE user SET state=2 WHERE a_id = $a_id ORDER BY time_in ASC LIMIT 1");
+}
 
 //extract first value/variable in database
 function get_var($query){

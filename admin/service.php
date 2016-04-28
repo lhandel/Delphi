@@ -14,6 +14,9 @@
     <link rel="stylesheet" href="assets/style.css" media="screen" title="no title" charset="utf-8">
   </head>
   <body>
+    <?php
+    include 'menu.php';
+     ?>
     <div class="container">
       <div class="row">
         <div class="service">
@@ -59,10 +62,14 @@
       </div>
       <div class="row">
         <div class="b_1">
-        <a href="http://localhost/delphi/admin/index.php" class="btn_1"> <h1>Change service</h1></a>
+        <a href="index.php" class="btn_1"> <h1>Change service</h1></a>
         </div>
 
       </div>
+      <div class="row">
+        <div class="b_1">
+        <a href="update.php?s_id=<?php echo $_GET["s_id"];?>&skip=true" class="btn_1"> <h1>Skip customer</h1></a>
+        </div>
     </body>
 
 </html>
