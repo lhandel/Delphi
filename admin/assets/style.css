@@ -31,6 +31,13 @@ h2{
   display: block;
   width: 100%;
 }
+
+.mg{
+  height: 10px;
+  width: auto;
+  display: block;
+}
+
 .loginblock{
   background-color: #ffffff;
   display: block;
@@ -118,10 +125,12 @@ h2{
   width: 450px;
   height: 200px;
   margin: auto;
-  margin-top: 15px;
-  margin-bottom: 15px;
+  margin-top: 10px;
+  margin-bottom: 10px;
   box-shadow: 0px 2px 5px #838383;
+  border-radius: 3px;
 }
+
 .number{
   font-family: 'Ubuntu';
   font-weight: 400;
@@ -165,6 +174,7 @@ h2{
   float:left;
   text-align: center;
   text-decoration: none;
+  border-radius: 3px;
 }
 .button:hover{
   box-shadow: 0px 1px 3px #838383;
@@ -175,6 +185,7 @@ h2{
   line-height: 40px;
   padding-top: 5px;
   padding-bottom: 5px;
+  border-radius: 3px;
 }
 body{
   background-color: #41cd7c;
@@ -315,6 +326,7 @@ html,body{
   width: 100%;
   background-color: #fff;
   box-shadow: 0px 2px 5px #838383;
+  border-radius: 3px;
 }
 .b_1{
   margin-left: auto;
