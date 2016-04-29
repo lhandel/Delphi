@@ -86,7 +86,26 @@ h2{
 
 .fa.fa-angle-right{
   float: right;
+  font-size: 30px;
+  margin-top: -1px;
+  transition-duration: 0.5s;
 }
+.btn.servicebtn:hover .fa.fa-angle-right{
+  margin-right: -5px;
+}
+.btn.servicebtn{
+  font-family: 'Ubuntu';
+  font-weight: 400;
+  text-transform: uppercase;
+  float: left;
+  display: block;
+  font-size: 25px;
+  width: 350px;
+}
+.btn.servicebtn:hover{
+  color: #919191;
+}
+
 
 .btn{
   margin-left: auto;
@@ -107,10 +126,25 @@ h2{
 .s1{
   background-color: #fff;
   width: 450px;
-  height: 220px;
+  height: 200px;
   margin: auto;
-  margin-top: 20px;
+  margin-top: 15px;
+  margin-bottom: 15px;
   box-shadow: 0px 2px 5px #838383;
+}
+.s1 .number{
+  font-family: 'Ubuntu';
+  font-weight: 400;
+  text-transform: uppercase;
+  float: left;
+  display: block;
+  width: 100%;
+  font-size: 27px;
+  margin: 0px;
+  margin-top: -5px;
+  padding: 0px;
+  display: block;
+  text-align: center;
 }
 
 

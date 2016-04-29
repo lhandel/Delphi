@@ -30,7 +30,9 @@
 
       <div class="row">
 
-          <a href=<?php echo "service.php?s_id=".$row['s_id']; ?> class="btn"> <h1> <?php echo $row["name"];?> <i class="fa fa-angle-right" aria-hidden="true"></i><h1> </a>
+          <a href=<?php echo "service.php?s_id=".$row['s_id']; ?> class="btn servicebtn">
+            <?php echo $row["name"];?> <i class="fa fa-angle-right" aria-hidden="true"></i>
+          </a>
       </div>
         <div class="row">
           <div class="infoc">
@@ -39,20 +41,24 @@
                   <i class="fa fa-clock-o" aria-hidden="true"></i>
                 </div>
 
-                <h1 class="stat" >22</h1>
+                <div class="number stat" >
+                    22
+                </div>
                 <h2>est. time</h2>
 
               </div>
               <div class="handler">
                 <img class = "icon" src="assets/Admin.svg" alt="" />
-                <h1 class="stat" >
-                  2
-                </h1>
+                <div class="number stat" >
+                  <?php echo $row["handler"]; ?>
+                </div>
                 <h2>Handlers</h2>
               </div>
               <div class="queue">
                 <img class = "icon" src="assets/QueueGrey.svg" alt="" />
-                <h1 class="stat" ><?php echo $row["q_count"]; ?></h1>
+                <div class="number stat" >
+                  <?php echo $row["queue_count"]; ?>
+                </div>
                 <h2>Queue</h2>
               </div>
             </div>
