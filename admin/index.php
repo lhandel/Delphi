@@ -29,8 +29,8 @@
         <div class="s1">
 
       <div class="row">
-
-          <a href=<?php echo "service.php?s_id=".$row['s_id']; ?> class="btn"> <h1> <?php echo $row["name"];?> <i class="fa fa-angle-right" aria-hidden="true"></i><h1> </a>
+          <!-- insert a_id -->
+          <a href=<?php echo "adminlogin.php?s_id=".$row['s_id']; ?> class="btn"> <h1> <?php echo $row["name"];?> <i class="fa fa-angle-right" aria-hidden="true"></i><h1> </a>
       </div>
         <div class="row">
           <div class="infoc">

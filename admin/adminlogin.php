@@ -1,9 +1,15 @@
 <?php include '../function.php';
+$s_id= $_GET['s_id'];
+if(isset($_POST['adminid'])){
 
-if(isset($_POST['adminname'])){
-
-  // Check in db if admin_id
-
+  $admin_name = trim($_POST['adminid']);
+  // Check in db if adminname exist
+  if (check_admin_id($_POST['adminid'])) {
+    $_SESSION["adminid"] = $a_id;
+    header("Location:service.php?s_id=$s_id");
+  }else {
+    header("Location:adminlogin.php?s_id=$s_id");
+  }
 
 }
 
@@ -27,7 +33,7 @@ if(isset($_POST['adminname'])){
         <h1 class="header"> <img src="assets/Admin.svg" class="icon" />Admin Login</h1>
 
         <form action="" method="post">
-          <input id="adminname" type="text" name="adminname" value="">
+          <input id="adminname" type="text" name="adminid" value="" placeholder="YOUR ID" >
           <input id="login_button" type="submit" name="login_button" value="LOG IN">
         </form>
 

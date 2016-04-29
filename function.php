@@ -16,6 +16,7 @@ function get_service($s_id){
   return $result;
 }
 
+
 //dynamic service title
 function get_service_name($s_id){
     $s_id = intval($s_id);
@@ -38,7 +39,16 @@ function get_services($c_id=1){
   }
 }
 
-// a_id still need configuring, when user state goes from 0-1 a_id should go null-to current a_id
+//check if adminname exists in the database
+function check_admin_id($adminid){
+  $result = get_var("SELECT a_id FROM admin WHERE a_id = $adminid");
+  echo $result;
+  if($result !=0){
+    return true;
+  }else return false;
+}
+
+
 function user_update_by_service($s_id,$a_id){
   $s_id = intval($s_id);
   $a_id = intval($a_id);
