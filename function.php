@@ -121,7 +121,7 @@ function sendSMS ($sms) {
   // Set your 46elks API username and API password here
   // You can find them at https://dashboard.46elks.com/
   $username = 'u92c0d266fed48b8ca18a4d2f795eb1fd';
-  $password = '81669E7493A876DC1AD08452334FDEA4';
+  $password = 'D80F6925A0D8DD4732734486222D884A';
   $context = stream_context_create(array(
     'http' => array(
       'method' => 'POST',
