@@ -32,7 +32,7 @@
               <div class="row">
                 <div class="box_1">
 
-                  <div class="est test">
+                  <div class="est test2">
                     <div class="icon">
                       <i class="fa fa-clock-o" aria-hidden="true"></i>
                     </div>
@@ -40,7 +40,7 @@
                     <h2>est. time</h2>
                   </div>
 
-                  <div class="handler test">
+                  <div class="handler test2">
                     <img class = "icon" src="assets/Admin.svg" alt="" />
 
                     <h1 class="stat" >
