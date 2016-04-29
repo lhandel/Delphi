@@ -6,10 +6,10 @@ include 'function.php';
 function Login()
 {
     if(empty($_POST['company_id'])){
-          header("Location: company_login.php?wrong");
+          header("Location: index.php?wrong");
     }
     if(empty($_POST['password'])){
-          header("Location: company_login.php?wrong");
+          header("Location: index.php?wrong");
     }
 
     $company_id = intval($_POST['company_id']);
@@ -17,11 +17,11 @@ function Login()
     $password = $password;
 
     if(!CheckLoginInDB($company_id,$password)){
-        header("Location: company_login.php?wrong");
+        header("Location: index.php?wrong");
 
     }else{
           $_SESSION["company_id"] = $company_id;
-          header("Location: index.php");
+          header("Location: ia.php");
     }
 
   }
