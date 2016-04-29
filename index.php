@@ -1,7 +1,7 @@
 
 <?php
 session_start();
-if(isset($_SESSION["company_id"])){
+if(isset($_SESSION["c_id"])){
   header("Location: ia.php");
 }
 ?>
@@ -20,7 +20,7 @@ if(isset($_SESSION["company_id"])){
    </div>
       <div class="login">
            <?php if(isset($_GET['wrong'])){ echo "Wrong password or id"; } ?>
-           <form action="ia.php" method="post">
+           <form action="login.php" method="post">
              <p class="logintext">Company ID:</p><input class="loginfield" type="text" name="company_id" value="">
              <p class="logintext">Password:</p><input class="loginfield" type="password" name="password" value="">
              <input class="logininput" type="submit" value="LOG IN">
