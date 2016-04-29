@@ -2,11 +2,17 @@
 if(!isset($_GET['u_id']))
   die('You need a user id!');
  ?>
+
 <!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Number 0704373741</title>
+    <title>User Phone Number:
+      <?php
+      $u_id=intval($_GET['u_id']);
+      echo get_var("SELECT phone_no FROM user WHERE u_id= $u_id ");
+      ?>
+    </title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <link rel="stylesheet" href="assets/style.css" media="screen" title="no title" charset="utf-8">
