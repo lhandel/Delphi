@@ -11,7 +11,7 @@ if(isset($_POST['number'])){
   $s_id = intval($_POST['service_id']); // make sure it's a number
 
   // Get the queue-number
-  $result = get_var("SELECT q_no FROM user WHERE s_id=$s_id ORDER BY u_id DESC LIMIT 1");
+  $result = get_var("SELECT q_no FROM user WHERE s_id=$s_id AND state=0 ORDER BY u_id DESC LIMIT 1");
 
   //sendSMS(makeSMS($_POST['number'],$_POST['in_line']));
 
