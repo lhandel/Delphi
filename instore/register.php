@@ -25,7 +25,7 @@
           <form action="submit.php" method="post">
             <input type="hidden" name="in_line" value=<?php echo $in_line; ?>>
             <input type="hidden" name="service_id" value="<?php echo $_GET['service']; ?>">
-            <input id="number" name="number" type="text" pattern="[0-9]{10}" title="10-digit phone number" placeholder="Enter your mobile number">
+            <input id="number" name="number" type="text" pattern="[0-9]{10}" title="07XXXXXXXX (10 digits)" placeholder="Enter your mobile number">
             <input id="submit_button" type="submit" value="Register">
           </form>
 
