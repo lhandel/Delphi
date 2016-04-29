@@ -415,58 +415,76 @@ html,body{
 }
 /*End service admin*/
 /*New service*/
+.nsinfo{
+  width: 100%;
+  height: 40px;
+  padding-left: 50px;
+  margin-top: 10px;
+}
+
 .formErase{
-  margin-left: auto;
+  margin-left: 50px;
   margin-right: auto;
   margin-top: 15px;
   display: block;
-  height: 50px;
+  height: 30px;
   width: 300px;
-  background-color: blue;
 }
-button.btn.cns{
+button.btn.servicebtn.cns{
   background-color: Transparent;
   background-repeat:no-repeat;
+  margin-top: 20px;
+  padding-top: 10px;
+  padding-right: 50px;
+  padding-left: 50px;
+  width: 450px;
+  text-align: left;
+  cursor:pointer;
   border: none;
   overflow: hidden;
   outline:none;
-  width: 300px;
-  text-decoration: none;
-  display: block;
-  color: #4e4e4e;
-  border: none;
-  font-size: 22px;
-  padding-left: 50px;
-  padding-right: 50px;
-  padding-top: 20px;
-  padding-bottom: 0px;
-  font-family: 'Open sans', sans-serif;
-  text-transform: uppercase;
-  margin-bottom: 20px;
+  color: #58b1e5;
+
 }
+
+button.btn.servicebtn.cns:hover{
+  color: #91d2f9;
+}
+
 input.infoc{
   margin-left: auto;
   margin-right: auto;
   padding-top: 0px;
   padding-bottom: 2px;
   border: none;
-  height: 50px;
+  height: 28px;
   width: 300px;
   border-radius: 2px;
-  border: 2px solid #ececec;
-  margin:0px;
-  background-color: #4e4e4e;
-  color: white;
+  border: 2px solid #58b1e5;
+  margin-top: 0px;
+  background-color: white;
+  color: #4e4e4e;
   font-family: 'Open sans', sans-serif;
-  font-size: 30px;
+  font-size: 20px;
   box-shadow: inset 0px 5px 24px -19px rgba(42,43,37,0.31);
 }
 h1.nh2{
+  padding-top: 10px;
   color: #58b1e5;
+
+  text-align: left;
+  font-family: 'Ubuntu';
+  font-weight: 400;
+  text-transform: uppercase;
+  float: left;
+  display: block;
+  font-size: 25px;
+
 }
 h2.nh2{
   margin-top: 5px;
   text-transform: none;
+  padding: 0px;
   margin-bottom: 0px;
   padding-bottom: 0px;
 }

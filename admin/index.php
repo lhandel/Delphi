@@ -77,7 +77,7 @@
         <div class="s1 ns">
 
           <div class="row">
-            <div class="btn">
+            <div class="nsinfo">
               <h1 class="nh2">
                 New Service
               </h1>
@@ -93,7 +93,7 @@
 
 
           <div class="row">
-            <button type="submit" form="createNS" value="Submit" class="btn cns"> <h1> Create <i class="fa fa-angle-right" aria-hidden="true"></i><h1> </button>
+            <button type="submit" form="createNS" value="Submit" class="btn servicebtn cns">  Create <i class="fa fa-angle-right" aria-hidden="true"></i> </button>
           </div>
 
         </div>
