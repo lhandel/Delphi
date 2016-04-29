@@ -260,6 +260,7 @@ html,body{
   position: fixed;
   left:-208px;
   z-index: 2;
+  top: 0px;
 }
 .menu ul{
   padding: 0;
