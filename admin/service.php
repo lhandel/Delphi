@@ -52,7 +52,7 @@
 
               <div class="box">
                 <div class="icon">
-                  <i class="fa fa-clock-o" aria-hidden="true"></i>
+                  <i class="fa fa-hashtag" aria-hidden="true"></i>
                 </div>
                 <div class="number"><?php echo $service['current']; ?></div>
                 <h2>Current number</h2>
