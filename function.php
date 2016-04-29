@@ -50,8 +50,12 @@ function reset_queue($s_id){
 }
 
 function new_service($name){
+  global $mysqli;
   $name=$mysqli->real_escape_string($name);
-  get_result("INSERT INTO server(name) VALUES('$name')");
+  $c_id = (isset($_SESSION['c_id']))? $_SESSION['c_id'] : 1;
+  $mysqli->query("INSERT INTO service(name,c_id) VALUES('$name',$c_id)");
+  $s_id= $mysqli->insert_id;
+  return $s_id;
 }
 
 //extract first value/variable in database

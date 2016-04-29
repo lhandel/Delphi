@@ -18,3 +18,14 @@ include '../function.php';
     user_update_by_service($s_id,$a_id);
     header("Location: service.php?s_id=".$s_id);
   }
+
+  if (isset($_POST["name"])) {
+    if (strlen($_POST["name"])!= 0) {
+      $s_id=new_service($_POST["name"]);
+      header("Location: service.php?s_id=".$s_id);
+    }
+    else {
+      header("Location: index.php");
+    }
+
+  }
