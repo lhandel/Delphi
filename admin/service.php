@@ -44,7 +44,7 @@
                     <img class = "icon" src="assets/Admin.svg" alt="" />
 
                     <h1 class="stat" >
-                      2
+                      <?php echo $row["handlers"]; ?>
                     </h1>
                     <h2>Handlers</h2>
 
