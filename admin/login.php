@@ -1,17 +1,18 @@
 <?php include '../function.php';
 $s_id= $_GET['s_id'];
-if(isset($_SESSION['adminid'])){
+
+if(isset($_SESSION['a_id'])){
   header("Location:service.php?s_id=$s_id");
 }
-if(isset($_POST['adminid'])){
+if(isset($_POST['a_id'])){
 
-  $admin_name = trim($_POST['adminid']);
+  $a_id = trim($_POST['a_id']);
   // Check in db if adminname exist
-  if (check_admin_id($_POST['adminid'])) {
-    $_SESSION["adminid"] = $a_id;
+  if (check_admin_id($_POST['a_id'])) {
+    $_SESSION["a_id"] = $a_id;
     header("Location:service.php?s_id=$s_id");
   }else {
-    header("Location:adminlogin.php?s_id=$s_id");
+    header("Location:login.php?s_id=$s_id&wrong=true");
   }
 
 }
@@ -34,9 +35,12 @@ if(isset($_POST['adminid'])){
 
       <div class="loginblock">
         <h1 class="header"> <img src="assets/Admin.svg" class="icon" />Admin Login</h1>
-
+        <?php
+          if(isset($_GET['wrong']))
+            echo 'Wrong user id!';
+        ?>
         <form action="" method="post">
-          <input id="adminname" type="text" name="adminid" value="" placeholder="YOUR ID" >
+          <input id="adminname" type="text" name="a_id" value="" placeholder="YOUR ID" >
           <input id="login_button" type="submit" name="login_button" value="LOG IN">
         </form>
 

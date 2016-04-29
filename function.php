@@ -47,7 +47,6 @@ function get_services($c_id=1){
 //check if adminname exists in the database
 function check_admin_id($adminid){
   $result = get_var("SELECT a_id FROM admin WHERE a_id = $adminid");
-  echo $result;
   if($result !=0){
     return true;
   }else return false;

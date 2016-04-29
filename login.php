@@ -14,13 +14,13 @@ function Login()
 
     $company_id = intval($_POST['company_id']);
     $password = trim($_POST['password']);
-    $password = $password;
+    $password = md5($password);
 
     if(!CheckLoginInDB($company_id,$password)){
         header("Location: index.php?wrong");
 
     }else{
-          $_SESSION["company_id"] = $company_id;
+          $_SESSION["c_id"] = $company_id;
           header("Location: ia.php");
     }
 

@@ -1,4 +1,6 @@
 <?php include '../function.php';
+if(!isset($_GET['u_id']))
+  die('You need a user id!');
  ?>
 <!DOCTYPE html>
 <html>

@@ -1,4 +1,4 @@
-<?php include '../function.php'; ?>
+<?php include '../function.php';  ?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -31,7 +31,7 @@
           <div class="row">
 
 
-          <a href=<?php echo "service.php?s_id=".$row['s_id']; ?> class="btn servicebtn">
+          <a href=<?php echo "login.php?s_id=".$row['s_id']; ?> class="btn servicebtn">
             <?php echo $row["name"];?> <i class="fa fa-angle-right" aria-hidden="true"></i>
           </a>
       </div>

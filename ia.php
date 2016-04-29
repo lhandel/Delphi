@@ -20,8 +20,8 @@
         <div class="btn_container">
 
             <ul class="btn_list ">
-                <li><a href="">Admin</a></li>
-                <li><a href="">In Store</a></li>
+                <li><a href="admin/index.php">Admin</a></li>
+                <li><a href="instore/index.php">In Store</a></li>
             </ul>
 
         </div>
