@@ -23,7 +23,7 @@ h2{
 }
 
 .container{
-  width: auto;
+  width: 450px;
   height: auto;
   margin-left: auto;
   margin-right: auto;
@@ -132,7 +132,7 @@ h2{
   margin-bottom: 15px;
   box-shadow: 0px 2px 5px #838383;
 }
-.s1 .number{
+.number{
   font-family: 'Ubuntu';
   font-weight: 400;
   text-transform: uppercase;
@@ -146,8 +146,46 @@ h2{
   display: block;
   text-align: center;
 }
-
-
+.col-2{
+  width: 210px;
+  height: auto;
+  margin-right: 30px;
+  float: left;
+}
+.col-2.last{
+  margin-right: 0;
+}
+.button{
+  font-family: 'Ubuntu';
+  font-weight: 400;
+  text-transform: uppercase;
+  float: left;
+  display: block;
+  width: 100%;
+  font-size: 15px;
+  margin: 0px;
+  border:none;
+  line-height: 40px;
+  margin-top: 20px;
+  color: #4e4e4e;
+  box-shadow: 0px 2px 5px #838383;
+  cursor: pointer;
+  background-color: #fff;
+  padding: 0px;
+  float:left;
+  text-align: center;
+  text-decoration: none;
+}
+.button:hover{
+  box-shadow: 0px 1px 3px #838383;
+  color: #808080;
+}
+.button.large{
+  font-size: 20px;
+  line-height: 40px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
 body{
   background-color: #41cd7c;
 }
@@ -294,7 +332,7 @@ html,body{
   margin-right: auto;
   margin-top: 50px;
   height: 320px;
-  width: 450px;
+  width: 100%;
   background-color: #fff;
   box-shadow: 0px 2px 5px #838383;
 }
@@ -352,6 +390,40 @@ html,body{
   width: 49.5%;
   height: 88px;
 }
+
+/*
+  NEW CSS FOR SERVICE PAGE
+*/
+.box_container{
+  width: 390px;
+  margin: 30px;
+  margin-top: 20px;
+  float: left;
+  color: #4e4e4e;
+  text-align: center;
+}
+.box_container .box{
+  float: left;
+  font-family: 'Open sans', sans-serif;
+  width: 194px;
+  height: 88px;
+  border-right: 1px solid #dddddd;
+  line-height: 35px;
+}
+.box_container .box{
+  padding-top: 20px;
+}
+.box_container .box.first{
+  border-bottom: 1px solid #dddddd;
+  padding-bottom: 20px;
+  padding-top: 0;
+}
+.box_container .box.last{
+  border-right:none;
+  width: 195px;
+}
+
+
 
 .est.new{
   width: 49.5%;

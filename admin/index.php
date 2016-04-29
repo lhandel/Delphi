@@ -42,7 +42,7 @@
                 </div>
 
                 <div class="number stat" >
-                    22
+                    --
                 </div>
                 <h2>est. time</h2>
 
