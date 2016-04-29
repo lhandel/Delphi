@@ -28,7 +28,7 @@ if(isset($_POST['number'])){
 
     // send the user to the next page
     $uid= $mysqli->insert_id;
-    $link = "http://localhost/Delphi/user/user.php?u_id=".(string)$uid;
+    $link = 'http://46.101.97.62/Delphi/user/?u_id='.$uid;
 
     sendSMS(makeSMS($_POST['number'],$_POST['in_line'],$link,$q_no));
     header("Location: done.php?q_no=".$q_no."&phone_nr=".$_POST['number']."&service=".$s_id);
