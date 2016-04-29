@@ -53,7 +53,7 @@ CREATE TABLE `company` (
 --
 
 INSERT INTO `company` (`c_id`, `company_name`, `password`) VALUES
-(1, 'Apoteket', 'test');
+(1, 'Apoteket', '098f6bcd4621d373cade4e832627b4f6');
 
 -- --------------------------------------------------------
 
