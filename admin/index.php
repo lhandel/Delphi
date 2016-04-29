@@ -28,12 +28,14 @@
       <div class="row">
         <div class="s1">
 
-      <div class="row">
+          <div class="row">
+
 
           <a href=<?php echo "service.php?s_id=".$row['s_id']; ?> class="btn servicebtn">
             <?php echo $row["name"];?> <i class="fa fa-angle-right" aria-hidden="true"></i>
           </a>
       </div>
+
         <div class="row">
           <div class="infoc">
               <div class="est">
@@ -64,8 +66,36 @@
             </div>
           </div>
         </div>
+
       </div>
     <?php  }?>
+      <div class="row">
+        <div class="s1 ns">
+
+          <div class="row">
+            <div class="btn">
+              <h1 class="nh2">
+                New Service
+              </h1>
+              <h2 class="nh2"> Fill Out New Service Name</h2>
+            </div>
+          </div class="row">
+
+          <div class="row">
+            <form class="formErase" action="update.php" method="post" id="createNS">
+              <input class="infoc" type="text" name="name" value="">
+            </form>
+          </div class="row">
+
+
+          <div class="row">
+            <button type="submit" form="createNS" value="Submit" class="btn cns"> <h1> Create <i class="fa fa-angle-right" aria-hidden="true"></i><h1> </button>
+          </div>
+
+        </div>
+
+      </div class="row">
+
     </div>
   </body>
 </html>

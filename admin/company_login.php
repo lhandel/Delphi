@@ -1,9 +1,11 @@
 <?php
-  session_start();
+session_start();
 
-  if(isset($_SESSION["companysession"])){
-    header("Location: index.php");
-  }
+
+
+if(isset($_SESSION["company_id"])){
+  header("Location: index.php");
+}
 
  ?>
 
@@ -32,9 +34,9 @@
            <?php if(isset($_GET['wrong'])){ echo "Wrong password or id"; } ?>
 
         <form action="login.php" method="post">
-          Company-id: <input class="logintext" type="text" name="company_id"><br>
-          Password:   <input class="loginpass" type="password" name="password"><br>
-          <input class="logininput" type="submit">
+          <p class="logintext">Company ID:</p><input id = "logininput" type="text" name="name" value="">
+          <p class="logintext">Password:</p><input id = "logininput" type="text" name="name" value="">
+          <input class="logininput" type="submit" value="LOG IN">
         </form>
       </div>
 

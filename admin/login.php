@@ -23,7 +23,7 @@ function Login()
         header("Location: company_login.php?wrong");
 
     }else{
-          $_SESSION["c_id"] = $company_id;
+          $_SESSION["company_id"] = $company_id;
           header("Location: index.php");
     }
 

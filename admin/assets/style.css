@@ -437,6 +437,81 @@ html,body{
 
 /*End service admin*/
 
+/*New service*/
+
+
+
+.formErase{
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 15px;
+  display: block;
+  height: 50px;
+  width: 300px;
+  background-color: blue;
+
+}
+button.btn.cns{
+  background-color: Transparent;
+  background-repeat:no-repeat;
+  border: none;
+  overflow: hidden;
+  outline:none;
+
+
+  width: 300px;
+  text-decoration: none;
+  display: block;
+  color: #4e4e4e;
+  border: none;
+  font-size: 22px;
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-top: 20px;
+  padding-bottom: 0px;
+  font-family: 'Open sans', sans-serif;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+
+}
+
+input.infoc{
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 0px;
+  padding-bottom: 2px;
+  border: none;
+  height: 50px;
+  width: 300px;
+  border-radius: 2px;
+  border: 2px solid #ececec;
+  margin:0px;
+  background-color: #4e4e4e;
+  color: white;
+  font-family: 'Open sans', sans-serif;
+  font-size: 30px;
+
+  box-shadow: inset 0px 5px 24px -19px rgba(42,43,37,0.31);
+}
+
+h1.nh2{
+  color: #58b1e5;
+}
+
+
+
+
+h2.nh2{
+  margin-top: 5px;
+  text-transform: none;
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+}
+
+.s1.ns{
+  margin-bottom: 20px;
+}
+
 /*Login code*/
 
 

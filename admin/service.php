@@ -20,6 +20,7 @@
 ?>
 <div class="container">
 
+
       <div class="row service">
 
           <div class="row">
@@ -39,6 +40,7 @@
                 <div class="number">--</div>
                 <h2>est. time</h2>
               </div>
+
               <div class="box first last">
                 <div class="icon">
                   <img class = "icon" src="assets/Admin.svg" alt="" />
@@ -69,6 +71,8 @@
           </div><!-- .end row -->
       </div><!-- .end row & servicebox -->
 
+
+
       <div class="row">
           <a href="update.php?s_id=<?php echo $_GET["s_id"];?>&next=true" class="button large">Next</a>
       </div>
@@ -83,8 +87,7 @@
       </div>
 
 
-</div>
+    </body>
 
-</body>
 
 </html>

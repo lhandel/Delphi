@@ -16,6 +16,7 @@ function get_service($s_id){
   return $result;
 }
 
+
 //dynamic service title
 function get_service_name($s_id){
     $s_id = intval($s_id);
@@ -31,7 +32,7 @@ function get_inline($s_id){
 function get_services($c_id=1){
   $c_id = intval($c_id);
   if($c_id!=0){
-  $result = get_result("SELECT
+    $result = get_result("SELECT
                               s_id,
                               name,
                               (SELECT COUNT(u_id) FROM user WHERE state=0 AND s_id=service.s_id) as queue_count,
@@ -43,7 +44,16 @@ function get_services($c_id=1){
   }
 }
 
-// a_id still need configuring, when user state goes from 0-1 a_id should go null-to current a_id
+//check if adminname exists in the database
+function check_admin_id($adminid){
+  $result = get_var("SELECT a_id FROM admin WHERE a_id = $adminid");
+  echo $result;
+  if($result !=0){
+    return true;
+  }else return false;
+}
+
+
 function user_update_by_service($s_id,$a_id){
   $s_id = intval($s_id);
   $a_id = intval($a_id);
@@ -67,8 +77,12 @@ function reset_queue($s_id){
 }
 
 function new_service($name){
+  global $mysqli;
   $name=$mysqli->real_escape_string($name);
-  get_result("INSERT INTO server(name) VALUES('$name')");
+  $c_id = (isset($_SESSION['c_id']))? $_SESSION['c_id'] : 1;
+  $mysqli->query("INSERT INTO service(name,c_id) VALUES('$name',$c_id)");
+  $s_id= $mysqli->insert_id;
+  return $s_id;
 }
 
 //Get s_id from db with u_id
