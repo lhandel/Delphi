@@ -1,4 +1,13 @@
-<?php include '../function.php'; ?>
+<?php include '../function.php';
+
+if(isset($_POST['adminname'])){
+
+  // Check in db if admin_id
+
+
+}
+
+?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -17,8 +26,10 @@
       <div class="loginblock">
         <h1 class="header"> <img src="assets/Admin.svg" class="icon" />Admin Login</h1>
 
-        <input id="adminname" type="text" name="adminname" value="">
-        <input id="login_button" type="button" name="login_button" value="LOG IN">
+        <form action="" method="post">
+          <input id="adminname" type="text" name="adminname" value="">
+          <input id="login_button" type="submit" name="login_button" value="LOG IN">
+        </form>
 
       </div>
         <img src="assets/logo.svg" class="logo">
