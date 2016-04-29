@@ -22,39 +22,61 @@
         <div class="service">
 
       <div class="row">
-        <div class="title">
+        <div class="title mg">
           <h1> <?php echo get_service_name($_GET['s_id']); ?> <h1>
         </div>
 
       </div>
-        <div class="row">
-          <div class="infoc">
-              <div class="est">
-                <div class="icon">
-                  <i class="fa fa-clock-o" aria-hidden="true"></i>
+          <div class="row">
+            <div class="infoc">
+              <div class="row">
+                <div class="box_1">
+
+                  <div class="est test">
+                    <div class="icon">
+                      <i class="fa fa-clock-o" aria-hidden="true"></i>
+                    </div>
+                    <h1 class="stat" >22</h1>
+                    <h2>est. time</h2>
+                  </div>
+
+                  <div class="handler test">
+                    <img class = "icon" src="assets/Admin.svg" alt="" />
+
+                    <h1 class="stat" >
+                      2
+                    </h1>
+                    <h2>Handlers</h2>
+
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="box_2">
+
+                  <div class="est new">
+                    <div class="icon">
+                      <i class="fa fa-clock-o" aria-hidden="true"></i>
+                    </div>
+                    <h1 class="stat" >22</h1>
+                    <h2>est. time</h2>
+                  </div>
+
+                  <div class="queue new">
+                    <img class = "icon" src="assets/QueueGrey.svg" alt="" />
+                    <h1 class="stat" ><?php echo get_inline($_GET['s_id']); ?></h1>
+                    <h2>Queue</h2>
+                  </div>
                 </div>
 
-                <h1 class="stat" >22</h1>
-                <h2>est. time</h2>
-
-              </div>
-              <div class="handler">
-                <img class = "icon" src="assets/Admin.svg" alt="" />
-                <h1 class="stat" >
-                  2
-                </h1>
-                <h2>Handlers</h2>
-              </div>
-              <div class="queue">
-                <img class = "icon" src="assets/QueueGrey.svg" alt="" />
-                <h1 class="stat" ><?php echo get_inline($_GET['s_id']); ?></h1>
-                <h2>Queue</h2>
               </div>
             </div>
           </div>
         </div>
-        <div class="row">
-          <div class="b_1">
+
+      <div class="row">
+        <div class="b_1">
           <a href="update.php?s_id=<?php echo $_GET["s_id"];?>&next=true" class="btn_1">
             <h1>New customer</h1>
           </a>
@@ -63,16 +85,16 @@
 
       <div class="row">
         <div class="b_1">
-        <a href="update.php?s_id=<?php echo $_GET["s_id"];?>&skip=true" class="btn_1"> <h1>Skip customer</h1></a>
+          <a href="update.php?s_id=<?php echo $_GET["s_id"];?>&skip=true" class="btn_1"> <h1>Skip customer</h1></a>
         </div>
       </div>
 
       <div class="row">
         <div class="b_1">
-        <a href="index.php" class="btn_1"> <h1>Change service</h1></a>
+          <a href="index.php" class="btn_1"> <h1>Change service</h1></a>
         </div>
       </div>
-      
+
     </body>
 
 </html>
