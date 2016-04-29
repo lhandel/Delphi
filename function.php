@@ -1,8 +1,20 @@
 <?php
-
 session_start();
 //connect to database
-  include 'db.php';
+include 'db.php';
+
+
+function get_service($s_id){
+  $s_id = intval($s_id);
+  $result = get_row("SELECT
+                            s_id,
+                            name,
+                            (SELECT COUNT(DISTINCT a_id) FROM user WHERE state=1 AND s_id=service.s_id) as handler,
+                            (SELECT COUNT(u_id) FROM user WHERE s_id=service.s_id AND state=0) as queue_count,
+                            (SELECT q_no FROM user WHERE s_id=service.s_id AND state=1 ORDER BY u_id LIMIT 1) as current
+                      FROM service WHERE s_id=$s_id LIMIT 1");
+  return $result;
+}
 
 //dynamic service title
 function get_service_name($s_id){
@@ -54,35 +66,28 @@ function new_service($name){
   get_result("INSERT INTO server(name) VALUES('$name')");
 }
 
-//extract first value/variable in database
-function get_var($query){
+//Get s_id from db with u_id
+function get_s_id($u_id){
 
-  $result = get_result($query);
-  if ($result->num_rows == 0)
-  {
-    return false;
-  }
-  else {
-    // Pop the value
-    $service = $result->fetch_assoc();
-    // Get the search colum by split the query
-    $split = explode(' ',$query);
-    // Return the selected colum value
-    return $service[$split[1]];
-  }
-}
-
-//connection to sql return result
-function get_result($query){
-  // Import our global mysqli-varible
-  global $mysqli;
-
-  // Run the query
-  $result = $mysqli->query($query);
-
-  return $result;
+    $u_id = intval($_GET['u_id']);
+    return get_var("SELECT s_id FROM user WHERE u_id=$u_id");
 
 }
+
+//Get inline number with u_id and s_id
+function get_inline_user($u_id){
+  $u_id = intval($u_id);
+  $s_id = intval(get_s_id($u_id));
+  $result = get_result("SELECT u_id FROM user WHERE s_id=$s_id AND state=0 AND u_id < $u_id");
+  return($result->num_rows);
+}
+function get_queue_number($u_id){
+
+    $u_id = intval($_GET['u_id']);
+    return get_var("SELECT q_no FROM user WHERE u_id=$u_id");
+
+}
+
 function sendSMS ($sms) {
   // Set your 46elks API username and API password here
   // You can find them at https://dashboard.46elks.com/

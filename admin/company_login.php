@@ -1,9 +1,11 @@
 <?php
-  session_start();
+session_start();
 
-  if(isset($_SESSION["companysession"])){
-    header("Location: index.php");
-  }
+
+
+if(isset($_SESSION["company_id"])){
+  header("Location: index.php");
+}
 
  ?>
 

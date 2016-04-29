@@ -1,5 +1,5 @@
 <?php
-  include 'function.php';
+  include '../function.php';
   header("Content-type: application/json; charset=ut8");
 
   $data = array(

@@ -1,6 +1,6 @@
 <?php
 //connect to database
-  include 'db.php';
+  include '../db.php';
 
 $u_id = intval($_GET['u_id']);
 
