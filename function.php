@@ -148,6 +148,6 @@ function makeSMS($phone_no,$in_line,$link,$q_no)
 	return array(
 	'from' => 'Queue',
 	'to' => $num,
-	'message' => "Your number is ".(string)$q_no.".\nThere are ".(string)$in_line."people in queue, click on the link: \n".$link."/"
+	'message' => "Your number is ".(string)$q_no.".\nThere are ".(string)$in_line."people in queue, click on the link: \n".$link
 );
 }
