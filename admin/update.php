@@ -1,6 +1,7 @@
 <?php
 
 include '../function.php';
+protect("admin");
 
   if(isset($_GET["next"]))
   {

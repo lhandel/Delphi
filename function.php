@@ -3,7 +3,18 @@ session_start();
 //connect to database
 include 'db.php';
 
+function protect($for="admin"){
 
+  $url = (strpos($_SERVER["REQUEST_URI"],"admin"))? '../': '';
+
+  if($for=="admin"){
+    if(!isset($_SESSION['a_id']))
+      header("Location: index.php");
+  }else{
+    if(!isset($_SESSION['c_id']))
+      header("Location: ".$url."index.php");
+  }
+}
 function get_service($s_id){
   $s_id = intval($s_id);
   $result = get_row("SELECT
