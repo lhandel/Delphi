@@ -16,6 +16,7 @@
   <body>
     <?php
     include 'menu.php';
+    $service = get_service($_GET['s_id']);
      ?>
     <div class="container">
       <div class="row">
@@ -23,7 +24,7 @@
 
       <div class="row">
         <div class="title mg">
-          <h1> <?php echo get_service_name($_GET['s_id']); ?> <h1>
+          <h1> <?php echo $service['name']; ?> <h1>
         </div>
 
       </div>
@@ -44,7 +45,7 @@
                     <img class = "icon" src="assets/Admin.svg" alt="" />
 
                     <h1 class="stat" >
-                      <?php echo $row["handlers"]; ?>
+                      <?php echo $service['handler']; ?>
                     </h1>
                     <h2>Handlers</h2>
 
@@ -59,13 +60,13 @@
                     <div class="icon">
                       <i class="fa fa-clock-o" aria-hidden="true"></i>
                     </div>
-                    <h1 class="stat" >22</h1>
-                    <h2>est. time</h2>
+                    <h1 class="stat" ><?php echo $service['current']; ?></h1>
+                    <h2>Current number</h2>
                   </div>
 
                   <div class="queue new">
                     <img class = "icon" src="assets/QueueGrey.svg" alt="" />
-                    <h1 class="stat" ><?php echo get_inline($_GET['s_id']); ?></h1>
+                    <h1 class="stat" ><?php echo $service['queue_count']; ?></h1>
                     <h2>Queue</h2>
                   </div>
                 </div>
