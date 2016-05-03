@@ -28,3 +28,15 @@ protect("admin");
         header("Location: index.php");
       }
     }
+    if(isset($_GET["reset"]))
+    {
+      $s_id= $_GET["s_id"];
+      reset_queue($s_id);
+      header("Location: service.php?s_id=".$s_id);
+    }
+    if(isset($_GET["remove"]))
+    {
+      $s_id= $_GET["s_id"];
+      remove_service($s_id);
+      header("Location: index.php");
+    }

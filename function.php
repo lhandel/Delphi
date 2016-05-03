@@ -48,7 +48,7 @@ function get_services($c_id=1){
                               name,
                               (SELECT COUNT(u_id) FROM user WHERE state=0 AND s_id=service.s_id) as queue_count,
                               (SELECT COUNT(DISTINCT a_id) FROM user WHERE state=1 AND s_id=service.s_id) as handler
-                        FROM service WHERE c_id=$c_id");
+                        FROM service WHERE c_id=$c_id AND state=0");
     return $result;
   }else{
     return false;
@@ -81,9 +81,22 @@ function user_update_state(){
   get_result("UPDATE user SET state=2 WHERE a_id = $a_id ORDER BY time_in ASC LIMIT 1");
 }
 
+//for admin page
+
 function reset_queue($s_id){
   $s_id = intval($s_id);
   get_result("UPDATE user SET state=4 WHERE s_id = $s_id AND (state=0 OR state=1) ORDER BY time_in ASC");
+}
+
+function hide_service($s_id){
+  get_result("UPDATE service SET state=1 WHERE s_id = $s_id AND (state=0)");
+
+}
+
+function remove_service($s_id){
+  reset_queue($s_id);
+  //hide sercive
+  hide_service($s_id);
 }
 
 function new_service($name){
@@ -94,6 +107,8 @@ function new_service($name){
   $s_id= $mysqli->insert_id;
   return $s_id;
 }
+
+//----
 
 //Get s_id from db with u_id
 function get_s_id($u_id){
