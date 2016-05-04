@@ -1,14 +1,20 @@
 -- phpMyAdmin SQL Dump
--- version 3.5.7
+-- version 4.5.1
 -- http://www.phpmyadmin.net
 --
--- Värd: localhost
--- Skapad: 22 apr 2016 kl 13:24
--- Serverversion: 5.5.29
--- PHP-version: 5.4.10
+-- Värd: 127.0.0.1
+-- Tid vid skapande: 04 maj 2016 kl 14:13
+-- Serverversion: 10.1.10-MariaDB
+-- PHP-version: 5.6.19
 
-SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Databas: `delphi`
@@ -21,12 +27,10 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `admin` (
-  `a_id` int(11) NOT NULL AUTO_INCREMENT,
+  `a_id` int(11) NOT NULL,
   `c_id` int(11) NOT NULL,
-  `admin_name` varchar(40) NOT NULL,
-  PRIMARY KEY (`a_id`),
-  KEY `c_id` (`c_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+  `admin_name` varchar(40) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumpning av Data i tabell `admin`
@@ -42,11 +46,10 @@ INSERT INTO `admin` (`a_id`, `c_id`, `admin_name`) VALUES
 --
 
 CREATE TABLE `company` (
-  `c_id` int(11) NOT NULL AUTO_INCREMENT,
+  `c_id` int(11) NOT NULL,
   `company_name` varchar(50) NOT NULL,
-  `password` varchar(100) NOT NULL,
-  PRIMARY KEY (`c_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+  `password` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumpning av Data i tabell `company`
@@ -62,20 +65,19 @@ INSERT INTO `company` (`c_id`, `company_name`, `password`) VALUES
 --
 
 CREATE TABLE `service` (
-  `s_id` int(11) NOT NULL AUTO_INCREMENT,
+  `s_id` int(11) NOT NULL,
   `name` varchar(30) NOT NULL,
   `c_id` int(11) NOT NULL,
-  PRIMARY KEY (`s_id`),
-  KEY `c_id` (`c_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+  `state` tinyint(2) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumpning av Data i tabell `service`
 --
 
-INSERT INTO `service` (`s_id`, `name`, `c_id`) VALUES
-(1, 'Help', 1),
-(2, 'Recipes', 1);
+INSERT INTO `service` (`s_id`, `name`, `c_id`, `state`) VALUES
+(27, 'Prescriptions', 1, 0),
+(28, 'Help', 1, 0);
 
 -- --------------------------------------------------------
 
@@ -84,32 +86,72 @@ INSERT INTO `service` (`s_id`, `name`, `c_id`) VALUES
 --
 
 CREATE TABLE `user` (
-  `u_id` int(11) NOT NULL AUTO_INCREMENT,
+  `u_id` int(11) NOT NULL,
   `phone_no` varchar(15) NOT NULL,
   `time_in` int(11) NOT NULL,
   `time_out` int(11) NOT NULL,
   `state` tinyint(4) NOT NULL,
   `a_id` int(11) DEFAULT NULL,
   `s_id` int(11) NOT NULL,
-  `q_no` int(11) NOT NULL,
-  PRIMARY KEY (`u_id`),
-  KEY `a_id` (`a_id`),
-  KEY `s_id` (`s_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
+  `q_no` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumpning av Data i tabell `user`
+-- Index för dumpade tabeller
 --
 
-INSERT INTO `user` (`u_id`, `phone_no`, `time_in`, `time_out`, `state`, `a_id`, `s_id`, `q_no`) VALUES
-(1, '0708938414', 1461317962, 0, 0, NULL, 1, 1),
-(2, '324', 1461318239, 0, 0, NULL, 1, 2),
-(3, '32423', 1461318310, 0, 0, NULL, 1, 3),
-(4, '23423', 1461318329, 0, 0, NULL, 1, 4),
-(5, '34234', 1461318625, 0, 0, NULL, 1, 5),
-(6, '0708938414', 1461318828, 0, 0, NULL, 2, 1),
-(7, '324234', 1461323548, 0, 0, NULL, 1, 0);
+--
+-- Index för tabell `admin`
+--
+ALTER TABLE `admin`
+  ADD PRIMARY KEY (`a_id`),
+  ADD KEY `c_id` (`c_id`);
 
+--
+-- Index för tabell `company`
+--
+ALTER TABLE `company`
+  ADD PRIMARY KEY (`c_id`);
+
+--
+-- Index för tabell `service`
+--
+ALTER TABLE `service`
+  ADD PRIMARY KEY (`s_id`),
+  ADD KEY `c_id` (`c_id`);
+
+--
+-- Index för tabell `user`
+--
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`u_id`),
+  ADD KEY `a_id` (`a_id`),
+  ADD KEY `s_id` (`s_id`);
+
+--
+-- AUTO_INCREMENT för dumpade tabeller
+--
+
+--
+-- AUTO_INCREMENT för tabell `admin`
+--
+ALTER TABLE `admin`
+  MODIFY `a_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT för tabell `company`
+--
+ALTER TABLE `company`
+  MODIFY `c_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT för tabell `service`
+--
+ALTER TABLE `service`
+  MODIFY `s_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+--
+-- AUTO_INCREMENT för tabell `user`
+--
+ALTER TABLE `user`
+  MODIFY `u_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 --
 -- Restriktioner för dumpade tabeller
 --
@@ -130,5 +172,9 @@ ALTER TABLE `service`
 -- Restriktioner för tabell `user`
 --
 ALTER TABLE `user`
-  ADD CONSTRAINT `user_ibfk_3` FOREIGN KEY (`a_id`) REFERENCES `admin` (`a_id`),
-  ADD CONSTRAINT `user_ibfk_2` FOREIGN KEY (`s_id`) REFERENCES `service` (`s_id`);
+  ADD CONSTRAINT `user_ibfk_2` FOREIGN KEY (`s_id`) REFERENCES `service` (`s_id`),
+  ADD CONSTRAINT `user_ibfk_3` FOREIGN KEY (`a_id`) REFERENCES `admin` (`a_id`);
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
