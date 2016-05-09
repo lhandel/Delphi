@@ -1,20 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.1
+-- version 3.5.7
 -- http://www.phpmyadmin.net
 --
--- Värd: 127.0.0.1
--- Tid vid skapande: 04 maj 2016 kl 14:13
--- Serverversion: 10.1.10-MariaDB
--- PHP-version: 5.6.19
+-- Värd: localhost
+-- Skapad: 09 maj 2016 kl 10:58
+-- Serverversion: 5.5.29
+-- PHP-version: 5.4.10
 
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
-
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Databas: `delphi`
@@ -27,17 +21,20 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `admin` (
-  `a_id` int(11) NOT NULL,
+  `a_id` int(11) NOT NULL AUTO_INCREMENT,
   `c_id` int(11) NOT NULL,
-  `admin_name` varchar(40) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `admin_name` varchar(40) NOT NULL,
+  PRIMARY KEY (`a_id`),
+  KEY `c_id` (`c_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
 -- Dumpning av Data i tabell `admin`
 --
 
 INSERT INTO `admin` (`a_id`, `c_id`, `admin_name`) VALUES
-(1, 1, 'Ludwig');
+(1, 1, 'Ludwig'),
+(2, 1, 'Kalle');
 
 -- --------------------------------------------------------
 
@@ -46,17 +43,18 @@ INSERT INTO `admin` (`a_id`, `c_id`, `admin_name`) VALUES
 --
 
 CREATE TABLE `company` (
-  `c_id` int(11) NOT NULL,
+  `c_id` int(11) NOT NULL AUTO_INCREMENT,
   `company_name` varchar(50) NOT NULL,
-  `password` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `password` varchar(100) NOT NULL,
+  PRIMARY KEY (`c_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 --
 -- Dumpning av Data i tabell `company`
 --
 
 INSERT INTO `company` (`c_id`, `company_name`, `password`) VALUES
-(1, 'Apoteket', '098f6bcd4621d373cade4e832627b4f6');
+(1, 'apoteket', '098f6bcd4621d373cade4e832627b4f6');
 
 -- --------------------------------------------------------
 
@@ -65,19 +63,26 @@ INSERT INTO `company` (`c_id`, `company_name`, `password`) VALUES
 --
 
 CREATE TABLE `service` (
-  `s_id` int(11) NOT NULL,
+  `s_id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(30) NOT NULL,
   `c_id` int(11) NOT NULL,
-  `state` tinyint(2) NOT NULL DEFAULT '0'
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `state` tinyint(4) NOT NULL,
+  PRIMARY KEY (`s_id`),
+  KEY `c_id` (`c_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
 
 --
 -- Dumpning av Data i tabell `service`
 --
 
 INSERT INTO `service` (`s_id`, `name`, `c_id`, `state`) VALUES
-(27, 'Prescriptions', 1, 0),
-(28, 'Help', 1, 0);
+(1, 'Help', 1, 0),
+(2, 'Recipes', 1, 0),
+(3, 'Test', 1, 1),
+(6, 'Test3', 1, 1),
+(7, 'test4', 1, 1),
+(8, 'm', 1, 1),
+(9, 'EWT', 1, 0);
 
 -- --------------------------------------------------------
 
@@ -86,72 +91,93 @@ INSERT INTO `service` (`s_id`, `name`, `c_id`, `state`) VALUES
 --
 
 CREATE TABLE `user` (
-  `u_id` int(11) NOT NULL,
+  `u_id` int(11) NOT NULL AUTO_INCREMENT,
   `phone_no` varchar(15) NOT NULL,
   `time_in` int(11) NOT NULL,
+  `time_start` int(11) NOT NULL,
   `time_out` int(11) NOT NULL,
   `state` tinyint(4) NOT NULL,
   `a_id` int(11) DEFAULT NULL,
   `s_id` int(11) NOT NULL,
-  `q_no` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `q_no` int(11) NOT NULL,
+  PRIMARY KEY (`u_id`),
+  KEY `a_id` (`a_id`),
+  KEY `s_id` (`s_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=68 ;
 
 --
--- Index för dumpade tabeller
+-- Dumpning av Data i tabell `user`
 --
 
---
--- Index för tabell `admin`
---
-ALTER TABLE `admin`
-  ADD PRIMARY KEY (`a_id`),
-  ADD KEY `c_id` (`c_id`);
+INSERT INTO `user` (`u_id`, `phone_no`, `time_in`, `time_start`, `time_out`, `state`, `a_id`, `s_id`, `q_no`) VALUES
+(1, '0708938414', 1461317962, 0, 0, 3, NULL, 1, 1),
+(2, '324', 1461318239, 0, 0, 3, NULL, 1, 2),
+(3, '32423', 1461318310, 0, 0, 2, NULL, 1, 3),
+(4, '23423', 1461318329, 0, 0, 3, NULL, 1, 4),
+(5, '34234', 1461318625, 0, 0, 2, 1, 1, 5),
+(6, '0708938414', 1461318828, 0, 0, 3, 1, 2, 1),
+(7, '324234', 1461323548, 0, 0, 3, 1, 1, 6),
+(8, '05043534', 1461326983, 0, 0, 3, NULL, 1, 7),
+(9, '234234', 1461327001, 0, 0, 3, 1, 2, 2),
+(10, '4324', 1461327173, 0, 0, 3, 1, 1, 8),
+(11, '0708938414', 1461327188, 0, 0, 3, 1, 2, 3),
+(12, '0708938414', 1461327258, 0, 0, 3, 1, 1, 9),
+(13, '234', 1461329201, 0, 0, 3, 1, 2, 4),
+(14, '234', 1461329242, 0, 0, 3, 1, 2, 5),
+(15, '453', 1461329277, 0, 0, 3, 1, 1, 10),
+(16, '234', 1461329404, 0, 0, 3, 1, 1, 11),
+(17, '112', 1461330043, 0, 0, 3, 1, 1, 12),
+(18, '2324', 1461337541, 0, 0, 3, 1, 1, 13),
+(19, '56', 1461337562, 0, 0, 3, 1, 1, 14),
+(20, '0708938414', 1461337578, 0, 0, 3, 1, 1, 15),
+(21, '019320118', 1461565654, 0, 0, 3, 1, 1, 16),
+(22, '', 1461567683, 0, 0, 3, 1, 1, 17),
+(23, '', 1461567690, 0, 0, 3, 1, 1, 18),
+(24, '', 1461567744, 0, 0, 3, 1, 1, 19),
+(25, '234', 1461567756, 0, 0, 3, 1, 1, 20),
+(26, 'test', 1461567827, 0, 0, 3, 1, 1, 21),
+(27, '', 1461568702, 0, 0, 3, 1, 1, 22),
+(28, '98', 1461568720, 0, 0, 3, 1, 1, 23),
+(29, '5435', 1461568878, 0, 0, 3, 1, 1, 24),
+(30, '3', 1461568916, 0, 0, 3, 1, 2, 6),
+(31, '', 1461568962, 0, 0, 3, 1, 2, 7),
+(32, '34', 1461572168, 0, 0, 3, 1, 1, 25),
+(33, '54', 1461572186, 0, 0, 3, 1, 1, 26),
+(34, '343', 1461572197, 0, 0, 3, 2, 2, 8),
+(35, '123123123', 1461572520, 0, 0, 3, 1, 1, 27),
+(36, '23456', 1461572554, 0, 0, 3, 1, 2, 9),
+(37, '', 1461581696, 0, 0, 3, 1, 1, 28),
+(38, '34', 1461582127, 0, 0, 3, 1, 1, 29),
+(39, '3665566', 1461589573, 0, 0, 3, 1, 1, 30),
+(40, '57577', 1461590301, 0, 0, 3, 1, 2, 10),
+(41, '34', 1461653614, 0, 0, 3, 1, 1, 31),
+(42, '0543', 1461653628, 0, 0, 3, 1, 1, 32),
+(43, '234', 1461653633, 0, 0, 3, 1, 1, 33),
+(44, '43', 1461656588, 0, 0, 3, 1, 1, 34),
+(45, '434', 1461656662, 0, 0, 3, 1, 2, 11),
+(46, '545', 1461656665, 0, 0, 3, 1, 1, 35),
+(47, '34', 1461658698, 0, 0, 3, 1, 3, 1),
+(48, '432', 1461658706, 0, 0, 3, 1, 2, 12),
+(49, '4667', 1461658792, 0, 0, 3, 1, 1, 36),
+(50, '343', 1461659418, 0, 0, 3, 1, 2, 13),
+(51, '343234.23423', 1461659738, 0, 0, 3, 1, 1, 37),
+(52, '0708938414', 1461662295, 0, 0, 3, 1, 1, 38),
+(53, '0708938414', 1461662333, 0, 0, 3, 1, 2, 14),
+(54, '', 1461662381, 0, 0, 3, 1, 1, 39),
+(55, '0762365623', 1461663906, 0, 0, 3, 1, 1, 40),
+(56, '0708938414', 1461743541, 0, 0, 3, 1, 2, 15),
+(57, '432423', 1461914960, 0, 0, 3, 1, 2, 16),
+(58, 'asfd', 1461923594, 0, 0, 3, 1, 3, 2),
+(59, '342', 1461923634, 0, 0, 3, 1, 3, 3),
+(60, '234', 1461932511, 0, 0, 3, 1, 2, 17),
+(61, '234', 1461932514, 0, 0, 3, 1, 2, 18),
+(62, '234', 1461932518, 0, 1462783456, 3, 1, 2, 19),
+(63, '0708938414', 1462777330, 1462777417, 1462777482, 3, 1, 9, 1),
+(64, '0704373741', 1462777342, 1462777482, 1462777532, 3, 1, 9, 2),
+(65, '0729079069', 1462777373, 1462777532, 1462777580, 3, 1, 9, 3),
+(66, '0700926270', 1462777393, 1462777580, 1462777597, 3, 1, 9, 4),
+(67, '432', 1462778079, 0, 0, 0, NULL, 9, 1);
 
---
--- Index för tabell `company`
---
-ALTER TABLE `company`
-  ADD PRIMARY KEY (`c_id`);
-
---
--- Index för tabell `service`
---
-ALTER TABLE `service`
-  ADD PRIMARY KEY (`s_id`),
-  ADD KEY `c_id` (`c_id`);
-
---
--- Index för tabell `user`
---
-ALTER TABLE `user`
-  ADD PRIMARY KEY (`u_id`),
-  ADD KEY `a_id` (`a_id`),
-  ADD KEY `s_id` (`s_id`);
-
---
--- AUTO_INCREMENT för dumpade tabeller
---
-
---
--- AUTO_INCREMENT för tabell `admin`
---
-ALTER TABLE `admin`
-  MODIFY `a_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
---
--- AUTO_INCREMENT för tabell `company`
---
-ALTER TABLE `company`
-  MODIFY `c_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
---
--- AUTO_INCREMENT för tabell `service`
---
-ALTER TABLE `service`
-  MODIFY `s_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
---
--- AUTO_INCREMENT för tabell `user`
---
-ALTER TABLE `user`
-  MODIFY `u_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 --
 -- Restriktioner för dumpade tabeller
 --
@@ -174,7 +200,3 @@ ALTER TABLE `service`
 ALTER TABLE `user`
   ADD CONSTRAINT `user_ibfk_2` FOREIGN KEY (`s_id`) REFERENCES `service` (`s_id`),
   ADD CONSTRAINT `user_ibfk_3` FOREIGN KEY (`a_id`) REFERENCES `admin` (`a_id`);
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
