@@ -48,7 +48,7 @@
                 </div>
 
                 <div class="number stat" >
-                    --
+                    <?php echo ewt($row['s_id']); ?>
                 </div>
                 <h2>est. time</h2>
 

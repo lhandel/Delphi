@@ -37,7 +37,7 @@
                 <div class="icon">
                   <i class="fa fa-clock-o" aria-hidden="true"></i>
                 </div>
-                <div class="number">--</div>
+                <div class="number"><?php echo ewt($service['s_id']); ?></div>
                 <h2>est. time</h2>
               </div>
 

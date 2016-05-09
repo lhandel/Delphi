@@ -40,8 +40,8 @@
             <p class="info">people <br/>in front</p>
           </div>
           <div class="info">
-            <p class="important">23</p>
-            <p class="info">minutes <br/>left</p>
+            <p class="important"><?php $number=ceil(ewt($_GET['service'])); echo $number; ?></p>
+            <p class="info">minute<?php if($number!=1) echo 's'; ?> <br/>left</p>
           </div>
         </div>
 

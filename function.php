@@ -3,6 +3,47 @@ session_start();
 //connect to database
 include 'db.php';
 
+function ewt_for_user($s_id,$u_id){
+  $ewt = get_result("SELECT
+                          (
+                              AVG(time_out-time_start)*
+                              (
+                                (SELECT COUNT(u_id) FROM user WHERE s_id=$s_id AND u_id>$u_id AND (state=0 OR state=1 OR state=2))
+                              )
+                          )
+                          as ewt,
+                          (SELECT COUNT(DISTINCT a_id) FROM user WHERE state=1 AND s_id=$s_id) as handlers
+                           FROM user WHERE s_id=$s_id AND state=3 ORDER BY u_id DESC LIMIT 20");
+  $data = $ewt->fetch_assoc();
+
+  if($data['handlers']==0)
+    return ceil($data['ewt']/60);
+  else
+    return ceil(($data['ewt']/$data['handlers'])/60);
+
+}
+
+function ewt($s_id){
+  $ewt = get_result("SELECT
+                          (
+                              AVG(time_out-time_start)*
+                              (
+                                (SELECT COUNT(u_id) FROM user WHERE s_id=$s_id AND (state=0 OR state=1 OR state=2))
+                              )
+                          )
+                          as ewt,
+                          (SELECT COUNT(DISTINCT a_id) FROM user WHERE state=1 AND s_id=$s_id) as handlers
+                           FROM user WHERE s_id=$s_id AND state=3 LIMIT 10");
+  $data = $ewt->fetch_assoc();
+
+  if($data['handlers']==0)
+    return ceil($data['ewt']/60);
+  else
+    return ceil(($data['ewt']/$data['handlers'])/60);
+
+}
+
+
 function protect($for="admin"){
 
   $url = (strpos($_SERVER["REQUEST_URI"],"admin"))? '../': '';
@@ -68,8 +109,8 @@ function user_update_by_service($s_id,$a_id){
   $s_id = intval($s_id);
   $a_id = intval($a_id);
   if($s_id!=0){
-    get_result("UPDATE user SET state=3 WHERE s_id = $s_id AND state=1 ORDER BY time_in ASC LIMIT 1");
-    get_result("UPDATE user SET state=1,a_id=$a_id WHERE s_id = $s_id AND state=0 ORDER BY time_in ASC LIMIT 1");
+    get_result("UPDATE user SET state=3,time_out=".time()." WHERE s_id = $s_id AND state=1 ORDER BY time_in ASC LIMIT 1");
+    get_result("UPDATE user SET state=1,a_id=$a_id,time_start=".time()." WHERE s_id = $s_id AND state=0 ORDER BY time_in ASC LIMIT 1");
     return true;
   }else{
     return false;
@@ -122,7 +163,7 @@ function get_s_id($u_id){
 function get_inline_user($u_id){
   $u_id = intval($u_id);
   $s_id = intval(get_s_id($u_id));
-  $result = get_result("SELECT u_id FROM user WHERE s_id=$s_id AND state=0 AND u_id < $u_id");
+  $result = get_result("SELECT u_id FROM user WHERE s_id=$s_id AND state=0 OR state=1 AND u_id < $u_id");
   return($result->num_rows);
 }
 function get_queue_number($u_id){
@@ -155,7 +196,7 @@ function sendSMS ($sms) {
 }
 
 
-function makeSMS($phone_no,$in_line,$link,$q_no)
+function makeSMS($phone_no,$in_line,$link,$q_no,$user,$s_id)
 {
   $temp = (string)$phone_no;
   $temp1 = substr($temp,1);
@@ -163,6 +204,6 @@ function makeSMS($phone_no,$in_line,$link,$q_no)
 	return array(
 	'from' => 'Queue',
 	'to' => $num,
-	'message' => "Your number is ".(string)$q_no.".\nThere are ".(string)$in_line."people in queue, click on the link: \n".$link
+	'message' => "Your number is ".(string)$q_no.".\nThere are ".(string)$in_line."people in queue (ewt (".ewt_for_user($s_id,$user).")), click on the link: \n".$link
 );
 }
