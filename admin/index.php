@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="assets/style.css" media="screen" title="no title" charset="utf-8">
 
   </head>
-  <body>
+  <body onload="startLiveUpdate()">
   <?php
   include 'menu.php';
    ?>
@@ -24,7 +24,7 @@
     <div class="container">
 
       <?php
-      $c_id = 1;
+      $c_id = $_SESSION["c_id"];
       $result = get_services($c_id);
       while($row = $result->fetch_assoc()){
 
@@ -47,7 +47,7 @@
                   <i class="fa fa-clock-o" aria-hidden="true"></i>
                 </div>
 
-                <div class="number stat" >
+                <div class="number stat" id="E<?php echo $row['s_id']; ?>">
                     <?php echo ewt($row['s_id']); ?>
                 </div>
                 <h2>est. time</h2>
@@ -55,14 +55,14 @@
               </div>
               <div class="handler">
                 <img class = "icon" src="assets/Admin.svg" alt="" />
-                <div class="number stat" >
+                <div class="number stat" id="H<?php echo $row['s_id']; ?>">
                   <?php echo $row["handler"]; ?>
                 </div>
                 <h2>Handlers</h2>
               </div>
               <div class="queue">
                 <img class = "icon" src="assets/QueueGrey.svg" alt="" />
-                <div class="number stat" >
+                <div class="number stat" id="Q<?php echo $row['s_id']; ?>">
                   <?php echo $row["queue_count"]; ?>
                 </div>
                 <h2>Queue</h2>

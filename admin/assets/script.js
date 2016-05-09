@@ -1,3 +1,5 @@
+
+
 $(document).ready(function(){
 
     var startpost;
@@ -71,3 +73,23 @@ $(document).ready(function(){
     }
 
 });
+
+function startLiveUpdate(){
+  setInterval(liveUpdateList,5000);
+}
+
+function liveUpdateList(){
+  $.ajax({
+    url:    "liveList.php",
+    cache:  false,
+    success:function(result){
+
+      $.each(result, function( index, value ) {
+          $("#Q"+value.s_id).html(value.queue_count);
+          $("#H"+value.s_id).html(value.handler);
+          $("#E"+value.s_id).html(value.ewt);
+      });
+
+    }
+  });
+}

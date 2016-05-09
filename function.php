@@ -27,9 +27,8 @@ function ewt($s_id){
   $ewt = get_result("SELECT
                           (
                               AVG(time_out-time_start)*
-                              (
-                                (SELECT COUNT(u_id) FROM user WHERE s_id=$s_id AND (state=0 OR state=1 OR state=2))
-                              )
+                              (SELECT COUNT(u_id) FROM user WHERE s_id=$s_id AND (state=0 OR state=1 OR state=2))
+
                           )
                           as ewt,
                           (SELECT COUNT(DISTINCT a_id) FROM user WHERE state=1 AND s_id=$s_id) as handlers
