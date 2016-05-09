@@ -26,15 +26,16 @@ if(!isset($_GET['u_id']))
 <!-- get u_id from SMS -->
       <script>
         var u_id = <?php echo $_GET['u_id']; ?>;
+        var s_id = <?php echo get_s_id($_GET['u_id']) ?>;
       </script>
       <div class="row topbox">
         <div class="clock-icon">
         </div>
         <div class="row clock-time">
-          01 : 24
+          <p id="ewt"></p>
         </div>
         <div class="row hours-min">
-          <span>hours</span> <span>min</span>
+          <span>min</span>
         </div>
 
         <div class="row est-time">
