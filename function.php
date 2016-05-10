@@ -80,6 +80,7 @@ function protect($for="admin"){
       header("Location: ".$url."index.php");
   }
 }
+
 function get_service($s_id){
   $s_id = intval($s_id);
   $result = get_row("SELECT

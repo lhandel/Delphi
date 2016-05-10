@@ -1,4 +1,4 @@
-<?php include '../function.php'; ?>
+<?php include '../function.php'; protect("company"); ?>
 <!DOCTYPE html>
 <html>
   <head>
