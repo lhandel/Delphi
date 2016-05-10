@@ -193,7 +193,7 @@ function get_s_id($u_id){
 function get_inline_user($u_id){
   $u_id = intval($u_id);
   $s_id = intval(get_s_id($u_id));
-  $result = get_result("SELECT u_id FROM user WHERE s_id=$s_id AND state=0 OR state=1 AND u_id < $u_id");
+  $result = get_result("SELECT u_id FROM user WHERE s_id=$s_id AND (state=0 OR state=1) AND u_id < $u_id");
   return($result->num_rows);
 }
 function get_queue_number($u_id){
