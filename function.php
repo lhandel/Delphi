@@ -8,12 +8,12 @@ function ewt_for_user($s_id,$u_id){
                           (
                               AVG(time_out-time_start)*
                               (
-                                (SELECT COUNT(u_id) FROM user WHERE s_id=$s_id AND u_id<$u_id AND (state=0 OR state=1 OR state=2))
+                                (SELECT COUNT(u_id) FROM user WHERE s_id=$s_id AND u_id<$u_id AND (state=0 OR state=1))
                               )
                           )
                           as ewt,
                           (SELECT COUNT(DISTINCT a_id) FROM user WHERE state=1 AND s_id=$s_id) as handlers
-                           FROM user WHERE s_id=$s_id AND state=3 ORDER BY u_id DESC LIMIT 20");
+                           FROM user WHERE s_id=$s_id AND state=3 OR state=2 ORDER BY u_id DESC LIMIT 20");
   $data = $ewt->fetch_assoc();
 
   if($data['handlers']==0)
@@ -27,12 +27,12 @@ function ewt($s_id){
   $ewt = get_result("SELECT
                           (
                               AVG(time_out-time_start)*
-                              (SELECT COUNT(u_id) FROM user WHERE s_id=$s_id AND (state=0 OR state=1 OR state=2))
+                              (SELECT COUNT(u_id) FROM user WHERE s_id=$s_id AND (state=0 OR state=1))
 
                           )
                           as ewt,
                           (SELECT COUNT(DISTINCT a_id) FROM user WHERE state=1 AND s_id=$s_id) as handlers
-                           FROM user WHERE s_id=$s_id AND state=3 LIMIT 10");
+                           FROM user WHERE s_id=$s_id AND state=3 OR state=2 LIMIT 10");
   $data = $ewt->fetch_assoc();
 
   if($data['handlers']==0)
@@ -75,7 +75,7 @@ function protect($for="admin"){
   if($for=="admin"){
     if(!isset($_SESSION['a_id']))
       header("Location: index.php");
-  }elseif($for="instore"){
+  }elseif($for=="instore"){
     header("Location: ../index.php");
   }else{
     if(!isset($_SESSION['c_id']))
