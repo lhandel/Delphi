@@ -22,54 +22,34 @@
     <div class="settingscontainer">
 
       <table width="100%" cellpadding="0" cellspacing="0" border="0" class="list link">
-            <thead>
-              <tr>
-                <th>Företag</th>
-                <th>Antal offerter</th>
-                <th></th>
-              </tr>
-            </thead>
             <tbody>
-            <tr>
-              <td>
-                <div class="ttitle">Hotel Express</div>
-                <div class="subtitle">
-                  Kristoffer
-                </div>
-              </td>
-              <td>
-                5st offerter
-              </td>
-              <td class="go">
-                ›
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <div class="ttitle">K3 Nordic</div>
-                <div class="subtitle">
-                  Håkan Svanberg
-                </div>
-              </td>
-              <td>
-                2 offerter
-              </td>
-              <td class="go">
-                ›
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <div class="ttitle">Företagsnam</div>
-                <div class="subtitle">dsa</div>
-              </td>
-              <td>
-                21 maj
-              </td>
-              <td class="go">
-                ›
-              </td>
-            </tr>
+            <?php
+            $c_id = $_SESSION["c_id"];
+            $result = get_services($c_id);
+
+            while($row = $result->fetch_assoc()){
+              ?>
+              <tr>
+                <td class="ttitle tmain">
+                  <?php  echo $row['name']?>
+                </td>
+                <td class="ttitle ticons">
+                  <i class="fa fa-pencil" aria-hidden="true"></i>
+                </td>
+                <td class="ttitle ticons">
+                  <a href="update.php?s_id=<?php echo $row["s_id"];?>&reset=true" class="ta">
+                    <i class="fa fa-recycle" aria-hidden="true"></i>
+                  </a>
+                </td>
+                <td class="ttitle ticons">
+                  <a href="update.php?s_id=<?php echo $row["s_id"];?>&remove=true" class="ta">
+                    <i class="fa fa-trash-o" aria-hidden="true"></i>
+                  </a>
+                </td>
+              </tr>
+              <?php } ?>
+
+
             </tbody>
           </table>
 

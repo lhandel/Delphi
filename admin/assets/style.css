@@ -21,7 +21,7 @@ h2{
   padding: 0;
 }
 .settingscontainer{
-  width: 550px;
+  width: 700px;
   height: auto;
   margin-left: auto;
   margin-right: auto;
@@ -611,18 +611,19 @@ table.list tr td:last-child{
 	border-right: 1px solid #ebebec;
 }
 table.list td{
-	padding-top: 10px;
-	padding-bottom: 10px;
-	padding-left: 10px;
-	font-size: 13px;
-	color: #535353;
-	border-bottom: 1px solid #f3f3f3;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-left: 10px;
+  font-size: 25px;
+  color: #535353;
+  border-bottom: 1px solid #f3f3f3;
 }
 table.list tr:nth-child(even) td{
     background-color: #fafafa;
 }
 table.list td .ttitle{
 	font-size: 14px;
+  font-weight: bolder;
 }
 table.list td .subtitle{
 	font-size: 13px;
@@ -661,4 +662,18 @@ table td.go{
 }
 table tr:hover td.go{
 	padding-right: 18px;
+}
+
+.ticons{
+  text-align: center;
+  width: 20% !important;
+}
+.tmain{
+  width: 40% !important;
+  letter-spacing: 0.2px;
+}
+
+a.ta{
+  color: inherit; /* blue colors for links too */
+  text-decoration: inherit; /* no underline */
 }
