@@ -32,7 +32,7 @@ if(!isset($_GET['u_id']))
         <div class="clock-icon">
         </div>
         <div class="row clock-time">
-          <p id="ewt"></p>
+          <p id="ewt_user"></p>
         </div>
         <div class="row hours-min">
           <span>min</span>

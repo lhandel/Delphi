@@ -21,38 +21,37 @@ $(document).ready(function(){
   }
   setInterval(lookup,1000);
 
-
+  function pad(d) {
+    return (d < 10) ? '0' + d.toString() : d.toString();
+  }
   function countdown(){
 
     var dataString = {
-      s_id : s_id
+      u_id : u_id
     };
 
         $.ajax({
         url: 'ewt.php',
-        type: 'post',
         data:  dataString,
-        success: function(response) {
-
-            if(ewt>0){  // Thanks for the code
-              if(response == temp){
-                ewt--;
-              }
-              else{
-                ewt = response;
-                temp = response;
-              }
-              var display = response;
-              $("#ewt").html(display);
+        success:function(result){
+          if(ewt>0){
+            if(result.content == temp){
+              ewt--;
             }
             else{
-              $("#ewt").html("It's your turn next");
-              blink();
+              ewt = result.content;
+              temp = result.content;
             }
+            var display = pad(Math.floor(ewt/60))+':'+pad(ewt%60);
+            $("#ewt_user").html(display);
           }
+          else{
+            $("#ewt_user").html("it is your time");
+          }
+        }
     });
   }
-  setInterval(countdown,1000);
+  setInterval(countdown,60000);
 
   function blink() {
       $("#ewt").fadeTo(100, 0.1).fadeTo(200, 1.0);
