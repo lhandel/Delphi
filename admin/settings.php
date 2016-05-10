@@ -32,23 +32,35 @@
               <tr>
                 <td class="ttitle tmain">
                   <?php  echo $row['name']?>
+                  <div class="annotation">
+                    Name of service. Click will get you to service
+                  </div>
                 </td>
                 <td class="ttitle ticons">
                   <i class="fa fa-pencil" aria-hidden="true"></i>
+                  <div class="annotation">
+                    Click to edit name of service
+                  </div>
                 </td>
                 <td class="ttitle ticons">
                   <a href="update.php?s_id=<?php echo $row["s_id"];?>&reset=true" class="ta">
                     <i class="fa fa-recycle" aria-hidden="true"></i>
                   </a>
+                  <div class="annotation">
+                    Click to reset queue
+                  </div>
                 </td>
                 <td class="ttitle ticons">
+
                   <a href="update.php?s_id=<?php echo $row["s_id"];?>&remove=true" class="ta">
                     <i class="fa fa-trash-o" aria-hidden="true"></i>
                   </a>
+                  <div class="annotation">
+                    Click to remove service
+                  </div>
                 </td>
               </tr>
               <?php } ?>
-
 
             </tbody>
           </table>

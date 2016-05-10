@@ -641,6 +641,7 @@ table.list tr:nth-child(even) td{
     background-color: #fafafa;
 }
 table.list td .ttitle{
+  position: relative;
 	font-size: 14px;
   font-weight: bolder;
 }
@@ -660,7 +661,7 @@ table.list thead th{
 	border-bottom: 1px solid #ebebec;
 	padding-bottom: 7px;
 }
-table.list tr:hover td{
+table.list td:hover{
 	//background-color: #f8f8f8;
 	//border-bottom: 1px solid #ebebec;
 	//border-top: 1px solid #ebebec;
@@ -695,4 +696,28 @@ table tr:hover td.go{
 a.ta{
   color: inherit; /* blue colors for links too */
   text-decoration: inherit; /* no underline */
+}
+
+.annotation{
+  display: none;
+  margin-top: 15px;
+  position: absolute;
+  padding-left: 20px;
+  padding-right: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-radius: 5px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #e3e499;
+  background-color: #fbfbee;
+  font-size: 10pt;
+  color: #e3c108;
+  text-align: left;
+  padding-left: 8px;
+}
+
+
+.ttitle:hover > .annotation {
+    display: block;
 }
