@@ -42,6 +42,31 @@ function ewt($s_id){
 
 }
 
+function checkSMS($s_id){
+
+  $reminder_time = 1;
+
+    $result = get_result("SELECT phone_no,u_id FROM user  WHERE s_id=$s_id AND r_sms=0 AND state=0 ORDER BY u_id ASC LIMIT 5");
+    while($p_and_u = $result->fetch_assoc()){
+
+      $data_pn=$p_and_u['phone_no'];
+      $u_id=$p_and_u['u_id'];
+
+      $ewt_data = ewt_for_user($s_id,$u_id);
+      $user_in_front = get_result("SELECT u_id FROM user WHERE s_id =$s_id AND u_id <$u_id AND (state = 0)");
+      $numb_users = $user_in_front->num_rows;
+
+      $ongoing=("SELECT AVG(time_out-time_start)*((SELECT COUNT(u_id) FROM user WHERE s_id=$s_id AND u_id<$u_id AND (state=3) ");
+      $diff=$ewt_data-$ongoing;
+
+
+      if ($reminder_time > $diff || $numb_users ==1) {
+        sendSMS(makeReminder($data_pn));
+        get_result("UPDATE user SET r_sms=1 WHERE u_id = $u_id AND s_id=$s_id");
+      }
+    }
+}
+
 
 function protect($for="admin"){
 
@@ -107,6 +132,8 @@ function check_admin_id($adminid){
 function user_update_by_service($s_id,$a_id){
   $s_id = intval($s_id);
   $a_id = intval($a_id);
+  checkSMS($s_id);
+
   if($s_id!=0){
     get_result("UPDATE user SET state=3,time_out=".time()." WHERE s_id = $s_id AND state=1 ORDER BY time_in ASC LIMIT 1");
     get_result("UPDATE user SET state=1,a_id=$a_id,time_start=".time()." WHERE s_id = $s_id AND state=0 ORDER BY time_in ASC LIMIT 1");
@@ -204,5 +231,17 @@ function makeSMS($phone_no,$in_line,$link,$q_no,$user,$s_id)
 	'from' => 'Queue',
 	'to' => $num,
 	'message' => "Your number is ".(string)$q_no.".\nThere are ".(string)$in_line."people in queue (ewt (".ewt_for_user($s_id,$user).")), click on the link: \n".$link
+);
+}
+
+function makeReminder($phone_no)
+{
+  $temp = (string)$phone_no;
+  $temp1 = substr($temp,1);
+  $num = '+46'.$temp1;
+	return array(
+	'from' => 'Queue',
+	'to' => $num,
+	'message' => "It is almost your turn, please return to the store."
 );
 }
