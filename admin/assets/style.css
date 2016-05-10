@@ -513,6 +513,25 @@ h2.nh2{
   border-color: #91867E;
   box-shadow: 0px 0px 5px;
 }
+
+.errorbox {
+  padding-left: 25px;
+  padding-top: 25px;
+  font-family:'Ubuntu';
+  color:#31708f;
+  width:495px;
+  height:45px;
+  background-color:#d9edf7;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+
+
+
+
 .login form {
   font-family: 'Ubuntu';
   font-size: 25px;

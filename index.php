@@ -19,8 +19,15 @@ if(isset($_SESSION["c_id"])){
    <div class="companyimagebackground">
           <img class="loginimage" src="admin/assets/logo.svg" alt="" />
    </div>
+
+
+
+     <?php if(isset($_GET['wrong'])){ echo '<div class="errorbox"><b>⚠ Incorrect!</b>  Password and id does not match. </div>';} ?>
+
+
+
+
       <div class="login">
-           <?php if(isset($_GET['wrong'])){ echo "Wrong password or id"; } ?>
            <form action="login.php" method="post">
              <p class="logintext">Company ID:</p><input class="loginfield" type="text" name="company_id" value="">
              <p class="logintext">Password:</p><input class="loginfield" type="password" name="password" value="">
