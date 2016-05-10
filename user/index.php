@@ -62,7 +62,14 @@ if(!isset($_GET['u_id']))
 
       </div>
       <div class="row">
-        <a href=<?php echo "quit.php?u_id=".$_GET['u_id'] ?> class="btn position-bottom">Leave Queue</a>
+        <a href="javascript:double_check('<?php echo "quit.php?u_id=".$_GET['u_id'] ?>')" class="btn position-bottom" >Leave Queue</a>
+        <script>
+          function double_check(url) {
+              var r = confirm("Are you sure?");
+              if (r==true) {
+                  document.location=url;              }
+              }
+        </script>
       </div>
 
 
