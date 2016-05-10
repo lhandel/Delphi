@@ -11,6 +11,6 @@
   <meta name="format-detection" content="telephone=no">
 </head>
   <body>
-      <h1>You are no longer in queue, congratualtions! ;)</h1>
+      <h1>Thank you for visiting us <br> Enjoy your day</h1>
   </body>
 </html>
