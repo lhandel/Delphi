@@ -13,7 +13,7 @@ function ewt_for_user($s_id,$u_id){
                           )
                           as ewt,
                           (SELECT COUNT(DISTINCT a_id) FROM user WHERE state=1 AND s_id=$s_id) as handlers
-                           FROM user WHERE s_id=$s_id AND state=3 OR state=2 ORDER BY u_id DESC LIMIT 20");
+                           FROM user WHERE s_id=$s_id AND (state=3 OR state=2) AND time_out!=0 ORDER BY u_id DESC LIMIT 20");
   $data = $ewt->fetch_assoc();
 
   if($data['handlers']==0)
@@ -32,7 +32,7 @@ function ewt($s_id){
                           )
                           as ewt,
                           (SELECT COUNT(DISTINCT a_id) FROM user WHERE state=1 AND s_id=$s_id) as handlers
-                           FROM user WHERE s_id=$s_id AND state=3 OR state=2 LIMIT 10");
+                           FROM user WHERE s_id=$s_id AND (state=3 OR state=2)  AND time_out!=0 LIMIT 10");
   $data = $ewt->fetch_assoc();
 
   if($data['handlers']==0)
