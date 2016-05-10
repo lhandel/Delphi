@@ -28,16 +28,16 @@ if(!isset($_GET['u_id']))
         var u_id = <?php echo $_GET['u_id']; ?>;
       </script>
       <div class="row topbox">
-        <div class="clock-icon">
+        <div id="clock_icon" class="clock-icon">
         </div>
         <div class="row clock-time">
           <p id="ewt_user"></p>
         </div>
         <div class="row hours-min">
-          <span>min</span>
+          <span id="display_minute">min</span>
         </div>
 
-        <div class="row est-time">
+        <div id="display_ewt" class="row est-time">
           Estimated waiting time
         </div>
       </div>

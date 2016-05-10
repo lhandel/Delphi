@@ -189,6 +189,13 @@ function get_s_id($u_id){
 
 }
 
+function get_flag($u_id){
+
+    $u_id = intval($_GET['u_id']);
+    return get_var("SELECT r_sms FROM user WHERE u_id=$u_id");
+
+}
+
 //Get inline number with u_id and s_id
 function get_inline_user($u_id){
   $u_id = intval($u_id);

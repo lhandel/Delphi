@@ -37,8 +37,15 @@ $(document).ready(function(){
         cache: false,
         success:function(result){
           var current_time = new Date().getMinutes();
-
-          if(ewt>0){
+//          $("#ewt_user").html(result.flag);
+          if(result.flag ==1){
+            $("#display_minute").hide();
+            $("#display_ewt").hide();
+            $("#clock_icon").hide();
+            $("p").css({"font-weight":"bold", "font-size":"25px"});
+            $("#ewt_user").html("It will soon be your turn </br>please return to the store");
+          }
+          else if(ewt>0){
             if(result.content == temp ){
               if(current_time!=temp_time)
               {
@@ -55,9 +62,7 @@ $(document).ready(function(){
             var display = pad(Math.floor(ewt/60))+':'+pad(ewt%60);
             $("#ewt_user").html(display);
           }
-          else{
-            $("#ewt_user").html("it is your time");
-          }
+
         }
     });
   }

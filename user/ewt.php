@@ -5,12 +5,14 @@
 
   $u_id = intval($_GET['u_id']);
     $time = ewt_for_user(get_s_id($u_id),$u_id);
+    $flag = (string)get_flag($u_id);
   //
 
   //  $display = sprintf("%02d", $ewt/60) .":" . sprintf("%02d", $ewt%60);
     $data = array(
 
       "title"   =>  "ok",
-      "content" =>  $time
+      "content" =>  $time,
+      "flag" => $flag
     );
     echo json_encode($data);
