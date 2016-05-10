@@ -1,18 +1,26 @@
 -- phpMyAdmin SQL Dump
--- version 3.5.7
+-- version 4.5.1
 -- http://www.phpmyadmin.net
 --
--- Värd: localhost
--- Skapad: 09 maj 2016 kl 10:58
--- Serverversion: 5.5.29
--- PHP-version: 5.4.10
+-- Värd: 127.0.0.1
+-- Tid vid skapande: 10 maj 2016 kl 10:32
+-- Serverversion: 10.1.10-MariaDB
+-- PHP-version: 5.6.19
 
-SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Databas: `delphi`
 --
+CREATE DATABASE IF NOT EXISTS `delphi` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `delphi`;
 
 -- --------------------------------------------------------
 
@@ -21,12 +29,10 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `admin` (
-  `a_id` int(11) NOT NULL AUTO_INCREMENT,
+  `a_id` int(11) NOT NULL,
   `c_id` int(11) NOT NULL,
-  `admin_name` varchar(40) NOT NULL,
-  PRIMARY KEY (`a_id`),
-  KEY `c_id` (`c_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+  `admin_name` varchar(40) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumpning av Data i tabell `admin`
@@ -43,11 +49,10 @@ INSERT INTO `admin` (`a_id`, `c_id`, `admin_name`) VALUES
 --
 
 CREATE TABLE `company` (
-  `c_id` int(11) NOT NULL AUTO_INCREMENT,
+  `c_id` int(11) NOT NULL,
   `company_name` varchar(50) NOT NULL,
-  `password` varchar(100) NOT NULL,
-  PRIMARY KEY (`c_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+  `password` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumpning av Data i tabell `company`
@@ -63,13 +68,11 @@ INSERT INTO `company` (`c_id`, `company_name`, `password`) VALUES
 --
 
 CREATE TABLE `service` (
-  `s_id` int(11) NOT NULL AUTO_INCREMENT,
+  `s_id` int(11) NOT NULL,
   `name` varchar(30) NOT NULL,
   `c_id` int(11) NOT NULL,
-  `state` tinyint(4) NOT NULL,
-  PRIMARY KEY (`s_id`),
-  KEY `c_id` (`c_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
+  `state` tinyint(4) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumpning av Data i tabell `service`
@@ -91,7 +94,7 @@ INSERT INTO `service` (`s_id`, `name`, `c_id`, `state`) VALUES
 --
 
 CREATE TABLE `user` (
-  `u_id` int(11) NOT NULL AUTO_INCREMENT,
+  `u_id` int(11) NOT NULL,
   `phone_no` varchar(15) NOT NULL,
   `time_in` int(11) NOT NULL,
   `time_start` int(11) NOT NULL,
@@ -100,84 +103,154 @@ CREATE TABLE `user` (
   `a_id` int(11) DEFAULT NULL,
   `s_id` int(11) NOT NULL,
   `q_no` int(11) NOT NULL,
-  PRIMARY KEY (`u_id`),
-  KEY `a_id` (`a_id`),
-  KEY `s_id` (`s_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=68 ;
+  `r_sms` tinyint(2) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumpning av Data i tabell `user`
 --
 
-INSERT INTO `user` (`u_id`, `phone_no`, `time_in`, `time_start`, `time_out`, `state`, `a_id`, `s_id`, `q_no`) VALUES
-(1, '0708938414', 1461317962, 0, 0, 3, NULL, 1, 1),
-(2, '324', 1461318239, 0, 0, 3, NULL, 1, 2),
-(3, '32423', 1461318310, 0, 0, 2, NULL, 1, 3),
-(4, '23423', 1461318329, 0, 0, 3, NULL, 1, 4),
-(5, '34234', 1461318625, 0, 0, 2, 1, 1, 5),
-(6, '0708938414', 1461318828, 0, 0, 3, 1, 2, 1),
-(7, '324234', 1461323548, 0, 0, 3, 1, 1, 6),
-(8, '05043534', 1461326983, 0, 0, 3, NULL, 1, 7),
-(9, '234234', 1461327001, 0, 0, 3, 1, 2, 2),
-(10, '4324', 1461327173, 0, 0, 3, 1, 1, 8),
-(11, '0708938414', 1461327188, 0, 0, 3, 1, 2, 3),
-(12, '0708938414', 1461327258, 0, 0, 3, 1, 1, 9),
-(13, '234', 1461329201, 0, 0, 3, 1, 2, 4),
-(14, '234', 1461329242, 0, 0, 3, 1, 2, 5),
-(15, '453', 1461329277, 0, 0, 3, 1, 1, 10),
-(16, '234', 1461329404, 0, 0, 3, 1, 1, 11),
-(17, '112', 1461330043, 0, 0, 3, 1, 1, 12),
-(18, '2324', 1461337541, 0, 0, 3, 1, 1, 13),
-(19, '56', 1461337562, 0, 0, 3, 1, 1, 14),
-(20, '0708938414', 1461337578, 0, 0, 3, 1, 1, 15),
-(21, '019320118', 1461565654, 0, 0, 3, 1, 1, 16),
-(22, '', 1461567683, 0, 0, 3, 1, 1, 17),
-(23, '', 1461567690, 0, 0, 3, 1, 1, 18),
-(24, '', 1461567744, 0, 0, 3, 1, 1, 19),
-(25, '234', 1461567756, 0, 0, 3, 1, 1, 20),
-(26, 'test', 1461567827, 0, 0, 3, 1, 1, 21),
-(27, '', 1461568702, 0, 0, 3, 1, 1, 22),
-(28, '98', 1461568720, 0, 0, 3, 1, 1, 23),
-(29, '5435', 1461568878, 0, 0, 3, 1, 1, 24),
-(30, '3', 1461568916, 0, 0, 3, 1, 2, 6),
-(31, '', 1461568962, 0, 0, 3, 1, 2, 7),
-(32, '34', 1461572168, 0, 0, 3, 1, 1, 25),
-(33, '54', 1461572186, 0, 0, 3, 1, 1, 26),
-(34, '343', 1461572197, 0, 0, 3, 2, 2, 8),
-(35, '123123123', 1461572520, 0, 0, 3, 1, 1, 27),
-(36, '23456', 1461572554, 0, 0, 3, 1, 2, 9),
-(37, '', 1461581696, 0, 0, 3, 1, 1, 28),
-(38, '34', 1461582127, 0, 0, 3, 1, 1, 29),
-(39, '3665566', 1461589573, 0, 0, 3, 1, 1, 30),
-(40, '57577', 1461590301, 0, 0, 3, 1, 2, 10),
-(41, '34', 1461653614, 0, 0, 3, 1, 1, 31),
-(42, '0543', 1461653628, 0, 0, 3, 1, 1, 32),
-(43, '234', 1461653633, 0, 0, 3, 1, 1, 33),
-(44, '43', 1461656588, 0, 0, 3, 1, 1, 34),
-(45, '434', 1461656662, 0, 0, 3, 1, 2, 11),
-(46, '545', 1461656665, 0, 0, 3, 1, 1, 35),
-(47, '34', 1461658698, 0, 0, 3, 1, 3, 1),
-(48, '432', 1461658706, 0, 0, 3, 1, 2, 12),
-(49, '4667', 1461658792, 0, 0, 3, 1, 1, 36),
-(50, '343', 1461659418, 0, 0, 3, 1, 2, 13),
-(51, '343234.23423', 1461659738, 0, 0, 3, 1, 1, 37),
-(52, '0708938414', 1461662295, 0, 0, 3, 1, 1, 38),
-(53, '0708938414', 1461662333, 0, 0, 3, 1, 2, 14),
-(54, '', 1461662381, 0, 0, 3, 1, 1, 39),
-(55, '0762365623', 1461663906, 0, 0, 3, 1, 1, 40),
-(56, '0708938414', 1461743541, 0, 0, 3, 1, 2, 15),
-(57, '432423', 1461914960, 0, 0, 3, 1, 2, 16),
-(58, 'asfd', 1461923594, 0, 0, 3, 1, 3, 2),
-(59, '342', 1461923634, 0, 0, 3, 1, 3, 3),
-(60, '234', 1461932511, 0, 0, 3, 1, 2, 17),
-(61, '234', 1461932514, 0, 0, 3, 1, 2, 18),
-(62, '234', 1461932518, 0, 1462783456, 3, 1, 2, 19),
-(63, '0708938414', 1462777330, 1462777417, 1462777482, 3, 1, 9, 1),
-(64, '0704373741', 1462777342, 1462777482, 1462777532, 3, 1, 9, 2),
-(65, '0729079069', 1462777373, 1462777532, 1462777580, 3, 1, 9, 3),
-(66, '0700926270', 1462777393, 1462777580, 1462777597, 3, 1, 9, 4),
-(67, '432', 1462778079, 0, 0, 0, NULL, 9, 1);
+INSERT INTO `user` (`u_id`, `phone_no`, `time_in`, `time_start`, `time_out`, `state`, `a_id`, `s_id`, `q_no`, `r_sms`) VALUES
+(1, '0708938414', 1461317962, 0, 0, 3, NULL, 1, 1, 0),
+(2, '324', 1461318239, 0, 0, 3, NULL, 1, 2, 0),
+(3, '32423', 1461318310, 0, 0, 2, NULL, 1, 3, 0),
+(4, '23423', 1461318329, 0, 0, 3, NULL, 1, 4, 0),
+(5, '34234', 1461318625, 0, 0, 2, 1, 1, 5, 0),
+(6, '0708938414', 1461318828, 0, 0, 3, 1, 2, 1, 0),
+(7, '324234', 1461323548, 0, 0, 3, 1, 1, 6, 0),
+(8, '05043534', 1461326983, 0, 0, 3, NULL, 1, 7, 0),
+(9, '234234', 1461327001, 0, 0, 3, 1, 2, 2, 0),
+(10, '4324', 1461327173, 0, 0, 3, 1, 1, 8, 0),
+(11, '0708938414', 1461327188, 0, 0, 3, 1, 2, 3, 0),
+(12, '0708938414', 1461327258, 0, 0, 3, 1, 1, 9, 0),
+(13, '234', 1461329201, 0, 0, 3, 1, 2, 4, 0),
+(14, '234', 1461329242, 0, 0, 3, 1, 2, 5, 0),
+(15, '453', 1461329277, 0, 0, 3, 1, 1, 10, 0),
+(16, '234', 1461329404, 0, 0, 3, 1, 1, 11, 0),
+(17, '112', 1461330043, 0, 0, 3, 1, 1, 12, 0),
+(18, '2324', 1461337541, 0, 0, 3, 1, 1, 13, 0),
+(19, '56', 1461337562, 0, 0, 3, 1, 1, 14, 0),
+(20, '0708938414', 1461337578, 0, 0, 3, 1, 1, 15, 0),
+(21, '019320118', 1461565654, 0, 0, 3, 1, 1, 16, 0),
+(22, '', 1461567683, 0, 0, 3, 1, 1, 17, 0),
+(23, '', 1461567690, 0, 0, 3, 1, 1, 18, 0),
+(24, '', 1461567744, 0, 0, 3, 1, 1, 19, 0),
+(25, '234', 1461567756, 0, 0, 3, 1, 1, 20, 0),
+(26, 'test', 1461567827, 0, 0, 3, 1, 1, 21, 0),
+(27, '', 1461568702, 0, 0, 3, 1, 1, 22, 0),
+(28, '98', 1461568720, 0, 0, 3, 1, 1, 23, 0),
+(29, '5435', 1461568878, 0, 0, 3, 1, 1, 24, 0),
+(30, '3', 1461568916, 0, 0, 3, 1, 2, 6, 0),
+(31, '', 1461568962, 0, 0, 3, 1, 2, 7, 0),
+(32, '34', 1461572168, 0, 0, 3, 1, 1, 25, 0),
+(33, '54', 1461572186, 0, 0, 3, 1, 1, 26, 0),
+(34, '343', 1461572197, 0, 0, 3, 2, 2, 8, 0),
+(35, '123123123', 1461572520, 0, 0, 3, 1, 1, 27, 0),
+(36, '23456', 1461572554, 0, 0, 3, 1, 2, 9, 0),
+(37, '', 1461581696, 0, 0, 3, 1, 1, 28, 0),
+(38, '34', 1461582127, 0, 0, 3, 1, 1, 29, 0),
+(39, '3665566', 1461589573, 0, 0, 3, 1, 1, 30, 0),
+(40, '57577', 1461590301, 0, 0, 3, 1, 2, 10, 0),
+(41, '34', 1461653614, 0, 0, 3, 1, 1, 31, 0),
+(42, '0543', 1461653628, 0, 0, 3, 1, 1, 32, 0),
+(43, '234', 1461653633, 0, 0, 3, 1, 1, 33, 0),
+(44, '43', 1461656588, 0, 0, 3, 1, 1, 34, 0),
+(45, '434', 1461656662, 0, 0, 3, 1, 2, 11, 0),
+(46, '545', 1461656665, 0, 0, 3, 1, 1, 35, 0),
+(47, '34', 1461658698, 0, 0, 3, 1, 3, 1, 0),
+(48, '432', 1461658706, 0, 0, 3, 1, 2, 12, 0),
+(49, '4667', 1461658792, 0, 0, 3, 1, 1, 36, 0),
+(50, '343', 1461659418, 0, 0, 3, 1, 2, 13, 0),
+(51, '343234.23423', 1461659738, 0, 0, 3, 1, 1, 37, 0),
+(52, '0708938414', 1461662295, 0, 0, 3, 1, 1, 38, 0),
+(53, '0708938414', 1461662333, 0, 0, 3, 1, 2, 14, 0),
+(54, '', 1461662381, 0, 0, 3, 1, 1, 39, 0),
+(55, '0762365623', 1461663906, 0, 0, 3, 1, 1, 40, 0),
+(56, '0708938414', 1461743541, 0, 0, 3, 1, 2, 15, 0),
+(57, '432423', 1461914960, 0, 0, 3, 1, 2, 16, 0),
+(58, 'asfd', 1461923594, 0, 0, 3, 1, 3, 2, 0),
+(59, '342', 1461923634, 0, 0, 3, 1, 3, 3, 0),
+(60, '234', 1461932511, 0, 0, 3, 1, 2, 17, 0),
+(61, '234', 1461932514, 0, 0, 3, 1, 2, 18, 0),
+(62, '234', 1461932518, 0, 1462783456, 3, 1, 2, 19, 0),
+(63, '0708938414', 1462777330, 1462777417, 1462777482, 3, 1, 9, 1, 0),
+(64, '0704373741', 1462777342, 1462777482, 1462777532, 3, 1, 9, 2, 0),
+(65, '0729079069', 1462777373, 1462777532, 1462777580, 3, 1, 9, 3, 0),
+(66, '0700926270', 1462777393, 1462777580, 1462777597, 3, 1, 9, 4, 0),
+(67, '432', 1462778079, 1462801026, 1462801028, 3, 1, 9, 1, 0),
+(68, '0704373741', 1462801129, 1462801224, 1462801241, 3, 1, 9, 1, 0),
+(69, '0703778765', 1462801145, 1462801241, 0, 4, 1, 9, 2, 0),
+(70, '0735434280', 1462801214, 0, 0, 4, NULL, 9, 3, 0),
+(71, '0703778765', 1462804786, 1462804888, 1462804895, 3, 1, 9, 1, 0),
+(72, '0704373741', 1462804800, 1462804895, 0, 4, 1, 9, 2, 0),
+(73, '0735434280', 1462804809, 0, 0, 4, NULL, 9, 3, 1),
+(74, '0735434280', 1462861552, 1462861598, 0, 4, 1, 9, 1, 1),
+(75, '0767011826', 1462861575, 0, 0, 4, NULL, 9, 2, 1),
+(76, '0735434280', 1462862893, 1462862912, 0, 4, 1, 9, 1, 0),
+(77, '0767011826', 1462862903, 0, 0, 4, NULL, 9, 2, 1),
+(78, '0735434280', 1462863152, 1462863187, 1462863199, 3, 1, 9, 1, 0),
+(79, '0703778765', 1462863164, 1462863199, 0, 4, 1, 9, 2, 1),
+(80, '0704373741', 1462863175, 0, 0, 4, NULL, 9, 3, 1),
+(81, '0735434280', 1462863402, 1462863588, 1462863601, 3, 1, 9, 1, 0),
+(82, '0704373741', 1462863416, 1462863601, 0, 1, 1, 9, 2, 1),
+(83, '0703778765', 1462863427, 0, 0, 0, NULL, 9, 3, 1);
 
+--
+-- Index för dumpade tabeller
+--
+
+--
+-- Index för tabell `admin`
+--
+ALTER TABLE `admin`
+  ADD PRIMARY KEY (`a_id`),
+  ADD KEY `c_id` (`c_id`);
+
+--
+-- Index för tabell `company`
+--
+ALTER TABLE `company`
+  ADD PRIMARY KEY (`c_id`);
+
+--
+-- Index för tabell `service`
+--
+ALTER TABLE `service`
+  ADD PRIMARY KEY (`s_id`),
+  ADD KEY `c_id` (`c_id`);
+
+--
+-- Index för tabell `user`
+--
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`u_id`),
+  ADD KEY `a_id` (`a_id`),
+  ADD KEY `s_id` (`s_id`);
+
+--
+-- AUTO_INCREMENT för dumpade tabeller
+--
+
+--
+-- AUTO_INCREMENT för tabell `admin`
+--
+ALTER TABLE `admin`
+  MODIFY `a_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT för tabell `company`
+--
+ALTER TABLE `company`
+  MODIFY `c_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT för tabell `service`
+--
+ALTER TABLE `service`
+  MODIFY `s_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+--
+-- AUTO_INCREMENT för tabell `user`
+--
+ALTER TABLE `user`
+  MODIFY `u_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=84;
 --
 -- Restriktioner för dumpade tabeller
 --
@@ -200,3 +273,458 @@ ALTER TABLE `service`
 ALTER TABLE `user`
   ADD CONSTRAINT `user_ibfk_2` FOREIGN KEY (`s_id`) REFERENCES `service` (`s_id`),
   ADD CONSTRAINT `user_ibfk_3` FOREIGN KEY (`a_id`) REFERENCES `admin` (`a_id`);
+--
+-- Databas: `phpmyadmin`
+--
+CREATE DATABASE IF NOT EXISTS `phpmyadmin` DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;
+USE `phpmyadmin`;
+
+-- --------------------------------------------------------
+
+--
+-- Tabellstruktur `pma__bookmark`
+--
+
+CREATE TABLE `pma__bookmark` (
+  `id` int(11) NOT NULL,
+  `dbase` varchar(255) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `user` varchar(255) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `label` varchar(255) CHARACTER SET utf8 NOT NULL DEFAULT '',
+  `query` text COLLATE utf8_bin NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Bookmarks';
+
+-- --------------------------------------------------------
+
+--
+-- Tabellstruktur `pma__central_columns`
+--
+
+CREATE TABLE `pma__central_columns` (
+  `db_name` varchar(64) COLLATE utf8_bin NOT NULL,
+  `col_name` varchar(64) COLLATE utf8_bin NOT NULL,
+  `col_type` varchar(64) COLLATE utf8_bin NOT NULL,
+  `col_length` text COLLATE utf8_bin,
+  `col_collation` varchar(64) COLLATE utf8_bin NOT NULL,
+  `col_isNull` tinyint(1) NOT NULL,
+  `col_extra` varchar(255) COLLATE utf8_bin DEFAULT '',
+  `col_default` text COLLATE utf8_bin
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Central list of columns';
+
+-- --------------------------------------------------------
+
+--
+-- Tabellstruktur `pma__column_info`
+--
+
+CREATE TABLE `pma__column_info` (
+  `id` int(5) UNSIGNED NOT NULL,
+  `db_name` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `table_name` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `column_name` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `comment` varchar(255) CHARACTER SET utf8 NOT NULL DEFAULT '',
+  `mimetype` varchar(255) CHARACTER SET utf8 NOT NULL DEFAULT '',
+  `transformation` varchar(255) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `transformation_options` varchar(255) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `input_transformation` varchar(255) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `input_transformation_options` varchar(255) COLLATE utf8_bin NOT NULL DEFAULT ''
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Column information for phpMyAdmin';
+
+-- --------------------------------------------------------
+
+--
+-- Tabellstruktur `pma__designer_settings`
+--
+
+CREATE TABLE `pma__designer_settings` (
+  `username` varchar(64) COLLATE utf8_bin NOT NULL,
+  `settings_data` text COLLATE utf8_bin NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Settings related to Designer';
+
+-- --------------------------------------------------------
+
+--
+-- Tabellstruktur `pma__export_templates`
+--
+
+CREATE TABLE `pma__export_templates` (
+  `id` int(5) UNSIGNED NOT NULL,
+  `username` varchar(64) COLLATE utf8_bin NOT NULL,
+  `export_type` varchar(10) COLLATE utf8_bin NOT NULL,
+  `template_name` varchar(64) COLLATE utf8_bin NOT NULL,
+  `template_data` text COLLATE utf8_bin NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Saved export templates';
+
+-- --------------------------------------------------------
+
+--
+-- Tabellstruktur `pma__favorite`
+--
+
+CREATE TABLE `pma__favorite` (
+  `username` varchar(64) COLLATE utf8_bin NOT NULL,
+  `tables` text COLLATE utf8_bin NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Favorite tables';
+
+-- --------------------------------------------------------
+
+--
+-- Tabellstruktur `pma__history`
+--
+
+CREATE TABLE `pma__history` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `username` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `db` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `table` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `timevalue` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `sqlquery` text COLLATE utf8_bin NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='SQL history for phpMyAdmin';
+
+-- --------------------------------------------------------
+
+--
+-- Tabellstruktur `pma__navigationhiding`
+--
+
+CREATE TABLE `pma__navigationhiding` (
+  `username` varchar(64) COLLATE utf8_bin NOT NULL,
+  `item_name` varchar(64) COLLATE utf8_bin NOT NULL,
+  `item_type` varchar(64) COLLATE utf8_bin NOT NULL,
+  `db_name` varchar(64) COLLATE utf8_bin NOT NULL,
+  `table_name` varchar(64) COLLATE utf8_bin NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Hidden items of navigation tree';
+
+-- --------------------------------------------------------
+
+--
+-- Tabellstruktur `pma__pdf_pages`
+--
+
+CREATE TABLE `pma__pdf_pages` (
+  `db_name` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `page_nr` int(10) UNSIGNED NOT NULL,
+  `page_descr` varchar(50) CHARACTER SET utf8 NOT NULL DEFAULT ''
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='PDF relation pages for phpMyAdmin';
+
+-- --------------------------------------------------------
+
+--
+-- Tabellstruktur `pma__recent`
+--
+
+CREATE TABLE `pma__recent` (
+  `username` varchar(64) COLLATE utf8_bin NOT NULL,
+  `tables` text COLLATE utf8_bin NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Recently accessed tables';
+
+--
+-- Dumpning av Data i tabell `pma__recent`
+--
+
+INSERT INTO `pma__recent` (`username`, `tables`) VALUES
+('root', '[{"db":"delphi","table":"user"},{"db":"delphi","table":"service"},{"db":"delphi","table":"admin"},{"db":"delphi","table":"company"}]');
+
+-- --------------------------------------------------------
+
+--
+-- Tabellstruktur `pma__relation`
+--
+
+CREATE TABLE `pma__relation` (
+  `master_db` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `master_table` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `master_field` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `foreign_db` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `foreign_table` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `foreign_field` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT ''
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Relation table';
+
+-- --------------------------------------------------------
+
+--
+-- Tabellstruktur `pma__savedsearches`
+--
+
+CREATE TABLE `pma__savedsearches` (
+  `id` int(5) UNSIGNED NOT NULL,
+  `username` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `db_name` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `search_name` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `search_data` text COLLATE utf8_bin NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Saved searches';
+
+-- --------------------------------------------------------
+
+--
+-- Tabellstruktur `pma__table_coords`
+--
+
+CREATE TABLE `pma__table_coords` (
+  `db_name` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `table_name` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `pdf_page_number` int(11) NOT NULL DEFAULT '0',
+  `x` float UNSIGNED NOT NULL DEFAULT '0',
+  `y` float UNSIGNED NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Table coordinates for phpMyAdmin PDF output';
+
+-- --------------------------------------------------------
+
+--
+-- Tabellstruktur `pma__table_info`
+--
+
+CREATE TABLE `pma__table_info` (
+  `db_name` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `table_name` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `display_field` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT ''
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Table information for phpMyAdmin';
+
+-- --------------------------------------------------------
+
+--
+-- Tabellstruktur `pma__table_uiprefs`
+--
+
+CREATE TABLE `pma__table_uiprefs` (
+  `username` varchar(64) COLLATE utf8_bin NOT NULL,
+  `db_name` varchar(64) COLLATE utf8_bin NOT NULL,
+  `table_name` varchar(64) COLLATE utf8_bin NOT NULL,
+  `prefs` text COLLATE utf8_bin NOT NULL,
+  `last_update` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Tables'' UI preferences';
+
+--
+-- Dumpning av Data i tabell `pma__table_uiprefs`
+--
+
+INSERT INTO `pma__table_uiprefs` (`username`, `db_name`, `table_name`, `prefs`, `last_update`) VALUES
+('root', 'delphi', 'service', '{"sorted_col":"`service`.`state` ASC"}', '2016-05-09 13:23:15'),
+('root', 'delphi', 'user', '[]', '2016-05-09 14:40:49');
+
+-- --------------------------------------------------------
+
+--
+-- Tabellstruktur `pma__tracking`
+--
+
+CREATE TABLE `pma__tracking` (
+  `db_name` varchar(64) COLLATE utf8_bin NOT NULL,
+  `table_name` varchar(64) COLLATE utf8_bin NOT NULL,
+  `version` int(10) UNSIGNED NOT NULL,
+  `date_created` datetime NOT NULL,
+  `date_updated` datetime NOT NULL,
+  `schema_snapshot` text COLLATE utf8_bin NOT NULL,
+  `schema_sql` text COLLATE utf8_bin,
+  `data_sql` longtext COLLATE utf8_bin,
+  `tracking` set('UPDATE','REPLACE','INSERT','DELETE','TRUNCATE','CREATE DATABASE','ALTER DATABASE','DROP DATABASE','CREATE TABLE','ALTER TABLE','RENAME TABLE','DROP TABLE','CREATE INDEX','DROP INDEX','CREATE VIEW','ALTER VIEW','DROP VIEW') COLLATE utf8_bin DEFAULT NULL,
+  `tracking_active` int(1) UNSIGNED NOT NULL DEFAULT '1'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Database changes tracking for phpMyAdmin';
+
+-- --------------------------------------------------------
+
+--
+-- Tabellstruktur `pma__userconfig`
+--
+
+CREATE TABLE `pma__userconfig` (
+  `username` varchar(64) COLLATE utf8_bin NOT NULL,
+  `timevalue` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `config_data` text COLLATE utf8_bin NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='User preferences storage for phpMyAdmin';
+
+--
+-- Dumpning av Data i tabell `pma__userconfig`
+--
+
+INSERT INTO `pma__userconfig` (`username`, `timevalue`, `config_data`) VALUES
+('root', '2016-04-19 11:38:48', '{"lang":"sv","collation_connection":"utf8mb4_unicode_ci"}');
+
+-- --------------------------------------------------------
+
+--
+-- Tabellstruktur `pma__usergroups`
+--
+
+CREATE TABLE `pma__usergroups` (
+  `usergroup` varchar(64) COLLATE utf8_bin NOT NULL,
+  `tab` varchar(64) COLLATE utf8_bin NOT NULL,
+  `allowed` enum('Y','N') COLLATE utf8_bin NOT NULL DEFAULT 'N'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='User groups with configured menu items';
+
+-- --------------------------------------------------------
+
+--
+-- Tabellstruktur `pma__users`
+--
+
+CREATE TABLE `pma__users` (
+  `username` varchar(64) COLLATE utf8_bin NOT NULL,
+  `usergroup` varchar(64) COLLATE utf8_bin NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Users and their assignments to user groups';
+
+--
+-- Index för dumpade tabeller
+--
+
+--
+-- Index för tabell `pma__bookmark`
+--
+ALTER TABLE `pma__bookmark`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index för tabell `pma__central_columns`
+--
+ALTER TABLE `pma__central_columns`
+  ADD PRIMARY KEY (`db_name`,`col_name`);
+
+--
+-- Index för tabell `pma__column_info`
+--
+ALTER TABLE `pma__column_info`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `db_name` (`db_name`,`table_name`,`column_name`);
+
+--
+-- Index för tabell `pma__designer_settings`
+--
+ALTER TABLE `pma__designer_settings`
+  ADD PRIMARY KEY (`username`);
+
+--
+-- Index för tabell `pma__export_templates`
+--
+ALTER TABLE `pma__export_templates`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `u_user_type_template` (`username`,`export_type`,`template_name`);
+
+--
+-- Index för tabell `pma__favorite`
+--
+ALTER TABLE `pma__favorite`
+  ADD PRIMARY KEY (`username`);
+
+--
+-- Index för tabell `pma__history`
+--
+ALTER TABLE `pma__history`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `username` (`username`,`db`,`table`,`timevalue`);
+
+--
+-- Index för tabell `pma__navigationhiding`
+--
+ALTER TABLE `pma__navigationhiding`
+  ADD PRIMARY KEY (`username`,`item_name`,`item_type`,`db_name`,`table_name`);
+
+--
+-- Index för tabell `pma__pdf_pages`
+--
+ALTER TABLE `pma__pdf_pages`
+  ADD PRIMARY KEY (`page_nr`),
+  ADD KEY `db_name` (`db_name`);
+
+--
+-- Index för tabell `pma__recent`
+--
+ALTER TABLE `pma__recent`
+  ADD PRIMARY KEY (`username`);
+
+--
+-- Index för tabell `pma__relation`
+--
+ALTER TABLE `pma__relation`
+  ADD PRIMARY KEY (`master_db`,`master_table`,`master_field`),
+  ADD KEY `foreign_field` (`foreign_db`,`foreign_table`);
+
+--
+-- Index för tabell `pma__savedsearches`
+--
+ALTER TABLE `pma__savedsearches`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `u_savedsearches_username_dbname` (`username`,`db_name`,`search_name`);
+
+--
+-- Index för tabell `pma__table_coords`
+--
+ALTER TABLE `pma__table_coords`
+  ADD PRIMARY KEY (`db_name`,`table_name`,`pdf_page_number`);
+
+--
+-- Index för tabell `pma__table_info`
+--
+ALTER TABLE `pma__table_info`
+  ADD PRIMARY KEY (`db_name`,`table_name`);
+
+--
+-- Index för tabell `pma__table_uiprefs`
+--
+ALTER TABLE `pma__table_uiprefs`
+  ADD PRIMARY KEY (`username`,`db_name`,`table_name`);
+
+--
+-- Index för tabell `pma__tracking`
+--
+ALTER TABLE `pma__tracking`
+  ADD PRIMARY KEY (`db_name`,`table_name`,`version`);
+
+--
+-- Index för tabell `pma__userconfig`
+--
+ALTER TABLE `pma__userconfig`
+  ADD PRIMARY KEY (`username`);
+
+--
+-- Index för tabell `pma__usergroups`
+--
+ALTER TABLE `pma__usergroups`
+  ADD PRIMARY KEY (`usergroup`,`tab`,`allowed`);
+
+--
+-- Index för tabell `pma__users`
+--
+ALTER TABLE `pma__users`
+  ADD PRIMARY KEY (`username`,`usergroup`);
+
+--
+-- AUTO_INCREMENT för dumpade tabeller
+--
+
+--
+-- AUTO_INCREMENT för tabell `pma__bookmark`
+--
+ALTER TABLE `pma__bookmark`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT för tabell `pma__column_info`
+--
+ALTER TABLE `pma__column_info`
+  MODIFY `id` int(5) UNSIGNED NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT för tabell `pma__export_templates`
+--
+ALTER TABLE `pma__export_templates`
+  MODIFY `id` int(5) UNSIGNED NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT för tabell `pma__history`
+--
+ALTER TABLE `pma__history`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT för tabell `pma__pdf_pages`
+--
+ALTER TABLE `pma__pdf_pages`
+  MODIFY `page_nr` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT för tabell `pma__savedsearches`
+--
+ALTER TABLE `pma__savedsearches`
+  MODIFY `id` int(5) UNSIGNED NOT NULL AUTO_INCREMENT;--
+-- Databas: `test`
+--
+CREATE DATABASE IF NOT EXISTS `test` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `test`;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
