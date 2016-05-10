@@ -60,7 +60,7 @@ function checkSMS($s_id){
       $diff=$ewt_data-$ongoing;
 
 
-      if ($reminder_time > $diff || $numb_users ==1) {
+      if (($reminder_time > $diff && $ewt_data!=0) || $numb_users ==1) {
         sendSMS(makeReminder($data_pn));
         get_result("UPDATE user SET r_sms=1 WHERE u_id = $u_id AND s_id=$s_id");
       }
