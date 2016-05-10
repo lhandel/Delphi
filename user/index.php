@@ -26,7 +26,6 @@ if(!isset($_GET['u_id']))
 <!-- get u_id from SMS -->
       <script>
         var u_id = <?php echo $_GET['u_id']; ?>;
-        var s_id = <?php echo get_s_id($_GET['u_id']) ?>;
       </script>
       <div class="row topbox">
         <div class="clock-icon">

@@ -8,7 +8,7 @@ function ewt_for_user($s_id,$u_id){
                           (
                               AVG(time_out-time_start)*
                               (
-                                (SELECT COUNT(u_id) FROM user WHERE s_id=$s_id AND u_id>$u_id AND (state=0 OR state=1 OR state=2))
+                                (SELECT COUNT(u_id) FROM user WHERE s_id=$s_id AND u_id<$u_id AND (state=0 OR state=1 OR state=2))
                               )
                           )
                           as ewt,

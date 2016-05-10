@@ -1,5 +1,6 @@
 var temp = 0;
-var ewt = 10;
+var ewt = 1;
+var temp_time= new Date().getMinutes();
 $(document).ready(function(){
   lookup();
   countdown();
@@ -33,14 +34,23 @@ $(document).ready(function(){
         $.ajax({
         url: 'ewt.php',
         data:  dataString,
+        cache: false,
         success:function(result){
+          var current_time = new Date().getMinutes();
+
           if(ewt>0){
-            if(result.content == temp){
-              ewt--;
+            if(result.content == temp ){
+              if(current_time!=temp_time)
+              {
+                ewt = ewt-(current_time - temp_time);
+                temp_time = current_time;
+              }
+            //  $("#ewt_user").html(current_time+" "+ temp_time);
             }
             else{
               ewt = result.content;
               temp = result.content;
+            //  $("#ewt_user").html("second");
             }
             var display = pad(Math.floor(ewt/60))+':'+pad(ewt%60);
             $("#ewt_user").html(display);
@@ -51,7 +61,7 @@ $(document).ready(function(){
         }
     });
   }
-  setInterval(countdown,60000);
+  setInterval(countdown,1000);
 
   function blink() {
       $("#ewt").fadeTo(100, 0.1).fadeTo(200, 1.0);

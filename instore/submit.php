@@ -30,7 +30,7 @@ if(isset($_POST['number'])){
     $uid= $mysqli->insert_id;
     $link = 'http://46.101.97.62/user/?u_id='.$uid;
 
-    sendSMS(makeSMS($_POST['number'],$_POST['in_line'],$link,$q_no,$uid,$s_id));
+    //sendSMS(makeSMS($_POST['number'],$_POST['in_line'],$link,$q_no,$uid,$s_id));
     header("Location: done.php?q_no=".$q_no."&phone_nr=".$_POST['number']."&service=".$s_id);
 
   }
