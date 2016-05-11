@@ -8,7 +8,7 @@
     <li><a href="statistic.php" id="item2"><i class="fa fa-bar-chart" aria-hidden="true"></i> Statistic</a></li>
     <li><a href="settings.php" id="item3"><i class="fa fa-wrench" aria-hidden="true"></i> Settings</a></li>
   </ul>
-<<<<<<< HEAD
+
   <ul>
     <li>
       <a href="logout.php"<?php
@@ -20,7 +20,4 @@
       > Logout?</a>
     </li>
   </ul>
-=======
-
->>>>>>> master
 </div>
