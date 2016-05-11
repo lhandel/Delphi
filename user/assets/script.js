@@ -8,7 +8,7 @@ $(document).ready(function(){
   function lookup(){
 
     var dataString = {
-      u_id : u_id
+      public_id : public_id
     };
 
     $.ajax({
@@ -28,7 +28,7 @@ $(document).ready(function(){
   function countdown(){
 
     var dataString = {
-      u_id : u_id
+      public_id : public_id
     };
 
         $.ajax({

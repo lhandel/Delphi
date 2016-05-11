@@ -1,11 +1,19 @@
 <?php include '../function.php';
-if(!isset($_GET['u_id']))
-  {die('You need a user id!');}
-// here we check if user are still in queue, if not, link experies
-$check_u_id = intval($_GET['u_id']);
-$user_state =get_var("SELECT state FROM user WHERE u_id = $check_u_id");
-if ($user_state > 1) {
-  die('Your link has expired.');
+
+
+if(!isset($_GET['u'])){
+  die('You need a user id!');
+}else{
+
+  $pid = $mysqli->real_escape_string($_GET['u']);
+  $u_id = get_var("SELECT u_id FROM user WHERE public_id='$pid'");
+  if($u_id==false)
+    die('You need a valid user id!');
+
+  $user_state =get_var("SELECT state FROM user WHERE u_id = $u_id");
+  if ($user_state > 1) {
+    die('Your link has expired.');
+  }
 }
 
  ?>
@@ -16,7 +24,6 @@ if ($user_state > 1) {
     <meta charset="utf-8">
     <title>User Phone Number:
       <?php
-      $u_id=intval($_GET['u_id']);
       echo get_var("SELECT phone_no FROM user WHERE u_id= $u_id ");
       ?>
     </title>
@@ -32,7 +39,7 @@ if ($user_state > 1) {
     <div class="container">
 <!-- get u_id from SMS -->
       <script>
-        var u_id = <?php echo $_GET['u_id']; ?>;
+        var public_id = '<?php echo $_GET['u']; ?>';
       </script>
       <div class="row topbox">
         <div id="clock_icon" class="clock-icon">
@@ -53,7 +60,7 @@ if ($user_state > 1) {
       <div class="row middlebox">
         <div class=" row q-no">
           <div class="ticket-icon"></div>
-          <h2> <?php echo get_queue_number($_GET['u_id']); ?></h2>
+          <h2> <?php echo get_queue_number($u_id); ?></h2>
           <div class="text">
             Your Queue</br> Number
           </div>
@@ -69,7 +76,7 @@ if ($user_state > 1) {
 
       </div>
       <div class="row">
-        <a href="javascript:double_check('<?php echo "quit.php?u_id=".$_GET['u_id'] ?>')" class="btn position-bottom" >Leave Queue</a>
+        <a href="javascript:double_check('<?php echo "quit.php?u_id=".$u_id; ?>')" class="btn position-bottom" >Leave Queue</a>
         <script>
           function double_check(url) {
               var r = confirm("Are you sure?");

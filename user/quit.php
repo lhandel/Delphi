@@ -2,19 +2,21 @@
 //connect to database
   include '../db.php';
 
-$u_id = intval($_GET['u_id']);
+$pid = $mysqli->real_escape_string($_GET['u']);
 
 // Check the service id
-if($u_id!=0){
+if(isset($_GET['u'])){
     // Putting updated information to varaible sql
-    $sql = "UPDATE user SET state='2' WHERE u_id=$u_id";
+    $sql = "UPDATE user SET state='2' WHERE public_id=$pid";
+
+    // run the query and update mysql database
+    if ($mysqli->query($sql) === TRUE) {
+                header("Location: success.php");
+    } else {
+          echo "Error updating record: " . $mysqli->error;
+    }
 
 }
-// run the query and update mysql database
-if ($mysqli->query($sql) === TRUE) {
-            header("Location: success.php");
-} else {
-      echo "Error updating record: " . $mysqli->error;
-}
+
 
 $mysqli->close();

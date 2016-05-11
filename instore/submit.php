@@ -23,12 +23,15 @@ if(isset($_POST['number'])){
   }
   // Check the service id
   if($s_id!=0){
+
+    $public_id = generateRandomString(5);
+
     // Run the query and insert into db
-    $mysqli->query("INSERT INTO user(phone_no,time_in,s_id,q_no) VALUES('$number',$time_in,$s_id,$q_no)");
+    $mysqli->query("INSERT INTO user(public_id,phone_no,time_in,s_id,q_no) VALUES('$public_id','$number',$time_in,$s_id,$q_no)");
 
     // send the user to the next page
     $uid= $mysqli->insert_id;
-    $link = 'http://46.101.97.62/user/?u_id='.$uid;
+    $link = 'http://46.101.97.62/user/?u_id='.$public_id;
 
     sendSMS(makeSMS($_POST['number'],$_POST['in_line'],$link,$q_no,$uid,$s_id));
     header("Location: done.php?q_no=".$q_no."&phone_nr=".$_POST['number']."&service=".$s_id);

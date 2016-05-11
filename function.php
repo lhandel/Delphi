@@ -3,6 +3,9 @@ session_start();
 //connect to database
 include 'db.php';
 
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
 function ewt_for_user($s_id,$u_id){
   $ewt = get_result("SELECT
                           (
@@ -184,14 +187,13 @@ function new_service($name){
 //Get s_id from db with u_id
 function get_s_id($u_id){
 
-    $u_id = intval($_GET['u_id']);
     return get_var("SELECT s_id FROM user WHERE u_id=$u_id");
 
 }
 
 function get_flag($u_id){
 
-    $u_id = intval($_GET['u_id']);
+
     return get_var("SELECT r_sms FROM user WHERE u_id=$u_id");
 
 }
@@ -205,7 +207,6 @@ function get_inline_user($u_id){
 }
 function get_queue_number($u_id){
 
-    $u_id = intval($_GET['u_id']);
     return get_var("SELECT q_no FROM user WHERE u_id=$u_id");
 
 }
@@ -256,4 +257,14 @@ function makeReminder($phone_no)
 	'to' => $num,
 	'message' => "It is almost your turn, please return to the store."
 );
+}
+
+function generateRandomString($length = 10) {
+    $characters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    $charactersLength = strlen($characters);
+    $randomString = '';
+    for ($i = 0; $i < $length; $i++) {
+        $randomString .= $characters[rand(0, $charactersLength - 1)];
+    }
+    return $randomString;
 }
