@@ -91,14 +91,5 @@
       <div class="col-2 last">
           <a href="update.php?s_id=<?php echo $_GET["s_id"];?>&remove=true" class="button">Remove Service</a>
       </div>
-      <div class="col-3 mid">
-          <a href="index.php" class="button"> Bye Bye
-          <?php
-          $a_id = intval($_SESSION['a_id']);
-          print_r(get_var("SELECT admin_name FROM admin WHERE a_id=$a_id"));
-          ?>  - Logout?</a>
-      </div>
     </body>
-
-
 </html>

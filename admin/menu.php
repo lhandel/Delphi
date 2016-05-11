@@ -8,4 +8,15 @@
     <li><a href="statistic.php" id="item2"><i class="fa fa-bar-chart" aria-hidden="true"></i> Statistic</a></li>
     <li><a href="settings.php" id="item3"><i class="fa fa-wrench" aria-hidden="true"></i> Settings</a></li>
   </ul>
+  <ul>
+    <li>
+      <a href="logout.php"<?php
+      if (isset($_SESSION['a_id'])){
+        $a_id = intval($_SESSION['a_id']);
+        echo get_var("SELECT admin_name FROM admin WHERE a_id=$a_id");
+      }
+      ?>
+      > Logout?</a>
+    </li>
+  </ul>
 </div>
