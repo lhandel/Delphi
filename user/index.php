@@ -1,6 +1,13 @@
 <?php include '../function.php';
 if(!isset($_GET['u_id']))
-  die('You need a user id!');
+  {die('You need a user id!');}
+// here we check if user are still in queue, if not, link experies
+$check_u_id = intval($_GET['u_id']);
+$user_state =get_var("SELECT state FROM user WHERE u_id = $check_u_id");
+if ($user_state > 1) {
+  die('Your link has experied.');
+}
+
  ?>
 
 <!DOCTYPE html>
