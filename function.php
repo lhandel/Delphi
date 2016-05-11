@@ -26,6 +26,31 @@ function ewt_for_user($s_id,$u_id){
 
 }
 
+function ewt_for_user2($s_id,$u_id){
+
+  $ewt = get_result("SELECT
+                          (
+                              AVG(time_out-time_start)*
+                              (
+                                (SELECT COUNT(u_id) FROM user WHERE s_id=$s_id AND u_id<$u_id AND (state=0 OR state=1))
+                              )
+                          )
+                          as ewt,
+                          (SELECT time_start FROM user WHERE s_id=$s_id AND  state=1 ORDER BY time_start ASC LIMIT 1) as timer,
+                          (SELECT COUNT(DISTINCT a_id) FROM user WHERE state=1 AND s_id=$s_id) as handlers
+                           FROM user WHERE s_id=$s_id AND (state=3 OR state=2) AND time_out!=0 ORDER BY u_id DESC LIMIT 20");
+  $data = $ewt->fetch_assoc();
+
+  $array =  array
+            (
+              'ewt' => ($data['handlers']==0)? $data['ewt'] : $data['ewt']/$data['handlers'],
+              'timer' => $data['timer']
+            );
+  return $array;
+
+
+}
+
 function ewt($s_id){
   $ewt = get_result("SELECT
                           (
