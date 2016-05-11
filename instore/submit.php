@@ -31,9 +31,10 @@ if(isset($_POST['number'])){
 
     // send the user to the next page
     $uid= $mysqli->insert_id;
-    $link = 'http://46.101.97.62/user/?u_id='.$public_id;
+    $link1 = 'http://46.101.97.62/user/?u_id='.$uid;
+    $link2 = 'https://docs.google.com/forms/d/1nz3Xbjc5GSN7KfwG9WM3sshilBq3zz4B_b1CNjn4hFc/viewform';
 
-    sendSMS(makeSMS($_POST['number'],$_POST['in_line'],$link,$q_no,$uid,$s_id));
+    sendSMS(makeSMS($_POST['number'],$_POST['in_line'],$link1,$link2,$q_no,$uid,$s_id));
     header("Location: done.php?q_no=".$q_no."&phone_nr=".$_POST['number']."&service=".$s_id);
 
   }

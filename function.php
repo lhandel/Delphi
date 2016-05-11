@@ -235,7 +235,7 @@ function sendSMS ($sms) {
 }
 
 
-function makeSMS($phone_no,$in_line,$link,$q_no,$user,$s_id)
+function makeSMS($phone_no,$in_line,$link1,$link2,$q_no,$user,$s_id)
 {
   $temp = (string)$phone_no;
   $temp1 = substr($temp,1);
@@ -243,7 +243,7 @@ function makeSMS($phone_no,$in_line,$link,$q_no,$user,$s_id)
 	return array(
 	'from' => 'Queue',
 	'to' => $num,
-	'message' => "Your number is ".(string)$q_no.".\nThere are ".(string)$in_line."people in queue (ewt (".ewt_for_user($s_id,$user).")), click on the link: \n".$link
+	'message' => "Your number is ".(string)$q_no.".\nThere are ".(string)$in_line." people in queue. Please return to DQ in ".ewt_for_user($s_id,$user)." minutes. Track yourself here ".$link1." and leave us some feedback ".$link2
 );
 }
 
