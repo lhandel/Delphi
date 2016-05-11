@@ -314,6 +314,13 @@ html,body{
     margin-top: 20px;
     margin-bottom: 15px;
 }
+
+#lo{
+  margin-top: 450px;
+  margin-bottom:auto;
+  border-radius: 30px;
+  border-bottom: none;
+}
 /* .end for the menu */
 .title{
   text-align: center;
