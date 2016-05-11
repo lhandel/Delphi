@@ -40,7 +40,7 @@ if(isset($_POST['a_id'])){
         <h1 class="header"> <img src="assets/Admin.svg" class="icon" />Admin Login</h1>
         <?php
           if(isset($_GET['wrong']))
-            echo 'Wrong user id!';
+            echo 'Please try again!';
         ?>
         <form action="" method="post">
           <input id="adminname" type="text" name="a_id" value="" placeholder="YOUR ID" >
