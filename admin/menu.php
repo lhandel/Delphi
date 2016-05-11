@@ -11,13 +11,12 @@
 
   <ul>
     <li>
-      <a href="logout.php"<?php
+      <a href="logout.php"><?php
       if (isset($_SESSION['a_id'])){
         $a_id = intval($_SESSION['a_id']);
         echo get_var("SELECT admin_name FROM admin WHERE a_id=$a_id");
       }
-      ?>
-      > Logout?</a>
+      ?> - Logout?</a>
     </li>
   </ul>
 </div>
