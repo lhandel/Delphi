@@ -5,7 +5,7 @@ if(!isset($_GET['u_id']))
 $check_u_id = intval($_GET['u_id']);
 $user_state =get_var("SELECT state FROM user WHERE u_id = $check_u_id");
 if ($user_state > 1) {
-  die('Your link has experied.');
+  die('Your link has expired.');
 }
 
  ?>
