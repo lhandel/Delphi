@@ -34,10 +34,7 @@
 <!-- Testar härifrån-->
                 <td class="ttitle ticons">
 
-                  <a href="#" class="ta" onclick="popup_s('<?php echo 'rem';?>',<?php echo $row['s_id'];?>)"><!-- ändra länk till popup rutan-->
-
                   <?php echo $row['a_id']; ?>
-                  </a>
 
                   <div class="annotation">
                     Admin id
@@ -47,8 +44,10 @@
 
                 </td>
 
+                <!-- Edit Admin Name -->
+
                 <td class="ttitle ticons">
-                  <a href="#" class="ta" onclick="popup_s('<?php echo 'edit';?>',<?php echo $row['s_id'];?>)">
+                  <a href="#" class="ta" onclick="popup_a(<?php echo $row['a_id'];?>)">
                     <i class="fa fa-pencil" aria-hidden="true"></i>
                   </a>
 
@@ -77,9 +76,9 @@
           <div class="container-popup">
               <div class="popup">
                 <form class="popup1 row" action="update.php" method="post">
-                  <input type="text" name="content" id="contID" class="textfield row" value="">
-                  <input type="hidden" name="s_id" id="sID" value="">
-                  <input type="submit" class="button row"  name="" id="settingButton" value="Save Changes">
+                  <input type="text" name="a_content" id="contID" class="textfield row" value="">
+                  <input type="hidden" name="a_id" id="aID" value="">
+                  <input type="submit" class="button row"  name="a_edit" id="aButton" value="Save Changes">
                 </form>
               </div>
           </div>

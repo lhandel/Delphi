@@ -62,3 +62,9 @@ protect("admin");
       get_result("UPDATE service SET name='$name' WHERE s_id=$s_id");
       header("Location: settings.php");
     }
+    if (isset($_POST["a_edit"])) {
+      $admin_name=$_POST["a_content"];
+      $a_id=$_POST["a_id"];
+      get_result("UPDATE admin SET admin_name='$admin_name' WHERE a_id=$a_id");
+      header("Location: am.php");
+    }

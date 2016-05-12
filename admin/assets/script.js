@@ -116,3 +116,8 @@ function popup_s(toggle,s_id){
     $('#contID').attr('type','number');
   }
 }
+
+function popup_a(a_id){
+  $('.container-popup').fadeIn(450);
+  $('#aID').val(a_id);
+}
