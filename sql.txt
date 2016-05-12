@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost:8889
--- Generation Time: May 12, 2016 at 01:24 PM
+-- Generation Time: May 12, 2016 at 01:32 PM
 -- Server version: 5.5.42
 -- PHP Version: 5.6.10
 
@@ -65,21 +65,22 @@ CREATE TABLE `service` (
   `c_id` int(11) NOT NULL,
   `state` tinyint(4) NOT NULL,
   `s_link` varchar(200) NOT NULL,
-  `theme` varchar(20) NOT NULL
+  `theme` varchar(20) NOT NULL,
+  `r_time` int(11) NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `service`
 --
 
-INSERT INTO `service` (`s_id`, `name`, `c_id`, `state`, `s_link`, `theme`) VALUES
-(1, 'Help', 1, 0, '', ''),
-(2, 'Recipes', 1, 0, '', ''),
-(3, 'Test', 1, 1, '', ''),
-(6, 'Test3', 1, 1, '', ''),
-(7, 'test4', 1, 1, '', ''),
-(8, 'm', 1, 1, '', ''),
-(9, 'EWT', 1, 0, '', '');
+INSERT INTO `service` (`s_id`, `name`, `c_id`, `state`, `s_link`, `theme`, `r_time`) VALUES
+(1, 'Help', 1, 0, '', '', 0),
+(2, 'Recipes', 1, 0, '', '', 0),
+(3, 'Test', 1, 1, '', '', 0),
+(6, 'Test3', 1, 1, '', '', 0),
+(7, 'test4', 1, 1, '', '', 0),
+(8, 'm', 1, 1, '', '', 0),
+(9, 'EWT', 1, 0, '', '', 0);
 
 -- --------------------------------------------------------
 
