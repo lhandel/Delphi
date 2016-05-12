@@ -23,7 +23,7 @@
     </script>
     <meta name="format-detection" content="telephone=no">
   </head>
-  <body>
+  <body <?php echo use_theme($_SESSION["c_id"])?>>
     <div class="container">
 
       <div class="row">
