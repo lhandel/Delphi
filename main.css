@@ -316,7 +316,7 @@ h3.log_in3 i{
 #submit_button{
   width:127px;
   height: 72px;
-  background-color: #41cd7c;
+  background-color: transparent;
   float:right;
   margin-top:10px;
   color:white;
