@@ -46,3 +46,16 @@ protect("admin");
       remove_service($s_id);
       header("Location: index.php");
     }
+    if (isset($_POST["rem"])) {
+      $s_id= $_POST["s_id"];
+      $r_time=$_POST["content"];
+      get_result("UPDATE service SET r_time=$r_time WHERE s_id=$s_id");
+      header("Location: service.php?s_id=".$s_id);
+    }
+    if (isset($_POST["edit"])) {
+      $s_id= $_POST["s_id"];
+      $name= $_POST["content"];
+
+      get_result("UPDATE service SET name='$name' WHERE s_id=$s_id");
+      header("Location: service.php?s_id=".$s_id);
+    }

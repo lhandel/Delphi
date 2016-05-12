@@ -19,8 +19,9 @@ $(document).ready(function(){
               document.location = target;
         }
         // Close menu with escape
-        if(e.which==27)
+        if(e.which==27){
           closeMenu();
+          $('.container-popup').hide();} //closes popupform
 
         // Open or close menu with M
         if(e.which==77 && isopen && kup){
@@ -92,4 +93,14 @@ function liveUpdateList(){
 
     }
   });
+}
+
+function popup_s(toggle,s_id){
+  //$(".container-popup").css("display", "block");
+  $('.container-popup').fadeIn(450);
+  $('#settingButton').attr('name',toggle);
+  if(toggle=='rem'){
+    $('#contID').attr('type','number');
+  }
+  $('#sID').val(s_id);
 }

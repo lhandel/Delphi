@@ -702,7 +702,7 @@ table tr:hover td.go{
 
 .ticons{
   text-align: center;
-  width: 20% !important;
+  width: 15% !important;
 }
 .tmain{
   width: 40% !important;
@@ -734,6 +734,46 @@ a.ta{
 }
 
 
+
 .ttitle:hover > .annotation {
     display: block;
+}
+
+.container-popup {
+    display: none;
+    position: relative;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0,0,0,.8);
+}
+
+.popup {
+    width: 30%;
+    height: 20%;
+    background: white;
+    border-radius: 2px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    padding:25px;
+}
+
+.popup1 .textfield{
+  margin-bottom: 10px;
+  font-size: 40px;
+}
+
+#settingButton{
+  width: 50%;
+  margin-left: 100px; //fixa
+}
+
+.ttitle ticons a:active > .container-popup{
+  display: block;
 }

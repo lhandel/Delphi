@@ -72,7 +72,11 @@ function ewt($s_id){
 
 function checkSMS($s_id){
 
-  $reminder_time = 1;
+    $reminder_time = get_var("SELECT r_time FROM sercive WHERE s_id=$s_id");
+
+    if ($reminder_time==0) {
+      $reminder_time=5;
+    }
 
     $result = get_result("SELECT phone_no,u_id FROM user  WHERE s_id=$s_id AND r_sms=0 AND state=0 ORDER BY u_id ASC LIMIT 5");
     while($p_and_u = $result->fetch_assoc()){
@@ -117,6 +121,7 @@ function get_service($s_id){
   $result = get_row("SELECT
                             s_id,
                             name,
+                            r_time,
                             (SELECT COUNT(DISTINCT a_id) FROM user WHERE state=1 AND s_id=service.s_id) as handler,
                             (SELECT COUNT(u_id) FROM user WHERE s_id=service.s_id AND state=0) as queue_count,
                             (SELECT q_no FROM user WHERE s_id=service.s_id AND state=1 ORDER BY u_id LIMIT 1) as current
@@ -143,6 +148,7 @@ function get_services($c_id=1){
     $result = get_result("SELECT
                               s_id,
                               name,
+                              r_time,
                               (SELECT COUNT(u_id) FROM user WHERE state=0 AND s_id=service.s_id) as queue_count,
                               (SELECT COUNT(DISTINCT a_id) FROM user WHERE state=1 AND s_id=service.s_id) as handler
                         FROM service WHERE c_id=$c_id AND state=0");
@@ -202,7 +208,7 @@ function new_service($name){
   global $mysqli;
   $name=$mysqli->real_escape_string($name);
   $c_id = (isset($_SESSION['c_id']))? $_SESSION['c_id'] : 1;
-  $mysqli->query("INSERT INTO service(name,c_id) VALUES('$name',$c_id)");
+  $mysqli->query("INSERT INTO service(name,c_id,r_time) VALUES('$name',$c_id,5)");
   $s_id= $mysqli->insert_id;
   return $s_id;
 }

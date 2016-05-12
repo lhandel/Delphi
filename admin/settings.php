@@ -28,6 +28,7 @@
             $result = get_services($c_id);
 
             while($row = $result->fetch_assoc()){
+
               ?>
               <tr>
                 <td class="ttitle tmain">
@@ -36,12 +37,32 @@
                     Name of service. Click will get you to service
                   </div>
                 </td>
+<!-- Testar härifrån-->
                 <td class="ttitle ticons">
-                  <i class="fa fa-pencil" aria-hidden="true"></i>
+
+                  <a href="#" class="ta" onclick="popup_s('<?php echo 'rem';?>',<?php echo $row['s_id'];?>)"><!-- ändra länk till popup rutan-->
+                    <?php echo $row['r_time'];?>
+
+                  </a>
+
+<!-- hit -->
+                  <div class="annotation">
+                    Change reminder time
+                  </div>
+                </td>
+
+                <td class="ttitle ticons">
+                  <a href="#" class="ta" onclick="popup_s('<?php echo 'edit';?>',<?php echo $row['s_id'];?>)">
+                    <i class="fa fa-pencil" aria-hidden="true"></i>
+                  </a>
+
                   <div class="annotation">
                     Click to edit name of service
                   </div>
                 </td>
+
+
+
                 <td class="ttitle ticons">
                   <a href="update.php?s_id=<?php echo $row["s_id"];?>&reset=true" class="ta">
                     <i class="fa fa-recycle" aria-hidden="true"></i>
@@ -64,8 +85,15 @@
 
             </tbody>
           </table>
-
-
+          <div class="container-popup">
+              <div class="popup">
+                <form class="popup1 row" action="update.php" method="post">
+                  <input type="text" name="content" id="contID" class="textfield row" value="">
+                  <input type="hidden" name="s_id" id="sID" value="">
+                  <input type="submit" class="button row"  name="" id="settingButton" value="Save Changes">
+                </form>
+              </div>
+          </div>
     </div>
   </body>
 </html>
