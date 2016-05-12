@@ -44,22 +44,32 @@ if(isset($_POST['a_id'])){
     <?php
     include 'menu.php';
      ?>
-    <div class="container">
 
-      <div class="loginblock">
-        <h1 class="header"> <img src="assets/Admin.svg" class="icon" />Admin Login</h1>
-        <?php
-          if(isset($_GET['wrong']))
-            echo 'Please try again!';
-        ?>
-        <form action="" method="post">
-          <input id="adminname" type="text" name="a_id" value="" placeholder="YOUR ID" >
-          <input id="login_button" type="submit" name="login_button" value="LOG IN">
-        </form>
+     <div class="container">
+       <div class="companyimagebackground">
+              <img class="loginimage" src="assets/logo.svg" alt="" />
+       </div>
 
-      </div>
-        <img src="assets/logo.svg" class="logo">
-    </div>
+
+
+         <?php if(isset($_GET['wrong'])){ echo '<div class="errorbox"><b>⚠ Incorrect!</b>  Password and id does not match. </div>';} ?>
+
+
+          <div class="s1 companys1">
+            <div class="containH">
+              <h1 class="header"> <img src="assets/Admin.svg" class="icon" />Admin Login</h1>
+            </div>
+
+            <div class="inners1">
+              <form action="" method="post">
+                <input type="text" class="infoc row inloginhead" name="a_id" value="" placeholder="Admin ID" >
+                <input class="button" type="submit" name="login_button" value="LOG IN">
+              </form>
+
+            </div>
+
+          </div>
+        </div>
 
   </body>
 </html>
