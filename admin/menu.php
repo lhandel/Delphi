@@ -6,6 +6,7 @@
   <ul>
     <li><a href="index.php" id="item1"><i class="fa fa-tachometer" aria-hidden="true"></i> Dashboard</a></li>
     <li><a href="statistic.php" id="item2"><i class="fa fa-bar-chart" aria-hidden="true"></i> Statistic</a></li>
+    <li><a href="am.php" id="item4"><i class="fa fa-users" aria-hidden="true"></i> Admin Mangement</a></li>
     <li><a href="login.php?url=settings.php" id="item3"><i class="fa fa-wrench" aria-hidden="true"></i> Settings</a></li>
   </ul>
 

@@ -158,6 +158,23 @@ function get_services($c_id=1){
   }
 }
 
+/*get admins for the company*/
+
+function get_admins($c_id=1){
+  $c_id = intval($c_id);
+
+  if($c_id!=0){
+    $result = get_result("SELECT
+                              a_id,
+                              admin_name
+                        FROM admin WHERE c_id=$c_id");
+
+    return $result;
+  }else{
+    return false;
+  }
+}
+
 //check if adminname exists in the database
 function check_admin_id($adminid){
   $result = get_var("SELECT a_id FROM admin WHERE a_id = $adminid");
