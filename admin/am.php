@@ -84,32 +84,32 @@
           </div>
     </div>
 
-    <div class="row">
-      <div class="s1 ns">
+    <div class="adminrow">
+      <div class="newadmin">
 
-        <div class="row">
-          <div class="nsinfo">
-            <h1 class="nh2">
-              New Admin
-            </h1>
+        <div class="adminrow">
+          <div class="nainfo">
+            <h1 class="nh2">New Admin</h1>
             <h2 class="nh2"> Fill Out New Admin Name</h2>
           </div>
-        </div class="row">
+          <div class="admin_name_inputfield">
+            <form  action="addAdmin.php" method="post" id="createNA">
+              <input class="nameinfo" type="text" name="name" value="">
+            </form>
+          </div>
 
-        <div class="row">
-          <form class="formErase" action="update.php" method="post" id="createNS">
-            <input class="infoc" type="text" name="name" value="">
-          </form>
-        </div class="row">
+              <button class="button assign" type="submit" form="createNA" value="Submit"> Assign admin<i class="fa fa-angle-right" aria-hidden="true"></i> </button>
 
 
-        <div class="row">
-          <button type="submit" form="createNS" value="Submit" class="btn servicebtn cns">  Create <i class="fa fa-angle-right" aria-hidden="true"></i> </button>
-        </div>
+        </div class="adminrow">
+
+
+
+
 
       </div>
 
-    </div class="row">
+
 
   </div>
 
