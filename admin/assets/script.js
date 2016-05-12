@@ -63,6 +63,12 @@ $(document).ready(function(){
   	        && container.has(e.target).length === 0){
   	        closeMenu();
   	    }
+        //popup box
+        var container2 = $(".popup");
+        if (!container2.is(e.target) // if the target of the click isn't the container...
+            && container2.has(e.target).length === 0){
+            $('.container-popup').hide();
+        }
   	});
 
     // function for opening the menu
