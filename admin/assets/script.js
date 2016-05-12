@@ -9,6 +9,13 @@ $(document).ready(function(){
 
     var isopen = false; // boolean for tracking the menu
     var kup = true; // used for fixing bug when you pressdown M
+    var input = false;
+    $("input").keydown(function(){
+      input=true;
+    });
+    $("input").keyup(function(){
+      input=false;
+    });
 
     $(document).keydown(function(e) {
 
@@ -24,10 +31,10 @@ $(document).ready(function(){
           $('.container-popup').hide();} //closes popupform
 
         // Open or close menu with M
-        if(e.which==77 && isopen && kup){
+        if(e.which==77 && isopen && kup && !input){
               kup = false;
               closeMenu();
-        }else if(e.which==77 && !isopen && kup){
+        }else if(e.which==77 && !isopen && kup && !input){
             kup = false;
             openMenu();
         }
