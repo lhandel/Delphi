@@ -326,8 +326,7 @@ html,body{
   padding-left: 18px;
   font-size: 15px;
   position: absolute;
-  margin-top: 450px;
-  margin-bottom:auto;
+  bottom:20px;
   border-radius: 30px;
   border-bottom: none;
 }
