@@ -10,8 +10,8 @@
   </ul>
 
 
-  <ul>
-    <li>
+
+
       <a href="logout.php" id="lo"><?php
       if (isset($_SESSION['a_id'])){
         $a_id = intval($_SESSION['a_id']);
@@ -19,6 +19,6 @@
         echo " - Logout?";
       }
       ?></a>
-    </li>
-  </ul>
+
+  
 </div>
