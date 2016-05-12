@@ -9,16 +9,22 @@
     <li><a href="settings.php" id="item3"><i class="fa fa-wrench" aria-hidden="true"></i> Settings</a></li>
   </ul>
 
+  <ul>
+    <li>
+      <a href="logout.php" id="lo"
+      <?php
+      if (!isset($_SESSION['a_id']))
+        echo "style=visibility:hidden";
+      ?>>
+        <?php
+        if (isset($_SESSION['a_id'])){
+          $a_id = intval($_SESSION['a_id']);
+          echo get_var("SELECT admin_name FROM admin WHERE a_id=$a_id");
+          echo " - Log out";
+        }
+        ?>
+      </a>
+  </li>
+  </ul>
 
-
-
-      <a href="logout.php" id="lo"><?php
-      if (isset($_SESSION['a_id'])){
-        $a_id = intval($_SESSION['a_id']);
-        echo get_var("SELECT admin_name FROM admin WHERE a_id=$a_id");
-        echo " - Logout?";
-      }
-      ?></a>
-
-  
 </div>
