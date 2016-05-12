@@ -27,6 +27,9 @@ $(document).ready(function(){
             $("#ewt_user").html("It's your turn");
 
           }
+          else if(result.state == 4){
+            $("#ewr_user").html("You got removed from the queue")
+          }
 
           else if(result.flag ==1){
             $("#display_minute").hide();
