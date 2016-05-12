@@ -52,7 +52,7 @@ if(isset($_POST['a_id'])){
 
 
 
-         <?php if(isset($_GET['wrong'])){ echo '<div class="errorbox"><b>⚠ Incorrect!</b>  Password and id does not match. </div>';} ?>
+         <?php if(isset($_GET['wrong'])){ echo '<div class="errorbox"><b>⚠ Incorrect!</b>  Identification was not found </div>';} ?>
 
 
           <div class="s1 companys1">
