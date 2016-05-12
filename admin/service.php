@@ -82,14 +82,7 @@
             <a href="index.php" class="button">Change service</a>
         </div>
         <div class="col-2 last">
-            <a href="update.php?s_id=<?php echo $_GET["s_id"];?>&skip=true" class="button">Skip customer</a>
+            <a href="settings.php" class="button">Settings</a>
         </div>
-      </div>
-      <div class="col-2">
-          <a href="update.php?s_id=<?php echo $_GET["s_id"];?>&reset=true" class="button">Reset Queue</a>
-      </div>
-      <div class="col-2 last">
-          <a href="update.php?s_id=<?php echo $_GET["s_id"];?>&remove=true" class="button">Remove Service</a>
-      </div>
     </body>
 </html>
