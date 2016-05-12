@@ -32,7 +32,8 @@ if(isset($_POST['number'])){
     // send the user to the next page
     $uid= $mysqli->insert_id;
     $link1 = 'http://46.101.97.62/user/?u_id='.$uid;
-    $link2 = 'https://docs.google.com/forms/d/1nz3Xbjc5GSN7KfwG9WM3sshilBq3zz4B_b1CNjn4hFc/viewform';
+    $c_id = intval($_SESSION['c_id'];
+    $link2 = get_var("SELECT s_link FROM company WHERE c_id=$c_id");
 
     sendSMS(makeSMS($_POST['number'],$_POST['in_line'],$link1,$link2,$q_no,$uid,$s_id));
     header("Location: done.php?q_no=".$q_no."&phone_nr=".$_POST['number']."&service=".$s_id);
