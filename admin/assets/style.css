@@ -316,6 +316,16 @@ html,body{
 }
 
 #lo{
+  color: #fff;
+  text-decoration: none;
+  font-family: 'Open sans';
+  border-bottom: 1px solid #717171;
+  display: block;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  padding-left: 18px;
+  font-size: 15px;
+  position: absolute;
   margin-top: 450px;
   margin-bottom:auto;
   border-radius: 30px;
