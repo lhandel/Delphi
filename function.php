@@ -284,6 +284,18 @@ function makeReminder($phone_no)
 );
 }
 
+function makeSkipSMS($phone_no)
+{
+  $temp = (string)$phone_no;
+  $temp1 = substr($temp,1);
+  $num = '+46'.$temp1;
+	return array(
+	'from' => 'Queue',
+	'to' => $num,
+'message' => "You where skipped"
+);
+}
+
 function generateRandomString($length = 10) {
     $characters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
     $charactersLength = strlen($characters);

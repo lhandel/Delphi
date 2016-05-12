@@ -17,6 +17,12 @@ protect("admin");
     $a_id = 1;
     user_update_state();
     user_update_by_service($s_id,$a_id);
+
+
+    $u_numb = get_var("SELECT phone_no FROM user WHERE s_id = $s_id ORDER BY u_id DESC LIMIT 1 ");
+    sendSMS(makeSkipSMS($u_numb));
+
+
     header("Location: service.php?s_id=".$s_id);
   }
   if (isset($_POST["name"])) {
