@@ -12,12 +12,12 @@
     <link href='https://fonts.googleapis.com/css?family=Ubuntu:500,700,400|Open+Sans:400,600' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
   </head>
-  <body>
+  <body <?php echo use_theme($_SESSION["c_id"])?>>
     <div class="container">
         <h1 class="startpage">What do you need<br/> help with?</h1>
 
         <?php
-        $c_id = 1;
+        $c_id = $_SESSION["c_id"];
         $result = get_services($c_id);
 
         // This code is fixing the margin if we have 4 items in the list
