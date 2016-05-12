@@ -1,8 +1,13 @@
 <?php include '../function.php';
-$s_id= $_GET['s_id'];
+
 
 if(isset($_SESSION['a_id'])){
-  header("Location:service.php?s_id=$s_id");
+  if (isset($_GET['url'])) {
+    header("Location:".$_GET ['url']);
+  }else {
+    $s_id= $_GET['s_id'];
+    header("Location:service.php?s_id=$s_id");
+  }
 }
 if(isset($_POST['a_id'])){
 
@@ -10,7 +15,12 @@ if(isset($_POST['a_id'])){
   // Check in db if adminname exist
   if (check_admin_id($_POST['a_id'])) {
     $_SESSION["a_id"] = $a_id;
-    header("Location:service.php?s_id=$s_id");
+    if (isset($_GET['url'])) {
+      header("Location:".$_GET['url']);
+    }else {
+      $s_id= $_GET['s_id'];
+      header("Location:service.php?s_id=$s_id");
+    }
   }else {
     header("Location:login.php?s_id=$s_id&wrong=true");
   }
