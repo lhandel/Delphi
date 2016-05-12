@@ -137,6 +137,11 @@ h2{
   border-radius: 3px;
 }
 
+.companys1{
+  height: 220px;
+  width: 400px;
+}
+
 .number{
   font-family: 'Ubuntu';
   font-weight: 400;
@@ -182,6 +187,11 @@ h2{
   text-decoration: none;
   border-radius: 3px;
 }
+.cbutton{
+  margin-top:20px;
+  height: 50px;
+}
+
 .button:hover{
   box-shadow: 0px 1px 3px #838383;
   color: #808080;
@@ -474,15 +484,14 @@ button.btn.servicebtn.cns:hover{
 }
 
 input.infoc{
-  margin-left: auto;
-  margin-right: auto;
-  padding-top: 0px;
-  padding-bottom: 2px;
+  padding-top: 4px;
+  padding-bottom: 6px;
+  padding-right: 0px;
+  padding-left: 0px;
   border: none;
-  height: 28px;
-  width: 300px;
+  width: 298px;
   border-radius: 2px;
-  border: 2px solid #58b1e5;
+  border: 2px solid #d0d0d0;
   margin-top: 0px;
   background-color: white;
   color: #4e4e4e;
@@ -490,6 +499,21 @@ input.infoc{
   font-size: 20px;
   box-shadow: inset 0px 5px 24px -19px rgba(42,43,37,0.31);
 }
+
+.inners1{
+  margin-left: auto;
+  margin-right: auto;
+  width: 300px;
+}
+
+input.inloginhead{
+  margin-top: 30px;
+}
+
+input.inlogin{
+  margin-top: 20px;
+}
+
 h1.nh2{
   padding-top: 10px;
   color: #58b1e5;
@@ -532,15 +556,18 @@ h2.nh2{
 
 .errorbox {
   padding-left: 25px;
-  padding-top: 25px;
+  padding-top: 10px;
+  padding-bottom: 10px;
   font-family:'Ubuntu';
   color:#31708f;
-  width:495px;
-  height:45px;
+  width:375px;
   background-color:#d9edf7;
   margin-left: auto;
   margin-right: auto;
   border-radius: 5px;
+  border-color: #9ecff5;
+  border-width: 2px;
+  border-style: solid;
   margin-bottom: 10px;
 }
 

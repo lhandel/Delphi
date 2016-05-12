@@ -27,12 +27,17 @@ if(isset($_SESSION["c_id"])){
 
 
 
-      <div class="login">
-           <form action="login.php" method="post">
-             <p class="logintext">Company ID:</p><input class="loginfield" type="text" name="company_id" value="">
-             <p class="logintext">Password:</p><input class="loginfield" type="password" name="password" value="">
-             <input class="logininput" type="submit" value="LOG IN">
-           </form>
+      <div class="s1 companys1">
+        <div class="inners1">
+          <form action="login.php" method="post">
+
+            <input class="infoc row inloginhead" type="text" name="company_id" value="" placeholder="Company ID">
+            <input class="infoc row inlogin" type="password" name="password" value="" placeholder="Password">
+            <input class="button cbutton" type="submit" value="LOG IN">
+          </form>
+
+        </div>
+
       </div>
  </div>
   </body>
