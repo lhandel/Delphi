@@ -101,13 +101,12 @@ function liveUpdateList(){
     }
   });
 }
-
+/* setting page */
 function popup_s(toggle,s_id){
-  //$(".container-popup").css("display", "block");
   $('.container-popup').fadeIn(450);
-  $('#settingButton').attr('name',toggle);
-  if(toggle=='rem'){
+  $('#settingButton').attr('name',toggle); //reminder time or edit name etc.
+  $('#sID').val(s_id);
+  if(toggle=='rem'){ //if you try to change the reminder, you can only type numbers
     $('#contID').attr('type','number');
   }
-  $('#sID').val(s_id);
 }

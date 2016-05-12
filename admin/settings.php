@@ -20,36 +20,40 @@
 
 
     <div class="settingscontainer">
+      <!-- TABLE -->
       <table width="100%" cellpadding="0" cellspacing="0" border="0" class="list link">
             <tbody>
+            <!-- Php code for getting all relevant info about each company services -->
             <?php
             $c_id = $_SESSION["c_id"];
             $result = get_services($c_id);
-
             while($row = $result->fetch_assoc()){
-
               ?>
+
               <tr>
+
+                <!-- Service name -->
                 <td class="ttitle tmain">
-                  <?php  echo $row['name']?>
+                  <a href="service.php?s_id=<?php echo $row['s_id'];?>" class="ta">
+                    <?php  echo $row['name']?>
+                  </a>
                   <div class="annotation">
                     Name of service. Click will get you to service
                   </div>
                 </td>
-<!-- Testar härifrån-->
-                <td class="ttitle ticons">
 
+                <!-- Reminder time-->
+                <td class="ttitle ticons">
                   <a href="#" class="ta" onclick="popup_s('<?php echo 'rem';?>',<?php echo $row['s_id'];?>)"><!-- ändra länk till popup rutan-->
                     <?php echo $row['r_time'];?>
-
                   </a>
 
-<!-- hit -->
                   <div class="annotation">
                     Change reminder time
                   </div>
                 </td>
 
+                <!-- Edit name -->
                 <td class="ttitle ticons">
                   <a href="#" class="ta" onclick="popup_s('<?php echo 'edit';?>',<?php echo $row['s_id'];?>)">
                     <i class="fa fa-pencil" aria-hidden="true"></i>
@@ -61,7 +65,7 @@
                 </td>
 
 
-
+                <!-- Reset Queue -->
                 <td class="ttitle ticons">
                   <a href="update.php?s_id=<?php echo $row["s_id"];?>&reset=true" class="ta">
                     <i class="fa fa-recycle" aria-hidden="true"></i>
@@ -70,6 +74,8 @@
                     Click to reset queue
                   </div>
                 </td>
+
+                <!-- Remove service -->
                 <td class="ttitle ticons">
 
                   <a href="update.php?s_id=<?php echo $row["s_id"];?>&remove=true" class="ta">
@@ -79,11 +85,13 @@
                     Click to remove service
                   </div>
                 </td>
+
               </tr>
-              <?php } ?>
+
+              <?php } ?> <!-- End of while-loop -->
 
             </tbody>
-          </table>
+          </table> <!-- End of table -->
           <div class="container-popup">
               <div class="popup">
                 <form class="popup1 row" action="update.php" method="post">

@@ -46,16 +46,19 @@ protect("admin");
       remove_service($s_id);
       header("Location: index.php");
     }
+
+    /*----------------------- Settings page ---------------*/
+    //change reminder time
     if (isset($_POST["rem"])) {
-      $s_id= $_POST["s_id"];
-      $r_time=$_POST["content"];
+      $s_id= $_POST["s_id"]; //this service id
+      $r_time=$_POST["content"];// what you changed to in the textfield
       get_result("UPDATE service SET r_time=$r_time WHERE s_id=$s_id");
-      header("Location: service.php?s_id=".$s_id);
+      header("Location: settings.php");//send you back to the same page
     }
+    //change service name
     if (isset($_POST["edit"])) {
       $s_id= $_POST["s_id"];
       $name= $_POST["content"];
-
       get_result("UPDATE service SET name='$name' WHERE s_id=$s_id");
-      header("Location: service.php?s_id=".$s_id);
+      header("Location: settings.php");
     }
