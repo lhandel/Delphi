@@ -31,16 +31,17 @@ $(document).ready(function(){
             $("#ewr_user").html("You got removed from the queue")
           }
 
-          else if(result.flag ==1){
+          else if(result.flag ==1||result.content==0){
             $("#display_minute").hide();
             $("#display_ewt").hide();
             $("#clock_icon").hide();
             $("p").css({"font-weight":"bold", "font-size":"25px"});
             $("#ewt_user").html("It will soon be your turn </br>please return to the store");
+            $("#in_queue").html(result.inline);
           }
 
 
-          else if(result.content>0){
+          else {
             $("#in_queue").html(result.inline);
             $("#ewt_user").html(result.content);
           }

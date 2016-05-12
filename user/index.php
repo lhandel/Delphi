@@ -35,7 +35,7 @@ if(!isset($_GET['u'])){
     <script src="assets/script.js" charset="utf-8"></script>
     <meta name="format-detection" content="telephone=no">
   </head>
-  <body>
+  <body <?php echo use_theme($_SESSION["c_id"])?>>
     <div class="container">
 <!-- get u_id from SMS -->
       <script>
