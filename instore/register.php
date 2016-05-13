@@ -33,8 +33,8 @@
         </div>
         <div class="login_display">
           <img class="icon queue" src="assets/Queue.svg" alt="" />
-          <div class="icon time_icon">
-          </div>
+          <i class="fa fa-clock-o icon ticon" aria-hidden="true"></i>
+
           <div class="info">
             <p class="important"><?php echo $in_line?></p>
             <p class="info">people <br/>in front</p>

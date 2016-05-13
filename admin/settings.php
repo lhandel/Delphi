@@ -37,16 +37,13 @@
                   <a href="service.php?s_id=<?php echo $row['s_id'];?>" class="ta">
                     <?php  echo $row['name']?>
                   </a>
-                  <div class="annotation">
-                    Name of service. Click will get you to service
-                  </div>
+
                 </td>
 
                 <!-- Reminder time-->
-                <td class="ttitle ticons">
-                  <a href="#" class="ta" onclick="popup_s('<?php echo 'rem';?>',<?php echo $row['s_id'];?>)"><!-- ändra länk till popup rutan-->
+                <td class="ttitle ticons" onclick="popup_s('<?php echo 'rem';?>',<?php echo $row['s_id'];?>)">
                     <?php echo $row['r_time'];?>
-                  </a>
+
 
                   <div class="annotation">
                     Change reminder time
@@ -54,10 +51,9 @@
                 </td>
 
                 <!-- Edit name -->
-                <td class="ttitle ticons">
-                  <a href="#" class="ta" onclick="popup_s('<?php echo 'edit';?>',<?php echo $row['s_id'];?>)">
+                <td class="ttitle ticons" onclick="popup_s('<?php echo 'edit';?>',<?php echo $row['s_id'];?>)">
                     <i class="fa fa-pencil" aria-hidden="true"></i>
-                  </a>
+
 
                   <div class="annotation">
                     Click to edit name of service
@@ -66,21 +62,21 @@
 
 
                 <!-- Reset Queue -->
-                <td class="ttitle ticons">
-                  <a href="update.php?s_id=<?php echo $row["s_id"];?>&reset=true" class="ta">
+                <td class="ttitle ticons" onclick="if(confirm('Are you sure?')) document.location='update.php?s_id=<?php echo $row["s_id"];?>&reset=true'">
+
                     <i class="fa fa-recycle" aria-hidden="true"></i>
-                  </a>
+
                   <div class="annotation">
                     Click to reset queue
                   </div>
                 </td>
 
                 <!-- Remove service -->
-                <td class="ttitle ticons">
+                <td class="ttitle ticons" onclick="if(confirm('Are you sure?')) document.location='update.php?s_id=<?php echo $row["s_id"];?>&remove=true'">
 
-                  <a href="update.php?s_id=<?php echo $row["s_id"];?>&remove=true" class="ta">
+
                     <i class="fa fa-trash-o" aria-hidden="true"></i>
-                  </a>
+
                   <div class="annotation">
                     Click to remove service
                   </div>
