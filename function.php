@@ -333,6 +333,8 @@ function use_theme($c_id){
     $theme = get_var("SELECT theme FROM company WHERE c_id=$c_id");
     if ($theme === "dark"){
       return "class = 'dark'";
+    }elseif ($theme === "red"){
+      return "class = 'red'";
     }
     return "";
 }
