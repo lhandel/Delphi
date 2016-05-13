@@ -23,8 +23,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = '';
 
+if(strpos($_SERVER['HTTP_HOST'],'localhost')!==false)
+  $config['base_url'] = 'http://localhost:8888/Delphi/Delphi2/';
+else
+  $config['base_url'] = 'http://46.101.97.62/';
 /*
 |--------------------------------------------------------------------------
 | Index File
@@ -35,7 +38,7 @@ $config['base_url'] = '';
 | variable so that it is blank.
 |
 */
-$config['index_page'] = 'index.php';
+$config['index_page'] = '';
 
 /*
 |--------------------------------------------------------------------------
