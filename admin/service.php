@@ -82,7 +82,11 @@
             <a href="index.php" class="button">Change service</a>
         </div>
         <div class="col-2 last">
-            <a href="settings.php" class="button">Settings</a>
+            <a href="update.php?s_id=<?php echo $_GET["s_id"];?>&skip=true" class="button">Skip customer</a>
         </div>
+        <div class="row">
+          <a href="settings.php" class="button">Settings</a>
+        </div>
+
     </body>
 </html>
