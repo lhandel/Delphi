@@ -177,6 +177,7 @@ function get_admins($c_id=1){
 
 //check if adminname exists in the database
 function check_admin_id($adminid){
+  $adminid = intval($adminid);
   $result = get_var("SELECT a_id FROM admin WHERE a_id = $adminid");
   if($result !=0){
     return true;
@@ -199,7 +200,7 @@ function user_update_by_service($s_id,$a_id){
 }
 
 function user_update_state(){
-  $a_id = 1;
+  $a_id = intval($_SESSION['a_id']);
   get_result("UPDATE user SET state=2 WHERE a_id = $a_id ORDER BY time_in ASC LIMIT 1");
 }
 
@@ -211,11 +212,13 @@ function reset_queue($s_id){
 }
 
 function hide_service($s_id){
+  $s_id = intval($s_id);
   get_result("UPDATE service SET state=1 WHERE s_id = $s_id AND (state=0)");
 
 }
 
 function remove_service($s_id){
+  $s_id = intval($s_id);
   reset_queue($s_id);
   //hide sercive
   hide_service($s_id);
@@ -239,15 +242,8 @@ function new_service($name){
 
 //Get s_id from db with u_id
 function get_s_id($u_id){
-
+  $u_id = intval($u_id);
     return get_var("SELECT s_id FROM user WHERE u_id=$u_id");
-
-}
-
-function get_flag($u_id){
-
-
-    return get_var("SELECT r_sms FROM user WHERE u_id=$u_id");
 
 }
 
@@ -259,7 +255,7 @@ function get_inline_user($u_id){
   return($result->num_rows);
 }
 function get_queue_number($u_id){
-
+  $u_id = intval($u_id);
     return get_var("SELECT q_no FROM user WHERE u_id=$u_id");
 
 }
