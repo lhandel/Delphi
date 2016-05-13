@@ -61,7 +61,7 @@
 
                 <td class="ttitle ticons">
 
-                  <a href="update.php?s_id=<?php echo $row["s_id"];?>&remove=true" class="ta">
+                  <a href="update.php?a_id=<?php echo $row["a_id"];?>&a_remove=true" class="ta">
                     <i class="fa fa-trash-o" aria-hidden="true"></i>
                   </a>
                   <div class="annotation">

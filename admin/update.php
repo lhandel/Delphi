@@ -40,11 +40,17 @@ protect("admin");
       reset_queue($s_id);
       header("Location: service.php?s_id=".$s_id);
     }
-    if(isset($_GET["remove"]))
+    if(isset($_GET["s_remove"]))
     {
-      $s_id= $_GET["s_id"];
+      $s_id= intval($_GET["s_id"]);
       remove_service($s_id);
-      header("Location: index.php");
+      header("Location: settings.php");
+    }
+    if(isset($_GET["a_remove"]))
+    {
+      $a_id= intval($_GET["a_id"]);
+      remove_admin($a_id);
+      header("Location: am.php");
     }
 
     /*----------------------- Settings page ---------------*/

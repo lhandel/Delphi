@@ -221,6 +221,11 @@ function remove_service($s_id){
   hide_service($s_id);
 }
 
+function remove_admin($a_id){
+  get_result("UPDATE user SET a_id=null WHERE a_id = $a_id");
+  get_result("DELETE FROM admin WHERE a_id=$a_id");
+}
+
 function new_service($name){
   global $mysqli;
   $name=$mysqli->real_escape_string($name);
