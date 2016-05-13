@@ -47,7 +47,8 @@ class Login extends CI_Controller {
  public function CheckLoginInDB($company_id,$password){
 	 $this->load->model('login_m');
 	 $result = $this-> login_m -> get_company_login($company_id,$password);
-	 if ($result->num_rows !== 1)
+	 $rows = sizeof($result);
+   if ($rows!= 1) 
 	 {
 		 return false;
 	 }else{
