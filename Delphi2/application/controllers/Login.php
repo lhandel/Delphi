@@ -48,7 +48,7 @@ class Login extends CI_Controller {
 	 $this->load->model('login_m');
 	 $result = $this-> login_m -> get_company_login($company_id,$password);
 	 $rows = sizeof($result);
-   if ($rows!= 1) 
+   if ($rows!= 1)
 	 {
 		 return false;
 	 }else{

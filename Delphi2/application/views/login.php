@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>login</title>
-    <link rel="stylesheet" href="assets/admin/style.css" media="screen" title="no title" charset="utf-8">
+    <link rel="stylesheet" href=<?php echo base_url('assets/admin/style.css') ?> media="screen" title="no title" charset="utf-8">
     <link href='https://fonts.googleapis.com/css?family=Ubuntu:500,700,400|Open+Sans:400,600' rel='stylesheet' type='text/css'>
 
 
