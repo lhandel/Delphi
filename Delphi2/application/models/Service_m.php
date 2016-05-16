@@ -24,12 +24,22 @@ class Service_m extends CI_Model{
 
       // return the result
       $result = $this->db->get()->result();
+
+      /*
+        Get the EWT for each service
+      */
+      // Load the model
       $this->load->model('instore_m');
+
+      // create a temporary array to return
       $return = array();
+
+      // Loop all services and get the ewt
       foreach($result as $row){
         $row->ewt = $this->instore_m->ewt($row->s_id);
         $return[] = $row;
       }
+      // return the array as an object
       return (object)$return;
 
   }
@@ -65,6 +75,11 @@ class Service_m extends CI_Model{
     $this->db->where('s_id',intval($s_id));
 
     // return the result
-    return $this->db->get()->row();
+    $return = $this->db->get()->row();
+
+    $this->load->model('instore_m');
+    $return->ewt = $this->instore_m->ewt($return->s_id);
+
+    return $return;
   }
 }
