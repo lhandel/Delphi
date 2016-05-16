@@ -5,10 +5,7 @@ class Admin extends CI_Controller {
 
 	public function index()
 	{
-		//
-
 		$this->listService();
-
 	}
 	//check session a_id
 	public function checkLogin(){
@@ -49,7 +46,7 @@ public function login(){
 			}
 		}else	redirect(site_url("index.php/admin/login.php?$s_id&wrong=true"));
 	}
-	
+
 	$this->load->view('admin/login');
 
 }
@@ -69,7 +66,7 @@ public function login(){
 /* Specific service */
 	public function service()
 	{
-
+		$this->checkLogin();
 		// Load the model
 		$this->load->model('service_m');
 

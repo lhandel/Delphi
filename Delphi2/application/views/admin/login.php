@@ -24,7 +24,7 @@
 
           <div class="s1 companys1">
             <div class="containH">
-              <h1 class="header"> <img src="assets/Admin.svg" class="icon" />Admin Login</h1>
+              <h1 class="header"> <img src="<?php echo site_url('assets/admin/Admin.svg'); ?>" class="icon" />Admin Login</h1>
             </div>
 
             <div class="inners1">
