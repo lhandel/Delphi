@@ -67,7 +67,7 @@
             <a href="update.php?s_id=<?php echo $service->s_id;?>&skip=true" class="button">Skip customer</a>
         </div>
         <div class="row">
-          <a href="settings.php" class="button">Settings</a>
+          <a href="<?php echo site_url('index.php/admin/settings'); ?>" class="button">Settings</a>
         </div>
 
   </div>

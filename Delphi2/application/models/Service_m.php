@@ -61,7 +61,34 @@ class Service_m extends CI_Model{
       'state'=>4
     ));
   }
+  public function next($s_id)
+  {
+    if($s_id!=0){
 
+      $this->db->where('s_id',$s_id);
+      $this->db->where('state',1);
+      $this->db->order_by('time_in ASC');
+      $this->db->limit(1);
+      $this->db->update('user',array(
+        'state' => 3,
+        'time_out'  => time()
+      ));
+
+      $a_id = ($this->session->userdata('a_id')==true)? $this->session->userdata('a_id') : 1;
+      $this->db->where('s_id',$s_id);
+      $this->db->where('state',0);
+      $this->db->order_by('time_in ASC');
+      $this->db->limit(1);
+      $this->db->update('user',array(
+        'state' => 1,
+        'a_id'  => $a_id,
+        'time_start' => time()
+      ));
+      return true;
+    }else{
+      return false;
+    }
+  }
   public function getService($s_id)
   {
     // Select all the values
