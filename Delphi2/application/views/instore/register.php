@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
   <head>
@@ -8,22 +7,22 @@
 
     <meta name="apple-mobile-web-app-capable" content="yes">
 
-    <link rel="stylesheet" href="assets/style.css" media="screen" title="no title" charset="utf-8">
+    <link rel="stylesheet" href=<?php echo base_url('assets/instore/style.css')?> media="screen" title="no title" charset="utf-8">
     <link href='https://fonts.googleapis.com/css?family=Ubuntu:500,700,400|Open+Sans:400,600' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
   </head>
-  <body <?php echo use_theme($_SESSION["c_id"])?>>
+  <body>
     <div class="container">
-        <?php $in_line=get_inline($_GET['service']);?>
+
         <h3 class="log_in3">
-          <a href="index.php"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>  <?php echo get_service_name($_GET['service']); ?>
+          <a href="../instore"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>  <?php echo $service; ?>
         </h3>
         <h2 class="log_in2">Enter your MOBILE number below to enter the queue</h2>
 
         <div class="log_in">
 
-          <form action="submit.php" method="post">
-            <input type="hidden" name="in_line" value=<?php echo $in_line; ?>>
+          <form action="instore/submit" method="post">
+            <input type="hidden" name="in_line" value="<?php echo $inline?>">
             <input type="hidden" name="service_id" value="<?php echo $_GET['service']; ?>">
             <input id="number" name="number" type="text" pattern="[0-9]{10}" title="07XXXXXXXX (10 digits)" placeholder="Enter your mobile number">
             <input id="submit_button" type="submit" value="Register">
@@ -36,12 +35,12 @@
           <i class="fa fa-clock-o icon ticon" aria-hidden="true"></i>
 
           <div class="info">
-            <p class="important"><?php echo $in_line?></p>
+            <p class="important"><?php echo $inline?></p>
             <p class="info">people <br/>in front</p>
           </div>
           <div class="info">
-            <p class="important"><?php $number=ceil(ewt($_GET['service'])); echo $number; ?></p>
-            <p class="info">minute<?php if($number!=1) echo 's'; ?> <br/>left</p>
+            <p class="important"><?php print_r( $ewt)?></p>
+            <p class="info">minute <br/>left</p>
           </div>
         </div>
 

@@ -22,7 +22,7 @@
 
             <ul class="btn_list ">
               <?php foreach($services as $row){  ?>
-                <li><a href="register?service=<?php echo $row->s_id; ?>"><?php echo $row->name; ?></a></li>
+                  <li><a href="instore/register?service=<?php echo $row->s_id; ?>"><?php echo $row->name; ?></a></li>
               <?php } ?>
             </ul>
 
