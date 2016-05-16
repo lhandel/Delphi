@@ -8,6 +8,7 @@ class Admin extends CI_Controller {
 		$this->listService();
 	}
 
+/* All services in the admin dashboard */
 	public function listService()
 	{
 		// Load the model
@@ -20,7 +21,7 @@ class Admin extends CI_Controller {
 		$this->load->view('admin/list',$data);
 	}
 
-
+/* Specific service */
 	public function service()
 	{
 		// Load the model
@@ -29,10 +30,10 @@ class Admin extends CI_Controller {
 		if(isset($_GET['next']))
 		{
 
-			redirect(site_url("index.php/admin/service?s_id=".$_GET['s_id']));
+			redirect(site_url("index.php/admin/service?s_id=".$_GET['s_id'])); //redirect to specific service
 		}
 
-		$data['service'] = $this->service_m->getService($_GET['s_id']);
+		$data['service'] = $this->service_m->getService($_GET['s_id']); //gets the service
 		// Load the view
 		$this->load->view('admin/service',$data);
 	}

@@ -23,4 +23,25 @@ class Instore_m extends CI_Model{
     return $this->db->get()->result();
   }
 
+/* All the people in the Queue */
+  public function get_inline($s_id){
+    $this->db->select('u_id');
+    $this->db->from('user');
+    $this->db->where('s_id',$s_id);
+    $this->db->where('state',0);
+    return $this->db->get()->result();
+  }
+
+  public function get_service_name($s_id){
+    $this->db->select('name');
+    $this->db->from('service');
+    $this->db->where('s_id',$s_id);
+    $this->db->limit(1);
+    return $this->db->get()->result();
+  }
+
+  public function ewt(){
+
+  }
+
 }
