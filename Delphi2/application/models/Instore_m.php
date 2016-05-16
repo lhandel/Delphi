@@ -41,6 +41,7 @@ class Instore_m extends CI_Model{
   }
 
   public function ewt(){
+    $query = $this->db->query("SELECT
                             (
                                 AVG(time_out-time_start)*
                                 (SELECT COUNT(u_id) FROM user WHERE s_id=$s_id AND (state=0 OR state=1))
@@ -50,7 +51,9 @@ class Instore_m extends CI_Model{
                             (SELECT COUNT(DISTINCT a_id) FROM user WHERE state=1 AND s_id=$s_id) as handlers
                              FROM user WHERE s_id=$s_id AND (state=3 OR state=2)  AND time_out!=0 LIMIT 10");
 
+   return $query->result_array();
 
+  /*  $ewt = get_result("SELECT
                             (
                                 AVG(time_out-time_start)*
                                 (SELECT COUNT(u_id) FROM user WHERE s_id=$s_id AND (state=0 OR state=1))
@@ -64,6 +67,7 @@ class Instore_m extends CI_Model{
     if($data['handlers']==0)
       return ceil($data['ewt']/60);
     else
+      return ceil(($data['ewt']/$data['handlers'])/60); */
   }
 
 }
