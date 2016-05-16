@@ -54,9 +54,10 @@ class Instore_m extends CI_Model{
                             (SELECT COUNT(DISTINCT a_id) FROM user WHERE state=1 AND s_id=$s_id) as handlers
                              FROM user WHERE s_id=$s_id AND (state=3 OR state=2)  AND time_out!=0 LIMIT 10");
 
+
    return $query->result_array();
   }
-  
+
  /* Queue Number */
   public function q_no($s_id){
     $this->db->select('q_no');

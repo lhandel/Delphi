@@ -20,7 +20,7 @@
                 </div>
 
                 <div class="number stat" id="E<?php echo $row->s_id; ?>">
-                    --
+                  <?php echo $row->ewt; ?>
                 </div>
                 <h2>est. time</h2>
 

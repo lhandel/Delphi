@@ -27,9 +27,15 @@ class Admin extends CI_Controller {
 		// Load the model
 		$this->load->model('service_m');
 
+		if(isset($_GET['skip']))
+		{
+			$this->service_m->skip();
+			$this->service_m->next($_GET['s_id']);
+			redirect(site_url("index.php/admin/service?s_id=".$_GET['s_id'])); //redirect to specific service
+		}
 		if(isset($_GET['next']))
 		{
-
+			$this->service_m->next($_GET['s_id']);
 			redirect(site_url("index.php/admin/service?s_id=".$_GET['s_id'])); //redirect to specific service
 		}
 
@@ -41,8 +47,46 @@ class Admin extends CI_Controller {
 
   public function settings()
   {
-    echo 'settings';
-  }
+
+		// Load the model
+		$this->load->model('service_m');
+
+		if (isset($_POST["rem"])) {
+			$s_id= intval($_POST["s_id"]); //this service id
+			$r_time= intval($_POST["content"]);// what you changed to in the textfield
+			$this->service_m->save(array(
+				'r_time'	=>  $r_time
+			),$s_id);
+			header("Location: ".site_url("index.php/admin/settings"));//send you back to the same page
+		}
+		//change service name
+		if (isset($_POST["edit"])) {
+			$s_id= intval($_POST["s_id"]);
+			$this->service_m->save(array(
+				'name'	=>  $_POST["content"]
+			),$s_id);
+			header("Location: ".site_url("index.php/admin/settings"));//send you back to the same page
+		}
+		if(isset($_GET["reset"]))
+		{
+			$s_id= intval($_GET["s_id"]);
+			$this->service_m->reset($s_id);
+			header("Location: ".site_url("index.php/admin/settings"));
+		}
+		if(isset($_GET["s_remove"]))
+		{
+			$s_id= intval($_GET["s_id"]);
+			$this->service_m->deleteService($s_id);
+			header("Location: ".site_url("index.php/admin/settings"));
+		}
+
+
+		// Get the serivies
+		$data['services']  = $this->service_m->getServices(1);  //  change to session!!!!
+
+		// load the view
+		$this->load->view('admin/settings',$data);
+	}
 
   public function  AdminMangement()
   {
