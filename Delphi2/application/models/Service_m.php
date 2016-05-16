@@ -89,6 +89,22 @@ class Service_m extends CI_Model{
       return false;
     }
   }
+
+  public function skip()
+  {
+      // get the admin id
+      $a_id = ($this->session->userdata('a_id')==true)? $this->session->userdata('a_id') : 1;
+
+      $this->db->where('a_id',$a_id);
+      $this->db->where('state',1);
+      $this->db->order_by('time_in ASC');
+      $this->db->limit(1);
+      $this->db->update('user',array(
+        'state' => 2
+      ));
+
+  }
+
   public function getService($s_id)
   {
     // Select all the values

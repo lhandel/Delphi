@@ -27,8 +27,9 @@ class Admin extends CI_Controller {
 		// Load the model
 		$this->load->model('service_m');
 
-		if(isset($_GET['next']))
+		if(isset($_GET['skip']))
 		{
+			$this->service_m->skip();
 			$this->service_m->next($_GET['s_id']);
 			redirect(site_url("index.php/admin/service?s_id=".$_GET['s_id'])); //redirect to specific service
 		}
