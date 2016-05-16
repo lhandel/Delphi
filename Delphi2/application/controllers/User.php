@@ -19,7 +19,7 @@ class User extends CI_Controller {
 			$user_state = $this-> user_m -> verify_link($u_id);
 			$state = $user_state[0]->state;
 						if ($state > 1)
-							echo $state;
+						die('Your link has expired.');
 
 			$data['p_id'] = $_GET['u'];
 			$queue_no = $this-> user_m -> queue_number($u_id);
