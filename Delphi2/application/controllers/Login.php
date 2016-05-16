@@ -9,7 +9,7 @@ class Login extends CI_Controller {
 	 // check if session exists
 	 if($this->session->userdata('c_id'))
 	 {
-		 redirect(site_url("index.php/admin/ai"));
+		 redirect(site_url("index.php/ia"));
 	 }
 	 $this->load->view('login');
 
@@ -38,7 +38,7 @@ class Login extends CI_Controller {
 		 // if password correct, save session and redirect page
 		 else{
 					 $c_id = $this->session->set_userdata($company_id);
-					 redirect(site_url("index.php/admin/ai"));
+					 redirect(site_url("index.php/ia"));
 		 }
 	 }
  }

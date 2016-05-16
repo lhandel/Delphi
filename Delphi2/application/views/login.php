@@ -11,7 +11,7 @@
   <body>
     <div class="container">
        <div class="companyimagebackground">
-              <img class="loginimage" src="admin/assets/logo.svg" alt="" />
+              <img class="loginimage" src="assets/admin/logo.svg" alt="" />
        </div>
 
 
