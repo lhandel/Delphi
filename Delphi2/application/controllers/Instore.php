@@ -53,11 +53,13 @@ class Instore extends CI_Controller{
   	{
   		// Load the model
   		$this->load->model('instore_m');
+      // service
   		$result = $this->instore_m->get_service_name(intval($_GET['service'])); //gets the service
-  		// Load the view
       $data['service']= $result[0]->name;
+      // inline
       $in_line = $this->instore_m->get_inline(intval($_GET['service'])); //inline
       $data['inline']= sizeof($in_line);
+      // estimate waiting time
       $result = $this->instore_m->ewt(intval($_GET['service']));
       $ewt = $result[0]['ewt'];
       $handler = $result[0]['handlers'];
@@ -65,6 +67,7 @@ class Instore extends CI_Controller{
         $handler=1;
       }
       $data['ewt'] = ceil(($ewt/$handler)/60);
+
   		$this->load->view('instore/register',$data);
   	}
 
@@ -74,14 +77,15 @@ class Instore extends CI_Controller{
     if(isset($_POST['number'])){
 
       // Setup the varibles & Clean the data
-      $number = $mysqli->real_escape_string($_POST['number']); /*ask ludwig if we really need it?*/
+      // $number = $mysqli->real_escape_string($_POST['number']); /*ask ludwig if we really need it?*/
       $time_in = time(); // time() return the unix timestamp
       $s_id = intval($_POST['service_id']); // make sure it's a number
 
       // Get the queue-number
       $this->load->model('instore_m');
 
-      $result = $this->instore_m->q_no($s_id); 
+      $result = $this->instore_m->q_no($s_id);
+
 
       //sendSMS(makeSMS($_POST['number'],$_POST['in_line']));
 
@@ -89,28 +93,33 @@ class Instore extends CI_Controller{
       if($result==false){
         $q_no = 1;
       }else{
-        $q_no = $result+1;
+        $q_no = $result[0]->q_no+1;
       }
       // Check the service id
       if($s_id!=0){
 
-        $public_id = generateRandomString(5);
+        $public_id = $this->generateRandomString(5);
 
         // Run the query and insert into db
-        $mysqli->query("INSERT INTO user(public_id,phone_no,time_in,s_id,q_no) VALUES('$public_id','$number',$time_in,$s_id,$q_no)");
-
+        //$mysqli->query("INSERT INTO user(public_id,phone_no,time_in,s_id,q_no) VALUES('$public_id','$number',$time_in,$s_id,$q_no)");
+        $uid= $this->instore_m->insert($public_id, $_POST['number'],$time_in,$s_id,$q_no);
         // send the user to the next page
-        $uid= $mysqli->insert_id;
+
         $link1 = 'http://46.101.97.62/user/?u='.$public_id;
-
-        sendSMS(makeSMS($_POST['number'],$_POST['in_line'],$link1,$q_no,$uid,$s_id));
-        header("Location: done.php?q_no=".$q_no."&phone_nr=".$_POST['number']."&service=".$s_id);
-
+        $data['q_no']= $q_no;
+        $data['phone_nr'] = $_POST['number'];
+        // get service name
+        $result = $this->instore_m->get_service_name($s_id); //gets the service
+        $data['service']= $result[0]->name;
+      //  sendSMS(makeSMS($_POST['number'],$_POST['in_line'],$link1,$q_no,$uid,$s_id));
+      //  header("Location: done.php?q_no=".$q_no."&phone_nr=".$_POST['number']."&service=".$s_id);
+        $this->load->view('instore/done',$data);
       }
 
 
     }else{
       header("Location: index.php");
+
     }
 
 
@@ -118,6 +127,16 @@ class Instore extends CI_Controller{
     //send sms
     //make sms
     //redirect to done.php
+  }
+
+  private function generateRandomString($length = 10) {
+      $characters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+      $charactersLength = strlen($characters);
+      $randomString = '';
+      for ($i = 0; $i < $length; $i++) {
+          $randomString .= $characters[rand(0, $charactersLength - 1)];
+      }
+      return $randomString;
   }
 
   private function sendSMS ($sms) {

@@ -73,6 +73,18 @@ class Instore_m extends CI_Model{
     $this->db->where('state',0);
     $this->db->order_by("u_id","desc");
     $this->db->limit(1);
+    return $this->db->get()->result();
   }
 
+  public function insert($public_id,$number,$time_in,$s_id,$q_no){
+    $data = array(
+      'public_id' => $public_id,
+      'phone_no' => $number,
+      'time_in' => $time_in,
+      's_id' => $s_id,
+      'q_no' => $q_no
+    );
+    $this->db->insert('user',$data);
+    return $this->db->insert_id();
+  }
 }
