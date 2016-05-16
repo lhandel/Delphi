@@ -23,7 +23,14 @@ class Service_m extends CI_Model{
       $this->db->where('state',0);
 
       // return the result
-      return $this->db->get()->result();
+      $result = $this->db->get()->result();
+      $this->load->model('instore_m');
+      $return = array();
+      foreach($result as $row){
+        $row->ewt = $this->instore_m->ewt($row->s_id);
+        $return[] = $row;
+      }
+      return (object)$return;
 
   }
 

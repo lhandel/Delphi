@@ -11,7 +11,7 @@
 
               <!-- Service name -->
               <td class="ttitle tmain">
-                <a href="service.php?s_id=<?php echo $row->s_id;?>" class="ta">
+                <a href="<?php echo site_url('index.php/admin/service?s_id='.$row->s_id); ?>" class="ta">
                   <?php  echo $row->name?>
                 </a>
                 <div class="annotation">
