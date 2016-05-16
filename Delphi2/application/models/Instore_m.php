@@ -28,7 +28,10 @@ class Instore_m extends CI_Model{
     $this->db->select('u_id');
     $this->db->from('user');
     $this->db->where('s_id',$s_id);
-    $this->db->where('state',0);
+
+    $state = "state=0 OR state=1"; /* does this work??? */
+    $this->db->where($state);
+
     return $this->db->get()->result();
   }
 
@@ -51,30 +54,18 @@ class Instore_m extends CI_Model{
                             (SELECT COUNT(DISTINCT a_id) FROM user WHERE state=1 AND s_id=$s_id) as handlers
                              FROM user WHERE s_id=$s_id AND (state=3 OR state=2)  AND time_out!=0 LIMIT 10");
 
-   $data =  $query->row();
 
-   if($data->ewt==NULL)
-    return 0;
-   if($data->handlers==0)
-     return ceil($data->ewt/60);
-   else
-     return ceil(($data->ewt/$data->handlers)/60);
+   return $query->result_array();
+  }
 
-  /*  $ewt = get_result("SELECT
-                            (
-                                AVG(time_out-time_start)*
-                                (SELECT COUNT(u_id) FROM user WHERE s_id=$s_id AND (state=0 OR state=1))
-
-                            )
-                            as ewt,
-                            (SELECT COUNT(DISTINCT a_id) FROM user WHERE state=1 AND s_id=$s_id) as handlers
-                             FROM user WHERE s_id=$s_id AND (state=3 OR state=2)  AND time_out!=0 LIMIT 10");
-    $data = $ewt->fetch_assoc();
-
-    if($data['handlers']==0)
-      return ceil($data['ewt']/60);
-    else
-      return ceil(($data['ewt']/$data['handlers'])/60); */
+ /* Queue Number */
+  public function q_no($s_id){
+    $this->db->select('q_no');
+    $this->db->from('user');
+    $this->db->where('s_id',$s_id);
+    $this->db->where('state',0);
+    $this->db->order_by("u_id","desc");
+    $this->db->limit(1);
   }
 
 }
