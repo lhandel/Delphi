@@ -19,10 +19,10 @@
   <div class="menu">
     <a href="index.php"><img src="<?php echo site_url('assets/admin/logo.svg'); ?>" alt="" /></a>
     <ul>
-      <li><a href="<?php echo site_url('index.php/admin/list'); ?>" id="item1"><i class="fa fa-tachometer" aria-hidden="true"></i> Dashboard</a></li>
+      <li><a href="<?php echo site_url('index.php/admin/listService'); ?>" id="item1"><i class="fa fa-tachometer" aria-hidden="true"></i> Dashboard</a></li>
       <li><a href="<?php echo site_url('index.php/admin/statistic'); ?>" id="item2"><i class="fa fa-bar-chart" aria-hidden="true"></i> Statistic</a></li>
-      <li><a href="<?php echo site_url('index.php/admin/list'); ?>" id="item3"><i class="fa fa-users" aria-hidden="true"></i> Admin Mangement</a></li>
-      <li><a href="<?php echo site_url('index.php/admin/listService'); ?>" id="item4"><i class="fa fa-wrench" aria-hidden="true"></i> Settings</a></li>
+      <li><a href="<?php echo site_url('index.php/admin/AdminMangement'); ?>" id="item3"><i class="fa fa-users" aria-hidden="true"></i> Admin Mangement</a></li>
+      <li><a href="<?php echo site_url('index.php/admin/settings'); ?>" id="item4"><i class="fa fa-wrench" aria-hidden="true"></i> Settings</a></li>
     </ul>
 
 

@@ -27,6 +27,24 @@ class Service_m extends My_Model{
 
   }
 
+  public function deleteService($s_id)
+  {
+    $this->reset($s_id);
+    $this->save(array(
+        'state' => 1
+    ),$s_id);
+  }
+
+  public function reset($s_id)
+  {
+    $this->db->where('s_id',$s_id);
+    $this->db->where('(state=0 OR state=1)');
+    $this->db->order_by('time_in ASC');
+    $this->db->update('user',array(
+      'state'=>4
+    ));
+  }
+
   public function getService($s_id)
   {
     // Select all the values
