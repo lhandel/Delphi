@@ -41,7 +41,29 @@ class Instore_m extends CI_Model{
   }
 
   public function ewt(){
+                            (
+                                AVG(time_out-time_start)*
+                                (SELECT COUNT(u_id) FROM user WHERE s_id=$s_id AND (state=0 OR state=1))
 
+                            )
+                            as ewt,
+                            (SELECT COUNT(DISTINCT a_id) FROM user WHERE state=1 AND s_id=$s_id) as handlers
+                             FROM user WHERE s_id=$s_id AND (state=3 OR state=2)  AND time_out!=0 LIMIT 10");
+
+
+                            (
+                                AVG(time_out-time_start)*
+                                (SELECT COUNT(u_id) FROM user WHERE s_id=$s_id AND (state=0 OR state=1))
+
+                            )
+                            as ewt,
+                            (SELECT COUNT(DISTINCT a_id) FROM user WHERE state=1 AND s_id=$s_id) as handlers
+                             FROM user WHERE s_id=$s_id AND (state=3 OR state=2)  AND time_out!=0 LIMIT 10");
+    $data = $ewt->fetch_assoc();
+
+    if($data['handlers']==0)
+      return ceil($data['ewt']/60);
+    else
   }
 
 }
