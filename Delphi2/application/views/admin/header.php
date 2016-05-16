@@ -17,7 +17,7 @@
     <i class="fa fa-bars" aria-hidden="true"></i>
   </div>
   <div class="menu">
-    <a href="index.php"><img src="<?php echo site_url('assets/admin/logo.svg'); ?>" alt="" /></a>
+    <a href="<?php echo site_url('index.php/admin/listService'); ?>"><img src="<?php echo site_url('assets/admin/logo.svg'); ?>" alt="" /></a>
     <ul>
       <li><a href="<?php echo site_url('index.php/admin/listService'); ?>" id="item1"><i class="fa fa-tachometer" aria-hidden="true"></i> Dashboard</a></li>
       <li><a href="<?php echo site_url('index.php/admin/statistic'); ?>" id="item2"><i class="fa fa-bar-chart" aria-hidden="true"></i> Statistic</a></li>
