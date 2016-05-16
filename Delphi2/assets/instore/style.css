@@ -1,0 +1,424 @@
+/**
+  *   h1  = Used for the main title
+  *   h2  = Used for the second title
+  *   h3  =
+  *   p   = Used for bodytext
+  *   .p2 = Used for intro-text
+  *   .btn = The default white btn
+  *   .btn2 = the inverted btn
+*/
+
+
+body{
+  background-color: #41cd7c;
+  color: #fff;
+}
+body.dark{
+  background: radial-gradient(#363636, #1c1c1c);
+}
+body.dark ul.btn_list li a{
+  color: #333;
+  box-shadow: 0px 3px 2px #000;
+}
+
+body.dark ul.btn_list li a:hover{
+  box-shadow: 0px 1px 1px #000;
+}
+body.dark .btn{
+  color: #333;
+  box-shadow: 0px 3px 2px #000;
+}
+
+
+body.red{
+  background: radial-gradient(#ef634d,#e14931);
+}
+body.red ul.btn_list li a,body.red .btn{
+  color: #333;
+  box-shadow: 0px 3px 2px #b33b2b;
+}
+
+body.red ul.btn_list li a:hover{
+  box-shadow: 0px 1px 1px #b33b2b;
+}
+
+
+
+
+.container{
+  width: 600px;
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+h1{
+  text-align: center;
+  font-family: 'Ubuntu';
+  font-weight: 500;
+  text-transform: uppercase;
+  float: left;
+  display: block;
+  width: 100%;
+  font-size: 45px;
+  margin: 0px;
+  padding: 0px;
+}
+h1.startpage{
+  margin-top: 130px;
+  margin-bottom: 50px;
+}
+h2{
+  text-align: center;
+  font-family: 'Ubuntu';
+  font-weight: 400;
+  text-transform: uppercase;
+  float: left;
+  display: block;
+  width: 100%;
+  font-size: 30px;
+  margin-top: 0px;
+  padding: 0;
+}
+
+
+.btn{
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  text-decoration: none;
+  display: block;
+  background-color: #fff;
+  text-align: center;
+  color: #26bf66;
+  font-size: 22px;
+  border-radius: 5px;
+  padding-top: 25px;
+  padding-bottom: 25px;
+  font-family: 'Open sans', sans-serif;
+  text-transform: uppercase;
+  box-shadow: 0px 3px 2px #1f9d54;
+
+}
+
+p{
+  padding: 0px;
+  margin: 0px;
+  text-align: center;
+  font-family: 'Open Sans';
+  font-weight: 500;
+  float: left;
+  display: block;
+  width: 100%;
+  font-size: 15px;
+}
+
+.p2{
+  padding: 0px;
+  margin: 0px;
+  text-align: center;
+  font-family: 'Open Sans';
+  font-weight: 500;
+  float: left;
+  display: block;
+  width: 100%;
+  font-size: 25px;
+}
+
+
+/* END OF GENERAL HEADERS*/
+
+h2.log_in2{
+  text-align: center;
+  font-family: 'Open sans';
+  float: left;
+  display: block;
+  width: 100%;
+  font-size: 20px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.btn_container{
+  float: left;
+  width: 410px;
+  margin-left: 95px;
+  margin-top: 20px;
+  min-height: 100px;
+}
+ul.btn_list{
+  margin: 0;
+  padding: 0;
+}
+ul.btn_list li{
+  list-style-type: none;
+  margin-top: 50px;
+}
+ul.btn_list li a{
+  text-decoration: none;
+  display: block;
+  background-color: #fff;
+  text-align: center;
+  color: #26bf66;
+  font-size: 22px;
+  border-radius: 5px;
+  padding-top: 25px;
+  padding-bottom: 25px;
+  font-family: 'Open sans', sans-serif;
+  text-transform: uppercase;
+  box-shadow: 0px 3px 2px #1f9d54;
+}
+ul.btn_list li a:hover{
+  box-shadow: 0px 1px 1px #1f9d54;
+}
+.remove_margin_top{
+  margin-top: 0;
+}
+
+.logo{
+  width: auto;
+  height: 90px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  bottom: 30px;
+}
+
+/* done.php */
+
+
+
+.ticket{
+  margin-left: auto;
+  margin-right: auto;
+  width: 300px;
+  height: 300px;
+}
+
+h1.doneh1{
+  margin-top: 130px;
+
+}
+
+h2.doneh2{
+  margin-top: 20px;
+}
+
+h3{
+  margin-top: 0px;
+  margin-bottom: 0px;
+  padding: 0px;
+  text-align: center;
+  font-family: 'Ubuntu';
+  font-weight: 500;
+  float: left;
+  display: block;
+  width: 100%;
+  font-size: 45px;
+  color:#fff;
+}
+
+.btn.btndone{
+  margin-top: 30px;
+  margin-bottom: 20px;
+
+}
+
+.fa.fa-check-circle.ml{
+  margin-left: 8px;
+}
+.row{
+  float: left;
+  display: block;
+  width: 100%;
+  height: auto;
+}
+/*
+  Ticket animation
+*/
+.ticketcontainer{
+  width: 212px;
+  height: 208px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 20px;
+  margin-top: 5px;
+}
+.ttop{
+    width: 212px;
+    height: 12px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url('top.png');
+    position: absolute;
+    top:0;
+    z-index: 2;
+}
+.tbottom{
+    width: 212px;
+    height: 12px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url('bottom.png');
+    position: absolute;
+    top: 12px;
+}
+.ticketbox{
+    position: absolute;
+    z-index: 1;
+    width: 185px;
+    height: 188px;
+    left: 15px;
+    top: -150px;
+    padding-top: 20px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url('bg.png');
+    font-family: 'Ubuntu';
+    text-align: center;
+    font-size: 120px;
+    font-weight: lighter;
+    color: #333;
+}
+.ticketlabel{
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  width: 100%;
+  color: #6c6c6c;
+  font-size: 15px;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+/* group 1*/
+h3.log_in3{
+  text-align: center;
+  font-family: 'Ubuntu';
+  font-weight: 500;
+  text-transform: uppercase;
+  float: left;
+  display: block;
+  width: 100%;
+  font-size: 45px;
+  margin-top: 50px;
+  margin-bottom: 30px;
+}
+h3.log_in3 i{
+  color: #fff;
+  margin-right: 20px;
+  margin-left: 0;
+  float: left;
+}
+
+
+.log_in{
+  width:100%;
+  height:100px;/*
+  background-color: red;*/
+  float:left;
+
+}
+
+
+#submit_button{
+  width:127px;
+  height: 72px;
+  background-color: transparent;
+  float:right;
+  margin-top:10px;
+  color:white;
+  margin-left: 15px;
+  border-radius: 8px;
+  font-family: 'Ubuntu';
+  font-size: 25px;
+  border-color: white;
+  border:2px solid white;
+  -webkit-appearance: none;
+}
+
+#number{
+  border:none;
+  width:428px;
+  height:70px;
+  margin-top:10px;
+  font-size:30px;
+  font-family:'Ubuntu';
+  border-radius: 8px;
+  float: left;
+  padding-left: 15px;
+}
+
+.login_display{
+  margin-top:20px;
+  width:100%;
+  height:300px;
+  float:left;
+}
+
+.icon{
+  width:50%;
+  float:left;
+  height:50px;
+  background-repeat: no-repeat;
+  background-position: top;
+}
+img .queue{
+  height: 50px;
+  width: 50px;
+
+}
+
+i.fa.fa-clock-o.icon.ticon{
+  font-size: 60px;
+  text-align: center;
+}
+
+.info{
+  width:50%;
+  float:left;
+  height:200px;
+  text-align: center;
+}
+
+p.important{
+
+  font-size: 60px;
+  margin-top: 15px;
+}
+
+p.info{
+
+  width: 100%;
+  font-size: 30px;
+}
+
+
+@media screen and (max-height: 950px) {
+  h1.startpage{
+    margin-top: 60px;
+    margin-bottom: 30px;
+  }
+  ul.btn_list li{
+    margin-top: 35px;
+  }
+  .remove_margin_top ul.btn_list li{
+    margin-top: 25px;
+  }
+  .remove_margin_top ul.btn_list li a{
+    padding-top: 19px;
+    padding-bottom: 19px;
+    font-size: 20px;
+  }
+}
+
+/*group 1 end*/

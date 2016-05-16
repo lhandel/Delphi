@@ -1,0 +1,433 @@
+/**
+  *   h1  = Used for the main title
+  *   h2  = Used for the second title
+  *   h3  =
+  *   p   = Used for bodytext
+  *   .p2 = Used for intro-text
+  *   .btn = The default white btn
+  *   .btn2 = the inverted btn
+*/
+
+body{
+  background-color: #41cd7c;
+  color: #fff;
+}
+body.dark{
+  background: radial-gradient(#363636, #1c1c1c);
+}
+body.dark ul.btn_list li a{
+  color: #333;
+  box-shadow: 0px 3px 2px #000;
+}
+
+body.dark ul.btn_list li a:hover{
+  box-shadow: 0px 1px 1px #000;
+}
+
+body.dark .btn{
+  color: #333;
+  box-shadow: 0px 3px 2px #000;
+}
+
+.container{
+  width: 320px;
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
+}
+h1{
+  text-align: center;
+  font-family: 'Ubuntu';
+  font-weight: 500;
+  text-transform: uppercase;
+  float: left;
+  display: block;
+  width: 100%;
+  font-size: 45px;
+}
+h1.startpage{
+  margin-top: 130px;
+  margin-bottom: 50px;
+}
+h2{
+  text-align: center;
+  font-family: 'Ubuntu';
+  font-weight: 400;
+  text-transform: uppercase;
+  float: left;
+  display: block;
+  width: 100%;
+  font-size: 30px;
+  margin-top: 0px;
+  padding: 0;
+}
+
+.btn_container{
+  float: left;
+  width: 410px;
+  margin-left: 95px;
+  margin-top: 20px;
+  min-height: 100px;
+}
+ul.btn_list{
+  margin: 0;
+  padding: 0;
+}
+ul.btn_list li{
+  list-style-type: none;
+  margin-top: 50px;
+}
+ul.btn_list li a{
+  text-decoration: none;
+  display: block;
+  background-color: #fff;
+  text-align: center;
+  color: #26bf66;
+  font-size: 22px;
+  border-radius: 5px;
+  padding-top: 25px;
+  padding-bottom: 25px;
+  font-family: 'Open sans', sans-serif;
+  text-transform: uppercase;
+  box-shadow: 0px 3px 2px #1f9d54;
+}
+ul.btn_list li a:hover{
+  box-shadow: 0px 1px 1px #1f9d54;
+}
+.logo{
+  width: 374px;
+  height: 68px;
+  background-image: url('logo.png');
+  background-size: contain;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  bottom: 50px;
+}
+
+/* done.php */
+
+
+
+.ticket{
+  margin-left: auto;
+  margin-right: auto;
+  width: 300px;
+  height: 300px;
+}
+
+p{
+  padding: 0px;
+  margin: 0px;
+  text-align: center;
+  font-family: 'Open Sans';
+  font-weight: 500;
+  float: left;
+  display: block;
+  width: 100%;
+  font-size: 25px;
+}
+
+h3{
+  margin-top: 0px;
+  margin-bottom: 0px;
+  padding: 0px;
+  text-align: center;
+  font-family: 'Ubuntu';
+  font-weight: 500;
+  float: left;
+  display: block;
+  width: 100%;
+  font-size: 30px;
+  color:#fff;
+}
+
+.p2{
+  padding: 0px;
+  margin: 0px;
+  text-align: center;
+  font-family: 'Open Sans';
+  font-weight: 500;
+  float: left;
+  display: block;
+  width: 100%;
+  font-size: 15px;
+  margin-bottom: 40px;
+}
+
+.btn{
+  margin-left: auto;
+  margin-right: auto;
+  width: 120px;
+  text-decoration: none;
+  display: block;
+  background-color: #fff;
+  text-align: center;
+  color: #26bf66;
+  font-size: 12px;
+  border-radius: 5px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  font-family: 'Open sans', sans-serif;
+  text-transform: uppercase;
+  box-shadow: 0px 3px 2px #1f9d54;
+  margin-bottom: 20px;
+}
+
+
+
+.fa.fa-check-circle.ml{
+  margin-left: 8px;
+}
+.row{
+  float: left;
+  display: block;
+  width: 100%;
+  height: auto;
+  //background-color: red;
+  //margin-top: 10px;
+}
+/*
+  Ticket animation
+*/
+.ticketcontainer{
+  width: 212px;
+  height: 208px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+.ttop{
+    width: 212px;
+    height: 12px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url('top.png');
+    position: absolute;
+    top:0;
+    z-index: 2;
+}
+.tbottom{
+    width: 212px;
+    height: 12px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url('bottom.png');
+    position: absolute;
+    top: 12px;
+}
+.ticketbox{
+    position: absolute;
+    z-index: 1;
+    width: 185px;
+    height: 188px;
+    left: 15px;
+    top: -150px;
+    padding-top: 20px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url('bg.png');
+    font-family: 'Ubuntu';
+    text-align: center;
+    font-size: 120px;
+    font-weight: lighter;
+    color: #333;
+}
+.ticketlabel{
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  width: 100%;
+  color: #6c6c6c;
+  font-size: 15px;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+/* group 1*/
+
+#back_button{
+  background-image:url(arrow.jpg);
+  background-size:38px 34px;
+  background-repeat: no-repeat;
+  background-color: #41cd7c;
+
+  width:80px;
+  height: 45px;
+
+  float:left;
+  margin-top:60px;
+  border:none;
+}
+
+#submit_button{
+  width:127px;
+  height: 72px;
+  background-color: #41cd7c;
+  float:right;
+  margin-top:10px;
+  color:white;
+  margin-left: 15px;
+  border-radius: 8px;
+  font-family: 'Ubuntu';
+  font-size: 25px;
+  border-color: white;
+  border:2px solid white;
+  -webkit-appearance: none;
+}
+
+#number{
+  border:none;
+  width:429px;
+  height:70px;
+  margin-top:10px;
+  font-size:30px;
+  font-family:'Ubuntu';
+  border-radius: 8px;
+  float: left;
+  padding-left: 15px;
+}
+
+p.important{
+  text-align: center;
+  font-family: 'Open sans';
+  float: left;
+/*  display: block;*/
+  width: 100%;
+  font-size: 60px;
+  margin-top: 15px;
+  margin-bottom: 0px;
+}
+
+p.info{
+  text-align: center;
+  font-family: 'Open sans';
+  font-weight: 500;
+  float: left;
+/*  display: block;*/
+  width: 100%;
+  font-size: 30px;
+  margin-top: 0px;
+}
+
+/*group 1 end*/
+
+/* User interface */
+.topbox{
+    //background: pink;
+    text-align: center;
+    //border: 1px solid black;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.topbox span{
+  margin:15px;
+}
+.clock-icon{
+  background-image: url(pictures/clock1.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 30px;
+  width: 30px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.clock-time{
+  font-size: 40px;
+  font-weight: bold;
+  margin-top: 15px;
+  //background: pink;
+  font-family: 'ubuntu';
+}
+.hours-min{
+  //background: yellow;
+}
+.middlebox{
+  text-align: center;
+  //border: 1px solid black;
+  height: auto;
+  display: flex;
+  padding-top: 20px;
+}
+.q-no{
+  //background: lightblue;
+  height: auto;
+  width: 49%;
+  margin-left: 1%;
+}
+.ticket-icon{
+    background-image: url(pictures/two_tickets1.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 30px;
+    width: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 15px;
+}
+.text{
+  font-family: 'ubuntu';
+  font-size: 15px;
+  font-weight: bold;
+  position: relative;
+  top: -20px;
+}
+.people-infront{
+  //background: lightgreen;
+  height: auto;
+  width: 49%;
+}
+
+.person-icon{
+    background-image: url(pictures/user_male41.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 30px;
+    width: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 15px;
+}
+.est-time{
+  //background: brown;
+  font-family: 'ubuntu';
+  font-weight: bold;
+  font-size: 18px;
+  margin-top: 15px;
+}
+.verticalLine{
+  border-left: 1px dotted #fff;
+  margin-top: auto;
+  margin-bottom: auto;
+  height: 130px;
+  width: auto;
+}
+
+.position-bottom{
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom:0;
+}
+@media screen and (min-width: 768px) {
+    /* For desktop: */
+    .text{font-size: 20px;}
+    //.middlebox{border: 1px solid black;}
+    .ticket-icon{width: 50px; height: 50px;}
+    .person-icon{width: 50px; height: 50px;}
+    .clock-icon{width: 50px; height: 50px;}
+    .clock-time{font-size: 60px;}
+    h2{font-size: 45px;}
+    .container{width: 600px;}
+    .est-time {font-size: 30px;}
+    .btn {font-size: 20px; width: 15%; padding-top: 20px; padding-bottom: 20px;}
+}

@@ -16,7 +16,8 @@ class Instore extends CI_Controller{
 
   }
 
-  public function set_margin($result){
+  // display for index page
+  private function set_margin($result){
     if(sizeof($result)==4){
           return 'remove_margin_top';
     }
@@ -24,7 +25,7 @@ class Instore extends CI_Controller{
   }
 
   // get theme selected by company
-  public function use_theme($c_id){
+  private function use_theme($c_id){
     $c_id = intval($c_id);
     $this->load->model('instore_m');
     $theme = $this->instore_m->get_theme($c_id); // get theme from database
@@ -40,7 +41,7 @@ class Instore extends CI_Controller{
 
   // get a list of services currently offered by the company
   // return array of service id and service name
-  public function get_services($c_id){
+  private function get_services($c_id){
     $c_id = intval($c_id);
     $this->load->model('instore_m');
     $result = $this-> instore_m ->get_services($c_id);
