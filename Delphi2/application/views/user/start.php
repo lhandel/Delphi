@@ -57,7 +57,7 @@
 
       </div>
       <div class="row">
-        <a href="javascript:double_check('<?php echo "quit.php?u=".$p_id; ?>')" class="btn position-bottom" >Leave Queue</a>
+        <a href="javascript:double_check('<?php echo "user/quit?u=".$p_id; ?>')" class="btn position-bottom" >Leave Queue</a>
         <script>
           function double_check(url) {
               var r = confirm("Are you sure?");

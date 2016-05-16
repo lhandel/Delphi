@@ -32,4 +32,23 @@ class User extends CI_Controller {
 
 			}
 		}
+
+		public function quit()
+		{
+			$this->load->model('user_m');
+			if(isset($_GET['u'])){
+			    // Putting updated information to varaible sql
+
+			    $sql = $this-> user_m ->update_state($_GET['u']);
+
+			    // run the query and update mysql database
+			    if ($sql == true) {
+											$this->load->view('user/success');
+			    } else {
+								//not sure if works
+			          echo "Error updating record: " . $mysql->error;
+			    }
+
+			}
+		}
 }

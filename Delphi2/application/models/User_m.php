@@ -43,4 +43,15 @@ class User_m extends CI_Model{
   return $this->db->get()->result();
 
   }
+
+  public function update_state($pid){
+
+//    $this->db->set('state',2);
+    $this->db->where('public_id', $pid);
+    $this->db->set('state',2);
+    $this->db->update('user');
+
+
+    return true;
+  }
 }
