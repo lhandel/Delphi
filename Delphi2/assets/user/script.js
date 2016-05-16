@@ -15,7 +15,7 @@ $(document).ready(function(){
     };
 
         $.ajax({
-        url: 'ewt.php',
+        site_url('/application/controllers/User.php?f=u_ewt'),
         data:  dataString,
         cache: false,
         success:function(result){

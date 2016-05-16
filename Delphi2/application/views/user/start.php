@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -12,8 +13,8 @@
     <link rel="stylesheet" href="<?php echo site_url('assets/user/style.css'); ?>" media="screen" title="no title" charset="utf-8">
     <link href='https://fonts.googleapis.com/css?family=Ubuntu:500,700,400|Open+Sans:400,600' rel='stylesheet' type='text/css'>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js" charset="utf-8"></script>
-
-    <script src="assets/user/script.js" charset="utf-8"></script>
+    <script type="text/javascript" src="<?php echo base_url();?>js/jquery.js" ></script>
+    <script src="/assets/user/script.js" charset="utf-8"></script>
     <meta name="format-detection" content="telephone=no">
   </head>
   <body >
@@ -49,7 +50,7 @@
         <div class="row verticalLine"></div>
         <div class="row people-infront">
           <div class="person-icon"></div>
-          <h2 id="in_queue"></h2>
+          <h2 id="in_queue"><?php echo $queue_count-1; ?></h2>
           <div class="text">
             People </br> in front
           </div>

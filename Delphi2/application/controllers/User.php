@@ -26,10 +26,14 @@ class User extends CI_Controller {
 			$data['queue_no'] = $queue_no[0]->q_no;
 			$phone_no = $this-> user_m -> get_phone_number($u_id);
 			$data['phone_no'] = $phone_no[0]->phone_no;
+			$ewt = $this-> user_m -> ewt($_GET['u']);
+			$data['s_id'] = $ewt['s_id'];
+
+
+			$queue_count = $this->user_m->queue_counter($data['s_id']);
+			$data['queue_count'] = $queue_count[0]->queue_count;
 
 			$this->load->view('user/start', $data);
-			//redirect(site_url("index.php/user/start"));
-
 			}
 		}
 
@@ -51,4 +55,36 @@ class User extends CI_Controller {
 
 			}
 		}
+		public function u_ewt(){
+
+			header("Content-type: application/json; charset=ut8");
+
+			$this->load->model('user_m');
+
+			$data = $this-> user_m -> ewt($_GET['u']);
+
+			$s_id = $data['s_id'];
+			$u_id = $data['u_id'];
+			$flag = $data['r_sms'];
+
+			$ewt = $this-> user_m -> ewt_for_user2($s_id,$u_id);
+	    $better_ewt = $ewt['ewt']-(time()-$ewt['timer']);
+
+	    if($better_ewt<0){
+	      $better_ewt = 0;
+	    }
+
+	    $data = array(
+
+	      "title"   =>  "ok",
+	      "content" =>  ceil($better_ewt/60),
+	      "inline" => $data['inline'],
+	      "flag" => $flag,
+	      "state" => $data['state']
+	    );
+			echo json_encode($data);
+
+		}
+
+
 }

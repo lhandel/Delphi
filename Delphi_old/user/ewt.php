@@ -14,7 +14,7 @@ ini_set('display_errors', 1);
     $flag = $data['r_sms'];
 
 
-    $ewt = ewt_for_user2($s_id,$u_id);
+    $ewt = ewt_user2($s_id,$u_id);
     $better_ewt = $ewt['ewt']-(time()-$ewt['timer']);
 
     // if it takes longer time than average
