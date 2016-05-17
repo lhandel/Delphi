@@ -19,11 +19,28 @@ class Company_m extends CI_Model{
     }else{
       return false;
     }
-
   }
 
+    public function deleteAdmin($a_id)
+    {
+      $this->db->UPDATE('user');
+      $this->db->SET('a_id',NULL);
+      $this->db->WHERE('a_id',$a_id);
+      return $this->db->get()->result();
 
+      $this->db->DELETE('admin');
+      $this->db->WHERE('a_id',$a_id);
+      return $this->db->get()->result();
+    }
 
+    function save($a_id){
+
+        $this->db->SELECT('admin_name');
+        $this->db->FROM('admin');
+        $this->db->WHERE('s_id',$s_id);
+        return $this->db->get()->result();
+
+    }
 
 
 

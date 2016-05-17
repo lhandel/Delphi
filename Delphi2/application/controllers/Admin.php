@@ -133,7 +133,31 @@ public function login(){
 
   public function  AdminMangement()
   {
-    # code...
-    echo 'admin';
-  }
+
+		// Load the model
+		$this->load->model('company_m');
+
+		//change admin name
+		if (isset($_POST["edit"])) {
+			$a_id= intval($_POST["a_id"]);
+			$this->company_m->save(array(
+				'admin_name'	=>  $_POST["content"]
+			),$a_id);
+			header("Location: ".site_url("index.php/admin/AdminMangement"));//send you back to the same page
+		}
+
+		if(isset($_GET["a_remove"]))
+		{
+			$a_id= intval($_GET["a_id"]);
+			$this->company_m->deleteAdmin($a_id);
+			header("Location: ".site_url("index.php/admin/AdminMangement"));
+		}
+
+		// Get the serivies
+		$data['services']  = $this->company_m->get_admins();  //  change to session!!!!*/
+
+		// load the view
+		$this->load->view('admin/AdminMangement',$data);
+	}
+
 }

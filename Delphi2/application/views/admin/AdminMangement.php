@@ -1,45 +1,24 @@
 <?php $this->load->view('admin/header'); ?>
 
-
     <div class="settingscontainer">
       <table width="100%" cellpadding="0" cellspacing="0" border="0" class="list link">
             <tbody>
 
-
-            <?php
-            $company_session_id = $this->session->userdata('c_id');
-
-            var_dump($company_session_id);
-
-
-
-            $result = get_admins($c_id);
-
-            get_admins($c_id);
-
-
-            while($row = $result->fetch_assoc()){
-
-              ?>
-
-
-
+            <!-- Php code for getting all relevant info about each company services -->
+            <?php foreach($services as $row){  ?>
 
               <tr>
+
+                <!-- Admin ID -->
                 <td class="ttitle tmain">
                   <?php  echo $row->admin_name;?>
                 </td>
-<!-- Testar härifrån-->
+
                 <td class="ttitle ticons">
-
                   <?php echo $row->a_id; ?>
-
                   <div class="annotation">
                     Admin id
                   </div>
-
-<!-- hit -->
-
                 </td>
 
                 <!-- Edit Admin Name -->
@@ -54,20 +33,19 @@
                   </div>
                 </td>
 
-
-
+                <!-- Remove service -->
 
                 <td class="ttitle ticons">
 
                   <a href="update.php?a_id=<?php echo $row->a_id;?>&a_remove=true" class="ta">
-                    <i class="fa fa-trash-o" aria-hidden="true"></i>˘
+                    <i class="fa fa-trash-o" aria-hidden="true"></i>
                   </a>
                   <div class="annotation">
                     Click to remove admin
                   </div>
                 </td>
               </tr>
-              <?php } ?>
+              <?php } ?> <!-- End of while-loop -->
 
             </tbody>
           </table>
