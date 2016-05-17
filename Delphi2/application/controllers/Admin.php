@@ -8,18 +8,9 @@ class Admin extends CI_Controller {
 		$this->listService();
 	}
 	//check session a_id
-	public function checkLogin(){
+public function checkLogin(){
 
-		if($this->session->userdata('a_id')){
-		  if (isset($_GET['url'])) {
-		    redirect(site_url("index.php/admin/".$_GET['url']));
-		  }else {
-				redirect(site_url("index.php/admin/service.php?s_id=".$_GET['s_id']));
-		  }
-		} else {
-				$url = (isset($_GET['url']))? "?url=".$_GET['url'] : '';
-				header("Location: ".site_url("index.php/admin/login".$url));
-		}
+	
 }
 public function login(){
 
