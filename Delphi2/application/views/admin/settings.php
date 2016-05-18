@@ -106,14 +106,14 @@
             <span>Rose gold</span>
           </div>
 
-          <div class="squareTheme_container" onclick="document.location='<?php echo site_url("index.php/admin/settings?theme=roseg") ?>'">
-            <div class="squareTheme roseg <?php if($theme_name=='roseg') echo 'active'; ?>"></div>
-            <span>Sunset orange</span>
+          <div class="squareTheme_container" onclick="document.location='<?php echo site_url("index.php/admin/settings?theme=sunset") ?>'">
+            <div class="squareTheme sunset <?php if($theme_name=='sunset') echo 'active'; ?>"></div>
+            <span>Sunset <br/>orange</span>
           </div>
 
-          <div class="squareTheme_container" onclick="document.location='<?php echo site_url("index.php/admin/settings?theme=roseg") ?>'">
-            <div class="squareTheme roseg <?php if($theme_name=='roseg') echo 'active'; ?>"></div>
-            <span>Heartbreak red</span>
+          <div class="squareTheme_container" onclick="document.location='<?php echo site_url("index.php/admin/settings?theme=heartbreak") ?>'">
+            <div class="squareTheme heartbreak <?php if($theme_name=='heartbreak') echo 'active'; ?>"></div>
+            <span>Heartbreak <br/>red</span>
           </div>
 
 
