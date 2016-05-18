@@ -64,6 +64,14 @@ body.blue ul.btn_list li a,body.blue .btn{
   margin-right: auto;
 }
 
+/* Center the the div */
+/*.inner-container{
+  position: absolute;
+    top: 15%;
+    bottom: 15%;
+    left: 10%;
+    right: 10%;
+}*/
 h1{
   text-align: center;
   font-family: 'Ubuntu';
