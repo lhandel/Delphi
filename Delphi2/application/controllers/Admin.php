@@ -178,10 +178,6 @@ class Admin extends CI_Controller {
 
 		// Get the serivies
 		$data['services']  = $this->company_m->get_admins();  //  change to session!!!!*/
-<<<<<<< HEAD
-=======
-
->>>>>>> master
 		$data['theme'] = $this->use_theme($this->session->userdata('c_id'));
 		// load the view
 		$this->load->view('admin/AdminMangement',$data);
