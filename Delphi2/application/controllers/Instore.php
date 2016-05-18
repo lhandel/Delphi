@@ -132,15 +132,9 @@ class Instore extends CI_Controller{
       //  header("Location: done.php?q_no=".$q_no."&phone_nr=".$_POST['number']."&service=".$s_id);
         $this->load->view('instore/done',$data);
       }
-
-
     }else{
       die("Fel");
-
     }
-
-
-
     //send sms
     //make sms
     //redirect to done.php
