@@ -146,6 +146,7 @@ class Admin extends CI_Controller {
 		if (isset($_GET["theme"])) {
 			$c_id=$this->session->userdata('c_id');
 			$this->company_m-> set_theme($c_id,$_GET["theme"]);
+			
 			header("Location: ".site_url("index.php/admin/settings"));
 		}
 
