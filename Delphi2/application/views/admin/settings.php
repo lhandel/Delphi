@@ -78,19 +78,31 @@
             </div>
         </div>
 
-        <div class="themelist">
-          <h4>Select Your Theme Here</h4>
-          <form class="" action="" method="get">
-            <select name='theme' onchange="document.location = '<?php echo site_url("index.php/admin/settings?theme=") ?>'+this.value" class='theme'>
-              <option value=''>Select Theme</option>
-              <option value='dark'>Dark</option>
-              <option value='red'>Red</option>
-              <option value='green'>Green</option>
-              <option value='blue'>Blue</option>
+        <div class="row themePicker">
 
-            </select>
-          </form>
+          <div class="squareTheme_container" onclick="document.location = '<?php echo site_url("index.php/admin/settings?theme=green") ?>'">
+            <div class="squareTheme <?php if($theme_name=='green') echo 'active'; ?>"></div>
+            <span>Summer green</span>
+          </div>
+
+          <div class="squareTheme_container" onclick="document.location='<?php echo site_url("index.php/admin/settings?theme=blue") ?>'">
+            <div class="squareTheme blue <?php if($theme_name=='blue') echo 'active'; ?>"></div>
+            <span>Deep ocean blue</span>
+          </div>
+
+          <div class="squareTheme_container" onclick="document.location='<?php echo site_url("index.php/admin/settings?theme=red") ?>'">
+            <div class="squareTheme red <?php if($theme_name=='red') echo 'active'; ?>"></div>
+            <span>Passionate <br/>red</span>
+          </div>
+
+          <div class="squareTheme_container" onclick="document.location='<?php echo site_url("index.php/admin/settings?theme=dark") ?>'">
+            <div class="squareTheme dark <?php if($theme_name=='dark') echo 'active'; ?>"></div>
+            <span>Liquorice<br/> Black</span>
+          </div>
+
         </div>
+
+
   </div>
 </body>
 </html>

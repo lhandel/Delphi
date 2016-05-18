@@ -120,7 +120,7 @@ class Instore extends CI_Controller{
 
 
     }else{
-      header("Location: index.php");
+      die("Fel");
 
     }
 

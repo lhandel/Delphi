@@ -112,6 +112,9 @@ class Admin extends CI_Controller {
 
 			// Load the model
 			$this->load->model('service_m');
+			$this->load->model('instore_m');
+
+		$data['theme_name'] = $this->instore_m->get_theme($this->session->userdata('c_id'));
 
 		$data['theme'] = $this->use_theme($this->session->userdata('c_id'));
 		if (isset($_POST["rem"])) {
