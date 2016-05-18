@@ -73,7 +73,18 @@ class Instore extends CI_Controller{
 
     public function choice(){
       $data['s_id']=$_GET['s_id'];
+      // Load the model
+      $this->load->model('instore_m');
+
+      $in_line = $this->instore_m->get_inline(intval($_GET['s_id'])); //inline
+      $data['inline']= sizeof($in_line);
+      // estimate waiting time
+
+      $data['ewt'] = $this->instore_m->ewt(intval($_GET['s_id']));
       $this->load->view('instore/choice',$data);
+
+
+
 
     }
 

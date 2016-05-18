@@ -26,7 +26,27 @@
 
         </div>
 
+        <div class="login_display">
+
+
+
+
+          <div class="info">
+            <img class="icon queue" src="<?php echo base_url('assets/instore/Queue.svg'); ?>" alt="" />
+            <p class="important"><?php echo $inline?></p>
+            <p class="info">people <br/>in front</p>
+          </div>
+          <div class="info">
+            <i class="fa fa-clock-o icon ticon queue" aria-hidden="true"></i>
+            <p class="important"><?php echo $ewt?></p>
+            <p class="info">minute <br/>left</p>
+          </div>
+        </div>
+
     </div>
+
+
+
 
     <img src="<?php echo base_url('assets/instore/logo.svg') ?>" alt="" class="logo">
 
