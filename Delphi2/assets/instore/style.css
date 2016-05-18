@@ -403,6 +403,7 @@ i.fa.fa-clock-o.icon.ticon{
   float:left;
   height:200px;
   text-align: center;
+  margin-top: 30px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -419,6 +420,8 @@ p.info{
   font-size: 30px;
 }
 
+/* PaperDone page */
+
 .icon-arrowdown{
   width: 150px;
   height: 150px;
@@ -426,11 +429,16 @@ p.info{
   margin-right: auto;
 }
 .icon-arrowdown i{
-  margin-top: 80px;
+  margin-top: 200px;
   margin-left: auto;
   margin-right: auto;
   font-size: 150px;
   -webkit-animation: bounce 2s infinite ease-in-out;
+}
+
+.inner-container{
+  margin-top: 30%;
+  margin-bottom: 20%;
 }
 
 @-webkit-keyframes bounce {

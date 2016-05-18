@@ -18,9 +18,12 @@
   </head>
   <body>
     <div class="container">
-      <h2 style="margin-top:60px; font-size: 50px;">Grab Your <br>Ticket <br><b><h1 style="font-size: 60px; margin-top: 10px;">Here!</h1></b></h2>
-      <div class="icon-arrowdown">
-        <i class="fa fa-arrow-down" aria-hidden="true"></i>
+
+      <div class="inner-container">
+        <h2 style="margin-top:60px; font-size: 60px; font-family: 'Ubuntu';">Grab Your <br>Ticket <br><b><h1 style="font-size: 70px; font-weight: bold; margin-top: 15px;">Here!</h1></b></h2>
+        <div class="icon-arrowdown">
+          <i class="fa fa-arrow-down" aria-hidden="true"></i>
+        </div>
       </div>
 
     </div>

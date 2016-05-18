@@ -19,13 +19,12 @@
   <body>
     <div class="container">
         <h1 class="startpage">Join the queue</h1>
-        <h3 class="choosemenu">Paper or By Phone</h3>
 
         <div class="btn_container">
 
             <ul class="btn_list ">
-                <li><a href="<?php echo site_url("index.php/instore/paperDone/?s_id=$s_id"); ?>">Paper</a></li>
-                <li><a href="<?php echo site_url("index.php/instore/register/?s_id=$s_id"); ?>"> Phone</a></li>
+              <li><a href="<?php echo site_url("index.php/instore/register/?s_id=$s_id"); ?>">SMS Ticket</a></li>
+              <li><a href="<?php echo site_url("index.php/instore/paperDone/?s_id=$s_id"); ?>">Paper Ticket</a></li>
             </ul>
 
         </div>
