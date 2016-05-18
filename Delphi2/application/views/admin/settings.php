@@ -1,6 +1,6 @@
 <?php $this->load->view('admin/header'); ?>
 <div class="settingscontainer">
-    
+
 
         <div class="container-popup">
             <div class="popup">
@@ -57,7 +57,7 @@
         <div class="survey">
           <div class="survey_box">
               <!-- <div class="linkinfo"> -->
-                <h1 class="sl">Survey link for</h1>
+                <h1 class="sl">Survey link for <?php echo $company_name; ?></h1>
                 <h2 class="sl"> i.e Survey Monkey, Google Form, etc.</h2>
 
               <div class="survey_register">

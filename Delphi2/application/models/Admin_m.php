@@ -3,12 +3,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Admin_m extends CI_Model{
 
-  //get name for company
-  public function retrieve_name($value='')
-  {
-    # code...
-  }
-
   //store link in the data base
   public function register_link($c_id,$link)
   {

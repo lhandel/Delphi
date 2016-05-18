@@ -115,7 +115,7 @@ class Admin extends CI_Controller {
 			$this->load->model('instore_m');
 
 		$data['theme_name'] = $this->instore_m->get_theme($this->session->userdata('c_id'));
-
+		$data['company_name'] = $this->company_m->get_company_name($this->session->userdata('c_id'));
 		$data['theme'] = $this->use_theme($this->session->userdata('c_id'));
 		if (isset($_POST["rem"])) {
 			$s_id= intval($_POST["s_id"]); //this service id
@@ -202,12 +202,6 @@ class Admin extends CI_Controller {
 		$data['theme'] = $this->use_theme($this->session->userdata('c_id'));
 		// load the view
 		$this->load->view('admin/AdminMangement',$data);
-	}
-
-	private function get_company_name($c_id){
-		$c_id = intval($c_id);
-		$this->load->model('instore_m');
-		$theme = $this->instore_m->get_theme($c_id);
 	}
 
 	// get theme selected by company
