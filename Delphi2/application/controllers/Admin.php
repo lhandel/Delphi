@@ -132,6 +132,7 @@ class Admin extends CI_Controller {
 		if (isset($_GET["theme"])) {
 			$c_id=$this->session->userdata('c_id');
 			$this->company_m-> set_theme($c_id,$_GET["theme"]);
+			header("Location: ".site_url("index.php/admin/settings"));
 		}
 
 		// Get the serivies
@@ -166,6 +167,7 @@ class Admin extends CI_Controller {
 		// Get the serivies
 		$data['services']  = $this->company_m->get_admins();  //  change to session!!!!*/
 
+		$data['theme'] = $this->use_theme($this->session->userdata('c_id'));
 		// load the view
 		$this->load->view('admin/AdminMangement',$data);
 	}
