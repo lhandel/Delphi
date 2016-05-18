@@ -177,6 +177,7 @@ class Admin extends CI_Controller {
 			header("Location: ".site_url("index.php/admin/AdminMangement"));
 		}
 
+
 		// Get the serivies
 		$data['services']  = $this->company_m->get_admins();  //  change to session!!!!*/
 		$data['theme'] = $this->use_theme($this->session->userdata('c_id'));

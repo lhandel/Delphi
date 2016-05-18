@@ -37,7 +37,7 @@ class Login extends CI_Controller {
 
 		 // if password correct, save session and redirect page
 		 else{
-					 $c_id = $this->session->set_userdata($company_id);
+					 $c_id = $this->session->set_userdata('c_id',$company_id);
 					 redirect(site_url("index.php/ia"));
 		 }
 	 }
