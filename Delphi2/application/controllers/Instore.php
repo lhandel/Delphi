@@ -56,22 +56,24 @@ class Instore extends CI_Controller{
   		// Load the model
   		$this->load->model('instore_m');
       // service
-  		$result = $this->instore_m->get_service_name(intval($_GET['service'])); //gets the service
-      $data['service']= $result[0]->name;
+  		$result = $this->instore_m->get_service_name(intval($_GET['s_id'])); //gets the service
+      $data['name']= $result[0]->name;
+      $data['s_id']= $_GET['s_id'];
       // inline
-      $in_line = $this->instore_m->get_inline(intval($_GET['service'])); //inline
+      $in_line = $this->instore_m->get_inline(intval($_GET['s_id'])); //inline
       $data['inline']= sizeof($in_line);
       // estimate waiting time
-      $result = $this->instore_m->ewt(intval($_GET['service']));
-      $ewt = $result[0]['ewt'];
-      $handler = $result[0]['handlers'];
-      if ($handler==0) {
-        $handler=1;
-      }
-      $data['ewt'] = ceil(($ewt/$handler)/60);
+
+      $data['ewt'] = $this->instore_m->ewt(intval($_GET['s_id']));;
 
   		$this->load->view('instore/register',$data);
   	}
+
+    public function choice(){
+      $data['s_id']=$_GET['s_id'];
+      $this->load->view('instore/choice',$data);
+
+    }
 
   public function submit(){
 

@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="<?php echo site_url('assets/admin/style.css'); ?>" media="screen" title="no title" charset="utf-8">
 
   </head>
-  <body>
+  <body <?php echo $theme; ?>>
 
   <div class="menuToggle">
     <i class="fa fa-bars" aria-hidden="true"></i>

@@ -145,6 +145,7 @@ class Admin extends CI_Controller {
 
 		if (isset($_GET["theme"])) {
 			$c_id=$this->session->userdata('c_id');
+
 			$this->company_m-> set_theme($c_id,$_GET["theme"]);
 
 			header("Location: ".site_url("index.php/admin/settings"));
@@ -191,7 +192,6 @@ class Admin extends CI_Controller {
 		$c_id = intval($c_id);
 		$this->load->model('instore_m');
 		$theme = $this->instore_m->get_theme($c_id); // get theme from database
-
 		// send theme with html
 		if ($theme === "dark"){
 			return "class = 'dark'";
