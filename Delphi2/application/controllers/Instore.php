@@ -16,13 +16,6 @@ class Instore extends CI_Controller{
 
   }
 
-  // private function nonemty_form(){
-  //   $number = $_POST['number'];
-  //   if (!isset($number) || trim($firstname) == '') {
-  //     header("Location: );
-  //     echo "Please enter your phone number";
-  //   }
-  // }
   // display for index page
   private function set_margin($result){
     if(sizeof($result)==4){
