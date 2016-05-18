@@ -23,11 +23,21 @@
       <li><a href="<?php echo site_url('index.php/admin/statistic'); ?>" id="item2"><i class="fa fa-bar-chart" aria-hidden="true"></i> Statistic</a></li>
       <li><a href="<?php echo site_url('index.php/admin/AdminMangement'); ?>" id="item3"><i class="fa fa-users" aria-hidden="true"></i> Admin Mangement</a></li>
       <li><a href="<?php echo site_url('index.php/admin/settings'); ?>" id="item4"><i class="fa fa-wrench" aria-hidden="true"></i> Settings</a></li>
+
+      <!-- Checking if logged in or not -->
+      <li><?php if ($this->session->userdata('a_id')){ ?>
+        <a href="<?php echo site_url('index.php/admin/login/?logout=true');?>"><i class="fa fa-unlock" aria-hidden="true"></i>
+</i> Log Out
+        </a>
+      <?php } else{?>
+        <a href="<?php echo site_url('index.php/admin/login/?url=').urlencode(site_url('index.php/admin'));?>"><i class="fa fa-lock" aria-hidden="true"></i>
+ Log in
+        </a>
+
+        <?php  }?>
+      </li>
     </ul>
 
 
-        <a href="logout.php" id="lo">
-
-        </a>
 
   </div>
