@@ -78,7 +78,7 @@ class Admin extends CI_Controller {
 		$this->load->model('service_m');
 
 		// Get the serivies
-		$data['services']  = $this->service_m->getServices(1);  //  change to session!!!!
+		$data['services']  = $this->service_m->getServices($this->session->userdata('c_id'));  //  change to session!!!!
 
 		// Load the view
 		$this->load->view('admin/list',$data);
@@ -120,7 +120,7 @@ class Admin extends CI_Controller {
 			$this->load->model('instore_m');
 
 		$data['theme_name'] = $this->instore_m->get_theme($this->session->userdata('c_id'));
-
+		$data['company_name'] = $this->company_m->get_company_name($this->session->userdata('c_id'));
 		$data['theme'] = $this->use_theme($this->session->userdata('c_id'));
 		if (isset($_POST["rem"])) {
 			$s_id= intval($_POST["s_id"]); //this service id
@@ -129,6 +129,14 @@ class Admin extends CI_Controller {
 				'r_time'	=>  $r_time
 			),$s_id);
 			header("Location: ".site_url("index.php/admin/settings"));//send you back to the same page
+		}
+
+		if (isset($_POST['link'])) {
+				$link= $_POST['url'];
+				$c_id=$this->session->userdata('c_id');
+				$this->load->model('admin_m');
+				$this->admin_m-> register_link($c_id,$link);
+				header("Location: ".site_url("index.php/admin/settings"));//send you back to the same page
 		}
 		//change service name
 		if (isset($_POST["edit"])) {
@@ -185,6 +193,7 @@ class Admin extends CI_Controller {
 			$a_id= intval($_GET["a_id"]);
 			$this->Admin_m->deleteAdmin($a_id);
 			header("Location: ".site_url("index.php/admin/AdminMangement"));
+
 		}
 
 		if (isset($_POST["new_admin"])) {
@@ -200,20 +209,6 @@ class Admin extends CI_Controller {
 		$this->load->view('admin/AdminMangement',$data);
 	}
 
-	private function get_company_name($c_id){
-		$c_id = intval($c_id);
-		$this->load->model('instore_m');
-		$theme = $this->instore_m->get_theme($c_id);
-	}
-
-	private function store_surveylink(){
-		$link= $_POST['link'];
-		$this->load->model('admin_m');
-		$this->session->userdata('c_id');
-		$this->admin_m-> register_link($c_id,$link);
-	}
-
-
 	// get theme selected by company
 	private function use_theme($c_id){
 		$c_id = intval($c_id);
@@ -228,6 +223,10 @@ class Admin extends CI_Controller {
 			return "class = 'blue'";
 		}else if ($theme === "roseg") {
 			return "class = 'roseg'";
+		}else if ($theme === "sunset") {
+			return "class = 'sunset'";
+		}else if ($theme === "heartbreak") {
+			return "class = 'heartbreak'";
 		}
 		else return "";
 	}

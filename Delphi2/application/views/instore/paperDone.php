@@ -8,6 +8,7 @@
 
     <meta name="apple-mobile-web-app-capable" content="yes">
 
+    <link rel="stylesheet" href="<?php echo site_url('assets/templates.css'); ?>" media="screen" title="no title" charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <script src="<?php echo site_url('assets/instore/script.js')?>" charset="utf-8"></script>
     <link rel="stylesheet" href=<?php echo site_url('assets/instore/style.css')?> media="screen" title="no title" charset="utf-8">

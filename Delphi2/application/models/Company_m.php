@@ -18,4 +18,13 @@ class Company_m extends CI_Model{
       $this->db->where('c_id',$c_id);
       $this->db->update('company',array('theme'=>$theme));
     }
+
+    public function get_company_name($c_id)
+    {
+      $this->db->select('company_name');
+      $this->db->from('company');
+      $this->db->where('c_id',$c_id);
+      $data = $this->db->get()->row();
+      return $data->company_name;
+    }
 }
