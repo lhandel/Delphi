@@ -8,45 +8,70 @@ class Admin extends CI_Controller {
 		$this->listService();
 	}
 	//check session a_id
-public function checkLogin(){
 
 
-}
-public function login(){
-
-
-	//session a_id is typed
-	if(isset($_POST['a_id'])){
-
-		$a_id = intval(trim($_POST['a_id']));
-		// Check in db if adminname exist
-
-		//Load model
-		$this->load->model('admin_m');
-
-		$result=$this->admin_m->check_admin_id($a_id);
-
-		if ($result != 0 ) {	//admin does not exist
-			$this->session->set_userdata('a_id',$a_id);
-			if (isset($_GET['url'])) {
-				echo var_dump($_GET['url']);
-				redirect(site_url("index.php/admin/".$_GET['url']));
-			}else {
-				$s_id= $_GET['s_id'];
-				redirect(site_url("index.php/admin/service.php?s_id=".$s_id));
+	public function login(){
+		// Check submit page
+		if($this->session->userdata('a_id')){
+			if(isset($_GET['url']))
+			{
+				header("Location: ".$_GET['url']);
 			}
-		}else	redirect(site_url("index.php/admin/login.php?$s_id&wrong=true"));
+			elseif(isset($_GET['s_id']))
+			{
+				$s_id= $_GET['s_id'];
+				header("Location:".site_url("index.php/admin/service?s_id=".$s_id));
+			}
+		}
+
+		if(isset($_POST['a_id'])){
+
+			//Load model
+			$this->load->model('admin_m');
+
+			// get the a_id
+			$a_id = intval(trim($_POST['a_id']));
+
+			// Check if admin exists
+			$result=$this->admin_m->check_admin_id($a_id);
+
+			// Admin exist
+			if (isset($result->a_id) && $result->a_id==$a_id && $a_id!==0)
+			{
+				$this->session->set_userdata('a_id',$a_id);
+
+				if(isset($_GET['url']))
+				{
+					header("Location: ".$_GET['url']);
+				}
+				elseif(isset($_GET['s_id']))
+				{
+					$s_id= $_GET['s_id'];
+					header("Location:".site_url("index.php/admin/service?s_id=".$s_id));
+				}
+			}
+			else
+			{
+					$append = (isset($_GET['url']))? 'url='.$_GET['url'] : 's_id='.$_GET['s_id'];
+					header("Location: ".
+							site_url("index.php/admin/login?wrong=true&".$append)
+						);
+			}
+		}
+		$data['theme'] = $this->use_theme($this->session->userdata('c_id'));
+		$this->load->view('admin/login',$data);
+
 	}
-
-	$this->load->view('admin/login');
-
-}
 
 /* All services in the admin dashboard */
 	public function listService(){
+		$this->company_m->checkLogin();
+
+		$data['theme'] = $this->use_theme($this->session->userdata('c_id'));
+
 		// Load the model
 		$this->load->model('service_m');
-				$this->checkLogin();
+
 		// Get the serivies
 		$data['services']  = $this->service_m->getServices(1);  //  change to session!!!!
 
@@ -57,10 +82,12 @@ public function login(){
 /* Specific service */
 	public function service()
 	{
-		$this->checkLogin();
+		$this->load->model('admin_m'); $this->admin_m->checkLogin();
+
 		// Load the model
 		$this->load->model('service_m');
 
+		$data['theme'] = $this->use_theme($this->session->userdata('c_id'));
 		if(isset($_GET['skip']))
 		{
 			$this->service_m->skip();
@@ -81,10 +108,12 @@ public function login(){
 
   public function settings()
   {
+			$this->load->model('admin_m'); $this->admin_m->checkLogin();
 
-		// Load the model
-		$this->load->model('service_m');
+			// Load the model
+			$this->load->model('service_m');
 
+		$data['theme'] = $this->use_theme($this->session->userdata('c_id'));
 		if (isset($_POST["rem"])) {
 			$s_id= intval($_POST["s_id"]); //this service id
 			$r_time= intval($_POST["content"]);// what you changed to in the textfield
@@ -114,6 +143,11 @@ public function login(){
 			header("Location: ".site_url("index.php/admin/settings"));
 		}
 
+		if (isset($_GET["theme"])) {
+			$c_id=$this->session->userdata('c_id');
+			$this->company_m-> set_theme($c_id,$_GET["theme"]);
+			header("Location: ".site_url("index.php/admin/settings"));
+		}
 
 		// Get the serivies
 		$data['services']  = $this->service_m->getServices(1);  //  change to session!!!!
@@ -145,9 +179,24 @@ public function login(){
 
 		// Get the serivies
 		$data['services']  = $this->company_m->get_admins();  //  change to session!!!!*/
-
+		$data['theme'] = $this->use_theme($this->session->userdata('c_id'));
 		// load the view
 		$this->load->view('admin/AdminMangement',$data);
+	}
+
+	// get theme selected by company
+	private function use_theme($c_id){
+		$c_id = intval($c_id);
+		$this->load->model('instore_m');
+		$theme = $this->instore_m->get_theme($c_id); // get theme from database
+
+		// send theme with html
+		if ($theme === "dark"){
+			return "class = 'dark'";
+		}else if ($theme === "red"){
+			return "class = 'red'";
+		}
+		else return "";
 	}
 
 }

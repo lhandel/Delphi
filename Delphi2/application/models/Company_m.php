@@ -44,22 +44,17 @@ class Company_m extends CI_Model{
       $this->db->update('admin', $data);
     }
 
-    /*function new_admin($name)
+    public function checkLogin()
     {
-      $newdata = array(
-                   'username'  => 'johndoe',
-                   'email'     => 'johndoe@some-site.com',
-                   'logged_in' => TRUE
-               );
+      if($this->session->userdata('c_id')==false){
+        header("Location: ".site_url(""));
+      }
+      return true;
+    }
 
-      $this->session->set_userdata($newdata);
-
-      global $mysqli;
-      $name=$mysqli->real_escape_string($name);
-      $c_id = (isset($_SESSION['c_id']))? $_SESSION['c_id'] : 1;
-      $mysqli->query("INSERT INTO service(name,c_id,r_time) VALUES('$name',$c_id,5)");
-      $s_id= $mysqli->insert_id;
-      return $s_id;
-    }*/
-
+    public function set_theme($c_id,$theme)
+    {
+      $this->db->where('c_id',$c_id);
+      $this->db->update('company',array('theme'=>$theme));
+    }
 }
