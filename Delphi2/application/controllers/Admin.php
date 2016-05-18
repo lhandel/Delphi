@@ -8,45 +8,55 @@ class Admin extends CI_Controller {
 		$this->listService();
 	}
 	//check session a_id
-public function checkLogin(){
 
-	
-}
-public function login(){
+	public function login(){
 
 
-	//session a_id is typed
-	if(isset($_POST['a_id'])){
+		// Check submit page
+		if(isset($_POST['a_id'])){
 
-		$a_id = intval(trim($_POST['a_id']));
-		// Check in db if adminname exist
+			//Load model
+			$this->load->model('admin_m');
 
-		//Load model
-		$this->load->model('admin_m');
+			// get the a_id
+			$a_id = intval(trim($_POST['a_id']));
 
-		$result=$this->admin_m->check_admin_id($a_id);
+			// Check if admin exists
+			$result=$this->admin_m->check_admin_id($a_id);
 
-		if ($result != 0 ) {	//admin does not exist
-			$this->session->set_userdata('a_id',$a_id);
-			if (isset($_GET['url'])) {
-				echo var_dump($_GET['url']);
-				redirect(site_url("index.php/admin/".$_GET['url']));
-			}else {
-				$s_id= $_GET['s_id'];
-				redirect(site_url("index.php/admin/service.php?s_id=".$s_id));
+			// Admin exist
+			if (isset($result->a_id) && $result->a_id==$a_id && $a_id!==0)
+			{
+				$this->session->set_userdata('a_id',$a_id);
+
+				if(isset($_GET['url']))
+				{
+					header("Location: ".$_GET['url']);
+				}
+				elseif(isset($_GET['s_id']))
+				{
+					$s_id= $_GET['s_id'];
+					header("Location:".site_url("index.php/admin/service?s_id=".$s_id));
+				}
 			}
-		}else	redirect(site_url("index.php/admin/login.php?$s_id&wrong=true"));
+			else
+			{
+					$append = (isset($_GET['url']))? 'url='.$_GET['url'] : 's_id='.$_GET['s_id'];
+					header("Location: ".
+							site_url("index.php/admin/login?wrong=true&".$append)
+						);
+			}
+		}
+
+		$this->load->view('admin/login');
+
 	}
-
-	$this->load->view('admin/login');
-
-}
 
 /* All services in the admin dashboard */
 	public function listService(){
 		// Load the model
 		$this->load->model('service_m');
-				$this->checkLogin();
+
 		// Get the serivies
 		$data['services']  = $this->service_m->getServices(1);  //  change to session!!!!
 
@@ -57,7 +67,8 @@ public function login(){
 /* Specific service */
 	public function service()
 	{
-		$this->checkLogin();
+		$this->load->model('admin_m'); $this->admin_m->checkLogin();
+
 		// Load the model
 		$this->load->model('service_m');
 
@@ -81,9 +92,10 @@ public function login(){
 
   public function settings()
   {
+			$this->load->model('admin_m'); $this->admin_m->checkLogin();
 
-		// Load the model
-		$this->load->model('service_m');
+			// Load the model
+			$this->load->model('service_m');
 
 		if (isset($_POST["rem"])) {
 			$s_id= intval($_POST["s_id"]); //this service id
