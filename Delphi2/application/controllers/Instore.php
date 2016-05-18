@@ -3,7 +3,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Instore extends CI_Controller{
 
-
+  public function paperDone(){
+    $this->load->view("instore/paperDone");
+  }
 
   public function index()
   {
