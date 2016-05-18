@@ -25,12 +25,11 @@
       <li><a href="<?php echo site_url('index.php/admin/AdminMangement'); ?>" id="item3"><i class="fa fa-users" aria-hidden="true"></i> Admin Management</a></li>
       <li><a href="<?php echo site_url('index.php/admin/serviceManagement'); ?>" id="item4"><i class="fa fa-wrench" aria-hidden="true"></i> Service Management</a></li>
       <li><a href="<?php echo site_url('index.php/admin/settings'); ?>" id="item5"><i class="fa fa-wrench" aria-hidden="true"></i> Settings</a></li>
-    </ul>
 
       <!-- Checking if logged in or not -->
       <li><?php if ($this->session->userdata('a_id')){ ?>
         <a href="<?php echo site_url('index.php/admin/login/?logout=true');?>"><i class="fa fa-unlock" aria-hidden="true"></i>
-</i> Log Out
+      </i> Log Out
         </a>
       <?php } else{?>
         <a href="<?php echo site_url('index.php/admin/login/?url=').urlencode(site_url('index.php/admin'));?>"><i class="fa fa-lock" aria-hidden="true"></i>
