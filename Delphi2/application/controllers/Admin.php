@@ -127,8 +127,8 @@ class Admin extends CI_Controller {
 		}
 
 		if (isset($_POST['link'])) {
-				$link= $_POST['link'];
-				$this->session->userdata('c_id');
+				$link= $_POST['url'];
+				$c_id=$this->session->userdata('c_id');
 				$this->load->model('admin_m');
 				$this->admin_m-> register_link($c_id,$link);
 				header("Location: ".site_url("index.php/admin/settings"));//send you back to the same page

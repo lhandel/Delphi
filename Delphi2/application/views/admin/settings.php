@@ -128,7 +128,7 @@
 
               <div class="survey_register">
                 <form  action="" method="post">
-                  <input type="text" name="link" class="linkinfo">
+                  <input type="text" name="url" class="linkinfo">
               </div>
               <button class="button assign" type="submit" name="link"> Register Link<i class="fa fa-angle-right" aria-hidden="true"></i> </button>
                 </form>
