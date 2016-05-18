@@ -73,7 +73,7 @@ class Admin extends CI_Controller {
 		$this->load->model('service_m');
 
 		// Get the serivies
-		$data['services']  = $this->service_m->getServices(1);  //  change to session!!!!
+		$data['services']  = $this->service_m->getServices($this->session->userdata('c_id'));  //  change to session!!!!
 
 		// Load the view
 		$this->load->view('admin/list',$data);
