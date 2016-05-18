@@ -54,7 +54,6 @@ class Admin extends CI_Controller {
 
 /* All services in the admin dashboard */
 	public function listService(){
-		$this->company_m->checkLogin();
 		// Load the model
 		$this->load->model('service_m');
 

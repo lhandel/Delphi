@@ -13,8 +13,7 @@
     <link rel="stylesheet" href="<?php echo site_url('assets/user/style.css'); ?>" media="screen" title="no title" charset="utf-8">
     <link href='https://fonts.googleapis.com/css?family=Ubuntu:500,700,400|Open+Sans:400,600' rel='stylesheet' type='text/css'>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js" charset="utf-8"></script>
-    <script type="text/javascript" src="<?php echo base_url();?>js/jquery.js" ></script>
-    <script src="/assets/user/script.js" charset="utf-8"></script>
+    <script src="<?php echo site_url('assets/user/script.js'); ?>" charset="utf-8"></script>
     <meta name="format-detection" content="telephone=no">
   </head>
   <body >
@@ -22,6 +21,7 @@
 <!-- get u_id from SMS -->
       <script>
         var public_id = '<?php echo $p_id; ?>';
+        var base_url = '<?php echo site_url(""); ?>';
       </script>
       <div class="row topbox">
         <div id="clock_icon" class="clock-icon">

@@ -20,7 +20,8 @@ class Instore_m extends CI_Model{
     $this->db->from("company");
     $this->db->where("c_id",$c_id);;
 
-    return $this->db->get()->result();
+    $data = $this->db->get()->row();
+    return $data->theme;
   }
 
 /* All the people in the Queue */
