@@ -8,7 +8,6 @@ class Admin extends CI_Controller {
 		$this->listService();
 	}
 	//check session a_id
-
 	public function login(){
 
 
@@ -54,7 +53,10 @@ class Admin extends CI_Controller {
 
 /* All services in the admin dashboard */
 	public function listService(){
+
 		$this->company_m->checkLogin();
+
+		$data['theme'] = $this->use_theme($this->session->userdata('c_id'));
 		// Load the model
 		$this->load->model('service_m');
 
@@ -73,6 +75,7 @@ class Admin extends CI_Controller {
 		// Load the model
 		$this->load->model('service_m');
 
+		$data['theme'] = $this->use_theme($this->session->userdata('c_id'));
 		if(isset($_GET['skip']))
 		{
 			$this->service_m->skip();
@@ -98,6 +101,7 @@ class Admin extends CI_Controller {
 			// Load the model
 			$this->load->model('service_m');
 
+		$data['theme'] = $this->use_theme($this->session->userdata('c_id'));
 		if (isset($_POST["rem"])) {
 			$s_id= intval($_POST["s_id"]); //this service id
 			$r_time= intval($_POST["content"]);// what you changed to in the textfield
@@ -127,6 +131,10 @@ class Admin extends CI_Controller {
 			header("Location: ".site_url("index.php/admin/settings"));
 		}
 
+		if (isset($_GET["theme"])) {
+			$c_id=$this->session->userdata('c_id');
+			$this->company_m-> set_theme($c_id,$_GET["theme"]);
+		}
 
 		// Get the serivies
 		$data['services']  = $this->service_m->getServices(1);  //  change to session!!!!
@@ -162,6 +170,21 @@ class Admin extends CI_Controller {
 
 		// load the view
 		$this->load->view('admin/AdminMangement',$data);
+	}
+
+	// get theme selected by company
+	private function use_theme($c_id){
+		$c_id = intval($c_id);
+		$this->load->model('instore_m');
+		$theme = $this->instore_m->get_theme($c_id); // get theme from database
+
+		// send theme with html
+		if ($theme === "dark"){
+			return "class = 'dark'";
+		}else if ($theme === "red"){
+			return "class = 'red'";
+		}
+		else return "";
 	}
 
 }

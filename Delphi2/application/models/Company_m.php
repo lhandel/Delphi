@@ -50,4 +50,10 @@ class Company_m extends CI_Model{
       }
       return true;
     }
+
+    public function set_theme($c_id,$theme)
+    {
+      $this->db->where('c_id',$c_id);
+      $this->db->update('company',array('theme'=>$theme));
+    }
 }

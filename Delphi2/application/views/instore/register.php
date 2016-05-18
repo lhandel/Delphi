@@ -11,7 +11,7 @@
     <link href='https://fonts.googleapis.com/css?family=Ubuntu:500,700,400|Open+Sans:400,600' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
   </head>
-  <body>
+  <body <?php echo $theme ?>>
     <div class="container">
 
         <h3 class="log_in3">
