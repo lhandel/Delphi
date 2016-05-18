@@ -15,6 +15,7 @@
   <body>
     <div class="container">
 
+      <div class="inner-container">
         <h3 class="log_in3">
           <a href="<?php echo site_url("index.php/instore/choice/?s_id=$s_id"); ?>"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>  <?php echo $name; ?>
         </h3>
@@ -48,6 +49,8 @@
             <p class="info">minute <br/>left</p>
           </div>
         </div>
+      </div>
+
 
     </div>
 
