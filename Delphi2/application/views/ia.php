@@ -20,8 +20,8 @@
         <div class="btn_container">
 
             <ul class="btn_list ">
-                <li><a href="admin">Admin</a></li>
-                <li><a href="instore">In Store</a></li>
+                <li><a href="<?php echo site_url("index.php/admin"); ?>">Admin</a></li>
+                <li><a href="<?php echo site_url("index.php/instore"); ?>">In Store</a></li>
             </ul>
 
         </div>
