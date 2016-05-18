@@ -9,6 +9,7 @@
 */
 
 
+
 body{
   background-color: #41cd7c;
   color: #fff;
@@ -428,6 +429,13 @@ p.info{
   margin-left: auto;
   margin-right: auto;
   font-size: 150px;
+  -webkit-animation: bounce 2s infinite ease-in-out;
+}
+
+@-webkit-keyframes bounce {
+	0%, 20%, 60%, 100%  { -webkit-transform: translateY(0); }
+    40%  { -webkit-transform: translateY(-20px); }
+	80% { -webkit-transform: translateY(-10px); }
 }
 
 @media screen and (max-height: 950px) {
