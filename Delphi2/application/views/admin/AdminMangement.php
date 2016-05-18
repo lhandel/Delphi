@@ -37,7 +37,7 @@
 
                 <td class="ttitle ticons">
 
-                  <a href="update.php?a_id=<?php echo $row->a_id;?>&a_remove=true" class="ta">
+                  <a href="<?php echo site_url("index.php/admin/AdminMangement") ?>?a_id=<?php echo $row->a_id;?>&a_remove=true" class="ta">
                     <i class="fa fa-trash-o" aria-hidden="true"></i>
                   </a>
                   <div class="annotation">
@@ -71,13 +71,13 @@
            <h2 class="nh2"> Fill Out New Admin Name</h2>
          </div>
          <div class="admin_name_inputfield">
-           <form  action="addAdmin.php" method="post" id="createNA">
+           <form  action="" method="post" id="createNA">
              <input type="text" name="a_content" class="nameinfo" value="">
              <input type="hidden" name="a_id" id="sID" value="">
            </form>
          </div>
 
-             <button class="button assign" type="submit" form="createNA" value="Submit"> Assign admin<i class="fa fa-angle-right" aria-hidden="true"></i> </button>
+             <button class="button assign" type="submit" name="new_admin" form="createNA" value="Submit"> Assign admin<i class="fa fa-angle-right" aria-hidden="true"></i> </button>
 
        </div>  <!-- end adminrow -->
      </div>  <!-- end newadmin -->

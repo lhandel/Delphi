@@ -33,7 +33,7 @@ class Admin_m extends CI_Model{
   //Creat new admin
   function new_admin($admin_name)
 	{
-		$c_id= $this->session->userdata('name');
+		$c_id= $this->session->userdata('c_id');
 
     $data = array(
             'admin_name' => $admin_name,

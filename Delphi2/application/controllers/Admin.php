@@ -182,6 +182,11 @@ class Admin extends CI_Controller {
 			header("Location: ".site_url("index.php/admin/AdminMangement"));
 		}
 
+		if (isset($_POST["new_admin"])) {
+			$this->Admin_m->new_admin($_POST["a_content"]);
+			header("Location: ".site_url("index.php/admin/AdminMangement"));//send you back to the same page
+		}
+
 
 		// Get the serivies
 		$data['services']  = $this->Admin_m->get_admins();  //  change to session!!!!*/
