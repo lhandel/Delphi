@@ -19,13 +19,12 @@
   <body <?php echo $theme; ?>>
     <div class="container">
         <h1 class="startpage">Join the queue</h1>
-        <h3 class="choosemenu">Paper or By Phone</h3>
 
         <div class="btn_container">
 
             <ul class="btn_list ">
-                <li><a href="<?php echo site_url("index.php/instore/paperDone/?s_id=$s_id"); ?>">Paper</a></li>
-                <li><a href="<?php echo site_url("index.php/instore/register/?s_id=$s_id"); ?>"> Phone</a></li>
+              <li><a href="<?php echo site_url("index.php/instore/register/?s_id=$s_id"); ?>">SMS Ticket</a></li>
+              <li><a href="<?php echo site_url("index.php/instore/paperDone/?s_id=$s_id"); ?>">Paper Ticket</a></li>
             </ul>
 
         </div>
@@ -35,12 +34,12 @@
           <div class="info">
             <img class="icon queue" src="<?php echo base_url('assets/instore/Queue.svg'); ?>" alt="" />
             <p class="important"><?php echo $inline?></p>
-            <p class="info">People</p>
+            <p class="info">People <br> In Queue</p>
           </div>
           <div class="info">
             <i class="fa fa-clock-o icon ticon queue" aria-hidden="true"></i>
             <p class="important"><?php echo $ewt?></p>
-            <p class="info">Minutes <br> left</p>
+            <p class="info">Minutes <br> Left</p>
           </div>
         </div>
 
