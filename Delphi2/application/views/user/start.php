@@ -47,14 +47,17 @@
             Your Queue</br> Number
           </div>
         </div>
-        <div class="row verticalLine"></div>
+        <img class = "row verticalLine" src="<?php echo site_url('assets/user/pictures/divider.svg'); ?>" alt="" />
         <div class="row people-infront">
-          <div class="person-icon"></div>
+          <img class="uicon" src="<?php echo site_url('assets/instore/Queue.svg'); ?>" alt="" />
           <h2 id="in_queue"><?php echo $queue_count-1; ?></h2>
           <div class="text">
             People </br> in front
           </div>
         </div>
+
+
+
 
       </div>
       <div class="row">

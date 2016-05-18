@@ -148,7 +148,9 @@ class Admin extends CI_Controller {
 
 		if (isset($_GET["theme"])) {
 			$c_id=$this->session->userdata('c_id');
-			$this->company_m->set_theme($c_id,$_GET["theme"]);
+
+			$this->company_m-> set_theme($c_id,$_GET["theme"]);
+
 			header("Location: ".site_url("index.php/admin/settings"));
 		}
 
@@ -163,12 +165,12 @@ class Admin extends CI_Controller {
   {
 
 		// Load the model
-		$this->load->model('company_m');
+		$this->load->model('Admin_m');
 
 		//change admin name
 		if (isset($_POST["a_edit"])) {
 			$a_id= intval($_POST["a_id"]);
-			$this->company_m->a_edit($a_id,$_POST["a_content"]);
+			$this->Admin_m->a_edit($a_id,$_POST["a_content"]);
 			header("Location: ".site_url("index.php/admin/AdminMangement"));//send you back to the same page
 		}
 
@@ -176,16 +178,26 @@ class Admin extends CI_Controller {
 		if(isset($_GET["a_remove"]))
 		{
 			$a_id= intval($_GET["a_id"]);
-			$this->company_m->deleteAdmin($a_id);
+			$this->Admin_m->deleteAdmin($a_id);
 			header("Location: ".site_url("index.php/admin/AdminMangement"));
 		}
 
 
 		// Get the serivies
-		$data['services']  = $this->company_m->get_admins();  //  change to session!!!!*/
+		$data['services']  = $this->Admin_m->get_admins();  //  change to session!!!!*/
 		$data['theme'] = $this->use_theme($this->session->userdata('c_id'));
 		// load the view
 		$this->load->view('admin/AdminMangement',$data);
+	}
+
+	private function get_company_name($c_id){
+		$c_id = intval($c_id);
+		$this->load->model('instore_m');
+		$theme = $this->instore_m->get_theme($c_id);
+	}
+
+	private function store_surveylink($link){
+		
 	}
 
 	// get theme selected by company
@@ -203,5 +215,4 @@ class Admin extends CI_Controller {
 		}
 		else return "";
 	}
-
 }
