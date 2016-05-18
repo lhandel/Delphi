@@ -16,6 +16,13 @@ class Instore extends CI_Controller{
 
   }
 
+  // private function nonemty_form(){
+  //   $number = $_POST['number'];
+  //   if (!isset($number) || trim($firstname) == '') {
+  //     header("Location: );
+  //     echo "Please enter your phone number";
+  //   }
+  // }
   // display for index page
   private function set_margin($result){
     if(sizeof($result)==4){
@@ -66,9 +73,9 @@ class Instore extends CI_Controller{
   	}
 
   public function submit(){
-
+    $number = $_POST['number'];
     // Check if the number is submited
-    if(isset($_POST['number'])){
+    if($number!=0){
 
       // Setup the varibles & Clean the data
       // $number = $mysqli->real_escape_string($_POST['number']); /*ask ludwig if we really need it?*/
@@ -112,12 +119,9 @@ class Instore extends CI_Controller{
 
 
     }else{
-      header("Location: index.php");
-
+      $s_id = intval($_POST['service_id']);
+      header("Location: register?service=".$s_id);
     }
-
-
-
     //send sms
     //make sms
     //redirect to done.php
