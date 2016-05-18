@@ -78,6 +78,23 @@
             </div>
         </div>
 
+        <!-- //Survey link input box -->
+        <div class="survey">
+          <div class="survey_box">
+              <!-- <div class="linkinfo"> -->
+                <h1 class="sl">Survey link for</h1>
+                <h2 class="sl"> i.e Survey Monkey, Google Form, etc.</h2>
+
+              <div class="survey_register">
+                <form  action="" method="post">
+                  <input type="text" name="a_content" class="linkinfo" value="">
+                  <input type="hidden" name="a_id" value="">
+                </form>
+              </div>
+              <button class="button assign" type="submit" value="Submit"> Register Link<i class="fa fa-angle-right" aria-hidden="true"></i> </button>
+          </div>  <!-- end survey box -->
+        </div>  <!-- end survey -->
+
         <div class="themelist">
           <h4>Select Your Theme Here</h4>
           <form class="" action="" method="get">
@@ -91,6 +108,7 @@
             </select>
           </form>
         </div>
+
   </div>
 </body>
 </html>

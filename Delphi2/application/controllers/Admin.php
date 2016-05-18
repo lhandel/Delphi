@@ -185,6 +185,16 @@ class Admin extends CI_Controller {
 		$this->load->view('admin/AdminMangement',$data);
 	}
 
+	private function get_company_name($c_id){
+		$c_id = intval($c_id);
+		$this->load->model('instore_m');
+		$theme = $this->instore_m->get_theme($c_id);
+	}
+
+	private function store_surveylink($link){
+		
+	}
+
 	// get theme selected by company
 	private function use_theme($c_id){
 		$c_id = intval($c_id);
