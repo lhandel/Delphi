@@ -94,24 +94,16 @@
           </div>
           <div class="admin_name_inputfield">
             <form  action="addAdmin.php" method="post" id="createNA">
-              <input class="nameinfo" type="text" name="name" value="">
+              <input type="text" name="a_content" class="nameinfo" value="">
+              <input type="hidden" name="a_id" id="sID" value="">
             </form>
           </div>
 
               <button class="button assign" type="submit" form="createNA" value="Submit"> Assign admin<i class="fa fa-angle-right" aria-hidden="true"></i> </button>
 
-
-        </div class="adminrow">
-
-
-
-
-
-      </div>
-
-
-
-  </div>
+        </div>  <!-- end adminrow -->
+      </div>  <!-- end newadmin -->
+    </div>  <!-- end adminrow -->
 
 
   </body>

@@ -9,10 +9,21 @@ class Admin extends CI_Controller {
 	}
 	//check session a_id
 
+
 	public function login(){
-
-
 		// Check submit page
+		if($this->session->userdata('a_id')){
+			if(isset($_GET['url']))
+			{
+				header("Location: ".$_GET['url']);
+			}
+			elseif(isset($_GET['s_id']))
+			{
+				$s_id= $_GET['s_id'];
+				header("Location:".site_url("index.php/admin/service?s_id=".$s_id));
+			}
+		}
+
 		if(isset($_POST['a_id'])){
 
 			//Load model
@@ -47,14 +58,17 @@ class Admin extends CI_Controller {
 						);
 			}
 		}
-
-		$this->load->view('admin/login');
+		$data['theme'] = $this->use_theme($this->session->userdata('c_id'));
+		$this->load->view('admin/login',$data);
 
 	}
 
 /* All services in the admin dashboard */
 	public function listService(){
 		$this->company_m->checkLogin();
+
+		$data['theme'] = $this->use_theme($this->session->userdata('c_id'));
+
 		// Load the model
 		$this->load->model('service_m');
 
@@ -73,6 +87,7 @@ class Admin extends CI_Controller {
 		// Load the model
 		$this->load->model('service_m');
 
+		$data['theme'] = $this->use_theme($this->session->userdata('c_id'));
 		if(isset($_GET['skip']))
 		{
 			$this->service_m->skip();
@@ -98,6 +113,7 @@ class Admin extends CI_Controller {
 			// Load the model
 			$this->load->model('service_m');
 
+		$data['theme'] = $this->use_theme($this->session->userdata('c_id'));
 		if (isset($_POST["rem"])) {
 			$s_id= intval($_POST["s_id"]); //this service id
 			$r_time= intval($_POST["content"]);// what you changed to in the textfield
@@ -127,6 +143,11 @@ class Admin extends CI_Controller {
 			header("Location: ".site_url("index.php/admin/settings"));
 		}
 
+		if (isset($_GET["theme"])) {
+			$c_id=$this->session->userdata('c_id');
+			$this->company_m->set_theme($c_id,$_GET["theme"]);
+			header("Location: ".site_url("index.php/admin/settings"));
+		}
 
 		// Get the serivies
 		$data['services']  = $this->service_m->getServices(1);  //  change to session!!!!
@@ -142,14 +163,13 @@ class Admin extends CI_Controller {
 		$this->load->model('company_m');
 
 		//change admin name
-		if (isset($_POST["edit"])) {
+		if (isset($_POST["a_edit"])) {
 			$a_id= intval($_POST["a_id"]);
-			$this->company_m->save(array(
-				'admin_name'	=>  $_POST["content"]
-			),$a_id);
+			$this->company_m->a_edit($a_id,$_POST["a_content"]);
 			header("Location: ".site_url("index.php/admin/AdminMangement"));//send you back to the same page
 		}
 
+		//remove admin
 		if(isset($_GET["a_remove"]))
 		{
 			$a_id= intval($_GET["a_id"]);
@@ -157,11 +177,28 @@ class Admin extends CI_Controller {
 			header("Location: ".site_url("index.php/admin/AdminMangement"));
 		}
 
+
 		// Get the serivies
 		$data['services']  = $this->company_m->get_admins();  //  change to session!!!!*/
-
+		$data['theme'] = $this->use_theme($this->session->userdata('c_id'));
 		// load the view
 		$this->load->view('admin/AdminMangement',$data);
+	}
+
+	// get theme selected by company
+	private function use_theme($c_id){
+		$c_id = intval($c_id);
+		$this->load->model('instore_m');
+		$theme = $this->instore_m->get_theme($c_id); // get theme from database
+		// send theme with html
+		if ($theme === "dark"){
+			return "class = 'dark'";
+		}else if ($theme === "red"){
+			return "class = 'red'";
+		}else if ($theme === "blue") {
+			return "class = 'blue'";
+		}
+		else return "";
 	}
 
 }

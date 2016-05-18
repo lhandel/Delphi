@@ -7,7 +7,7 @@
       <div class="s1">
 
         <div class="row">
-          <a href="<?php echo site_url("index.php/admin/login?s_id=".$row->s_id); ?>" class="btn servicebtn">
+          <a href="<?php echo site_url("index.php/admin/service?s_id=".$row->s_id); ?>" class="btn servicebtn">
             <?php echo $row->name;?> <i class="fa fa-angle-right" aria-hidden="true"></i>
           </a>
         </div>

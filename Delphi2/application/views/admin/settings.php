@@ -1,5 +1,4 @@
 <?php $this->load->view('admin/header'); ?>
-
 <div class="settingscontainer">
     <!-- TABLE -->
     <table width="100%" cellpadding="0" cellspacing="0" border="0" class="list link">
@@ -77,6 +76,20 @@
                 <input type="submit" class="button row"  name="" id="settingButton" value="Save Changes">
               </form>
             </div>
+        </div>
+
+        <div class="themelist">
+          <h4>Select Your Theme Here</h4>
+          <form class="" action="" method="get">
+            <select name='theme' onchange="document.location = '<?php echo site_url("index.php/admin/settings?theme=") ?>'+this.value" class='theme'>
+              <option value=''>Select Theme</option>
+              <option value='dark'>Dark</option>
+              <option value='red'>Red</option>
+              <option value='green'>Green</option>
+              <option value='blue'>Blue</option>
+
+            </select>
+          </form>
         </div>
   </div>
 </body>
