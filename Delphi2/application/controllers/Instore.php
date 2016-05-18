@@ -60,13 +60,7 @@ class Instore extends CI_Controller{
       $in_line = $this->instore_m->get_inline(intval($_GET['service'])); //inline
       $data['inline']= sizeof($in_line);
       // estimate waiting time
-      $result = $this->instore_m->ewt(intval($_GET['service']));
-      $ewt = $result[0]['ewt'];
-      $handler = $result[0]['handlers'];
-      if ($handler==0) {
-        $handler=1;
-      }
-      $data['ewt'] = ceil(($ewt/$handler)/60);
+      $data['ewt'] = $this->instore_m->ewt(intval($_GET['service']));;
 
   		$this->load->view('instore/register',$data);
   	}
