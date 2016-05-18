@@ -10,6 +10,18 @@ class Admin extends CI_Controller {
 	//check session a_id
 	public function login(){
 		// Check submit page
+		if($this->session->userdata('a_id')){
+			if(isset($_GET['url']))
+			{
+				header("Location: ".$_GET['url']);
+			}
+			elseif(isset($_GET['s_id']))
+			{
+				$s_id= $_GET['s_id'];
+				header("Location:".site_url("index.php/admin/service?s_id=".$s_id));
+			}
+		}
+
 		if(isset($_POST['a_id'])){
 
 			//Load model
