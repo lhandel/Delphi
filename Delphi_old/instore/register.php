@@ -7,8 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
     <meta name="apple-mobile-web-app-capable" content="yes">
-
     <link rel="stylesheet" href="assets/style.css" media="screen" title="no title" charset="utf-8">
+    <script src="assets/print.js" charset="utf-8"></script>
     <link href='https://fonts.googleapis.com/css?family=Ubuntu:500,700,400|Open+Sans:400,600' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
   </head>
@@ -26,7 +26,7 @@
             <input type="hidden" name="in_line" value=<?php echo $in_line; ?>>
             <input type="hidden" name="service_id" value="<?php echo $_GET['service']; ?>">
             <input id="number" name="number" type="text" pattern="[0-9]{10}" title="07XXXXXXXX (10 digits)" placeholder="Enter your mobile number">
-            <input id="submit_button" type="submit" value="Register">
+            <input id="submit_button" type="submit" value="Register" onclick="OnSendMessageApi">
           </form>
 
 
