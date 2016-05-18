@@ -43,7 +43,7 @@
 
               <!-- Reset Queue -->
               <td class="ttitle ticons">
-                <a href="<?php echo site_url('index.php/admin/settings?s_id='.$row->s_id.'&reset=true'); ?>" class="ta">
+                <a href="<?php echo site_url('index.php/admin/serviceManagement?s_id='.$row->s_id.'&reset=true'); ?>" class="ta">
                   <i class="fa fa-recycle" aria-hidden="true"></i>
                 </a>
                 <div class="annotation">
@@ -54,7 +54,7 @@
               <!-- Remove service -->
               <td class="ttitle ticons">
 
-                <a href="<?php echo site_url('index.php/admin/settings?s_id='.$row->s_id.'&s_remove=true'); ?>" class="ta">
+                <a href="<?php echo site_url('index.php/admin/serviceManagement?s_id='.$row->s_id.'&s_remove=true'); ?>" class="ta">
                   <i class="fa fa-trash-o" aria-hidden="true"></i>
                 </a>
                 <div class="annotation">
