@@ -405,10 +405,9 @@ p.info{
   margin-top: 15px;
 }
 .verticalLine{
-  border-left: 1px dotted #fff;
   margin-top: auto;
   margin-bottom: auto;
-  height: 130px;
+  height: 200px;
   width: auto;
 }
 
@@ -430,4 +429,11 @@ p.info{
     .container{width: 600px;}
     .est-time {font-size: 30px;}
     .btn {font-size: 20px; width: 15%; padding-top: 20px; padding-bottom: 20px;}
+}
+
+.uicon{
+  font-size: 50px;
+  text-align: center;
+  height: 50px;
+  width:50px;
 }

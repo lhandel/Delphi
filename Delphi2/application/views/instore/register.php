@@ -15,7 +15,7 @@
     <div class="container">
 
         <h3 class="log_in3">
-          <a href="../instore"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>  <?php echo $service; ?>
+          <a href="<?php echo site_url("index.php/instore/choice/?s_id=$s_id"); ?>"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>  <?php echo $name; ?>
         </h3>
         <h2 class="log_in2">Enter your MOBILE number below to enter the queue</h2>
 
@@ -23,7 +23,7 @@
 
           <form action="../instore/submit" method="post">
             <input type="hidden" name="in_line" value="<?php echo $inline?>">
-            <input type="hidden" name="service_id" value="<?php echo $_GET['service']; ?>">
+            <input type="hidden" name="service_id" value="<?php echo $s_id; ?>">
             <input id="number" name="number" type="text" pattern="[0-9]{10}" title="07XXXXXXXX (10 digits)" placeholder="Enter your mobile number">
             <input id="submit_button" type="submit" value="Register">
           </form>

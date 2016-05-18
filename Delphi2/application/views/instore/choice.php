@@ -3,7 +3,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Choose your weapon</title>
+    <title>Delphi</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -14,14 +14,14 @@
   </head>
   <body>
     <div class="container">
-        <h1 class="startpage">Welcome to DQ</h1>
-        <h3 class="choosemenu">Select Menu</h3>
+        <h1 class="startpage">Join the queue</h1>
+        <h3 class="choosemenu">Paper or By Phone</h3>
 
         <div class="btn_container">
 
             <ul class="btn_list ">
-                <li><a href="<?php echo site_url("index.php/admin"); ?>">Admin</a></li>
-                <li><a href="<?php echo site_url("index.php/instore"); ?>">In Store</a></li>
+                <li><a href="<?php echo site_url("index.php/instore/paperDone/?s_id=$s_id"); ?>">Paper</a></li>
+                <li><a href="<?php echo site_url("index.php/instore/register/?s_id=$s_id"); ?>"> Phone</a></li>
             </ul>
 
         </div>
