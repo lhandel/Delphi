@@ -33,14 +33,7 @@ class Company_m extends CI_Model{
       return $this->db->get()->result();
     }
 
-    function save($a_id){
 
-        $this->db->SELECT('admin_name');
-        $this->db->FROM('admin');
-        $this->db->WHERE('s_id',$s_id);
-        return $this->db->get()->result();
-
-    }
 
 
     public function checkLogin()
