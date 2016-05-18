@@ -1,6 +1,6 @@
 <?php $this->load->view('admin/header'); ?>
 <div class="settingscontainer">
-    
+
 
         <div class="container-popup">
             <div class="popup">
@@ -13,6 +13,23 @@
         </div>
 
 
+        <!-- //Survey link input box -->
+        <div class="survey">
+          <div class="survey_box">
+              <!-- <div class="linkinfo"> -->
+                <h1 class="sl">Survey link for</h1>
+                <h2 class="sl"> i.e Survey Monkey, Google Form, etc.</h2>
+
+              <div class="survey_register">
+                <form  action="" method="post">
+                  <input type="text" name="url" class="linkinfo">
+              </div>
+              <button class="button assign" type="submit" name="link"> Register Link<i class="fa fa-angle-right" aria-hidden="true"></i> </button>
+                </form>
+          </div>  <!-- end survey box -->
+        </div>  <!-- end survey -->
+
+        
         <div class="row themePicker">
 
           <div class="squareTheme_container" onclick="document.location = '<?php echo site_url("index.php/admin/settings?theme=green") ?>'">
@@ -53,21 +70,7 @@
 
         </div>
 
-        <!-- //Survey link input box -->
-        <div class="survey">
-          <div class="survey_box">
-              <!-- <div class="linkinfo"> -->
-                <h1 class="sl">Survey link for</h1>
-                <h2 class="sl"> i.e Survey Monkey, Google Form, etc.</h2>
 
-              <div class="survey_register">
-                <form  action="" method="post">
-                  <input type="text" name="url" class="linkinfo">
-              </div>
-              <button class="button assign" type="submit" name="link"> Register Link<i class="fa fa-angle-right" aria-hidden="true"></i> </button>
-                </form>
-          </div>  <!-- end survey box -->
-        </div>  <!-- end survey -->
 
   </div>
 </body>
