@@ -194,6 +194,8 @@ class Admin extends CI_Controller {
 			return "class = 'dark'";
 		}else if ($theme === "red"){
 			return "class = 'red'";
+		}else if ($theme === "blue") {
+			return "class = 'blue'";
 		}
 		else return "";
 	}

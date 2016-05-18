@@ -26,18 +26,20 @@ class Instore extends CI_Controller{
 
   // get theme selected by company
   private function use_theme($c_id){
-    $c_id = intval($c_id);
-    $this->load->model('instore_m');
-    $theme = $this->instore_m->get_theme($c_id); // get theme from database
+		$c_id = intval($c_id);
+		$this->load->model('instore_m');
+		$theme = $this->instore_m->get_theme($c_id); // get theme from database
 
-    // send theme with html
-    if ($theme === "dark"){
-      return "class = 'dark'";
-    }else if ($theme === "red"){
-      return "class = 'red'";
-    }
-    else return "";
-  }
+		// send theme with html
+		if ($theme === "dark"){
+			return "class = 'dark'";
+		}else if ($theme === "red"){
+			return "class = 'red'";
+		}else if ($theme === "blue") {
+			return "class = 'blue'";
+		}
+		else return "";
+	}
 
   // get a list of services currently offered by the company
   // return array of service id and service name
