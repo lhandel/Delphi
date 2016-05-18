@@ -31,7 +31,7 @@
 
         </div>
         <div class="login_display">
-          <img class="icon queue" src="assets/Queue.svg" alt="" />
+          <img class="icon queue" src="<?php echo site_url('assets/instore/Queue.svg'); ?>" alt="" />
           <i class="fa fa-clock-o icon ticon" aria-hidden="true"></i>
 
           <div class="info">

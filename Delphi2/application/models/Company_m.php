@@ -43,5 +43,11 @@ class Company_m extends CI_Model{
     }
 
 
-
+    public function checkLogin()
+    {
+      if($this->session->userdata('c_id')==false){
+        header("Location: ".site_url(""));
+      }
+      return true;
+    }
 }
