@@ -22,6 +22,7 @@ class Instore_m extends CI_Model{
 
     $data = $this->db->get()->row();
     return $data->theme;
+
   }
 
 /* All the people in the Queue */

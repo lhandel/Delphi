@@ -11,7 +11,7 @@
     <link href='https://fonts.googleapis.com/css?family=Ubuntu:500,700,400|Open+Sans:400,600' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
   </head>
-  <body>
+  <body <?php echo $theme ?>>
     <div class="container">
 
         <h3 class="log_in3">
@@ -24,7 +24,7 @@
           <form action="../instore/submit" method="post">
             <input type="hidden" name="in_line" value="<?php echo $inline?>">
             <input type="hidden" name="service_id" value="<?php echo $_GET['service']; ?>">
-            <input id="number" name="number" type="text" pattern="[0-9]{10}" title="07XXXXXXXX (10 digits)" placeholder="Enter your mobile number">
+            <input id="number" name="number" type="text" pattern="[0-9]{10}" title="07XXXXXXXX (10 digits)" placeholder="Please enter your mobile number">
             <input id="submit_button" type="submit" value="Register">
           </form>
 

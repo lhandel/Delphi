@@ -7,8 +7,8 @@ class Instore extends CI_Controller{
 
   public function index()
   {
-//    $c_id = $this->session->userdata('c_id');
-    $c_id = 1;
+    $c_id = $this->session->userdata('c_id');
+
     $data['services'] =$this->get_services($c_id);
     $data['theme'] = $this->use_theme($c_id);
     $data['margin'] = $this->set_margin($this->get_services($c_id));
@@ -54,6 +54,8 @@ class Instore extends CI_Controller{
   		// Load the model
   		$this->load->model('instore_m');
       // service
+
+      $data['theme'] = $this->use_theme($this->session->userdata('c_id'));
   		$result = $this->instore_m->get_service_name(intval($_GET['service'])); //gets the service
       $data['service']= $result[0]->name;
       // inline
@@ -67,8 +69,13 @@ class Instore extends CI_Controller{
 
   public function submit(){
 
+    $number = $_POST['number'];
+
+
+    $data['theme'] = $this->use_theme($this->session->userdata('c_id'));
+
     // Check if the number is submited
-    if(isset($_POST['number'])){
+    if($number!=0){
 
       // Setup the varibles & Clean the data
       // $number = $mysqli->real_escape_string($_POST['number']); /*ask ludwig if we really need it?*/
@@ -112,12 +119,9 @@ class Instore extends CI_Controller{
 
 
     }else{
-      header("Location: index.php");
-
+      $s_id = intval($_POST['service_id']);
+      header("Location: register?service=".$s_id);
     }
-
-
-
     //send sms
     //make sms
     //redirect to done.php

@@ -22,7 +22,7 @@
     </script>
     <meta name="format-detection" content="telephone=no">
   </head>
-  <body >
+  <body <?php echo $theme ?> >
     <div class="container">
 
       <div class="row">
