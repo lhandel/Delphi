@@ -9,8 +9,6 @@ class Admin extends CI_Controller {
 	}
 	//check session a_id
 	public function login(){
-
-
 		// Check submit page
 		if(isset($_POST['a_id'])){
 
@@ -46,8 +44,8 @@ class Admin extends CI_Controller {
 						);
 			}
 		}
-
-		$this->load->view('admin/login');
+		$data['theme'] = $this->use_theme($this->session->userdata('c_id'));
+		$this->load->view('admin/login',$data);
 
 	}
 
