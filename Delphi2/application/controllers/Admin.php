@@ -10,6 +10,18 @@ class Admin extends CI_Controller {
 	//check session a_id
 	public function login(){
 		// Check submit page
+		if($this->session->userdata('a_id')){
+			if(isset($_GET['url']))
+			{
+				header("Location: ".$_GET['url']);
+			}
+			elseif(isset($_GET['s_id']))
+			{
+				$s_id= $_GET['s_id'];
+				header("Location:".site_url("index.php/admin/service?s_id=".$s_id));
+			}
+		}
+
 		if(isset($_POST['a_id'])){
 
 			//Load model
@@ -51,10 +63,10 @@ class Admin extends CI_Controller {
 
 /* All services in the admin dashboard */
 	public function listService(){
-
 		$this->company_m->checkLogin();
 
 		$data['theme'] = $this->use_theme($this->session->userdata('c_id'));
+
 		// Load the model
 		$this->load->model('service_m');
 
@@ -132,6 +144,7 @@ class Admin extends CI_Controller {
 		if (isset($_GET["theme"])) {
 			$c_id=$this->session->userdata('c_id');
 			$this->company_m-> set_theme($c_id,$_GET["theme"]);
+			header("Location: ".site_url("index.php/admin/settings"));
 		}
 
 		// Get the serivies
@@ -165,6 +178,10 @@ class Admin extends CI_Controller {
 
 		// Get the serivies
 		$data['services']  = $this->company_m->get_admins();  //  change to session!!!!*/
+<<<<<<< HEAD
+=======
+
+>>>>>>> master
 		$data['theme'] = $this->use_theme($this->session->userdata('c_id'));
 		// load the view
 		$this->load->view('admin/AdminMangement',$data);
