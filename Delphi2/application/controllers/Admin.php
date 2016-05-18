@@ -201,9 +201,13 @@ class Admin extends CI_Controller {
 		$theme = $this->instore_m->get_theme($c_id);
 	}
 
-	private function store_surveylink($link){
-
+	private function store_surveylink(){
+		$link= $_POST['link'];
+		$this->load->model('admin_m');
+		$this->session->userdata('c_id');
+		$this->admin_m-> register_link($c_id,$link);
 	}
+
 
 	// get theme selected by company
 	private function use_theme($c_id){
