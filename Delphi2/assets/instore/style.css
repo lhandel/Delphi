@@ -383,9 +383,13 @@ h3.log_in3 i{
   background-repeat: no-repeat;
   background-position: top;
 }
-img .queue{
+img.queue{
+  margin-left: auto;
+  margin-right: auto;
   height: 50px;
   width: 50px;
+  text-align: center;
+  font-size: 50px;
 
 }
 
