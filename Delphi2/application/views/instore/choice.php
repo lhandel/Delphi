@@ -35,12 +35,12 @@
           <div class="info">
             <img class="icon queue" src="<?php echo base_url('assets/instore/Queue.svg'); ?>" alt="" />
             <p class="important"><?php echo $inline?></p>
-            <p class="info">people <br/>in front</p>
+            <p class="info">People</p>
           </div>
           <div class="info">
             <i class="fa fa-clock-o icon ticon queue" aria-hidden="true"></i>
             <p class="important"><?php echo $ewt?></p>
-            <p class="info">minute <br/>left</p>
+            <p class="info">Minutes <br> left</p>
           </div>
         </div>
 
