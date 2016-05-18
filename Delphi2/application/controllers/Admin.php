@@ -125,6 +125,14 @@ class Admin extends CI_Controller {
 			),$s_id);
 			header("Location: ".site_url("index.php/admin/settings"));//send you back to the same page
 		}
+
+		if (isset($_POST['link'])) {
+				$link= $_POST['link'];
+				$this->session->userdata('c_id');
+				$this->load->model('admin_m');
+				$this->admin_m-> register_link($c_id,$link);
+				header("Location: ".site_url("index.php/admin/settings"));//send you back to the same page
+		}
 		//change service name
 		if (isset($_POST["edit"])) {
 			$s_id= intval($_POST["s_id"]);
@@ -180,6 +188,7 @@ class Admin extends CI_Controller {
 			$a_id= intval($_GET["a_id"]);
 			$this->Admin_m->deleteAdmin($a_id);
 			header("Location: ".site_url("index.php/admin/AdminMangement"));
+
 		}
 
 		if (isset($_POST["new_admin"])) {
@@ -200,14 +209,6 @@ class Admin extends CI_Controller {
 		$this->load->model('instore_m');
 		$theme = $this->instore_m->get_theme($c_id);
 	}
-
-	private function store_surveylink(){
-		$link= $_POST['link'];
-		$this->load->model('admin_m');
-		$this->session->userdata('c_id');
-		$this->admin_m-> register_link($c_id,$link);
-	}
-
 
 	// get theme selected by company
 	private function use_theme($c_id){

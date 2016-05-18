@@ -10,15 +10,12 @@ class Admin_m extends CI_Model{
   }
 
   //store link in the data base
-  public function register_link($link)
+  public function register_link($c_id,$link)
   {
-    $data = array(
-      's_link' => $link,
-    );
-    $this->db->insert('company',$data);
-    return $this->db->insert_id();
+    $this->db->where('c_id',$c_id);
+    $this->db->update('company', array('s_link' => $link));
   }
-  
+
   //check if adminname exists in the database
   public function check_admin_id($a_id){
     $this->db->select('a_id');
