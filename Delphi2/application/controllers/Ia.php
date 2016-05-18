@@ -5,7 +5,6 @@ class Ia extends CI_Controller{
 
   function index()
   {
-    	$this->company_m->checkLogin();
     $this->load->view('ia');
   }
 

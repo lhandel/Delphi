@@ -101,6 +101,6 @@
                 </form>
               </div>
           </div>
-    </div>
+    </div>  <!-- End setting container -->
   </body>
 </html>

@@ -51,7 +51,7 @@
           </table>
           <div class="container-popup">
               <div class="popup">
-                <form class="popup1 row" action="update.php" method="post">
+                <form class="popup1 row" action="" method="post">
                   <input type="text" name="a_content" id="contID" class="textfield row" value="">
                   <input type="hidden" name="a_id" id="aID" value="">
                   <input type="submit" class="button row"  name="a_edit" id="aButton" value="Save Changes">
@@ -62,35 +62,26 @@
 
    <!-- setting container -->
 
-    <div class="adminrow">
-      <div class="newadmin">
+   <div class="adminrow">
+     <div class="newadmin">
 
-        <div class="adminrow">
-          <div class="nainfo">
-            <h1 class="nh2">New Admin</h1>
-            <h2 class="nh2"> Fill Out New Admin Name</h2>
-          </div>
-          <div class="admin_name_inputfield">
-            <form  action="addAdmin.php" method="post" id="createNA">
-              <input class="nameinfo" type="text" name="name" value="">
-            </form>
-          </div>
+       <div class="adminrow">
+         <div class="nainfo">
+           <h1 class="nh2">New Admin</h1>
+           <h2 class="nh2"> Fill Out New Admin Name</h2>
+         </div>
+         <div class="admin_name_inputfield">
+           <form  action="addAdmin.php" method="post" id="createNA">
+             <input type="text" name="a_content" class="nameinfo" value="">
+             <input type="hidden" name="a_id" id="sID" value="">
+           </form>
+         </div>
 
-              <button class="button assign" type="submit" form="createNA" value="Submit"> Assign admin<i class="fa fa-angle-right" aria-hidden="true"></i> </button>
+             <button class="button assign" type="submit" form="createNA" value="Submit"> Assign admin<i class="fa fa-angle-right" aria-hidden="true"></i> </button>
 
-
-        </div class="adminrow">
-
-
-
-
-
-      </div>
-
-
-
-  </div>
-
+       </div>  <!-- end adminrow -->
+     </div>  <!-- end newadmin -->
+   </div>  <!-- end adminrow -->
 
   </body>
 </html>

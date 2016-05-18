@@ -7,8 +7,8 @@ class Instore extends CI_Controller{
 
   public function index()
   {
-    $c_id = $this->session->userdata('c_id');
-
+//    $c_id = $this->session->userdata('c_id');
+    $c_id = 1;
     $data['services'] =$this->get_services($c_id);
     $data['theme'] = $this->use_theme($c_id);
     $data['margin'] = $this->set_margin($this->get_services($c_id));
@@ -26,18 +26,20 @@ class Instore extends CI_Controller{
 
   // get theme selected by company
   private function use_theme($c_id){
-    $c_id = intval($c_id);
-    $this->load->model('instore_m');
-    $theme = $this->instore_m->get_theme($c_id); // get theme from database
+		$c_id = intval($c_id);
+		$this->load->model('instore_m');
+		$theme = $this->instore_m->get_theme($c_id); // get theme from database
 
-    // send theme with html
-    if ($theme === "dark"){
-      return "class = 'dark'";
-    }else if ($theme === "red"){
-      return "class = 'red'";
-    }
-    else return "";
-  }
+		// send theme with html
+		if ($theme === "dark"){
+			return "class = 'dark'";
+		}else if ($theme === "red"){
+			return "class = 'red'";
+		}else if ($theme === "blue") {
+			return "class = 'blue'";
+		}
+		else return "";
+	}
 
   // get a list of services currently offered by the company
   // return array of service id and service name
@@ -54,28 +56,27 @@ class Instore extends CI_Controller{
   		// Load the model
   		$this->load->model('instore_m');
       // service
-
-      $data['theme'] = $this->use_theme($this->session->userdata('c_id'));
   		$result = $this->instore_m->get_service_name(intval($_GET['service'])); //gets the service
       $data['service']= $result[0]->name;
       // inline
       $in_line = $this->instore_m->get_inline(intval($_GET['service'])); //inline
       $data['inline']= sizeof($in_line);
       // estimate waiting time
-      $data['ewt'] = $this->instore_m->ewt(intval($_GET['service']));;
+      $result = $this->instore_m->ewt(intval($_GET['service']));
+      $ewt = $result[0]['ewt'];
+      $handler = $result[0]['handlers'];
+      if ($handler==0) {
+        $handler=1;
+      }
+      $data['ewt'] = ceil(($ewt/$handler)/60);
 
   		$this->load->view('instore/register',$data);
   	}
 
   public function submit(){
 
-    $number = $_POST['number'];
-
-
-    $data['theme'] = $this->use_theme($this->session->userdata('c_id'));
-
     // Check if the number is submited
-    if($number!=0){
+    if(isset($_POST['number'])){
 
       // Setup the varibles & Clean the data
       // $number = $mysqli->real_escape_string($_POST['number']); /*ask ludwig if we really need it?*/
@@ -119,9 +120,12 @@ class Instore extends CI_Controller{
 
 
     }else{
-      $s_id = intval($_POST['service_id']);
-      header("Location: register?service=".$s_id);
+      header("Location: index.php");
+
     }
+
+
+
     //send sms
     //make sms
     //redirect to done.php
