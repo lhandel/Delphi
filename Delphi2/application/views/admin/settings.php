@@ -128,11 +128,10 @@
 
               <div class="survey_register">
                 <form  action="" method="post">
-                  <input type="text" name="a_content" class="linkinfo" value="">
-                  <input type="hidden" name="a_id" value="">
-                </form>
+                  <input type="text" name="url" class="linkinfo">
               </div>
-              <button class="button assign" type="submit" value="Submit"> Register Link<i class="fa fa-angle-right" aria-hidden="true"></i> </button>
+              <button class="button assign" type="submit" name="link"> Register Link<i class="fa fa-angle-right" aria-hidden="true"></i> </button>
+                </form>
           </div>  <!-- end survey box -->
         </div>  <!-- end survey -->
 
