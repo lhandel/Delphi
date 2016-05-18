@@ -35,8 +35,8 @@ class User_m extends CI_Model{
   $this->db->from('user');
   $this->db->where('public_id', $pid);
 
-  return $this->db->get()->result();
-
+  $data =  $this->db->get()->row();
+  return $data->u_id;
   }
   public function verify_link($uid){
 
@@ -78,29 +78,29 @@ class User_m extends CI_Model{
     return $data_ewt;
 
   }
-  public function ewt_user2($s_id){
 
-    $query = $this->db->query("SELECT
-                            (
-                                AVG(time_out-time_start)*
-                                (
-                                  (SELECT COUNT(u_id) FROM user WHERE s_id=$s_id AND u_id<$u_id AND (state=0 OR state=1))
-                                )
-                            )
-                            as ewt,
-                            (SELECT time_start FROM user WHERE s_id=$s_id AND  state=1 ORDER BY time_start ASC LIMIT 1) as timer,
-                            (SELECT COUNT(DISTINCT a_id) FROM user WHERE state=1 AND s_id=$s_id) as handlers
-                             FROM user WHERE s_id=$s_id AND (state=3 OR state=2) AND time_out!=0 ORDER BY u_id DESC LIMIT 20");
-   $data =  $query->row();
+  public function ewt_for_user($u_id,$s_id)
+   {
+       $query = $this->db->query("SELECT
+                             (
+                                 AVG(time_out-time_start)*
+                                 (
+                                   (SELECT COUNT(u_id) FROM user WHERE s_id=$s_id AND u_id<$u_id AND (state=0 OR state=1))
+                                 )
+                             )
+                             as ewt,
+                             (SELECT time_start FROM user WHERE s_id=$s_id AND  state=1 ORDER BY time_start ASC LIMIT 1) as timer,
+                             (SELECT COUNT(DISTINCT a_id) FROM user WHERE state=1 AND s_id=$s_id) as handlers
+                              FROM user WHERE s_id=$s_id AND (state=3 OR state=2) AND time_out!=0 ORDER BY u_id DESC LIMIT 20");
+    $data =  $query->row();
+    $array =  (object)array
+              (
+                'ewt' => ($data->handlers==0)? $data->ewt : $data->ewt/$data->handlers,
+                'timer' => $data->timer
+              );
+     return $array;
+   }
 
-   $array =  array
-             (
-               'ewt' => ($data['handlers']==0)? $data['ewt'] : $data['ewt']/$data['handlers'],
-               'timer' => $data['timer']
-             );
-    return $array;
-
-  }
   public function queue_counter($s_id){
 
     $this->db->select('(SELECT COUNT(u_id) FROM user WHERE state=0 AND s_id='.$s_id.') as queue_count');
@@ -108,6 +108,12 @@ class User_m extends CI_Model{
     return $this->db->get()->result();
 
 
+  }
+
+  public function getUserFromPublicId($pid)
+  {
+      $query = $this->db->query("SELECT u_id,s_id,r_sms,state, (SELECT COUNT(u_id) FROM user WHERE s_id=1 AND (state=0 OR state=1) AND u_id<u.u_id) as inline FROM user u WHERE public_id='$pid'");
+      return $query->row();
   }
 
 }

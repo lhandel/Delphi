@@ -202,7 +202,7 @@ class Admin extends CI_Controller {
 	}
 
 	private function store_surveylink($link){
-		
+
 	}
 
 	// get theme selected by company
@@ -217,6 +217,8 @@ class Admin extends CI_Controller {
 			return "class = 'red'";
 		}else if ($theme === "blue") {
 			return "class = 'blue'";
+		}else if ($theme === "roseg") {
+			return "class = 'roseg'";
 		}
 		else return "";
 	}

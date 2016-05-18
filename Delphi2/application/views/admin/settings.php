@@ -101,6 +101,22 @@
             <span>Liquorice<br/> Black</span>
           </div>
 
+          <div class="squareTheme_container" onclick="document.location='<?php echo site_url("index.php/admin/settings?theme=roseg") ?>'">
+            <div class="squareTheme roseg <?php if($theme_name=='roseg') echo 'active'; ?>"></div>
+            <span>Rose gold</span>
+          </div>
+
+          <div class="squareTheme_container" onclick="document.location='<?php echo site_url("index.php/admin/settings?theme=roseg") ?>'">
+            <div class="squareTheme roseg <?php if($theme_name=='roseg') echo 'active'; ?>"></div>
+            <span>Sunset orange</span>
+          </div>
+
+          <div class="squareTheme_container" onclick="document.location='<?php echo site_url("index.php/admin/settings?theme=roseg") ?>'">
+            <div class="squareTheme roseg <?php if($theme_name=='roseg') echo 'active'; ?>"></div>
+            <span>Heartbreak red</span>
+          </div>
+
+
         </div>
 
         <!-- //Survey link input box -->

@@ -49,10 +49,49 @@ body.blue .fa-bars{
 }
 
 
+/*
+ * ROSE GOLD
+ */
+ body.roseg ul.btn_list li a:hover{
+   box-shadow: 0px 1px 1px #b33b2b;
+ }
+ body.roseg, .squareTheme.roseg{
+   background: #f1c1bd;
+   background-size: cover;
+ }
+ body.roseg ul.btn_list li a,body.roseg .btn{
+   color: #333;
+ }
+ body.roseg .fa-bars{
+   color: #36465d;
+ }
+ body.roseg ul.btn_list li a:hover{
+   box-shadow: 0px 1px 1px #b33b2b;
+ }
 
-body.blue ul.btn_list li a:hover{
-  box-shadow: 0px 1px 1px #b33b2b;
-}
+
+ /*
+  * ROSE GOLD
+  */
+  body.sunset ul.btn_list li a:hover{
+    box-shadow: 0px 1px 1px #b33b2b;
+  }
+  body.sunset, .squareTheme.sunset{
+    background: linear-gradient(red, yellow);
+    background-size: cover;
+  }
+  body.sunset ul.btn_list li a,body.sunset .btn{
+    color: #333;
+  }
+  body.sunset .fa-bars{
+    color: #36465d;
+  }
+  body.sunset ul.btn_list li a:hover{
+    box-shadow: 0px 1px 1px #b33b2b;
+  }
+
+
+
 
 h1{
   font-family: 'Ubuntu';
@@ -1032,7 +1071,6 @@ h2.sl{
   height: 80px;
 }
 /*End of adding new admin*/
-
 
 .themePicker{
   display: block;
