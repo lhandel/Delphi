@@ -10,7 +10,7 @@ class Admin extends CI_Controller {
 	//check session a_id
 public function checkLogin(){
 
-	
+
 }
 public function login(){
 
@@ -129,14 +129,13 @@ public function login(){
 		$this->load->model('company_m');
 
 		//change admin name
-		if (isset($_POST["edit"])) {
+		if (isset($_POST["a_edit"])) {
 			$a_id= intval($_POST["a_id"]);
-			$this->company_m->save(array(
-				'admin_name'	=>  $_POST["content"]
-			),$a_id);
+			$this->company_m->a_edit($a_id,$_POST["a_content"]);
 			header("Location: ".site_url("index.php/admin/AdminMangement"));//send you back to the same page
 		}
 
+		//remove admin
 		if(isset($_GET["a_remove"]))
 		{
 			$a_id= intval($_GET["a_id"]);
