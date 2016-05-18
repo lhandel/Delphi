@@ -4,13 +4,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Instore extends CI_Controller{
 
   public function paperDone(){
-    $this->load->view("instore/paperDone");
+    $data['theme'] = $this->use_theme($this->session->userdata('c_id'));
+    $this->load->view("instore/paperDone",$data);
   }
 
   public function index()
   {
 //    $c_id = $this->session->userdata('c_id');
-    $c_id = 1;
+    $c_id = $this->session->userdata('c_id');
     $data['services'] =$this->get_services($c_id);
     $data['theme'] = $this->use_theme($c_id);
     $data['margin'] = $this->set_margin($this->get_services($c_id));
@@ -31,16 +32,7 @@ class Instore extends CI_Controller{
 		$c_id = intval($c_id);
 		$this->load->model('instore_m');
 		$theme = $this->instore_m->get_theme($c_id); // get theme from database
-
-		// send theme with html
-		if ($theme === "dark"){
-			return "class = 'dark'";
-		}else if ($theme === "red"){
-			return "class = 'red'";
-		}else if ($theme === "blue") {
-			return "class = 'blue'";
-		}
-		else return "";
+    return "class='".$theme."'";
 	}
 
   // get a list of services currently offered by the company
@@ -57,6 +49,8 @@ class Instore extends CI_Controller{
   	{
   		// Load the model
   		$this->load->model('instore_m');
+      $data['theme'] = $this->use_theme($this->session->userdata('c_id'));
+
       // service
   		$result = $this->instore_m->get_service_name(intval($_GET['s_id'])); //gets the service
       $data['name']= $result[0]->name;
@@ -76,6 +70,8 @@ class Instore extends CI_Controller{
       // Load the model
       $this->load->model('instore_m');
 
+      $data['theme'] = $this->use_theme($this->session->userdata('c_id'));
+
       $in_line = $this->instore_m->get_inline(intval($_GET['s_id'])); //inline
       $data['inline']= sizeof($in_line);
       // estimate waiting time
@@ -89,6 +85,8 @@ class Instore extends CI_Controller{
     }
 
   public function submit(){
+
+    $data['theme'] = $this->use_theme($this->session->userdata('c_id'));
 
     // Check if the number is submited
     if(isset($_POST['number'])){

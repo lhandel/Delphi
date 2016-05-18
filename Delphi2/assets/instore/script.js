@@ -3,6 +3,6 @@
 
     window.setTimeout(function(){
         $("body").fadeOut(500,function(){
-           window.location.href = 'http://localhost/Delphi/Delphi2/index.php/instore';
+           window.location.href = base_url;
         })
     },5000);
