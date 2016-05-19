@@ -865,7 +865,6 @@ a.ta{
 }
 
 .linkinfo{
-
   margin-left: auto;
   margin-right: auto;
   margin-top:25px;
@@ -881,6 +880,23 @@ a.ta{
   font-family: 'Open sans', sans-serif;
   font-size: 20px;
   box-shadow: inset 0px 5px 24px -19px rgba(42,43,37,0.31);
+}
+
+.currentlink{
+  margin-left: auto;
+  margin-right: auto;
+  margin-top:25px;
+  padding-top: 0px;
+  padding-bottom: 2px;
+  border: none;
+  height: 28px;
+  width: 100%;
+  background-color: white;
+  color: #4e4e4e;
+  font-family: 'Open sans', sans-serif;
+  font-size: 20px;
+  box-shadow: inset 0px 5px 24px -19px rgba(42,43,37,0.31);
+
 }
 
 h1.sl{

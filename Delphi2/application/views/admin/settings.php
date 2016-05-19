@@ -2,7 +2,7 @@
 <div class="settingscontainer">
 
 
-        
+
 
         <!-- //Survey link input box -->
         <div class="survey">
@@ -10,15 +10,24 @@
                 <h1 class="sl">Survey link for <?php echo $company_name; ?></h1>
                 <h2 class="sl"> i.e Survey Monkey, Google Form, etc.</h2>
               <div class="survey_register">
-
-                <?php if (isset($_POST['url'])){
+                <?php if ($surveylink!=0){
+                  echo '<div class="currentlink">';
                   echo $surveylink;
+                  echo '</div>';
+                  echo '</div> <button class="button assign" type="submit" name="Remove"> Remove<i class="fa fa-angle-right" aria-hidden="true"></i> </button>';
+                }else {
+                  echo
+                  '<form  action="" method="post">
+                    <input type="text" name="url" class="linkinfo">
+                </div>
+                <button class="button assign" type="submit" name="link"> Register Link<i class="fa fa-angle-right" aria-hidden="true"></i> </button>
+                  </form>';
                 } ?>
-                <form  action="" method="post">
+                <!-- <form  action="" method="post">
                   <input type="text" name="url" class="linkinfo">
               </div>
               <button class="button assign" type="submit" name="link"> Register Link<i class="fa fa-angle-right" aria-hidden="true"></i> </button>
-                </form>
+                </form> -->
           </div>  <!-- end survey box -->
         </div>  <!-- end survey -->
 
