@@ -21,6 +21,7 @@ class Company_m extends CI_Model{
 
     //retrieve link from database
     public function get_survey_link($c_id){
+      $c_id= intval($c_id);
       $this->db->select('s_link');
       $this->db->from('company');
       $this->db->where('c_id',$c_id);
