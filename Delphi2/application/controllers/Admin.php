@@ -161,6 +161,7 @@ class Admin extends CI_Controller {
 
 	//Create new admin
 	if (isset($_POST["new_service"])) {
+		$this->service_m->new_service($_POST["s_content"]);
 		header("Location: ".site_url("index.php/admin/serviceManagement"));//send you back to the same page
 	}
 
