@@ -5,7 +5,36 @@ class Instore extends CI_Controller{
 
   public function paperDone(){
     $data['theme'] = $this->use_theme($this->session->userdata('c_id'));
-    $this->load->view("instore/paperDone",$data);
+
+
+    $time_in = time(); // time() return the unix timestamp
+    $s_id = intval($_GET['s_id']); // make sure it's a number
+
+    // Get the queue-number
+    $this->load->model('instore_m');
+
+    $result = $this->instore_m->q_no($s_id);
+
+
+    if($result==false){
+      $q_no = 1;
+    }else{
+      $q_no = $result[0]->q_no+1;
+    }
+    // Check the service id
+    if($s_id!=0){
+
+      $public_id = $this->generateRandomString(5);
+
+      // Run the query and insert into db
+      $uid= $this->instore_m->insert($public_id, 0,$time_in,$s_id,$q_no);
+      // send the user to the next page
+      $data['q_no']= $q_no;
+      $result = $this->instore_m->get_service_name($s_id); //gets the service
+      $data['service']= $result[0]->name;
+
+      $this->load->view("instore/paperDone",$data);
+    }
   }
 
   public function index()
@@ -18,7 +47,7 @@ class Instore extends CI_Controller{
 
     //Set Instore Session
     $this->session->set_userdata('instore',true);
-    
+
     $this->load->view('instore/index_i',$data);
 
   }
@@ -100,6 +129,8 @@ class Instore extends CI_Controller{
     }
   }
 
+
+
   public function submit(){
 
     $data['theme'] = $this->use_theme($this->session->userdata('c_id'));
@@ -149,9 +180,7 @@ class Instore extends CI_Controller{
     }else{
       die("Fel");
     }
-    //send sms
-    //make sms
-    //redirect to done.php
+
   }
 
   private function generateRandomString($length = 10) {

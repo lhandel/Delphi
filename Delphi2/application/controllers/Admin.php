@@ -125,6 +125,8 @@ class Admin extends CI_Controller {
 	$data['theme_name'] = $this->instore_m->get_theme($this->session->userdata('c_id'));
 
 	$data['theme'] = $this->use_theme($this->session->userdata('c_id'));
+
+	//Change reminder time
 	if (isset($_POST["rem"])) {
 		$s_id= intval($_POST["s_id"]); //this service id
 		$r_time= intval($_POST["content"]);// what you changed to in the textfield
@@ -134,13 +136,6 @@ class Admin extends CI_Controller {
 		header("Location: ".site_url("index.php/admin/serviceManagement"));//send you back to the same page
 	}
 
-	if (isset($_POST['link'])) {
-			$link= $_POST['url'];
-			$c_id=$this->session->userdata('c_id');
-			$this->load->model('admin_m');
-			$this->admin_m-> register_link($c_id,$link);
-			header("Location: ".site_url("index.php/admin/serviceManagement"));//send you back to the same page
-	}
 	//change service name
 	if (isset($_POST["edit"])) {
 		$s_id= intval($_POST["s_id"]);
@@ -149,12 +144,14 @@ class Admin extends CI_Controller {
 		),$s_id);
 		header("Location: ".site_url("index.php/admin/serviceManagement"));//send you back to the same page
 	}
+	//Reset service queue
 	if(isset($_GET["reset"]))
 	{
 		$s_id= intval($_GET["s_id"]);
 		$this->service_m->reset($s_id);
 		header("Location: ".site_url("index.php/admin/serviceManagement"));
 	}
+	//Remove service
 	if(isset($_GET["s_remove"]))
 	{
 		$s_id= intval($_GET["s_id"]);
@@ -162,12 +159,10 @@ class Admin extends CI_Controller {
 		header("Location: ".site_url("index.php/admin/serviceManagement"));
 	}
 
-	if (isset($_GET["theme"])) {
-		$c_id=$this->session->userdata('c_id');
-
-		$this->company_m-> set_theme($c_id,$_GET["theme"]);
-
-		header("Location: ".site_url("index.php/admin/serviceManagement"));
+	//Create new admin
+	if (isset($_POST["new_service"])) {
+		$this->service_m->new_service($_POST["s_content"]);
+		header("Location: ".site_url("index.php/admin/serviceManagement"));//send you back to the same page
 	}
 
 	// Get the serivies
@@ -191,42 +186,13 @@ class Admin extends CI_Controller {
 		$data['company_name'] = $this->company_m->get_company_name($this->session->userdata('c_id'));
 		$data['theme'] = $this->use_theme($this->session->userdata('c_id'));
 		$data['surveylink'] = $this->company_m->get_survey_link($this->session->userdata('c_id'));
-
-		if (isset($_POST["rem"])) {
-			$s_id= intval($_POST["s_id"]); //this service id
-			$r_time= intval($_POST["content"]);// what you changed to in the textfield
-			$this->service_m->save(array(
-				'r_time'	=>  $r_time
-			),$s_id);
-			header("Location: ".site_url("index.php/admin/settings"));//send you back to the same page
-		}
-
+		//Servey link
 		if (isset($_POST['link'])) {
 				$link= $_POST['url'];
 				$c_id=$this->session->userdata('c_id');
 				$this->load->model('admin_m');
 				$this->company_m-> register_link($c_id,$link);
 				header("Location: ".site_url("index.php/admin/settings"));//send you back to the same page
-		}
-		//change service name
-		if (isset($_POST["edit"])) {
-			$s_id= intval($_POST["s_id"]);
-			$this->service_m->save(array(
-				'name'	=>  $_POST["content"]
-			),$s_id);
-			header("Location: ".site_url("index.php/admin/settings"));//send you back to the same page
-		}
-		if(isset($_GET["reset"]))
-		{
-			$s_id= intval($_GET["s_id"]);
-			$this->service_m->reset($s_id);
-			header("Location: ".site_url("index.php/admin/settings"));
-		}
-		if(isset($_GET["s_remove"]))
-		{
-			$s_id= intval($_GET["s_id"]);
-			$this->service_m->deleteService($s_id);
-			header("Location: ".site_url("index.php/admin/settings"));
 		}
 
 		if (isset($_GET["theme"])) {
@@ -266,6 +232,7 @@ class Admin extends CI_Controller {
 
 		}
 
+		//Create new admin
 		if (isset($_POST["new_admin"])) {
 			$this->Admin_m->new_admin($_POST["a_content"]);
 			header("Location: ".site_url("index.php/admin/AdminMangement"));//send you back to the same page
