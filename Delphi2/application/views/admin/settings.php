@@ -2,24 +2,18 @@
 <div class="settingscontainer">
 
 
-        <div class="container-popup">
-            <div class="popup">
-              <form class="popup1 row" action="" method="post">
-                <input type="text" name="content" id="contID" class="textfield row" value="">
-                <input type="hidden" name="s_id" id="sID" value="">
-                <input type="submit" class="button row"  name="" id="settingButton" value="Save Changes">
-              </form>
-            </div>
-        </div>
+        
 
         <!-- //Survey link input box -->
         <div class="survey">
           <div class="survey_box">
-              <!-- <div class="linkinfo"> -->
                 <h1 class="sl">Survey link for <?php echo $company_name; ?></h1>
                 <h2 class="sl"> i.e Survey Monkey, Google Form, etc.</h2>
-
               <div class="survey_register">
+
+                <?php if (isset($_POST['url'])){
+                  echo $surveylink;
+                } ?>
                 <form  action="" method="post">
                   <input type="text" name="url" class="linkinfo">
               </div>

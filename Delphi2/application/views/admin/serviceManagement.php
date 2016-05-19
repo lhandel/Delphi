@@ -1,6 +1,17 @@
 <?php $this->load->view('admin/header'); ?>
 <div class="settingscontainer">
     <!-- TABLE -->
+
+    <div class="container-popup">
+        <div class="popup">
+          <form class="popup1 row" action="" method="post">
+            <input type="text" name="content" id="contID" class="textfield row" value="">
+            <input type="hidden" name="s_id" id="sID" value="">
+            <input type="submit" class="button row"  name="" id="settingButton" value="Save Changes">
+          </form>
+        </div>
+    </div>
+    
     <table width="100%" cellpadding="0" cellspacing="0" border="0" class="list link">
           <tbody>
           <!-- Php code for getting all relevant info about each company services -->

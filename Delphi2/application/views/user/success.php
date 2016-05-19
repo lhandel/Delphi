@@ -4,13 +4,14 @@
   <meta charset="utf-8">
   <title>User 0704373741</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+  <link rel="stylesheet" href="<?php echo site_url('assets/templates.css'); ?>">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   <link rel="stylesheet" href="<?php echo site_url('assets/user/style.css'); ?>" media="screen" title="no title" charset="utf-8">
   <link href='https://fonts.googleapis.com/css?family=Ubuntu:500,700,400|Open+Sans:400,600' rel='stylesheet' type='text/css'>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js" charset="utf-8"></script>
   <meta name="format-detection" content="telephone=no">
 </head>
-  <body>
+  <body class="<?php echo $theme; ?>">
       <h1>Thank you for visiting us <br> Enjoy your day</h1>
   </body>
 </html>

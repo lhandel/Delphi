@@ -12,6 +12,10 @@ class Admin extends CI_Controller {
 
 	public function login(){
 		// Check submit page
+		if($this->session->userdata('c_id')==false){
+      header("Location: ".site_url(""));
+    }
+		
 		if($this->session->userdata('a_id')){
 			if(isset($_GET['url']))
 			{
@@ -186,6 +190,8 @@ class Admin extends CI_Controller {
 		$data['theme_name'] = $this->instore_m->get_theme($this->session->userdata('c_id'));
 		$data['company_name'] = $this->company_m->get_company_name($this->session->userdata('c_id'));
 		$data['theme'] = $this->use_theme($this->session->userdata('c_id'));
+		$data['surveylink'] = $this->company_m->get_survey_link($this->session->userdata('c_id'));
+
 		if (isset($_POST["rem"])) {
 			$s_id= intval($_POST["s_id"]); //this service id
 			$r_time= intval($_POST["content"]);// what you changed to in the textfield
@@ -199,7 +205,7 @@ class Admin extends CI_Controller {
 				$link= $_POST['url'];
 				$c_id=$this->session->userdata('c_id');
 				$this->load->model('admin_m');
-				$this->admin_m-> register_link($c_id,$link);
+				$this->company_m-> register_link($c_id,$link);
 				header("Location: ".site_url("index.php/admin/settings"));//send you back to the same page
 		}
 		//change service name
