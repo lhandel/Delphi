@@ -60,10 +60,8 @@ class Admin extends CI_Controller {
 			}
 			else
 			{
-					// admin log in error - must fix
-					$append = (isset($_GET['url']))? 'url='.$_GET['url'] : 's_id='.$_GET['s_id'];
 					header("Location: ".
-							site_url("index.php/admin/login?wrong=true&".$append)
+							site_url("index.php/admin/login?wrong=true")
 						);
 			}
 		}
