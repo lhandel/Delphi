@@ -61,6 +61,20 @@ class Service_m extends CI_Model{
       'state'=>4
     ));
   }
+
+  function new_service($name)
+	{
+		$c_id= $this->session->userdata('c_id');
+
+    $data = array(
+            'name' => $name,
+            'c_id' => $c_id,
+            'r_time' => 5
+          );
+
+    $this->db->insert('service', $data);
+  }
+
   public function next($s_id)
   {
     if($s_id!=0){

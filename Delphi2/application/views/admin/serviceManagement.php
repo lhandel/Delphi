@@ -11,7 +11,7 @@
           </form>
         </div>
     </div>
-    
+
     <table width="100%" cellpadding="0" cellspacing="0" border="0" class="list link">
           <tbody>
           <!-- Php code for getting all relevant info about each company services -->
@@ -89,12 +89,12 @@
               </div>
               <div class="admin_name_inputfield">
                 <form  action="" method="post" id="createNA">
-                  <input type="text" name="a_content" class="nameinfo" value="">
-                  <input type="hidden" name="a_id" id="sID" value="">
+                  <input type="text" name="s_content" class="nameinfo" value="">
+                  <input type="hidden" name="s_id" id="sID" value="">
                 </form>
               </div>
 
-                  <button class="button assign" type="submit" name="new_admin" form="createNA" value="Submit"> Assign admin<i class="fa fa-angle-right" aria-hidden="true"></i> </button>
+                  <button class="button assign" type="submit" name="new_service" form="createNA" value="Submit"> Assign admin<i class="fa fa-angle-right" aria-hidden="true"></i> </button>
 
             </div>  <!-- end adminrow -->
           </div>  <!-- end newadmin -->
