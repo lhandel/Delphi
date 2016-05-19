@@ -70,7 +70,7 @@
         </div>
         <!-- Service Management buttom -->
         <div class="row">
-          <a href="<?php echo site_url('index.php/admin/serviceManagement'); ?>" class="button">Settings</a>
+          <a href="<?php echo site_url('index.php/admin/serviceManagement'); ?>" class="button">Manage Services</a>
         </div>
 
   </div>
