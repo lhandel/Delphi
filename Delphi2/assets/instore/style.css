@@ -19,15 +19,15 @@ body.dark{
 }
 body.dark ul.btn_list li a{
   color: #333;
-  box-shadow: 0px 3px 2px #000;
+  box-shadow: 0px 3px 2px rgba(0,0,0,0.3);
 }
 
 body.dark ul.btn_list li a:hover{
-  box-shadow: 0px 1px 1px #000;
+  box-shadow: 0px 1px 1px rgba(0,0,0,0.3);
 }
 body.dark .btn{
   color: #333;
-  box-shadow: 0px 3px 2px #000;
+  box-shadow: 0px 3px 2px rgba(0,0,0,0.3);
 }
 
 
@@ -36,15 +36,15 @@ body.red{
 }
 body.red ul.btn_list li a,body.red .btn{
   color: #333;
-  box-shadow: 0px 3px 2px #b33b2b;
+  box-shadow: 0px 3px 2px rgba(0,0,0,0.3);
 }
 
 body.red ul.btn_list li a:hover{
-  box-shadow: 0px 1px 1px #b33b2b;
+  box-shadow: 0px 1px 1px rgba(0,0,0,0.3);
 }
 
 body.blue ul.btn_list li a:hover{
-  box-shadow: 0px 1px 1px #b33b2b;
+  box-shadow: 0px 1px 1px rgba(0,0,0,0.3);
 }
 
 body.blue{
@@ -53,7 +53,7 @@ body.blue{
 }
 body.blue ul.btn_list li a,body.blue .btn{
   color: #333;
-  box-shadow: 0px 3px 2px #333;
+  box-shadow: 0px 3px 2px rgba(0,0,0,0.3);
 }
 
 
@@ -117,7 +117,7 @@ h2{
   padding-bottom: 25px;
   font-family: 'Open sans', sans-serif;
   text-transform: uppercase;
-  box-shadow: 0px 3px 2px #1f9d54;
+  box-shadow: 0px 3px 2px rgba(0,0,0,0.3);
 
 }
 
@@ -186,10 +186,10 @@ ul.btn_list li a{
   padding-bottom: 25px;
   font-family: 'Open sans', sans-serif;
   text-transform: uppercase;
-  box-shadow: 0px 3px 2px #1f9d54;
+  box-shadow: 0px 3px 2px rgba(0,0,0,0.3);
 }
 ul.btn_list li a:hover{
-  box-shadow: 0px 1px 1px #1f9d54;
+  box-shadow: 0px 1px 1px rgba(0,0,0,0.3);
 }
 .remove_margin_top{
   margin-top: 0;

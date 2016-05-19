@@ -4,10 +4,10 @@ body.dark,.squareTheme.dark{
 }
 body.dark ul.btn_list li a{
   color: #333;
-  box-shadow: 0px 3px 2px #000;
+  box-shadow: 0px 3px 2px rgba(0,0,0,0.3);
 }
 body.dark ul.btn_list li a:hover{
-  box-shadow: 0px 1px 1px #000;
+  box-shadow: 0px 1px 1px rgba(0,0,0,0.3);
 }
 body.dark .btn,body.dark .fa-bars{
   color: #333;
@@ -31,7 +31,7 @@ body.red .fa-bars{
  * DEEP OCEAN BLUE
 */
 body.blue ul.btn_list li a:hover{
-  box-shadow: 0px 1px 1px #b33b2b;
+  box-shadow: 0px 1px 1px rgba(0,0,0,0.3);
 }
 body.blue,.squareTheme.blue{
   background: #36465d;
@@ -49,7 +49,7 @@ body.blue .fa-bars{
  * ROSE GOLD
  */
  body.roseg ul.btn_list li a:hover{
-   box-shadow: 0px 1px 1px #b33b2b;
+   box-shadow: 0px 1px 1px rgba(0,0,0,0.3);
  }
  body.roseg, .squareTheme.roseg{
    background: #f1c1bd;
@@ -62,7 +62,7 @@ body.blue .fa-bars{
    color: #36465d;
  }
  body.roseg ul.btn_list li a:hover{
-   box-shadow: 0px 1px 1px #b33b2b;
+   box-shadow: 0px 1px 1px rgba(0,0,0,0.3);
  }
 
 
@@ -85,7 +85,7 @@ body.blue .fa-bars{
     color: #e45654;
   }
   body.sunset ul.btn_list li a:hover{
-    box-shadow: 0px 1px 1px #b33b2b;
+    box-shadow: 0px 1px 1px rgba(0,0,0,0.3);
   }
 
 
@@ -93,7 +93,7 @@ body.blue .fa-bars{
    * HEARTBREAK RED
    */
    body.heartbreak ul.btn_list li a:hover{
-     box-shadow: 0px 1px 1px #b33b2b;
+     box-shadow: 0px 1px 1px rgba(0,0,0,0.3);
    }
    body.heartbreak, .squareTheme.heartbreak{
      background-color: #e45654;
@@ -108,5 +108,5 @@ body.blue .fa-bars{
      color: #36465d;
    }
    body.heartbreak ul.btn_list li a:hover{
-     box-shadow: 0px 1px 1px #b33b2b;
+     box-shadow: 0px 1px 1px rgba(0,0,0,0.3);
    }
