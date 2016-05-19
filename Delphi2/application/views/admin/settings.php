@@ -11,7 +11,9 @@
                 <h2 class="sl"> i.e Survey Monkey, Google Form, etc.</h2>
               <div class="survey_register">
                   <form  action="" method="post">
-                    <input type="text" name="url" class="linkinfo" value="<?php echo $survey ?>">
+                    <input type="text" name="url" class="linkinfo" value="<?php echo "https://docs.google.com/forms/d/1nz3Xbjc5GSN7KfwG9WM3sshilBq3zz4B_b1CNjn4hFc/viewform"
+                    //use $survey when you insert your own link
+                    ?>">
                 </div>
                 <button class="button assign" type="submit" name="link"> Register Link<i class="fa fa-angle-right" aria-hidden="true"></i> </button>
                   </form>
