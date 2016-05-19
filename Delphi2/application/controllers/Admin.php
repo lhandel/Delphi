@@ -91,6 +91,9 @@ class Admin extends CI_Controller {
 /* Specific service */
 	public function service()
 	{
+		if(!isset($_GET['s_id']) && $_GET['s_id']==''){
+			redirect(site_url("index.php/admin/listService"));
+		}
 		$this->load->model('admin_m'); $this->admin_m->checkLogin();
 
 		// Load the model
