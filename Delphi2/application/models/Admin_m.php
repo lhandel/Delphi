@@ -20,6 +20,9 @@ class Admin_m extends CI_Model{
 
   public function checkLogin()
   {
+    if($this->session->userdata('c_id')==false){
+      header("Location: ".site_url(""));
+    }
     if($this->session->userdata('a_id')==false){
       header("Location: ".site_url("index.php/admin/login"));
     }

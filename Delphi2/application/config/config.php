@@ -32,7 +32,7 @@ if(strpos($_SERVER['HTTP_HOST'],'localhost')!==false){
       $config['base_url'] = 'http://localhost/Delphi/Delphi2/';
   }
 }else{
-  $config['base_url'] = 'http://46.101.97.62/';
+  $config['base_url'] = 'http://46.101.97.62/Delphi2';
 }
 /*
 |--------------------------------------------------------------------------

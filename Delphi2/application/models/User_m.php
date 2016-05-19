@@ -36,7 +36,10 @@ class User_m extends CI_Model{
   $this->db->where('public_id', $pid);
 
   $data =  $this->db->get()->row();
-  return $data->u_id;
+    if(isset(data->u_id))
+      return $data->u_id;
+    else
+      return false;
   }
   public function verify_link($uid){
 

@@ -94,7 +94,3 @@ $db['default'] = array(
 	'failover' => array(),
 	'save_queries' => TRUE
 );
-
-if(strpos($_SERVER['HTTP_USER_AGENT'],'Macintosh')==true){
-	$db['default']['password']= 'root';
-}
