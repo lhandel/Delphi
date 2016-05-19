@@ -37,7 +37,7 @@
 
                 <td class="ttitle ticons">
 
-                  <a href="<?php echo site_url("index.php/admin/adminManagement") ?>?a_id=<?php echo $row->a_id;?>&a_remove=true" class="ta">
+                  <a href="<?php echo site_url("index.php/admin/AdminMangement") ?>?a_id=<?php echo $row->a_id;?>&a_remove=true" class="ta">
                     <i class="fa fa-trash-o" aria-hidden="true"></i>
                   </a>
                   <div class="annotation">
