@@ -15,12 +15,7 @@
                 </div>
                 <button class="button assign" type="submit" name="link"> Register Survey<i class="fa fa-angle-right" aria-hidden="true"></i> </button>
                   </form>
-                <!-- <form  action="" method="post">
-                  <input type="text" name="url" class="linkinfo">
-              </div>
-              <button class="button assign" type="submit" name="link"> Register Link<i class="fa fa-angle-right" aria-hidden="true"></i> </button>
-                </form> -->
-          </div>  <!-- end survey box -->
+        </div>  <!-- end survey box -->
         </div>  <!-- end survey -->
 
         <div class="row themePicker">
