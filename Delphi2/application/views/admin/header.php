@@ -13,7 +13,8 @@
 
   </head>
   <body <?php echo $theme; ?>>
-
+    <?php if(isset($_GET['logout']))
+      $this->session->unset_userdata('a_id');?>
   <div class="menuToggle">
     <i class="fa fa-bars" aria-hidden="true"></i>
   </div>
@@ -27,8 +28,8 @@
       <li><a href="<?php echo site_url('index.php/admin/login?url='); ?><?php echo urlencode(site_url('index.php/admin/settings')); ?>" id="item5"><i class="fa fa-wrench" aria-hidden="true"></i> Settings</a></li>
 
       <!-- Checking if logged in or not -->
-      <li><?php if ($this->session->userdata('a_id')){ ?>
-        <a href="<?php echo site_url('index.php/admin/login/?logout=true');?>"><i class="fa fa-unlock" aria-hidden="true"></i>
+      <li ><?php if ($this->session->userdata('a_id')){ ?>
+        <a href="<?php echo site_url('index.php/admin?logout=true');?>"><i class="fa fa-unlock" aria-hidden="true"></i>
       </i> Log Out
         </a>
       <?php } else{?>

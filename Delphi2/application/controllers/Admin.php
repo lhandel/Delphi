@@ -23,9 +23,8 @@ class Admin extends CI_Controller {
 				header("Location:".site_url("index.php/admin/service?s_id=".$s_id));
 			}
 		}
-		if (isset($_GET['logout'])) {
-			$this->session->unset_userdata('a_id');
-		}
+		
+
 		if(isset($_POST['a_id'])){
 
 			//Load model
@@ -52,7 +51,7 @@ class Admin extends CI_Controller {
 					header("Location:".site_url("index.php/admin/service?s_id=".$s_id));
 				}
 				else {
-					header("Location:".site_url("index.php/admin/"));
+					header("Location:".site_url("index.php/admin"));
 				}
 			}
 			else
