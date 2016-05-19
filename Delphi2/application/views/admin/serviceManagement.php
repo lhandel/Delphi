@@ -55,7 +55,8 @@
               <!-- Reset Queue -->
               <td class="ttitle ticons">
                 <a href="<?php echo site_url('index.php/admin/serviceManagement?s_id='.$row->s_id.'&reset=true'); ?>" class="ta">
-                  <i class="fa fa-recycle" aria-hidden="true"></i>
+                  <div class="sicon">
+                  </div>
                 </a>
                 <div class="annotation">
                   Click to reset queue
