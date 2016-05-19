@@ -22,7 +22,7 @@
 
         <div class="log_in">
 
-          <form action="<?php echo site_url('index.php/instore/submit'); ?>" method="post">
+          <form class="test" action="<?php echo site_url('index.php/instore/submit'); ?>" method="post">
             <input type="hidden" name="in_line" value="<?php echo $inline?>">
             <input type="hidden" name="service_id" value="<?php echo $s_id; ?>">
             <input id="number" name="number" type="text" pattern="[0-9]{10}" title="07XXXXXXXX (10 digits)" placeholder="Enter your mobile number">

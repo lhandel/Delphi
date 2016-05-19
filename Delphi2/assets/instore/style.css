@@ -155,7 +155,7 @@ h2.log_in2{
   display: block;
   width: 100%;
   font-size: 20px;
-  margin-top: 20px;
+  margin-top: 100px;
   margin-bottom: 10px;
 }
 
@@ -343,43 +343,42 @@ h3.log_in3 i{
 
 .log_in{
   width:100%;
-  height:100px;/*
-  background-color: red;*/
+  height:100px;
   float:left;
 
 }
 
 
 #submit_button{
-  width:127px;
+  width: 100%;
   height: 72px;
   background-color: transparent;
-  float:right;
-  margin-top:10px;
-  color:white;
-  margin-left: 15px;
-  border-radius: 8px;
+  color: white;
+  border-radius: 0px 0px 8px 8px;
   font-family: 'Ubuntu';
   font-size: 25px;
   border-color: white;
-  border:2px solid white;
+  border-left: 2px solid white;
+  border-right: 2px solid white;
+  border-top: none;
+  border-bottom: 2px solid white;
   -webkit-appearance: none;
 }
 
 #number{
-  border:none;
-  width:428px;
-  height:70px;
-  margin-top:10px;
-  font-size:30px;
-  font-family:'Ubuntu';
-  border-radius: 8px;
+  border: none;
+  width: 100%;
+  height: 70px;
+  margin-top: 10px;
+  font-size: 30px;
+  font-family: 'Ubuntu';
+  border-radius: 8px 8px 0px 0px;
   float: left;
-  padding-left: 15px;
+  text-align: center;
 }
 
 .login_display{
-  margin-top:20px;
+  margin-top:100px;
   width:100%;
   height:300px;
   float:left;
@@ -446,6 +445,10 @@ p.info{
 	0%, 20%, 60%, 100%  { -webkit-transform: translateY(0); }
     40%  { -webkit-transform: translateY(-20px); }
 	80% { -webkit-transform: translateY(-10px); }
+}
+
+.test{
+  display: block;
 }
 
 @media screen and (max-height: 950px) {
