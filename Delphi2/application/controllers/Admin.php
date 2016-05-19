@@ -109,6 +109,7 @@ class Admin extends CI_Controller {
 		if(isset($_GET['next']))
 		{
 			$this->service_m->next($_GET['s_id']);
+			$this->service_m->checkReminder($_GET['s_id']);
 			redirect(site_url("index.php/admin/service?s_id=".$_GET['s_id'])); //redirect to specific service
 		}
 
