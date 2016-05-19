@@ -79,7 +79,12 @@
             if (trader.isPaperEnd             ({traderStatus:response.traderStatus})) {msg += '\tPaperEnd,\n';}
             if (trader.isPaperNearEnd         ({traderStatus:response.traderStatus})) {msg += '\tPaperNearEnd,\n';}
 
-    				document.location.href = '<?php echo site_url('index.php/instore/index'); ?>';
+            window.setTimeout(function(){
+                $("body").fadeOut(500,function(){
+                   window.location.href = '<?php echo site_url('index.php/instore/index'); ?>';
+                })
+            },5000);
+          //	document.location.href = '<?php echo site_url('index.php/instore/index'); ?>';
     //        msg += '\tEtbCounter = ' + trader.extractionEtbCounter({traderStatus:response.traderStatus}).toString() + ' ]\n';
 
     //      msg += 'Status : [ ' + response.status + ' ]\n';
@@ -364,7 +369,7 @@
     // -->
     </script>
   </head>
-  <body  <?php echo $theme; ?>>
+  <body  <?php echo $theme; ?>  onload="onSendMessageApi(<?php echo $q_no?>,'<?php echo $service?>')">
     <div class="container">
 
       <h2 style="margin-top:60px; font-size: 50px;">Grab Your <br>Ticket <br><b><h1 style="font-size: 60px; margin-top: 10px;">Here!</h1></b></h2>
@@ -381,6 +386,9 @@
     			</section>
     		</div>
       </div>
+      <div>
+  			<input id="sendBtnAPI" type="button" value="Paper Ticket" />
+  		</div>
 
     </div>
 
