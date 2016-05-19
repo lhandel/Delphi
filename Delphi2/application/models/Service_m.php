@@ -10,7 +10,7 @@ State 4 = cleared.
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Service_m extends CI_Model{
+class Service_m extends MY_Model{
 
   protected $_table_name = 'service';
   protected $_primary_key = 's_id';
