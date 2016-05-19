@@ -1,6 +1,5 @@
 <?php $this->load->view('admin/header'); ?>
 
-<!-- setting container -->
     <div class="settingscontainer">
       <table width="100%" cellpadding="0" cellspacing="0" border="0" class="list link">
             <tbody>
@@ -38,7 +37,7 @@
 
                 <td class="ttitle ticons">
 
-                  <a href="<?php echo site_url("index.php/admin/AdminMangement") ?>?a_id=<?php echo $row->a_id;?>&a_remove=true" class="ta">
+                  <a href="<?php echo site_url("index.php/admin/adminManagement") ?>?a_id=<?php echo $row->a_id;?>&a_remove=true" class="ta">
                     <i class="fa fa-trash-o" aria-hidden="true"></i>
                   </a>
                   <div class="annotation">
