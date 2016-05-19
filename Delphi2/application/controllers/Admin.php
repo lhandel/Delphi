@@ -12,6 +12,10 @@ class Admin extends CI_Controller {
 
 	public function login(){
 		// Check submit page
+		if($this->session->userdata('c_id')==false){
+      header("Location: ".site_url(""));
+    }
+		
 		if($this->session->userdata('a_id')){
 			if(isset($_GET['url']))
 			{

@@ -21,10 +21,13 @@ class User extends CI_Controller {
 						die('Your link has expired.');
 
 			$data['p_id'] = $_GET['u'];
+
+			$user = $this->user_m->getUserFromPublicId($_GET['u']);
+			$data['theme'] = $this->user_m->get_theme_from_service($user->s_id);
+
 			$queue_no = $this-> user_m -> queue_number($u_id);
 			$data['queue_no'] = $queue_no[0]->q_no;
-			$phone_no = $this-> user_m -> get_phone_number($u_id);
-			$data['phone_no'] = $phone_no[0]->phone_no;
+			$data['phone_no'] =  $user->phone_no;
 			$ewt = $this-> user_m -> ewt($_GET['u']);
 			$data['s_id'] = $ewt['s_id'];
 
@@ -65,13 +68,16 @@ class User extends CI_Controller {
 		{
 			$this->load->model('user_m');
 			if(isset($_GET['u'])){
+
+				$user = $this->user_m->getUserFromPublicId($_GET['u']);
+				$data['theme'] = $this->user_m->get_theme_from_service($user->s_id);
 			    // Putting updated information to varaible sql
 
 			    $sql = $this-> user_m ->update_state($_GET['u']);
 
 			    // run the query and update mysql database
 			    if ($sql == true) {
-											$this->load->view('user/success');
+											$this->load->view('user/success',$data);
 			    } else {
 								//not sure if works
 			          echo "Error updating record: " . $mysql->error;

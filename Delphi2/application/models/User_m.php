@@ -36,7 +36,7 @@ class User_m extends CI_Model{
   $this->db->where('public_id', $pid);
 
   $data =  $this->db->get()->row();
-    if(isset(data->u_id))
+    if(isset($data->u_id))
       return $data->u_id;
     else
       return false;
@@ -115,8 +115,12 @@ class User_m extends CI_Model{
 
   public function getUserFromPublicId($pid)
   {
-      $query = $this->db->query("SELECT u_id,s_id,r_sms,state, (SELECT COUNT(u_id) FROM user WHERE s_id=1 AND (state=0 OR state=1) AND u_id<u.u_id) as inline FROM user u WHERE public_id='$pid'");
+      $query = $this->db->query("SELECT u_id,s_id,r_sms,state,phone_no, (SELECT COUNT(u_id) FROM user WHERE s_id=1 AND (state=0 OR state=1) AND u_id<u.u_id) as inline FROM user u WHERE public_id='$pid'");
       return $query->row();
   }
-
+  public function get_theme_from_service($id)
+  {
+    $query = $this->db->query("SELECT theme FROM company LEFT JOIN service ON service.c_id = company.c_id WHERE s_id = 1");
+    return $query->row()->theme;
+  }
 }
