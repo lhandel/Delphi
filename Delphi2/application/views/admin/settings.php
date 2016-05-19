@@ -19,9 +19,8 @@
                 <h2 class="sl"> i.e Survey Monkey, Google Form, etc.</h2>
               <div class="survey_register">
 
-                <?php if (isset($_POST['url']){
+                <?php if (isset($_POST['url'])){
                   echo $surveylink;
-                  echo "<button class="button assign" type="submit" name="change"> Change survey<i class="fa fa-angle-right" aria-hidden="true"></i> </button>"
                 } ?>
                 <form  action="" method="post">
                   <input type="text" name="url" class="linkinfo">
