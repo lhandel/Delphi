@@ -2,15 +2,7 @@
 <div class="settingscontainer">
 
 
-        <div class="container-popup">
-            <div class="popup">
-              <form class="popup1 row" action="" method="post">
-                <input type="text" name="content" id="contID" class="textfield row" value="">
-                <input type="hidden" name="s_id" id="sID" value="">
-                <input type="submit" class="button row"  name="" id="settingButton" value="Save Changes">
-              </form>
-            </div>
-        </div>
+        
 
         <!-- //Survey link input box -->
         <div class="survey">
