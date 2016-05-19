@@ -18,6 +18,7 @@ class Admin_m extends CI_Model{
     return $this->db->get()->row();
   }
 
+  //check if admin is logged in
   public function checkLogin()
   {
     if($this->session->userdata('a_id')==false){

@@ -54,18 +54,21 @@
       </div><!-- .end row & servicebox -->
 
 
-
+      <!-- Next buttom -->
       <div class="row">
           <a href="<?php echo site_url('index.php/admin/service?s_id='.$_GET['s_id'].'&next=true'); ?>" class="button large">Next</a>
       </div>
 
       <div class="row">
+        <!-- Change service buttom -->
         <div class="col-2">
             <a href="<?php echo site_url('index.php/admin/listService'); ?>" class="button">Change service</a>
         </div>
+        <!-- Skip queue buttom -->
         <div class="col-2 last">
             <a href="<?php echo site_url('index.php/admin/service?s_id='.$_GET['s_id'].'&skip=true'); ?>" class="button">Skip customer</a>
         </div>
+        <!-- Service Management buttom -->
         <div class="row">
           <a href="<?php echo site_url('index.php/admin/serviceManagement'); ?>" class="button">Settings</a>
         </div>

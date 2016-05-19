@@ -1,4 +1,13 @@
 <?php
+/*-------------------
+State table:
+State 0 = wating,
+State 1 = on-going,
+State 2 = quit,
+State 3 = done,
+State 4 = cleared.
+--------------------*/
+
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Service_m extends CI_Model{
@@ -6,6 +15,7 @@ class Service_m extends CI_Model{
   protected $_table_name = 'service';
   protected $_primary_key = 's_id';
 
+  //Get services for list.php
   public function getServices($c_id)
   {
       // Select all the values
@@ -43,7 +53,7 @@ class Service_m extends CI_Model{
       return (object)$return;
 
   }
-
+  //delete Service
   public function deleteService($s_id)
   {
     $this->reset($s_id);
@@ -51,7 +61,7 @@ class Service_m extends CI_Model{
         'state' => 1
     ),$s_id);
   }
-
+  //reset queue
   public function reset($s_id)
   {
     $this->db->where('s_id',$s_id);
@@ -61,7 +71,7 @@ class Service_m extends CI_Model{
       'state'=>4
     ));
   }
-
+  //create new service
   function new_service($name)
 	{
 		$c_id= $this->session->userdata('c_id');
@@ -74,7 +84,7 @@ class Service_m extends CI_Model{
 
     $this->db->insert('service', $data);
   }
-
+  //next in line
   public function next($s_id)
   {
     if($s_id!=0){
@@ -103,7 +113,7 @@ class Service_m extends CI_Model{
       return false;
     }
   }
-
+  //skip person in queue
   public function skip()
   {
       // get the admin id
@@ -118,7 +128,7 @@ class Service_m extends CI_Model{
       ));
 
   }
-
+  //Get services for service.php
   public function getService($s_id)
   {
     // Select all the values

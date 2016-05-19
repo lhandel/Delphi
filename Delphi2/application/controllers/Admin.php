@@ -27,7 +27,7 @@ class Admin extends CI_Controller {
 				header("Location:".site_url("index.php/admin/service?s_id=".$s_id));
 			}
 		}
-		
+
 
 		if(isset($_POST['a_id'])){
 
@@ -114,6 +114,7 @@ class Admin extends CI_Controller {
 			$this->load->view('admin/service',$data);
 	}
 
+	//Function for serviceManagement.php
 	public function serviceManagement()
 	{
 		$this->load->model('admin_m'); $this->admin_m->checkLogin();
@@ -173,7 +174,7 @@ class Admin extends CI_Controller {
 
 	}
 
-
+	//Function for settings.php
   public function settings()
   {
 			$this->load->model('admin_m'); $this->admin_m->checkLogin();
@@ -186,6 +187,7 @@ class Admin extends CI_Controller {
 		$data['company_name'] = $this->company_m->get_company_name($this->session->userdata('c_id'));
 		$data['theme'] = $this->use_theme($this->session->userdata('c_id'));
 		$data['surveylink'] = $this->company_m->get_survey_link($this->session->userdata('c_id'));
+
 		//Servey link
 		if (isset($_POST['link'])) {
 				$link= $_POST['url'];
@@ -194,7 +196,7 @@ class Admin extends CI_Controller {
 				$this->company_m-> register_link($c_id,$link);
 				header("Location: ".site_url("index.php/admin/settings"));//send you back to the same page
 		}
-
+		//Change theme
 		if (isset($_GET["theme"])) {
 			$c_id=$this->session->userdata('c_id');
 
@@ -210,7 +212,7 @@ class Admin extends CI_Controller {
 		$this->load->view('admin/settings',$data);
 	}
 
-  public function  AdminMangement()
+  public function  adminManagement()
   {
 
 		// Load the model
@@ -220,7 +222,7 @@ class Admin extends CI_Controller {
 		if (isset($_POST["a_edit"])) {
 			$a_id= intval($_POST["a_id"]);
 			$this->Admin_m->a_edit($a_id,$_POST["a_content"]);
-			header("Location: ".site_url("index.php/admin/AdminMangement"));//send you back to the same page
+			header("Location: ".site_url("index.php/admin/adminManagement"));//send you back to the same page
 		}
 
 		//remove admin
@@ -228,22 +230,21 @@ class Admin extends CI_Controller {
 		{
 			$a_id= intval($_GET["a_id"]);
 			$this->Admin_m->deleteAdmin($a_id);
-			header("Location: ".site_url("index.php/admin/AdminMangement"));
+			header("Location: ".site_url("index.php/admin/adminManagement"));
 
 		}
 
 		//Create new admin
 		if (isset($_POST["new_admin"])) {
 			$this->Admin_m->new_admin($_POST["a_content"]);
-			header("Location: ".site_url("index.php/admin/AdminMangement"));//send you back to the same page
+			header("Location: ".site_url("index.php/admin/adminManagement"));//send you back to the same page
 		}
-
 
 		// Get the serivies
 		$data['services']  = $this->Admin_m->get_admins($this->session->userdata('c_id'));  //  change to session!!!!*/
 		$data['theme'] = $this->use_theme($this->session->userdata('c_id'));
 		// load the view
-		$this->load->view('admin/AdminMangement',$data);
+		$this->load->view('admin/adminManagement',$data);
 	}
 
 	// get theme selected by company
