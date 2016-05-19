@@ -15,7 +15,7 @@ class Admin extends CI_Controller {
 		if($this->session->userdata('c_id')==false){
       header("Location: ".site_url(""));
     }
-		
+
 		if($this->session->userdata('a_id')){
 			if(isset($_GET['url']))
 			{
@@ -273,7 +273,7 @@ class Admin extends CI_Controller {
 
 
 		// Get the serivies
-		$data['services']  = $this->Admin_m->get_admins();  //  change to session!!!!*/
+		$data['services']  = $this->Admin_m->get_admins($this->session->userdata('c_id'));  //  change to session!!!!*/
 		$data['theme'] = $this->use_theme($this->session->userdata('c_id'));
 		// load the view
 		$this->load->view('admin/AdminMangement',$data);
