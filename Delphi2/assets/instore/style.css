@@ -378,13 +378,8 @@ h3.log_in3 i{
   padding-left: 15px;
 }
 
-<<<<<<< HEAD
-.login_display{
-  margin-top:20px;
-=======
 .login_display {
   //margin-top:100px;
->>>>>>> master
   width:100%;
   height:300px;
   float:left;
