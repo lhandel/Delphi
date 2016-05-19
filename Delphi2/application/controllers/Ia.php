@@ -7,6 +7,11 @@ class Ia extends CI_Controller{
   {
     $data['theme'] = $this->use_theme($this->session->userdata('c_id'));
     $this->company_m->checkLogin();
+    //var_dump($this->session->userdata('instore'));
+    if ($this->session->userdata('instore')) {
+      //header("Location:".site_url('index.php/instore'));
+      redirect(site_url("index.php/instore"));
+    }
     $this->load->view('ia',$data);
   }
 

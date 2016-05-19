@@ -15,6 +15,10 @@ class Instore extends CI_Controller{
     $data['services'] =$this->get_services($c_id);
     $data['theme'] = $this->use_theme($c_id);
     $data['margin'] = $this->set_margin($this->get_services($c_id));
+
+    //Set Instore Session
+    $this->session->set_userdata('instore',true);
+    
     $this->load->view('instore/index_i',$data);
 
   }
