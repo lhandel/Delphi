@@ -110,6 +110,8 @@ class Admin extends CI_Controller {
 		{
 			$this->service_m->next($_GET['s_id']);
 			$this->service_m->checkReminder($_GET['s_id']);
+			$link= $this->company_m->get_survey_link($this->session->userdata('c_id'));
+			$this->service_m->send_survey($_GET['s_id'],$link);
 			redirect(site_url("index.php/admin/service?s_id=".$_GET['s_id'])); //redirect to specific service
 		}
 

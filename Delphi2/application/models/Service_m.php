@@ -114,6 +114,17 @@ class Service_m extends CI_Model{
     }
   }
 
+  function send_survey($s_id,$link){
+    $this->db->select('phone_no');
+    $this->db->from('user');
+    $this->db->where('s_id',$s_id);
+    $this->db->where('state', 3);
+    $this->db->where("phone_no!=''");
+    $this->db->order_by('u_id DESC');
+    $this->db->limit(1);
+    $result = $this->db->get()->row();
+    $this->sendSMS($this->makesurveysms($result->phone_no,$link));
+  }
   function checkReminder($s_id){
 
       $this->db->select('r_time');
@@ -209,7 +220,16 @@ class Service_m extends CI_Model{
     );
   }
 
-
+  private function makesurveysms($phone_no,$link){
+    $temp = (string)$phone_no;
+    $temp1 = substr($temp,1);
+    $num = '+46'.$temp1;
+    return array(
+    'from' => 'Queue',
+    'to' => $num,
+    'message' => "We are glad to help you. Please rate our service:".$link
+    );
+  }
 
   //skip person in queue
   public function skip()
