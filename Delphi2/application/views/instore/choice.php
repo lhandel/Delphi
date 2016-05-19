@@ -34,7 +34,7 @@
 
         </div>
 <!-- ********************************************* -->
-        <div class="login_display">
+        <div class="login_display" style="margin-top: 40px;">
 
           <div class="info">
             <img class="icon queue" src="<?php echo base_url('assets/instore/Queue.svg'); ?>" alt="" />

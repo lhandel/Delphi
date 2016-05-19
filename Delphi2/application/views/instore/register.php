@@ -31,7 +31,7 @@
 
 
         </div>
-        <div class="login_display">
+        <div class="login_display" style="margin-top: 100px;">
 
 
 
