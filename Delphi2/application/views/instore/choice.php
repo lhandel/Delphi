@@ -18,7 +18,12 @@
   </head>
   <body <?php echo $theme; ?>>
     <div class="container">
-        <h1 class="startpage">Join the queue</h1>
+        <h3 class="log_in3">
+          <a href="<?php echo site_url("index.php/instore"); ?>"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
+          <b>Join the queue</b>
+        </h3>
+
+
 
         <div class="btn_container">
 
