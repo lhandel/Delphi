@@ -25,8 +25,7 @@ class Company_m extends CI_Model{
       $this->db->select('s_link');
       $this->db->from('company');
       $this->db->where('c_id',$c_id);
-      $data = $this->db->get()->row();
-      return $data->s_link;
+      return $this->db->get()->row()->s_link;
     }
 
 

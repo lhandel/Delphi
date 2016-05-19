@@ -27,7 +27,7 @@ class Admin extends CI_Controller {
 				header("Location:".site_url("index.php/admin/service?s_id=".$s_id));
 			}
 		}
-		
+
 
 		if(isset($_POST['a_id'])){
 
@@ -185,7 +185,7 @@ class Admin extends CI_Controller {
 		$data['theme_name'] = $this->instore_m->get_theme($this->session->userdata('c_id'));
 		$data['company_name'] = $this->company_m->get_company_name($this->session->userdata('c_id'));
 		$data['theme'] = $this->use_theme($this->session->userdata('c_id'));
-		$data['surveylink'] = $this->company_m->get_survey_link($this->session->userdata('c_id'));
+		$data['survey'] = $this->company_m->get_survey_link($this->session->userdata('c_id'));
 		//Servey link
 		if (isset($_POST['link'])) {
 				$link= $_POST['url'];
