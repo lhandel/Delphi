@@ -95,7 +95,7 @@
                 </form>
               </div>
 
-                  <button class="button assign" type="submit" name="new_service" form="createNA" value="Submit"> Assign admin<i class="fa fa-angle-right" aria-hidden="true"></i> </button>
+                  <button class="button assign" type="submit" name="new_service" form="createNA" value="Submit">Add Service<i class="fa fa-angle-right" aria-hidden="true"></i> </button>
 
             </div>  <!-- end adminrow -->
           </div>  <!-- end newadmin -->
