@@ -46,6 +46,7 @@
         request += builder.createTextElement({ linespace: 24,width:5, height: 5, data:q_no+'\n'});
         request += builder.createTextElement({ linespace: 24,width:2, height: 2, data:' \n'});
         request += builder.createTextElement({ width:3, height: 2, data:service+'\n'});
+        request += builder.createTextElement({ width:1, height: 1, data:'\n'});
         request += builder.createCutPaperElement({feed:true});
 
 
