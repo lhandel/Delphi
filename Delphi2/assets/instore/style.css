@@ -363,6 +363,7 @@ h3.log_in3 i{
   border-top: none;
   border-bottom: 2px solid white;
   padding: 0;
+  cursor: pointer;
   -webkit-appearance: none;
 }
 
