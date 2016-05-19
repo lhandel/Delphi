@@ -69,6 +69,7 @@ class Instore extends CI_Controller{
   		$this->load->view('instore/register',$data);
   	}
 
+
     public function choice(){
       $data['s_id']=$_GET['s_id'];
       // Load the model
@@ -79,7 +80,7 @@ class Instore extends CI_Controller{
       $in_line = $this->instore_m->get_inline(intval($_GET['s_id'])); //inline
       $data['inline']= sizeof($in_line);
       // estimate waiting time
-
+      $data['q_no'] = $this-> new_q_no(intval($_GET['s_id']));
       $data['ewt'] = $this->instore_m->ewt(intval($_GET['s_id']));
       $this->load->view('instore/choice',$data);
 
@@ -87,6 +88,17 @@ class Instore extends CI_Controller{
 
 
     }
+
+  private function new_q_no($s_id){
+    $this->load->model('instore_m');
+    $result = $this->instore_m->q_no($s_id);
+
+    if($result==false){
+      return 1;
+    }else{
+      return $result[0]->q_no+1;
+    }
+  }
 
   public function submit(){
 
@@ -124,13 +136,13 @@ class Instore extends CI_Controller{
         $uid= $this->instore_m->insert($public_id, $_POST['number'],$time_in,$s_id,$q_no);
         // send the user to the next page
 
-        $link1 = 'http://46.101.97.62/user/?u='.$public_id;
+        $link1 = 'http://46.101.97.62/Delphi2/index.php/user?u='.$public_id;
         $data['q_no']= $q_no;
         $data['phone_nr'] = $_POST['number'];
         // get service name
         $result = $this->instore_m->get_service_name($s_id); //gets the service
         $data['service']= $result[0]->name;
-      //  sendSMS(makeSMS($_POST['number'],$_POST['in_line'],$link1,$q_no,$uid,$s_id));
+        $this->sendSMS($this->makeSMS($_POST['number'],$_POST['in_line'],$link1,$q_no,$uid,$s_id));
       //  header("Location: done.php?q_no=".$q_no."&phone_nr=".$_POST['number']."&service=".$s_id);
         $this->load->view('instore/done',$data);
       }
@@ -176,15 +188,17 @@ class Instore extends CI_Controller{
   }
 
 
+
   private function makeSMS($phone_no,$in_line,$link1,$q_no,$user,$s_id)
   {
+    $this->load->model('instore_m');
     $temp = (string)$phone_no;
     $temp1 = substr($temp,1);
     $num = '+46'.$temp1;
   	return array(
   	'from' => 'Queue',
   	'to' => $num,
-  	'message' => "Your number is ".(string)$q_no.".\nThere are ".(string)$in_line." people in queue. Please return to DQ in ".ewt_for_user($s_id,$user)." minutes. Track yourself here ".$link1
+  	'message' => "Your number is ".(string)$q_no.".\nThere are ".(string)$in_line." people in queue. Please return to DQ in ".$this->instore_m->ewt(intval($s_id))." minutes. Track yourself here ".$link1
   );
   }
 
