@@ -3,13 +3,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Admin_m extends CI_Model{
 
-  //store link in the data base
-  public function register_link($c_id,$link)
-  {
-    $this->db->where('c_id',$c_id);
-    $this->db->update('company', array('s_link' => $link));
-  }
-
   //check if adminname exists in the database
   public function check_admin_id($a_id){
     $this->db->select('a_id');
@@ -52,7 +45,7 @@ class Admin_m extends CI_Model{
     $this->db->insert('admin', $data);
   }
   //Get admin
-  public function get_admins($c_id=1)
+  public function get_admins($c_id)
   {
     $c_id = intval($c_id);
 

@@ -15,11 +15,14 @@
         <!-- //Survey link input box -->
         <div class="survey">
           <div class="survey_box">
-              <!-- <div class="linkinfo"> -->
                 <h1 class="sl">Survey link for <?php echo $company_name; ?></h1>
                 <h2 class="sl"> i.e Survey Monkey, Google Form, etc.</h2>
-
               <div class="survey_register">
+
+                <?php if (isset($_POST['url']){
+                  echo $surveylink;
+                  echo "<button class="button assign" type="submit" name="change"> Change survey<i class="fa fa-angle-right" aria-hidden="true"></i> </button>"
+                } ?>
                 <form  action="" method="post">
                   <input type="text" name="url" class="linkinfo">
               </div>
