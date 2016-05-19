@@ -381,9 +381,6 @@
     			</section>
     		</div>
       </div>
-      <div>
-  			<input id="sendBtnAPI" type="button" value="Paper Ticket" onclick="onSendMessageApi(<?php echo $q_no?>,'<?php echo $service?>')" />
-  		</div>
 
     </div>
 
