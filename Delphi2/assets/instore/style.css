@@ -377,6 +377,7 @@ h3.log_in3 i{
   border-radius: 8px 8px 0px 0px;
   float: left;
   text-align: center;
+  padding: 0;
 }
 
 .login_display {
