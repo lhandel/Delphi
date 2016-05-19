@@ -386,9 +386,7 @@
     			</section>
     		</div>
       </div>
-      <div>
-  			<input id="sendBtnAPI" type="button" value="Paper Ticket" />
-  		</div>
+
 
     </div>
 
