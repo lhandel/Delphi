@@ -17,7 +17,7 @@
                 <td class="ttitle ticons">
                   <?php echo $row->a_id; ?>
                   <div class="annotation">
-                    Admin id
+                    Admin ID
                   </div>
                 </td>
 
@@ -29,7 +29,7 @@
                   </a>
 
                   <div class="annotation">
-                    Click to edit name of admin
+                    Edit name of admin
                   </div>
                 </td>
 
@@ -41,7 +41,7 @@
                     <i class="fa fa-trash-o" aria-hidden="true"></i>
                   </a>
                   <div class="annotation">
-                    Click to remove admin
+                    Remove admin
                   </div>
                 </td>
               </tr>

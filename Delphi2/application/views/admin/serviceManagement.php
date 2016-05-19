@@ -24,9 +24,6 @@
                 <a href="<?php echo site_url('index.php/admin/service?s_id='.$row->s_id); ?>" class="ta">
                   <?php  echo $row->name?>
                 </a>
-                <div class="annotation">
-                  Name of service. Click will get you to service
-                </div>
               </td>
 
               <!-- Reminder time-->
@@ -47,7 +44,7 @@
                 </a>
 
                 <div class="annotation">
-                  Click to edit name of service
+                  Edit name of service
                 </div>
               </td>
 
@@ -59,7 +56,7 @@
                   </div>
                 </a>
                 <div class="annotation">
-                  Click to reset queue
+                  Reset queue
                 </div>
               </td>
 
@@ -70,7 +67,7 @@
                   <i class="fa fa-trash-o" aria-hidden="true"></i>
                 </a>
                 <div class="annotation">
-                  Click to remove service
+                  Remove service
                 </div>
               </td>
 
