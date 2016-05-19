@@ -29,7 +29,7 @@
     /***********************************************************/
     /* print a sample receipt using API in StarWebPrintBuilder */
     /***********************************************************/
-    function onSendMessageApi(q_no) {
+    function onSendMessageApi(q_no,service) {
         var builder = new StarWebPrintBuilder();
 
         var request = '';
@@ -39,10 +39,13 @@
         request += builder.createAlignmentElement({position:'center'});
         request += builder.createTextElement({data:'Welcome to DQ\n'});
         request += builder.createAlignmentElement({position:'center'});
+        request += builder.createTextElement({ linespace: 24,width:4, height: 4, data:' \n'});
         request += builder.createTextElement({width:2, height: 2, data:'Queue Number\n'});
-        request += builder.createTextElement({data:'\n'});
+        request += builder.createTextElement({ width:1, height: 1, data:'\n'});
         request += builder.createTextElement({emphasis:true});
-        request += builder.createTextElement({invert: true, width:5, height: 5, data:q_no+'\n'});
+        request += builder.createTextElement({ linespace: 24,width:5, height: 5, data:q_no+'\n'});
+        request += builder.createTextElement({ linespace: 24,width:2, height: 2, data:' \n'});
+        request += builder.createTextElement({ width:3, height: 2, data:service+'\n'});
         request += builder.createCutPaperElement({feed:true});
 
 
@@ -378,9 +381,8 @@
     			</section>
     		</div>
       </div>
-
       <div>
-  			<input id="sendBtnAPI" type="button" value="Paper Ticket" onclick="onSendMessageApi(<?php echo $q_no?>)" />
+  			<input id="sendBtnAPI" type="button" value="Paper Ticket" onclick="onSendMessageApi(<?php echo $q_no?>,'<?php echo $service?>')" />
   		</div>
 
     </div>
