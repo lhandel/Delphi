@@ -1039,9 +1039,9 @@ h2.sl{
 }
 
 .sicon{
-  margin-left: auto;
+  margin-left: 40%;
   margin-right: auto;
-  height: 24px;
+  height: 25px;
   width: auto;
   background-image: url(cleangrey.svg);
   background-repeat: no-repeat;
