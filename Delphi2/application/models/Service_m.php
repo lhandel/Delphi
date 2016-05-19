@@ -10,7 +10,7 @@ State 4 = cleared.
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Service_m extends MY_Model{
+class Service_m extends CI_Model{
 
   protected $_table_name = 'service';
   protected $_primary_key = 's_id';
@@ -149,4 +149,28 @@ class Service_m extends MY_Model{
 
     return $return;
   }
+
+
+  public function save($data, $id = NULL)
+	{
+
+		// Insert
+		if ($id === NULL) {
+			!isset($data[$this->_primary_key]) || $data[$this->_primary_key] = NULL;
+			$this->db->set($data);
+			$this->db->insert($this->_table_name);
+			$id = $this->db->insert_id();
+		}
+		// Update
+		else {
+			$filter = $this->_primary_filter;
+			$id = $filter($id);
+			$this->db->set($data);
+			$this->db->where($this->_primary_key, $id);
+			$this->db->update($this->_table_name);
+		}
+
+		return $id;
+	}
+
 }
