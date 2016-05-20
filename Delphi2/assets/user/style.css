@@ -407,8 +407,8 @@ p.info{
 .verticalLine{
   margin-top: auto;
   margin-bottom: auto;
-  height: 200px;
-  width: auto;
+  height: auto;
+  width: 1.5px;
 }
 
 .position-bottom{
