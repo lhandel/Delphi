@@ -227,29 +227,11 @@ class Instore extends CI_Controller{
     $temp = (string)$phone_no;
     $temp1 = substr($temp,1);
     $num = '+46'.$temp1;
-    if($this->instore_m->ewt(intval($s_id))==0)
-    {
-      return array(
-      	'from' => 'Queue',
-      	'to' => $num,
-      	'message' => "Your number is #".(string)$q_no."\n Please return to DQ"
-      );
-    }
-    elseif($in_line==0)
-    {
-      return array(
-      	'from' => 'Queue',
-      	'to' => $num,
-        'message' => "You are first in line. Your number is #".(string)$q_no
-      );
-    }
-    else{
-      return array(
-      	'from' => 'Queue',
-      	'to' => $num,
-      	'message' => "Your number is #".(string)$q_no.".\nThere are ".(string)$in_line." people in queue. Please return to DQ in ".$this->instore_m->ewt(intval($s_id))." minutes. Track yourself here ".$link1
-      );
-    }
+    return array(
+      'from' => 'Queue',
+      'to' => $num,
+      'message' => "Your number is #".(string)$q_no.".\nThere are ".(string)$in_line." people in queue. Please return to DQ in ".$this->instore_m->ewt(intval($s_id))." minutes. Track yourself here ".$link1
+    );
 
   }
 
