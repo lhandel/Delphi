@@ -173,6 +173,9 @@ class Instore extends CI_Controller{
         // get service name
         $result = $this->instore_m->get_service_name($s_id); //gets the service
         $data['service']= $result[0]->name;
+
+
+
         $this->sendSMS($this->makeSMS($_POST['number'],$_POST['in_line'],$link1,$q_no,$uid,$s_id));
       //  header("Location: done.php?q_no=".$q_no."&phone_nr=".$_POST['number']."&service=".$s_id);
         $this->load->view('instore/done',$data);
@@ -224,11 +227,30 @@ class Instore extends CI_Controller{
     $temp = (string)$phone_no;
     $temp1 = substr($temp,1);
     $num = '+46'.$temp1;
-  	return array(
-  	'from' => 'Queue',
-  	'to' => $num,
-  	'message' => "Your number is ".(string)$q_no.".\nThere are ".(string)$in_line." people in queue. Please return to DQ in ".$this->instore_m->ewt(intval($s_id))." minutes. Track yourself here ".$link1
-  );
+    if($this->instore_m->ewt(intval($s_id))==0)
+    {
+      return array(
+      	'from' => 'Queue',
+      	'to' => $num,
+      	'message' => "Your number is #".(string)$q_no."\n Please return to DQ"
+      );
+    }
+    elseif($in_line==0)
+    {
+      return array(
+      	'from' => 'Queue',
+      	'to' => $num,
+        'message' => "You are first in line. Your number is #".(string)$q_no
+      );
+    }
+    else{
+      return array(
+      	'from' => 'Queue',
+      	'to' => $num,
+      	'message' => "Your number is #".(string)$q_no.".\nThere are ".(string)$in_line." people in queue. Please return to DQ in ".$this->instore_m->ewt(intval($s_id))." minutes. Track yourself here ".$link1
+      );
+    }
+
   }
 
 }
