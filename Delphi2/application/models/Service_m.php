@@ -281,8 +281,6 @@ class Service_m extends CI_Model{
 		}
 		// Update
 		else {
-			$filter = $this->_primary_filter;
-			$id = $filter($id);
 			$this->db->set($data);
 			$this->db->where($this->_primary_key, $id);
 			$this->db->update($this->_table_name);
